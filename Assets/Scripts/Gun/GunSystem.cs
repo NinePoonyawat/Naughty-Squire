@@ -80,6 +80,7 @@ namespace Weapon
             //Spread
             float x = Random.Range(-spread, spread);
             float y = Random.Range(-spread, spread);
+            Debug.Log("fire!");
 
             Vector3 direction = cam.transform.forward + new Vector3(x,y,0);
 
