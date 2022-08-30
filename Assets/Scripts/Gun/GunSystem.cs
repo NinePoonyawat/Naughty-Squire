@@ -27,7 +27,8 @@ namespace Weapon
 
         [SerializeField]
         private bool allowButtonHold;
-
+        
+        [SerializeField]
         private int
 
                 bulletsLeft,
@@ -48,13 +49,19 @@ namespace Weapon
 
         public LayerMask whatIsEnemy;
 
+        //public ParticleSystem muzzleFlash;
+
         void Awake()
         {
+            // test mag and reload time
+            magazineSize = 25;
+            reloadTime = 1;
             bulletsLeft = magazineSize;
             readyToShoot = true;
+            cam = Camera.main;
         }
 
-        private void Update()
+        private void Update() 
         {
             MyInput();
         }
@@ -65,18 +72,19 @@ namespace Weapon
             else shooting = Input.GetKeyDown(KeyCode.Mouse0);
 
             if (Input.GetKeyDown(KeyCode.R) && bulletsLeft < magazineSize && !reloading) Reload();
-
+            
             if (readyToShoot && shooting && !reloading && bulletsLeft > 0)
             {
+                Debug.Log("Shoot!");
                 bulletShots = bulletPerTap;
                 Shoot();
             }
         }
 
         private void Shoot()
-        {
+        {   
             readyToShoot = false;
-
+            //muzzleFlash.Play();
             //Spread
             float x = Random.Range(-spread, spread);
             float y = Random.Range(-spread, spread);
@@ -110,8 +118,15 @@ namespace Weapon
 
         private void Reload()
         {
+            Debug.Log("reload");
             reloading = true;
             Invoke("ReloadFinished", reloadTime);
         }
+
+        private void ReloadFinished() {
+            bulletsLeft = magazineSize;
+            reloading = false;
+        }
+
     }
 }
