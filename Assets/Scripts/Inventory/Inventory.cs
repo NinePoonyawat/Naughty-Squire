@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Inventory
+[CreateAssetMenu(fileName = "Inventory", menuName = "Naughty-Squire/Inventory", order = 0)]
+public class Inventory : ScriptableObject
 {
     private List<Item> itemList;
 
