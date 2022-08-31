@@ -11,19 +11,25 @@ public class InventoryManager : MonoBehaviour
 
     public GameObject uiInventory;
 
+    private CursorControl cursorControl;
+
     private void Awake() {
         //inventory = new Inventory();
         //uiInventory.SetInventory(inventory);
+
+        cursorControl = GameObject.Find("Cursor").GetComponent<CursorControl>();
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape)) {
+        if (Input.GetKeyDown(KeyCode.E)) {
             if(isInventoryShowed) {
                 Resume();
+                cursorControl.DeActive();
             }
             else {
                 Pause();
+                cursorControl.Active();
             }
         }
     }
