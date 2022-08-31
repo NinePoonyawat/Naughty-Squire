@@ -14,10 +14,12 @@ public class CursorControl : MonoBehaviour
     public void Active()
     {
         Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     public void DeActive()
     {
         Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 }

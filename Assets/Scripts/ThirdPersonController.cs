@@ -124,6 +124,8 @@ namespace StarterAssets
             }
         }
 
+        private bool isRotate = true;
+
 
         private void Awake()
         {
@@ -165,7 +167,10 @@ namespace StarterAssets
 
         private void LateUpdate()
         {
-            CameraRotation();
+            if(isRotate)
+            {
+                CameraRotation();
+            }
         }
 
         private void AssignAnimationIDs()
@@ -402,6 +407,11 @@ namespace StarterAssets
         public void SetRotateOnMove(bool newRotateOnMove)
         {
             _rotateOnMove = newRotateOnMove;
+        }
+
+        public void SetIsRotate(bool newIsRotate)
+        {
+            isRotate = newIsRotate;
         }
     }
 }
