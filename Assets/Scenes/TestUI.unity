@@ -689,7 +689,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 10, y: -10}
+  m_AnchoredPosition: {x: 100, y: -100}
   m_SizeDelta: {x: 128, y: 96}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1212686057
@@ -742,6 +742,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed5a4816dd02dad4f9e1bfffaea40342, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gridSizeWidth: 4
+  gridSizeHeight: 2
+  inventoryItemPrefab: {fileID: 2201193786818287487, guid: 4ad70f7cbcbbfec489a333520f6e48b2,
+    type: 3}
 --- !u!114 &1212686060
 MonoBehaviour:
   m_ObjectHideFlags: 0
