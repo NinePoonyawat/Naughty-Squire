@@ -17,7 +17,7 @@ public class AIManager : MonoBehaviour
         private set { _instance = value; }
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         MakeAgentsCircleTarget();
     }
@@ -47,6 +47,7 @@ public class AIManager : MonoBehaviour
                 player.transform.position.y,
                 player.transform.position.z + RadiusAroundTarget * Mathf.Sin(2 * Mathf.PI * i / Units.Count))
             );
+            //Debug.Log(player.transform.position.x + RadiusAroundTarget * Mathf.Cos(2 * Mathf.PI * i / Units.Count));
         }
     }
 }
