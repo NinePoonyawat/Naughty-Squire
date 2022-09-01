@@ -11,18 +11,24 @@ public class Enemy : MonoBehaviour
     public bool playerIsInLOS = false;
     public float fieldOfViewAngle = 160f;
     public float losRadius = 45f;
+    public float degreesPerSecond = 1f;
 
 
     // Update is called once per frame
-
-
     void Update()
     {
         CheckLOS();
-        Debug.Log(playerIsInLOS);
+        //Debug.Log(playerIsInLOS);
         if (playerIsInLOS) agent.SetDestination(player.transform.position);
-        else agent.SetDestination(transform.position);
-        //Debug.Log(playerIsInLOS);   
+        else {
+            agent.velocity = Vector3.zero;
+            float angle = transform.rotation.eulerAngles.y;
+            //Debug.Log(Time.deltaTime);   
+            //transform.Rotate(degreesPerSecond * Time.deltaTime, 0, 0);
+            angle += degreesPerSecond;
+            Debug.Log(angle);
+            transform.rotation =  Quaternion.Euler(transform.rotation.eulerAngles.x, angle, transform.rotation.eulerAngles.z);
+            }
     }
 
     void CheckLOS() 
@@ -49,4 +55,5 @@ public class Enemy : MonoBehaviour
             }
         }
     }
+    
 }

@@ -893,7 +893,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1212816060}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.02, y: 1.0184817, z: 4.71}
+  m_LocalPosition: {x: 1.41, y: 1.0184817, z: -0.31}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1314,22 +1314,22 @@ PrefabInstance:
     - target: {fileID: 881169474111464123, guid: 691444c63b877a640a3be888f0a3dbab,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.66786
       objectReference: {fileID: 0}
     - target: {fileID: 881169474111464123, guid: 691444c63b877a640a3be888f0a3dbab,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 881169474111464123, guid: 691444c63b877a640a3be888f0a3dbab,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0.74428695
       objectReference: {fileID: 0}
     - target: {fileID: 881169474111464123, guid: 691444c63b877a640a3be888f0a3dbab,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 881169474111464123, guid: 691444c63b877a640a3be888f0a3dbab,
         type: 3}
@@ -1339,12 +1339,17 @@ PrefabInstance:
     - target: {fileID: 881169474111464123, guid: 691444c63b877a640a3be888f0a3dbab,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: -96.196
       objectReference: {fileID: 0}
     - target: {fileID: 881169474111464123, guid: 691444c63b877a640a3be888f0a3dbab,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 881169474111464124, guid: 691444c63b877a640a3be888f0a3dbab,
+        type: 3}
+      propertyPath: m_AutoRepath
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 881169474111464125, guid: 691444c63b877a640a3be888f0a3dbab,
         type: 3}
@@ -1360,6 +1365,21 @@ PrefabInstance:
         type: 3}
       propertyPath: fieldOfViewAngle
       value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 881169474111464127, guid: 691444c63b877a640a3be888f0a3dbab,
+        type: 3}
+      propertyPath: m_Drag
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 881169474111464127, guid: 691444c63b877a640a3be888f0a3dbab,
+        type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 881169474111464127, guid: 691444c63b877a640a3be888f0a3dbab,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 0.05
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 691444c63b877a640a3be888f0a3dbab, type: 3}
