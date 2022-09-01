@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class InventoryItem : MonoBehaviour
 {
     public ItemData itemData;
+    [SerializeField] private Canvas canvas;
 
     public int HEIGHT
     {
