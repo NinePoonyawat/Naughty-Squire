@@ -11,6 +11,9 @@ public class ItemGrid : MonoBehaviour
 
     RectTransform rectTransform;
 
+    enum InventoryType {LOADOUT, BAG};
+    [SerializeField] private InventoryType inventoryType;
+
     [SerializeField] public int gridSizeWidth;
     [SerializeField] public int gridSizeHeight;
 
@@ -69,9 +72,19 @@ public class ItemGrid : MonoBehaviour
             }
         }
     }
-    //PLACE DOWN AN ITEM
+    /// PLACE DOWN AN ITEM
+    // LOADOUT - can place and remove it.
+    // BAG - can place.
     public bool PlaceItem(InventoryItem inventoryItem, int posX, int posY, ref InventoryItem overlapItem)
     {
+        // v v v v
+        /*if (inventoryType == InventoryType.LOADOUT)
+        {
+            //Destroy (inventoryItem);
+            return false;
+        }*/
+        // ^ ^ ^ ^
+
         if (BoundryCheck(posX, posY, inventoryItem.WIDTH, inventoryItem.HEIGHT) == false)
         {
             return false;
