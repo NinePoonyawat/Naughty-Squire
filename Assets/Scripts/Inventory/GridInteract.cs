@@ -5,8 +5,8 @@ using UnityEngine.EventSystems;
 
 public class GridInteract : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    InventoryController inventoryController;
-    ItemGrid itemGrid;
+    [SerializeField] InventoryController inventoryController;
+    [SerializeField] ItemGrid itemGrid;
 
     private void Awake()
     {

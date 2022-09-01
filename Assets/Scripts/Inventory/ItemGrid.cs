@@ -9,7 +9,7 @@ public class ItemGrid : MonoBehaviour
 
     InventoryItem[,] inventoryItemSlot;
 
-    RectTransform rectTransform;
+    [SerializeField] RectTransform rectTransform;
 
     enum InventoryType {LOADOUT, BAG};
     [SerializeField] private InventoryType inventoryType;
