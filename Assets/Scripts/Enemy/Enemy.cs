@@ -19,8 +19,9 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         CheckLOS();
+        Debug.Log(playerIsInLOS);
         if (playerIsInLOS) agent.SetDestination(player.transform.position);
-        //else agent.SetDestination(transform.position);
+        else agent.SetDestination(transform.position);
         //Debug.Log(playerIsInLOS);   
     }
 
