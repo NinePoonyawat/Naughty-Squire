@@ -113,7 +113,7 @@ GameObject:
   - component: {fileID: 3043209080904158886}
   - component: {fileID: 7841373105087849455}
   m_Layer: 0
-  m_Name: Enemy script 1
+  m_Name: not use
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
