@@ -4,12 +4,14 @@ using UnityEngine.InputSystem;
 using UnityEngine;
 using Cinemachine;
 using StarterAssets;
+using Weapon;
 
 namespace Player
 {
     public class ThirdPersonShooterController : MonoBehaviour
     {
         [SerializeField] private CinemachineVirtualCamera aimVirtualCamera;
+        [SerializeField] private GunSystem gunSystem;
         [SerializeField] private float normalSensitivity;
         [SerializeField] private float aimSensitivity;
         [SerializeField] private LayerMask aimColliderLayerMask = new LayerMask();
@@ -55,7 +57,7 @@ namespace Player
                 thirdPersonController.SetRotateOnMove(true);
             }
 
-            if (starterAssetInputs.shoot)
+            if (starterAssetInputs.shoot && !gunSystem.getOutOfAmmo())
             {
                 Vector3 aimDir = (mouseWorldPosition - spawnBulletPosition.position).normalized;
                 Instantiate(pfBulletProjectile, spawnBulletPosition.position, Quaternion.LookRotation(aimDir, Vector3.up));
