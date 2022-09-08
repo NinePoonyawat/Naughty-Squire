@@ -17,19 +17,11 @@ namespace Weapon
         {
             starterAssetsInputs = GetComponent<StarterAssetsInputs>();
             bulletLeftInMagazine = bulletPerMagazine;
+            SetOutOfAmmo(false);
         }
 
         void Update()
         {
-            if(starterAssetsInputs.shoot && !isOutOfAmmo)
-            {
-                bulletLeftInMagazine--;
-                if (bulletLeftInMagazine == 0)
-                {
-                    SetOutOfAmmo(true);
-                }
-                Debug.Log("bullet :" + bulletLeftInMagazine + " / " + bulletPerMagazine);
-            }
             if(starterAssetsInputs.reload)
             {
                 bulletLeftInMagazine = bulletPerMagazine;
@@ -37,6 +29,16 @@ namespace Weapon
                 Debug.Log(bulletLeftInMagazine);
                 SetOutOfAmmo(false);
             }
+        }
+
+        public void Shoot()
+        {
+            bulletLeftInMagazine--;
+            if (bulletLeftInMagazine == 0)
+            {
+                SetOutOfAmmo(true);
+            }
+            Debug.Log("bullet :" + bulletLeftInMagazine + " / " + bulletPerMagazine);
         }
 
         void SetOutOfAmmo(bool newInput)

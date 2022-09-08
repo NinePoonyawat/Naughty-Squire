@@ -29,7 +29,7 @@ public class InventoryController : MonoBehaviour
             CreateRandomItem();
         }
 
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.X))
         {
             RotateItem();
         }
