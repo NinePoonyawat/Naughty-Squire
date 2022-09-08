@@ -8,6 +8,7 @@ namespace Weapon
     public class GunSystem : MonoBehaviour
     {
         [SerializeField] private int bulletPerMagazine;
+        [SerializeField] private float damage;
         private int bulletLeftInMagazine;
         private bool isOutOfAmmo;
 
@@ -24,6 +25,7 @@ namespace Weapon
         {
             if(starterAssetsInputs.reload)
             {
+                starterAssetsInputs.shoot = false;
                 bulletLeftInMagazine = bulletPerMagazine;
                 starterAssetsInputs.reload = false;
                 Debug.Log(bulletLeftInMagazine);
@@ -49,6 +51,11 @@ namespace Weapon
         public bool getOutOfAmmo()
         {
             return isOutOfAmmo;
+        }
+
+        public float GetDamage()
+        {
+            return damage;
         }
     }
 }

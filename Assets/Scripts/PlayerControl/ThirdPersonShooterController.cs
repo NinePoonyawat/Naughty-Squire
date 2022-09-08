@@ -60,7 +60,8 @@ namespace Player
             if (starterAssetInputs.shoot && !gunSystem.getOutOfAmmo())
             {
                 Vector3 aimDir = (mouseWorldPosition - spawnBulletPosition.position).normalized;
-                Instantiate(pfBulletProjectile, spawnBulletPosition.position, Quaternion.LookRotation(aimDir, Vector3.up));
+                GameObject bullet = Instantiate(pfBulletProjectile, spawnBulletPosition.position, Quaternion.LookRotation(aimDir, Vector3.up)).gameObject;
+                bullet.SendMessage("SetDamage",gunSystem.GetDamage());
                 gunSystem.Shoot();
                 starterAssetInputs.shoot = false;
             }
