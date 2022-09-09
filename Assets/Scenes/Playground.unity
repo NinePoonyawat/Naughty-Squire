@@ -140,8 +140,18 @@ PrefabInstance:
       objectReference: {fileID: 1342647332}
     - target: {fileID: 1768907674859148436, guid: 75755c9a38fe79541b296b1e7d238e48,
         type: 3}
+      propertyPath: m_Name
+      value: Grid-R-Hand
+      objectReference: {fileID: 0}
+    - target: {fileID: 1768907674859148436, guid: 75755c9a38fe79541b296b1e7d238e48,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2270821692441515290, guid: 75755c9a38fe79541b296b1e7d238e48,
+        type: 3}
+      propertyPath: m_Name
+      value: Grid-L-Hand
       objectReference: {fileID: 0}
     - target: {fileID: 4863173325812626257, guid: 75755c9a38fe79541b296b1e7d238e48,
         type: 3}
@@ -268,6 +278,11 @@ PrefabInstance:
       propertyPath: inventoryController
       value: 
       objectReference: {fileID: 1342647332}
+    - target: {fileID: 4863173326114198763, guid: 75755c9a38fe79541b296b1e7d238e48,
+        type: 3}
+      propertyPath: m_Name
+      value: Grid-Bag
+      objectReference: {fileID: 0}
     - target: {fileID: 4863173326620910486, guid: 75755c9a38fe79541b296b1e7d238e48,
         type: 3}
       propertyPath: itemGrid
@@ -482,6 +497,12 @@ PrefabInstance:
       propertyPath: selectedItemGrid
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4438461459221597359, guid: 7cd09b2c3a52351499a3ff3a5157a5ea,
+        type: 3}
+      propertyPath: items.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: f80abb54e29f65a4c9631d0aa8f45588,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7cd09b2c3a52351499a3ff3a5157a5ea, type: 3}
 --- !u!4 &700051398 stripped
