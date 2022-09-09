@@ -363,6 +363,37 @@ Transform:
   m_Father: {fileID: 1199433313}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &225816845 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8724091603904406310, guid: 30c25d410a894404cbe607830852eeb0,
+    type: 3}
+  m_PrefabInstance: {fileID: 4359628317096716102}
+  m_PrefabAsset: {fileID: 0}
+--- !u!195 &225816847 stripped
+NavMeshAgent:
+  m_CorrespondingSourceObject: {fileID: 5470300096955548432, guid: 30c25d410a894404cbe607830852eeb0,
+    type: 3}
+  m_PrefabInstance: {fileID: 4359628317096716102}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &225816853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 225816845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b992b0e3dcbdc74f83653b1136c13dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agent: {fileID: 225816847}
+  player: {fileID: 644351215}
+  playerIsInLOS: 0
+  fieldOfViewAngle: 45
+  losRadius: 7
+  height: 0.1
+  meshColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &440679246
 GameObject:
   m_ObjectHideFlags: 0
@@ -1515,6 +1546,11 @@ PrefabInstance:
       propertyPath: losRadius
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 1999290253771065052, guid: 30c25d410a894404cbe607830852eeb0,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2945465221745490851, guid: 30c25d410a894404cbe607830852eeb0,
         type: 3}
       propertyPath: m_RootOrder
@@ -1575,5 +1611,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy 02
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1999290253771065052, guid: 30c25d410a894404cbe607830852eeb0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 30c25d410a894404cbe607830852eeb0, type: 3}
