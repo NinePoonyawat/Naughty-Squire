@@ -11,11 +11,13 @@ public class ItemGrid : MonoBehaviour
 
     [SerializeField] RectTransform rectTransform;
 
-    enum InventoryType {LOADOUT, BAG};
+    enum InventoryType {LOADOUT, BAG, HAND};
     [SerializeField] private InventoryType inventoryType;
 
     [SerializeField] public int gridSizeWidth;
     [SerializeField] public int gridSizeHeight;
+
+    int inventorySize;
 
     private void Start()
     {
@@ -59,6 +61,8 @@ public class ItemGrid : MonoBehaviour
 
         CleanGrid(toReturn);
 
+        inventorySize -= 1;
+
         return toReturn;
     }
 
@@ -78,11 +82,11 @@ public class ItemGrid : MonoBehaviour
     public bool PlaceItem(InventoryItem inventoryItem, int posX, int posY, ref InventoryItem overlapItem)
     {
         // v v v v
-        /*if (inventoryType == InventoryType.LOADOUT)
+        if (inventoryType == InventoryType.HAND && inventorySize != 0)
         {
             //Destroy (inventoryItem);
             return false;
-        }*/
+        }
         // ^ ^ ^ ^
 
         if (BoundryCheck(posX, posY, inventoryItem.WIDTH, inventoryItem.HEIGHT) == false)
@@ -118,6 +122,8 @@ public class ItemGrid : MonoBehaviour
         Vector2 position = CalculatePositionOnGrid(inventoryItem, posX, posY);
 
         rectTransform.localPosition = position;
+
+        inventorySize += 1;
 
         return true;
     }

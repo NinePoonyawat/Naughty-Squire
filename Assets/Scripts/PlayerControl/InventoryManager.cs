@@ -11,6 +11,7 @@ public class InventoryManager : MonoBehaviour
     private Inventory inventory;
 
     public GameObject uiInventory;
+    public GameObject inventoryController;
 
     [SerializeField] ThirdPersonController thirdPersonController;
     private CursorControl cursorControl;
@@ -40,11 +41,13 @@ public class InventoryManager : MonoBehaviour
 
     public void Resume() {
         uiInventory.SetActive(false);
+        inventoryController.SetActive(false);
         isInventoryShowed = false;
     }
 
     public void Pause() {
         uiInventory.SetActive(true);
+        inventoryController.SetActive(true);
         isInventoryShowed = true;
     }
 }

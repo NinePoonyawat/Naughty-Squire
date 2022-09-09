@@ -8,5 +8,7 @@ public class ItemData : ScriptableObject
     public int width = 1;
     public int height = 1;
 
+    [SerializeField] enum itemType {WEAPON, MAGAZINE, CONSUMABLE};
+
     public Sprite itemIcon;
 }
