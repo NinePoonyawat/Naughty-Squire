@@ -13,6 +13,7 @@ public class ItemGrid : MonoBehaviour
 
     enum InventoryType {LOADOUT, BAG, HAND};
     [SerializeField] private InventoryType inventoryType;
+    public ItemGrid anotherHandGrid;
 
     [SerializeField] public int gridSizeWidth;
     [SerializeField] public int gridSizeHeight;
@@ -57,6 +58,11 @@ public class ItemGrid : MonoBehaviour
     {
         InventoryItem toReturn = inventoryItemSlot[x, y];
 
+        if (inventoryType == InventoryType.HAND && toReturn.itemData.isTwoHanded == true)
+        {
+            anotherHandGrid.inventorySize = 0;
+        }
+
         if (toReturn == null) { return null; }
 
         CleanGrid(toReturn);
@@ -82,10 +88,20 @@ public class ItemGrid : MonoBehaviour
     public bool PlaceItem(InventoryItem inventoryItem, int posX, int posY, ref InventoryItem overlapItem)
     {
         // v v v v
-        if (inventoryType == InventoryType.HAND && inventorySize != 0)
+        if (inventoryType == InventoryType.HAND)
         {
-            //Destroy (inventoryItem);
-            return false;
+            if (inventorySize != 0)
+            {
+                return false;
+            }
+            if (anotherHandGrid.inventorySize != 0 && inventoryItem.itemData.isTwoHanded == true)
+            {
+                return false;
+            }
+            if (inventorySize == 0 && inventoryItem.itemData.isTwoHanded == true)
+            {
+                anotherHandGrid.inventorySize = 1;
+            }
         }
         // ^ ^ ^ ^
 
