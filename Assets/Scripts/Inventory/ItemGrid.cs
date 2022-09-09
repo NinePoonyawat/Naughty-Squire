@@ -125,7 +125,6 @@ public class ItemGrid : MonoBehaviour
 
         inventorySize += 1;
 
-        //Debug.Log(inventoryItem.itemData.isTwoHanded);
         return true;
     }
 

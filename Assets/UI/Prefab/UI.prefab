@@ -111,6 +111,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4863173325812626285}
     m_Modifications:
+    - target: {fileID: 850583874688799374, guid: ed02e46beff550e4fa493b179f6d82d9,
+        type: 3}
+      propertyPath: itemGrid
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1706086064213330271, guid: ed02e46beff550e4fa493b179f6d82d9,
         type: 3}
       propertyPath: m_Name
@@ -221,8 +226,32 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5112344214802690518, guid: ed02e46beff550e4fa493b179f6d82d9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ed02e46beff550e4fa493b179f6d82d9, type: 3}
+--- !u!1 &2270821692441515290 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1706086064213330271, guid: ed02e46beff550e4fa493b179f6d82d9,
+    type: 3}
+  m_PrefabInstance: {fileID: 589593801087278149}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4288263556506619157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2270821692441515290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d85428cdd09566469c6142541745eb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rectTransform: {fileID: 6622508916608532675}
+  inventoryType: 2
+  gridSizeWidth: 1
+  gridSizeHeight: 5
+  anotherHandGrid: {fileID: 4266538939398359177}
 --- !u!224 &6622508916608532675 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6037436720307985542, guid: ed02e46beff550e4fa493b179f6d82d9,
@@ -491,6 +520,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4863173325812626285}
     m_Modifications:
+    - target: {fileID: 4159634791628959545, guid: 42e9f58f0d8f83240895e63cdd1dec90,
+        type: 3}
+      propertyPath: itemGrid
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5759986588948660931, guid: 42e9f58f0d8f83240895e63cdd1dec90,
         type: 3}
       propertyPath: m_Pivot.x
@@ -601,7 +635,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: RightHand
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 456475648526538669, guid: 42e9f58f0d8f83240895e63cdd1dec90, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 42e9f58f0d8f83240895e63cdd1dec90, type: 3}
 --- !u!224 &664889890434059761 stripped
 RectTransform:
@@ -609,3 +644,26 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 5104193138803511090}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1768907674859148436 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6798694589762870182, guid: 42e9f58f0d8f83240895e63cdd1dec90,
+    type: 3}
+  m_PrefabInstance: {fileID: 5104193138803511090}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4266538939398359177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1768907674859148436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d85428cdd09566469c6142541745eb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rectTransform: {fileID: 664889890434059761}
+  inventoryType: 2
+  gridSizeWidth: 1
+  gridSizeHeight: 5
+  anotherHandGrid: {fileID: 4288263556506619157}
