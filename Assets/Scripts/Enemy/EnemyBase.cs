@@ -8,6 +8,7 @@ public abstract class EnemyBase : MonoBehaviour
 {
     public UnityEngine.AI.NavMeshAgent agent;
     public GameObject player;
+    public bool alert = false;
 
     //ai sight
     public bool playerIsInLOS;
@@ -40,22 +41,29 @@ public abstract class EnemyBase : MonoBehaviour
     void Awake() {
         meshColor.a = 0.5f;
         starterAssetInputs = GetComponent<StarterAssetsInputs>();
+        AIManager.Instance.Units.Add(this);
+    }
 
+    public void SetAlert(bool alert) {
+        this.alert = alert;
     }
 
     // Update is called once per frame
     void Update()
     {
         CheckLOS();
-        //NoiseCheck();
+        NoiseCheck();
         //Debug.Log(playerIsInLOS);
-        if (playerIsInLOS) {
+        if (playerIsInLOS || alert) {
+            if (playerIsInLOS) AIManager.Instance.SetAlerts(true);
+            else alert = false;
             agent.SetDestination(player.transform.position);
             aiMemoriesPlayer = true;
         }else if (aiMemoriesPlayer) {
             StartCoroutine(AiMemory());
-            //Debug.Log("MEMO" + increasingMemoryTime);
+            Debug.Log("MEMO" + increasingMemoryTime);
         }else if (aiHeardPlayer) {
+            Debug.Log("HEard");
             GoToNoisePosition();
         }else {
            // Debug.Log("lost");
@@ -104,7 +112,10 @@ public abstract class EnemyBase : MonoBehaviour
         float distance = Vector3.Distance(player.transform.position, transform.position);
 
         if (distance <= noiseTravelDistance) {
-            if (starterAssetInputs.shoot) 
+            var vel = player.GetComponent<Rigidbody>().velocity;
+            float speed = vel.magnitude; 
+            Debug.Log(speed);
+            if (speed > 0) 
             {
                 noisePosition = player.transform.position;
                 aiHeardPlayer = true;
@@ -130,7 +141,7 @@ public abstract class EnemyBase : MonoBehaviour
             aiMemoriesPlayer = true;
             yield  return null;
         }
-
+        alert = false;
         aiHeardPlayer = false;
         aiMemoriesPlayer = false;
     }

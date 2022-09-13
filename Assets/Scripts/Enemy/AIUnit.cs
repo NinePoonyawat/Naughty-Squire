@@ -13,7 +13,7 @@ public class AIUnit : MonoBehaviour
     private void Awake()
     {
         Agent = GetComponent<NavMeshAgent>();
-        AIManager.Instance.Units.Add(this);
+       // AIManager.Instance.Units.Add(this);
     }
     public void MoveTo(Vector3 Position)
     {
