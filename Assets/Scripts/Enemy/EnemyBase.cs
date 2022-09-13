@@ -38,9 +38,9 @@ public abstract class EnemyBase : MonoBehaviour
     
     Mesh mesh;
     
-    void Awake() {
+    void Start() {
         meshColor.a = 0.5f;
-        starterAssetInputs = GetComponent<StarterAssetsInputs>();
+        //starterAssetInputs = GetComponent<StarterAssetsInputs>();
         AIManager.Instance.Units.Add(this);
     }
 
@@ -61,9 +61,9 @@ public abstract class EnemyBase : MonoBehaviour
             aiMemoriesPlayer = true;
         }else if (aiMemoriesPlayer) {
             StartCoroutine(AiMemory());
-            Debug.Log("MEMO" + increasingMemoryTime);
+            //Debug.Log("MEMO" + increasingMemoryTime);
         }else if (aiHeardPlayer) {
-            Debug.Log("HEard");
+            //Debug.Log("HEard");
             GoToNoisePosition();
         }else {
            // Debug.Log("lost");
