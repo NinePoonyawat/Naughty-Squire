@@ -1,33 +1,64 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using StarterAssets;
+
 
 public abstract class EnemyBase : MonoBehaviour
 {
     public UnityEngine.AI.NavMeshAgent agent;
     public GameObject player;
 
+    //ai sight
     public bool playerIsInLOS;
     public float fieldOfViewAngle;
     public float losRadius;
     public float height = 0.1f;
     public Color meshColor = Color.red;
+
+    //ai sight and memory
+    private bool  aiMemoriesPlayer = false;
+    public float memoryStartTime = 10f;
+    private float increasingMemoryTime;
+
+    //ai hearing
+    Vector3 noisePosition;
+    private bool aiHeardPlayer = false;
+    public float noiseTravelDistance = 50f;
+    //public float spinspeed = 3f;
+    //private bool canspin = false;
+    //private float isSpiningTime; // search player noise position
+    //public float spinTime = 3f;
     
     protected float timeTilNextMovement = 2f;
+
+    private StarterAssetsInputs starterAssetInputs;
+
     
     Mesh mesh;
     
-    void Start() {
+    void Awake() {
         meshColor.a = 0.5f;
+        starterAssetInputs = GetComponent<StarterAssetsInputs>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
         CheckLOS();
+        //NoiseCheck();
         //Debug.Log(playerIsInLOS);
-        if (playerIsInLOS) agent.SetDestination(player.transform.position);
-        else {
+        if (playerIsInLOS) {
+            agent.SetDestination(player.transform.position);
+            aiMemoriesPlayer = true;
+        }else if (aiMemoriesPlayer) {
+            StartCoroutine(AiMemory());
+            //Debug.Log("MEMO" + increasingMemoryTime);
+        }else if (aiHeardPlayer) {
+            GoToNoisePosition();
+        }else {
+           // Debug.Log("lost");
             AImove();
         }
     }
@@ -67,6 +98,41 @@ public abstract class EnemyBase : MonoBehaviour
                 }
             }
         }
+    }
+
+    void NoiseCheck() {
+        float distance = Vector3.Distance(player.transform.position, transform.position);
+
+        if (distance <= noiseTravelDistance) {
+            if (starterAssetInputs.shoot) 
+            {
+                noisePosition = player.transform.position;
+                aiHeardPlayer = true;
+            }
+            else 
+            {
+                aiHeardPlayer = false;
+            }
+        }
+
+    }
+
+    void GoToNoisePosition() {
+        agent.SetDestination(noisePosition);
+        aiHeardPlayer = false;
+    }
+
+    IEnumerator AiMemory() {
+        increasingMemoryTime = 0;
+
+        while (increasingMemoryTime < memoryStartTime) {
+            increasingMemoryTime += Time.deltaTime;
+            aiMemoriesPlayer = true;
+            yield  return null;
+        }
+
+        aiHeardPlayer = false;
+        aiMemoriesPlayer = false;
     }
 
     Mesh CreateWedgeMesh() {
