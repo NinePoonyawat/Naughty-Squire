@@ -54,7 +54,25 @@ public class ItemGrid : MonoBehaviour
         tileGridPosition.x = (int)(positionOnGrid.x / tileSizeWidth);
         tileGridPosition.y = (int)(positionOnGrid.y / tileSizeHeight);
 
-        return tileGridPosition; 
+        return tileGridPosition;
+    }
+
+    public Vector2Int? FindSpaceForObject(InventoryItem itemToInsert)
+    {
+        int height = gridSizeHeight - itemToInsert.itemData.height + 1;
+        int width = gridSizeWidth - itemToInsert.itemData.width + 1;
+        for (int y = 0; y < height; y++)
+        {
+            for (int x = 0; x < width; x++)
+            {
+                if (CheckAvailableSpace(x, y, itemToInsert.itemData.width, itemToInsert.itemData.height) == true)
+                {
+                    return new Vector2Int(x, y);
+                }
+            }
+        }
+
+        return null;
     }
 
     //PICK UP AN ITEM
@@ -62,12 +80,20 @@ public class ItemGrid : MonoBehaviour
     {
         InventoryItem toReturn = inventoryItemSlot[x, y];
 
+        if (toReturn == null) { return null; }
+
+        //check if this is HAND and item is twohanded
         if (inventoryType == InventoryType.HAND && toReturn.itemData.isTwoHanded == true)
         {
             anotherHandGrid.inventorySize = 0;
         }
 
-        if (toReturn == null) { return null; }
+        //check if this is LOADOUT, return copy of item, so grid's item wont lost
+        if (inventoryType == InventoryType.LOADOUT)
+        {
+            InventoryItem copyReturn = Instantiate(toReturn);
+            return copyReturn;
+        }
 
         //send data to GunSystem
         WeaponData weaponData = toReturn.itemData as WeaponData;
@@ -75,7 +101,6 @@ public class ItemGrid : MonoBehaviour
         {
             placeItemEvent?.Invoke(0, 0, 0);
         }
-        Debug.Log(weaponData.ammoRemained);
 
         CleanGrid(toReturn);
 
@@ -94,12 +119,13 @@ public class ItemGrid : MonoBehaviour
             }
         }
     }
+    
     /// PLACE DOWN AN ITEM
     // LOADOUT - can place and remove it.
     // BAG - can place.
     public bool PlaceItem(InventoryItem inventoryItem, int posX, int posY, ref InventoryItem overlapItem)
     {
-        // v v v v
+        // check if this is HAND
         if (inventoryType == InventoryType.HAND)
         {
             if (inventorySize != 0)
@@ -115,7 +141,7 @@ public class ItemGrid : MonoBehaviour
                 anotherHandGrid.inventorySize = 1;
             }
         }
-        // ^ ^ ^ ^
+        /////////////////////////////
 
         if (BoundryCheck(posX, posY, inventoryItem.WIDTH, inventoryItem.HEIGHT) == false)
         {
@@ -128,11 +154,29 @@ public class ItemGrid : MonoBehaviour
             return false;
         }
 
+        // check if this is Loadout
+        if (inventoryType == InventoryType.LOADOUT && overlapItem != null)
+        {
+            Destroy(inventoryItem.gameObject);
+            overlapItem = null;
+            return true;
+        }
+        //////////////////////////////
+
         if (overlapItem != null)
         {
             CleanGrid(overlapItem);
         }
 
+        PlaceItem(inventoryItem, posX, posY);
+
+        inventorySize += 1;
+
+        return true;
+    }
+
+    public void PlaceItem(InventoryItem inventoryItem, int posX, int posY)
+    {
         RectTransform rectTransform = inventoryItem.GetComponent<RectTransform>();
         rectTransform.SetParent(this.rectTransform);
 
@@ -157,10 +201,6 @@ public class ItemGrid : MonoBehaviour
         Vector2 position = CalculatePositionOnGrid(inventoryItem, posX, posY);
 
         rectTransform.localPosition = position;
-
-        inventorySize += 1;
-
-        return true;
     }
 
     public Vector2 CalculatePositionOnGrid(InventoryItem inventoryItem, int posX, int posY)
@@ -211,6 +251,21 @@ public class ItemGrid : MonoBehaviour
                             return false;
                         }
                     }
+                }
+            }
+        }
+        return true;
+    }
+
+    private bool CheckAvailableSpace(int posX, int posY, int width, int height)
+    {
+        for (int ix = 0; ix < width; ix++)
+        {
+            for (int iy = 0; iy < height; iy++)
+            {
+                if (inventoryItemSlot[posX + ix, posY + iy] != null)
+                {
+                    return false;
                 }
             }
         }

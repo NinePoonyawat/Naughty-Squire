@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class InventoryController : MonoBehaviour
 {
     public ItemGrid selectedItemGrid;
+    public ItemGrid loadoutItemGrid;
 
     InventoryItem selectedItem;
     InventoryItem overlapItem;
@@ -27,7 +28,7 @@ public class InventoryController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            CreateRandomItem();
+            CreateItem(-1);
         }
 
         if (Input.GetKeyDown(KeyCode.X))
@@ -39,6 +40,12 @@ public class InventoryController : MonoBehaviour
         {
             DeleteItem();
         }
+
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            InsertItem(-1);
+        }
+
 
         if (selectedItemGrid == null)
         {
@@ -110,11 +117,12 @@ public class InventoryController : MonoBehaviour
         }
     }
 
-    private void CreateRandomItem()
+    private void CreateItem(int selectedItemID)
     {
         if (selectedItem != null)
         {
             Destroy(selectedItem.gameObject);
+            selectedItem = null;
         }
 
         InventoryItem inventoryItem = Instantiate(itemPrefab).GetComponent<InventoryItem>();
@@ -122,9 +130,24 @@ public class InventoryController : MonoBehaviour
         
         rectTransform = inventoryItem.GetComponent<RectTransform>();
         rectTransform.SetParent(canvasTransform);
-
-        int selectedItemID = UnityEngine.Random.Range(0, items.Count);
+        
+        if (selectedItemID == -1) selectedItemID = UnityEngine.Random.Range(0, items.Count);
         inventoryItem.Set(items[selectedItemID]);
+    }
+
+    private void InsertItem(int selectedItemID)
+    {
+        if (selectedItemGrid == null) { return; }
+
+        CreateItem(selectedItemID);
+        InventoryItem itemToInsert = selectedItem;
+        selectedItem = null;      
+
+        Vector2Int? posOnGrid = selectedItemGrid.FindSpaceForObject(itemToInsert);
+        
+        if (posOnGrid == null) { return; }
+
+        selectedItemGrid.PlaceItem(itemToInsert, posOnGrid.Value.x, posOnGrid.Value.y);
     }
 
     private void LeftMouseButtonPress()
