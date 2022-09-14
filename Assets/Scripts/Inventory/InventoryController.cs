@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InventoryController : MonoBehaviour
 {
@@ -33,6 +34,11 @@ public class InventoryController : MonoBehaviour
         {
             RotateItem();
         }
+        
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            DeleteItem();
+        }
 
         if (selectedItemGrid == null)
         {
@@ -46,6 +52,13 @@ public class InventoryController : MonoBehaviour
         {
             LeftMouseButtonPress();
         }
+    }
+
+    private void DeleteItem()
+    {
+        if (selectedItem == null) { return; }
+        
+        Destroy(selectedItem.gameObject);
     }
 
     private void RotateItem()
@@ -99,6 +112,11 @@ public class InventoryController : MonoBehaviour
 
     private void CreateRandomItem()
     {
+        if (selectedItem != null)
+        {
+            Destroy(selectedItem.gameObject);
+        }
+
         InventoryItem inventoryItem = Instantiate(itemPrefab).GetComponent<InventoryItem>();
         selectedItem = inventoryItem;
         
