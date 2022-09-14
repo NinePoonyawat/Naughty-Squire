@@ -22,7 +22,7 @@ public class ItemGrid : MonoBehaviour
     int inventorySize;
 
     public event PlaceItemEvent placeItemEvent;
-    public delegate void PlaceItemEvent(float damage,int bulletInMagazine);
+    public delegate void PlaceItemEvent(float damage,int bulletInMagazine, int remainInMagazine);
 
     private void Start()
     {
@@ -68,6 +68,14 @@ public class ItemGrid : MonoBehaviour
         }
 
         if (toReturn == null) { return null; }
+
+        //send data to GunSystem
+        WeaponData weaponData = toReturn.itemData as WeaponData;
+        if (weaponData != null)
+        {
+            placeItemEvent?.Invoke(0, 0, 0);
+        }
+        Debug.Log(weaponData.ammoRemained);
 
         CleanGrid(toReturn);
 
@@ -128,9 +136,11 @@ public class ItemGrid : MonoBehaviour
         RectTransform rectTransform = inventoryItem.GetComponent<RectTransform>();
         rectTransform.SetParent(this.rectTransform);
 
-        if (inventoryItem.itemData as WeaponData != null)
+        //send data to GunSystem
+        WeaponData weaponData = inventoryItem.itemData as WeaponData;
+        if (weaponData != null)
         {
-            placeItemEvent?.Invoke(20f,20);
+            placeItemEvent?.Invoke(weaponData.damage, weaponData.ammoCapacity, weaponData.ammoRemained);
         }
 
         for (int ix = 0; ix < inventoryItem.WIDTH; ix++)

@@ -39,7 +39,7 @@ namespace Weapon
         public void Shoot()
         {
             bulletLeftInMagazine--;
-            if (bulletLeftInMagazine == 0)
+            if (bulletLeftInMagazine <= 0)
             {
                 SetOutOfAmmo(true);
             }
@@ -55,12 +55,13 @@ namespace Weapon
             SetOutOfAmmo(false);
         }
 
-        public void setNewData(float newDamage,int newBulletPerMagazine)
+        public void setNewData(float newDamage,int maxBullet, int remainBullet)
         {
             damage = newDamage;
-            bulletPerMagazine = newBulletPerMagazine;
-            Reload();
-            Debug.Log("Weapon Changed");
+            bulletPerMagazine = maxBullet;
+            bulletLeftInMagazine = remainBullet;
+            //Reload();
+            Debug.Log("Weapon Changed : " + bulletLeftInMagazine + "/" + bulletPerMagazine);
         }
 
         void SetOutOfAmmo(bool newInput)

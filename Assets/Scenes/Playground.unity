@@ -176,7 +176,7 @@ PrefabInstance:
     - target: {fileID: 4863173325812626257, guid: 75755c9a38fe79541b296b1e7d238e48,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4863173325812626285, guid: 75755c9a38fe79541b296b1e7d238e48,
         type: 3}
@@ -313,11 +313,21 @@ PrefabInstance:
       propertyPath: inventoryType
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6333512055050336100, guid: 75755c9a38fe79541b296b1e7d238e48,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 726.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7876952434288230958, guid: 75755c9a38fe79541b296b1e7d238e48,
         type: 3}
       propertyPath: anotherHandGrid
       value: 
       objectReference: {fileID: 1170765909}
+    - target: {fileID: 8677160837085605758, guid: 75755c9a38fe79541b296b1e7d238e48,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 598.7
+      objectReference: {fileID: 0}
     - target: {fileID: 9181785552980598795, guid: 75755c9a38fe79541b296b1e7d238e48,
         type: 3}
       propertyPath: itemGrid

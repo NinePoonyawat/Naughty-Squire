@@ -8,4 +8,10 @@ public class WeaponData : ItemData
 {
     public int damage;
     public int ammoCapacity;
+    public int ammoRemained;
+
+    private void Awake()
+    {
+        ammoRemained = ammoCapacity;
+    }
 }
