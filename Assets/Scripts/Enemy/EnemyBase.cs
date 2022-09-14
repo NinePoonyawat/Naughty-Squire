@@ -80,6 +80,8 @@ public abstract class EnemyBase : MonoBehaviour
         if (mesh) {
             Gizmos.color = meshColor;
             Gizmos.DrawMesh(mesh,transform.position,transform.rotation);
+            Gizmos.color = Color.blue;
+            Gizmos.DrawLine(transform.position, agent.destination);
         }
     }
 
