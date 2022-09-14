@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using StarterAssets;
+using System;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -12,9 +13,10 @@ public class InventoryManager : MonoBehaviour
 
     public GameObject uiInventory;
     public GameObject inventoryController;
-
-    [SerializeField] ThirdPersonController thirdPersonController;
     private CursorControl cursorControl;
+
+    public event EventHandler OnInventoryOpen;
+    public event EventHandler OnInventoryClose;
 
     private void Awake() {
         //inventory = new Inventory();
@@ -29,12 +31,12 @@ public class InventoryManager : MonoBehaviour
             if(isInventoryShowed) {
                 Resume();
                 cursorControl.DeActive();
-                thirdPersonController.SetIsRotate(true);
+                OnInventoryClose?.Invoke(this,EventArgs.Empty);
             }
             else {
                 Pause();
                 cursorControl.Active();
-                thirdPersonController.SetIsRotate(false);
+                OnInventoryOpen?.Invoke(this, EventArgs.Empty);
             }
         }
     }

@@ -1320,6 +1320,10 @@ PrefabInstance:
       propertyPath: aimVirtualCamera
       value: 
       objectReference: {fileID: 406779690}
+    - target: {fileID: 1940140957, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: inventoryManager
+      value: 
+      objectReference: {fileID: 1940140963}
     - target: {fileID: 3893294197879345259, guid: 64dce48905ffd9b4293e595fa6941544,
         type: 3}
       propertyPath: m_RootOrder
@@ -1380,6 +1384,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerArmature
       objectReference: {fileID: 0}
+    - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544,
+        type: 3}
+      propertyPath: inventoryManager
+      value: 
+      objectReference: {fileID: 1940140963}
     - target: {fileID: 4416926081852918493, guid: 64dce48905ffd9b4293e595fa6941544,
         type: 3}
       propertyPath: m_Enabled
@@ -1497,19 +1506,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiInventory: {fileID: 253780653}
   inventoryController: {fileID: 1342647330}
-  thirdPersonController: {fileID: 1940140965}
---- !u!114 &1940140965 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544,
-    type: 3}
-  m_PrefabInstance: {fileID: 1762682258}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1940140952}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26e54e5a728a9234ab24fcf1460ed8a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1940140971
 MonoBehaviour:
   m_ObjectHideFlags: 0

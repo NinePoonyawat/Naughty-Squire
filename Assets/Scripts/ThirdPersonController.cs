@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System;
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 using UnityEngine.InputSystem;
 #endif
@@ -124,7 +125,9 @@ namespace StarterAssets
             }
         }
 
-        private bool isRotate = true;
+        private bool isUpdate = true;
+        [SerializeField] private InventoryManager inventoryManager;
+        
 
 
         private void Awake()
@@ -154,10 +157,14 @@ namespace StarterAssets
             // reset our timeouts on start
             _jumpTimeoutDelta = JumpTimeout;
             _fallTimeoutDelta = FallTimeout;
+
+            inventoryManager.OnInventoryOpen += Pause;
+            inventoryManager.OnInventoryClose += Resume;
         }
 
         private void Update()
         {
+            if (!isUpdate) return;
             _hasAnimator = TryGetComponent(out _animator);
 
             JumpAndGravity();
@@ -167,10 +174,8 @@ namespace StarterAssets
 
         private void LateUpdate()
         {
-            if(isRotate)
-            {
-                CameraRotation();
-            }
+            if (!isUpdate) return;    
+            CameraRotation();
         }
 
         private void AssignAnimationIDs()
@@ -385,7 +390,7 @@ namespace StarterAssets
             {
                 if (FootstepAudioClips.Length > 0)
                 {
-                    var index = Random.Range(0, FootstepAudioClips.Length);
+                    var index = UnityEngine.Random.Range(0, FootstepAudioClips.Length);
                     AudioSource.PlayClipAtPoint(FootstepAudioClips[index], transform.TransformPoint(_controller.center), FootstepAudioVolume);
                 }
             }
@@ -409,9 +414,14 @@ namespace StarterAssets
             _rotateOnMove = newRotateOnMove;
         }
 
-        public void SetIsRotate(bool newIsRotate)
+        public void Resume(object o,EventArgs e)
         {
-            isRotate = newIsRotate;
+            isUpdate = true;
+        }
+
+        public void Pause(object o,EventArgs e)
+        {
+            isUpdate = false;
         }
     }
 }

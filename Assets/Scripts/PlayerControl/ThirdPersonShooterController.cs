@@ -5,6 +5,7 @@ using UnityEngine;
 using Cinemachine;
 using StarterAssets;
 using Weapon;
+using System;
 
 namespace Player
 {
@@ -22,14 +23,26 @@ namespace Player
         private ThirdPersonController thirdPersonController;
         private StarterAssetsInputs starterAssetInputs;
 
+        private bool isUpdate = true;
+
+        [SerializeField] private InventoryManager inventoryManager;
+
         private void Awake()
         {
             thirdPersonController = GetComponent<ThirdPersonController>();
             starterAssetInputs = GetComponent<StarterAssetsInputs>();
         }
+
+        void Start()
+        {
+            inventoryManager.OnInventoryOpen += Pause;
+            inventoryManager.OnInventoryClose += Resume;
+        }
         // Update is called once per frame
         void Update()
         {
+            if (!isUpdate) return;
+
             Vector3 mouseWorldPosition = Vector3.zero;
             Vector2 screenCenterPoint = new Vector2(Screen.width / 2f, Screen.height / 2f);
             Ray ray = Camera.main.ScreenPointToRay(screenCenterPoint);
@@ -65,6 +78,16 @@ namespace Player
                 gunSystem.Shoot();
                 starterAssetInputs.shoot = false;
             }
+        }
+
+        public void Resume(object o,EventArgs e)
+        {
+            isUpdate = true;
+        }
+
+        public void Pause(object o,EventArgs e)
+        {
+            isUpdate = false;
         }
     }
 }
