@@ -21,15 +21,18 @@ namespace Weapon
             SetOutOfAmmo(false);
         }
 
+        void Start()
+        {
+            ItemGrid LhandItemGrid = GameObject.Find("UI/Grid-L-Hand").GetComponent<ItemGrid>();
+            GameObject.Find("UI").SetActive(false);
+            LhandItemGrid.placeItemEvent += setNewData;
+        }
+
         void Update()
         {
             if(starterAssetsInputs.reload)
             {
-                starterAssetsInputs.shoot = false;
-                bulletLeftInMagazine = bulletPerMagazine;
-                starterAssetsInputs.reload = false;
-                Debug.Log(bulletLeftInMagazine);
-                SetOutOfAmmo(false);
+                Reload();
             }
         }
 
@@ -41,6 +44,23 @@ namespace Weapon
                 SetOutOfAmmo(true);
             }
             Debug.Log("bullet :" + bulletLeftInMagazine + " / " + bulletPerMagazine);
+        }
+
+        public void Reload()
+        {
+            starterAssetsInputs.shoot = false;
+            bulletLeftInMagazine = bulletPerMagazine;
+            starterAssetsInputs.reload = false;
+            Debug.Log(bulletLeftInMagazine);
+            SetOutOfAmmo(false);
+        }
+
+        public void setNewData(float newDamage,int newBulletPerMagazine)
+        {
+            damage = newDamage;
+            bulletPerMagazine = newBulletPerMagazine;
+            Reload();
+            Debug.Log("Weapon Changed");
         }
 
         void SetOutOfAmmo(bool newInput)

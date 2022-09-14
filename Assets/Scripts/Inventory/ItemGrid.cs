@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ItemGrid : MonoBehaviour
 {
@@ -19,6 +20,9 @@ public class ItemGrid : MonoBehaviour
     [SerializeField] public int gridSizeHeight;
 
     int inventorySize;
+
+    public event PlaceItemEvent placeItemEvent;
+    public delegate void PlaceItemEvent(float damage,int bulletInMagazine);
 
     private void Start()
     {
@@ -123,6 +127,11 @@ public class ItemGrid : MonoBehaviour
 
         RectTransform rectTransform = inventoryItem.GetComponent<RectTransform>();
         rectTransform.SetParent(this.rectTransform);
+
+        if (inventoryItem.itemData as WeaponData != null)
+        {
+            placeItemEvent?.Invoke(20f,20);
+        }
 
         for (int ix = 0; ix < inventoryItem.WIDTH; ix++)
         {
