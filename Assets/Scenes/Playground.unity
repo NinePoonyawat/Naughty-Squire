@@ -474,6 +474,11 @@ PrefabInstance:
       objectReference: {fileID: 514039099}
     - target: {fileID: 4438461459221597359, guid: 7cd09b2c3a52351499a3ff3a5157a5ea,
         type: 3}
+      propertyPath: items.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4438461459221597359, guid: 7cd09b2c3a52351499a3ff3a5157a5ea,
+        type: 3}
       propertyPath: selectedItemGrid
       value: 
       objectReference: {fileID: 0}
@@ -494,6 +499,12 @@ PrefabInstance:
       propertyPath: items.Array.data[2]
       value: 
       objectReference: {fileID: 11400000, guid: 78ab7016d54c69d42a85a6fdd2c45eff,
+        type: 2}
+    - target: {fileID: 4438461459221597359, guid: 7cd09b2c3a52351499a3ff3a5157a5ea,
+        type: 3}
+      propertyPath: items.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: ac9561505a0b7f940ac97fe910245ec7,
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7cd09b2c3a52351499a3ff3a5157a5ea, type: 3}
