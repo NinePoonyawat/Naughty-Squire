@@ -1067,7 +1067,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  Alerts: 0
+  AlertGroup: -1
   Units: []
 --- !u!4 &1450394490
 Transform:
@@ -1255,7 +1255,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  Alerts: 0
+  AlertGroup: -1
   Units: []
 --- !u!4 &1998346814
 Transform:
