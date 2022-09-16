@@ -24,7 +24,7 @@ public class EnemyRepos : EnemyBase
         agent.SetDestination(spawnPos);
         float distance = Vector3.Distance(spawnPos,transform.position);
         if (distance <= 1f) {
-            Debug.Log("Y");
+            //  Debug.Log("Y");
             Rotate();
         }
     }

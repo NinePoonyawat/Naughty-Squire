@@ -9,6 +9,7 @@ public abstract class EnemyBase : MonoBehaviour
     public UnityEngine.AI.NavMeshAgent agent;
     public GameObject player;
     public bool alert = false;
+    public int group;
 
     //ai sight
     public bool playerIsInLOS;
@@ -41,7 +42,9 @@ public abstract class EnemyBase : MonoBehaviour
     void Start() {
         meshColor.a = 0.5f;
         //starterAssetInputs = GetComponent<StarterAssetsInputs>();
-        AIManager.Instance.Units.Add(this);
+        group = Random.Range(0,3);
+        //AIManager.Instance.Units.Add(this);
+        AIManager.Instance.AddDictList(group,this);
     }
 
     public void SetAlert(bool alert) {
@@ -55,7 +58,7 @@ public abstract class EnemyBase : MonoBehaviour
         NoiseCheck();
         //Debug.Log(playerIsInLOS);
         if (playerIsInLOS || alert) {
-            if (playerIsInLOS) AIManager.Instance.SetAlerts(true);
+            if (playerIsInLOS) AIManager.Instance.SetGroupAlerts(group);
             else alert = false;
             agent.SetDestination(player.transform.position);
             aiMemoriesPlayer = true;
@@ -116,7 +119,7 @@ public abstract class EnemyBase : MonoBehaviour
         if (distance <= noiseTravelDistance) {
             var vel = player.GetComponent<Rigidbody>().velocity;
             float speed = vel.magnitude; 
-            Debug.Log(speed);
+            //Debug.Log(speed);
             if (speed > 0) 
             {
                 noisePosition = player.transform.position;
