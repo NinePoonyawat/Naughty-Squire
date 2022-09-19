@@ -51,6 +51,10 @@ public abstract class EnemyBase : MonoBehaviour
         this.alert = alert;
     }
 
+    public virtual void walking() {
+        agent.SetDestination(player.transform.position);
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -60,7 +64,7 @@ public abstract class EnemyBase : MonoBehaviour
         if (playerIsInLOS || alert) {
             if (playerIsInLOS) AIManager.Instance.SetGroupAlerts(group);
             else alert = false;
-            agent.SetDestination(player.transform.position);
+            walking();
             aiMemoriesPlayer = true;
         }else if (aiMemoriesPlayer) {
             StartCoroutine(AiMemory());
