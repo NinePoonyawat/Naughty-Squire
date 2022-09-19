@@ -125,8 +125,8 @@ namespace StarterAssets
             }
         }
 
-        private bool isUpdate = true;
-        [SerializeField] private InventoryManager inventoryManager;
+        // private bool isUpdate = true;
+        // [SerializeField] private InventoryManager inventoryManager;
         
 
 
@@ -158,13 +158,13 @@ namespace StarterAssets
             _jumpTimeoutDelta = JumpTimeout;
             _fallTimeoutDelta = FallTimeout;
 
-            inventoryManager.OnInventoryOpen += Pause;
-            inventoryManager.OnInventoryClose += Resume;
+            // inventoryManager.OnInventoryOpen += Pause;
+            // inventoryManager.OnInventoryClose += Resume;
         }
 
         private void Update()
         {
-            if (!isUpdate) return;
+            //if (!isUpdate) return;
             _hasAnimator = TryGetComponent(out _animator);
 
             JumpAndGravity();
@@ -174,7 +174,7 @@ namespace StarterAssets
 
         private void LateUpdate()
         {
-            if (!isUpdate) return;    
+            //if (!isUpdate) return;    
             CameraRotation();
         }
 
@@ -404,24 +404,24 @@ namespace StarterAssets
             }
         }
 
-        public void SetSensitivity(float newSensitivity)
-        {
-            Sensitivity = newSensitivity;
-        }
+        // public void SetSensitivity(float newSensitivity)
+        // {
+        //     Sensitivity = newSensitivity;
+        // }
 
-        public void SetRotateOnMove(bool newRotateOnMove)
-        {
-            _rotateOnMove = newRotateOnMove;
-        }
+        // public void SetRotateOnMove(bool newRotateOnMove)
+        // {
+        //     _rotateOnMove = newRotateOnMove;
+        // }
 
-        public void Resume(object o,EventArgs e)
-        {
-            isUpdate = true;
-        }
+        // public void Resume(object o,EventArgs e)
+        // {
+        //     isUpdate = true;
+        // }
 
-        public void Pause(object o,EventArgs e)
-        {
-            isUpdate = false;
-        }
+        // public void Pause(object o,EventArgs e)
+        // {
+        //     isUpdate = false;
+        // }
     }
 }
