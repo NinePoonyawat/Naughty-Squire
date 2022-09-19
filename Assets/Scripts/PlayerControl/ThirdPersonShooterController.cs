@@ -54,8 +54,8 @@ namespace Player
             if (starterAssetInputs.aim)
             {
                 aimVirtualCamera.gameObject.SetActive(true);
-                thirdPersonController.SetSensitivity(aimSensitivity);
-                thirdPersonController.SetRotateOnMove(false);
+                // thirdPersonController.SetSensitivity(aimSensitivity);
+                // thirdPersonController.SetRotateOnMove(false);
 
                 Vector3 worldAimTarget = mouseWorldPosition;
                 worldAimTarget.x = transform.position.y;
@@ -66,8 +66,8 @@ namespace Player
             else
             {
                 aimVirtualCamera.gameObject.SetActive(false);
-                thirdPersonController.SetSensitivity(normalSensitivity);
-                thirdPersonController.SetRotateOnMove(true);
+                // thirdPersonController.SetSensitivity(normalSensitivity);
+                // thirdPersonController.SetRotateOnMove(true);
             }
 
             if (starterAssetInputs.shoot && !gunSystem.getOutOfAmmo())
