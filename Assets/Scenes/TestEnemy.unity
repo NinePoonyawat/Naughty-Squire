@@ -924,7 +924,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2128632598}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &1212816065
 Rigidbody:
@@ -1138,12 +1138,12 @@ PrefabInstance:
     - target: {fileID: 2453270130655865943, guid: 1019bd0e07bfcd44e97e2f78effe8bf3,
         type: 3}
       propertyPath: m_Lens.m_SensorSize.x
-      value: 1.7806951
+      value: 1.2358974
       objectReference: {fileID: 0}
     - target: {fileID: 2453270132183147608, guid: 1019bd0e07bfcd44e97e2f78effe8bf3,
         type: 3}
       propertyPath: m_Lens.m_SensorSize.x
-      value: 1.7806951
+      value: 1.2358974
       objectReference: {fileID: 0}
     - target: {fileID: 2453270132183147609, guid: 1019bd0e07bfcd44e97e2f78effe8bf3,
         type: 3}
@@ -2070,4 +2070,4 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
