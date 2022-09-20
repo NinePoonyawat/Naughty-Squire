@@ -6,6 +6,13 @@ using StarterAssets;
 
 public abstract class EnemyBase : MonoBehaviour
 {
+    public enum State {
+        Idle,
+        Alert,
+        Walk,
+        Attack
+    }
+    public State EnemyState;
     public UnityEngine.AI.NavMeshAgent agent;
     public GameObject player;
     public bool alert = false;
@@ -32,7 +39,9 @@ public abstract class EnemyBase : MonoBehaviour
     //private float isSpiningTime; // search player noise position
     //public float spinTime = 3f;
     
+    public bool alreadyAttacked = false;
     protected float timeTilNextMovement = 2f;
+    protected float timeBetweenAttacks = 0.5f;
 
     private StarterAssetsInputs starterAssetInputs;
 
@@ -40,6 +49,7 @@ public abstract class EnemyBase : MonoBehaviour
     Mesh mesh;
     
     void Start() {
+        EnemyState = State.Idle;
         meshColor.a = 0.5f;
         //starterAssetInputs = GetComponent<StarterAssetsInputs>();
         group = Random.Range(0,3);
