@@ -16,5 +16,8 @@ MonoBehaviour:
   height: 1
   isTwoHanded: 0
   itemIcon: {fileID: 21300000, guid: 686424043330bbd429b74781559b1654, type: 3}
+  itemModel: {fileID: 919132149155446097, guid: d7fb49bcf0d523e4fa41115d75cb2b72,
+    type: 3}
   damage: 3
   ammoCapacity: 17
+  ammoRemained: 17

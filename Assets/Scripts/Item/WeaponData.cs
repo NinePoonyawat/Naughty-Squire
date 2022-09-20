@@ -15,3 +15,4 @@ public class WeaponData : ItemData
         ammoRemained = ammoCapacity;
     }
 }
+
