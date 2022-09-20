@@ -20,7 +20,8 @@ public class BulletProjectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("this bullet damage is " + damage);
+        //Debug.Log("this bullet damage is " + damage);
+        Debug.Log(other);
         Destroy(gameObject);
     }
 

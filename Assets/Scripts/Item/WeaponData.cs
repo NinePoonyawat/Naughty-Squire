@@ -9,6 +9,9 @@ public class WeaponData : ItemData
     public int damage;
     public int ammoCapacity;
     public int ammoRemained;
+    public float bulletSpeed;
+    public float bulletLifetime;
+    public float fireDelay;
 
     private void Awake()
     {
