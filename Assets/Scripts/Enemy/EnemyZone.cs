@@ -6,10 +6,11 @@ public class EnemyZone : EnemyBase
 {
     // Start is called before the first frame update
     public float distance;
+    public Rigidbody projectile;
     //public bool stop = false;
     void Awake()
     {
-       distance = 5;
+       distance = 7;
        //distance = Random.Range(5,10); 
     }
 
@@ -42,6 +43,11 @@ public class EnemyZone : EnemyBase
 
         if (!alreadyAttacked) {
             Debug.Log("FIRE!!!++++");
+            
+            Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
+            rb.AddForce(transform.forward *32f,ForceMode.Impulse);
+            rb.AddForce(transform.up *8f,ForceMode.Impulse);
+            
             alreadyAttacked = true;
             Invoke("ResetAttack",timeBetweenAttacks);
         }
