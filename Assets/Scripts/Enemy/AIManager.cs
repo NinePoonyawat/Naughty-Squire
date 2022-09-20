@@ -22,7 +22,7 @@ public class AIManager : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(SpawnPointList.Count);
+        //Debug.Log(SpawnPointList.Count);
         if (AlertGroup > -1) {
             Units = GetListbyIndex(AlertGroup);
             MakeAgentsAlert();

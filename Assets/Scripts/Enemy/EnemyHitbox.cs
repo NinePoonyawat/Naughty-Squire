@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyHealth : MonoBehaviour
+public class EnemyHitbox : MonoBehaviour
 {
+    [SerializeField] private EnemyHealth Me;
+
     [SerializeField] private float maxHealth;
     [SerializeField] private float health;
+    public float damageRatio;
 
-    // Start is called before the first frame update
     void Awake()
     {
         health = maxHealth;
@@ -15,16 +17,11 @@ public class EnemyHealth : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        Me.TakeDamage(damage*damageRatio);
         health -= damage;
-
         if (health <= 0)
         {
-            Die();
+            Destroy(this);
         }
-    }
-
-    void Die()
-    {
-        Destroy(gameObject);
     }
 }

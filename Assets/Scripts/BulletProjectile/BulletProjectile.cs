@@ -18,10 +18,15 @@ public class BulletProjectile : MonoBehaviour
         bulletRigidBody.velocity = transform.forward * speed;
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider hit)
     {
         //Debug.Log("this bullet damage is " + damage);
-        Debug.Log(other);
+        EnemyHitbox entityHit = hit.GetComponent<EnemyHitbox>();
+        Debug.Log(entityHit);
+        if (entityHit != null)
+        {
+            entityHit.TakeDamage(damage);
+        }
         Destroy(gameObject);
     }
 
