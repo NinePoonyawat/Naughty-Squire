@@ -18,7 +18,7 @@ namespace Weapon
         {
             starterAssetsInputs = GetComponent<StarterAssetsInputs>();
             bulletLeftInMagazine = bulletPerMagazine;
-            SetOutOfAmmo(false);
+            SetOutOfAmmo(true);
         }
 
         void Start()
@@ -60,6 +60,7 @@ namespace Weapon
             damage = newDamage;
             bulletPerMagazine = maxBullet;
             bulletLeftInMagazine = remainBullet;
+            if (remainBullet > 0) SetOutOfAmmo(false);
             //Reload();
             Debug.Log("Weapon Changed : " + bulletLeftInMagazine + "/" + bulletPerMagazine);
         }
