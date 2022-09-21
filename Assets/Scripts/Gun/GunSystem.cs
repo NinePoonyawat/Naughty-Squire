@@ -18,7 +18,7 @@ namespace Weapon
         {
             starterAssetsInputs = GetComponent<StarterAssetsInputs>();
             bulletLeftInMagazine = bulletPerMagazine;
-            SetOutOfAmmo(true);
+            isOutOfAmmo = (bulletLeftInMagazine == 0)? true:false;
         }
 
         void Start()
@@ -38,6 +38,7 @@ namespace Weapon
 
         public void Shoot()
         {
+            Debug.Log("shoot!");
             bulletLeftInMagazine--;
             if (bulletLeftInMagazine <= 0)
             {

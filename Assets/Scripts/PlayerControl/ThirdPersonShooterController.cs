@@ -35,6 +35,7 @@ namespace Player
 
         void Start()
         {
+            Debug.Log("start");
             inventoryManager.OnInventoryOpen += Pause;
             inventoryManager.OnInventoryClose += Resume;
         }
@@ -72,6 +73,7 @@ namespace Player
 
             if (starterAssetInputs.shoot && !gunSystem.getOutOfAmmo())
             {
+                Debug.Log("shoot");
                 Vector3 aimDir = (mouseWorldPosition - spawnBulletPosition.position).normalized;
                 GameObject bullet = Instantiate(pfBulletProjectile, spawnBulletPosition.position, Quaternion.LookRotation(aimDir, Vector3.up)).gameObject;
                 bullet.SendMessage("SetDamage",gunSystem.GetDamage());
