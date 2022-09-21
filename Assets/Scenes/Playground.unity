@@ -311,28 +311,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 47408783}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &281470211 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1166794208514601051, guid: 0cb17d06b73c1454eb2cd813c707491c,
-    type: 3}
-  m_PrefabInstance: {fileID: 430381115}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &281470214
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 281470211}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9eecdeed28dd29f40a8cae33b5343e7b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Me: {fileID: 2020672848}
-  maxHealth: 20
-  health: 0
-  damageRatio: 1
 --- !u!1 &392044172
 GameObject:
   m_ObjectHideFlags: 0
@@ -455,11 +433,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2803851831766219270, guid: 0cb17d06b73c1454eb2cd813c707491c,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4068510112189703431, guid: 0cb17d06b73c1454eb2cd813c707491c,
         type: 3}
       propertyPath: player
@@ -470,8 +443,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy with Hitbox
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2803851831766219270, guid: 0cb17d06b73c1454eb2cd813c707491c, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0cb17d06b73c1454eb2cd813c707491c, type: 3}
 --- !u!114 &514039099 stripped
 MonoBehaviour:
@@ -1354,28 +1326,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6d148d888ffbf54b9afe9936dfaec1f, type: 3}
---- !u!1 &1273748672 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6229643412214025178, guid: 0cb17d06b73c1454eb2cd813c707491c,
-    type: 3}
-  m_PrefabInstance: {fileID: 430381115}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1273748677
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1273748672}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9eecdeed28dd29f40a8cae33b5343e7b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Me: {fileID: 2020672848}
-  maxHealth: 20
-  health: 0
-  damageRatio: 1.5
 --- !u!1 &1342647330 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4438461459221597356, guid: 7cd09b2c3a52351499a3ff3a5157a5ea,
@@ -1851,18 +1801,6 @@ PrefabInstance:
       objectReference: {fileID: 1762682260}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f7f3dde7ae722a4aafffe20691ad702, type: 3}
---- !u!114 &2020672848 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 980128321, guid: 0cb17d06b73c1454eb2cd813c707491c,
-    type: 3}
-  m_PrefabInstance: {fileID: 430381115}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e3b0537df85dc14cac49484332f143d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &2056819999 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4863173325812626285, guid: 75755c9a38fe79541b296b1e7d238e48,
