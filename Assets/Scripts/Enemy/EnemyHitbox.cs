@@ -17,11 +17,12 @@ public class EnemyHitbox : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        Debug.Log("i take " + damage*damageRatio + " dmg.");
         Me.TakeDamage(damage*damageRatio);
         health -= damage;
         if (health <= 0)
         {
-            Destroy(this);
+            Destroy(this.gameObject);
         }
     }
 }

@@ -52,7 +52,7 @@ public abstract class EnemyBase : MonoBehaviour
         EnemyState = State.Idle;
         meshColor.a = 0.5f;
         //starterAssetInputs = GetComponent<StarterAssetsInputs>();
-        group = Random.Range(0,3);
+        if(group == -1) group = Random.Range(0,3);
         //AIManager.Instance.Units.Add(this);
         AIManager.Instance.AddDictList(group,this);
     }
