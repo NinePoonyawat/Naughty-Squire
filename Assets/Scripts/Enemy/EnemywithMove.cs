@@ -7,6 +7,10 @@ public class EnemywithMove : EnemyBase
 {
     Vector3 currentRandomPos;
 
+    private void Awake() {
+        currentRandomPos = transform.position;
+    }
+
     protected override void MakeMovementDecision() {
         timeTilNextMovement = 3f;
         currentRandomPos = new Vector3(transform.position.x, transform.position.y, transform.position.z + Random.Range(-4,5));
