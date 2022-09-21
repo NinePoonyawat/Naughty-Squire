@@ -33,7 +33,7 @@ public class EnemyJump : EnemyBase
     }
 
     protected override void AImove() {
-        Debug.Log("AImove");
+        //Debug.Log("AImove");
     }
 
     public void CheckJumping() {

@@ -30,7 +30,7 @@ public class EnemyZone : EnemyBase
     }
 
     protected override void AImove() {
-        Debug.Log("AImove");
+        //Debug.Log("AImove");
     }
 
     void CheckAttacking() {
