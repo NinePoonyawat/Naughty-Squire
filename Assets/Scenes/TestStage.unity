@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: 7e70351d85cac4b499787f41e8cae667, type: 2}
+  m_NavMeshData: {fileID: 0}
 --- !u!1 &24067478 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8944336655422409498, guid: f6d148d888ffbf54b9afe9936dfaec1f,
@@ -1651,12 +1651,6 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 4518979150775650060, guid: 1019bd0e07bfcd44e97e2f78effe8bf3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1019bd0e07bfcd44e97e2f78effe8bf3, type: 3}
---- !u!1 &1791812567 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4518979150175480355, guid: 1019bd0e07bfcd44e97e2f78effe8bf3,
-    type: 3}
-  m_PrefabInstance: {fileID: 1791812566}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1791812568 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 626389481375999172, guid: 1019bd0e07bfcd44e97e2f78effe8bf3,
@@ -1810,7 +1804,7 @@ PrefabInstance:
         type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 1791812567}
+      objectReference: {fileID: 0}
     - target: {fileID: 5296068511380312396, guid: 873c4027cbdb77a488b4092ed5d41cda,
         type: 3}
       propertyPath: HeightCurve.m_PreInfinity
@@ -2020,7 +2014,7 @@ PrefabInstance:
         type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 1791812567}
+      objectReference: {fileID: 0}
     - target: {fileID: 8445274379369107633, guid: ed9acb0ae9c6e4e409bb3597deade2f3,
         type: 3}
       propertyPath: m_Enabled
@@ -2044,7 +2038,7 @@ PrefabInstance:
         type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 1791812567}
+      objectReference: {fileID: 0}
     - target: {fileID: 6542192042556527086, guid: 691444c63b877a640a3be888f0a3dbab,
         type: 3}
       propertyPath: m_Enabled
@@ -2123,7 +2117,7 @@ PrefabInstance:
         type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 1791812567}
+      objectReference: {fileID: 0}
     - target: {fileID: 1103078948076560024, guid: 30c25d410a894404cbe607830852eeb0,
         type: 3}
       propertyPath: m_Enabled
@@ -2331,7 +2325,7 @@ PrefabInstance:
         type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 1791812567}
+      objectReference: {fileID: 0}
     - target: {fileID: 8241198458367973266, guid: cace4f71d37beac4289a4d18f583d794,
         type: 3}
       propertyPath: losRadius
