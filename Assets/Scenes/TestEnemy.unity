@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: e24c64fc362e4294fa5d96142629cc6d, type: 2}
 --- !u!1 &24067478 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8944336655422409498, guid: f6d148d888ffbf54b9afe9936dfaec1f,
@@ -1260,6 +1260,11 @@ PrefabInstance:
       propertyPath: fieldOfViewAngle
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 6737894799981311448, guid: 0cb17d06b73c1454eb2cd813c707491c,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: Infinity
+      objectReference: {fileID: 0}
     - target: {fileID: 7462268529534942321, guid: 0cb17d06b73c1454eb2cd813c707491c,
         type: 3}
       propertyPath: m_AgentTypeID
@@ -1747,6 +1752,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6320193995085023776, guid: ed9acb0ae9c6e4e409bb3597deade2f3,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: Infinity
+      objectReference: {fileID: 0}
     - target: {fileID: 7907006875115078539, guid: ed9acb0ae9c6e4e409bb3597deade2f3,
         type: 3}
       propertyPath: m_Name
@@ -1795,6 +1805,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8873865725366753120, guid: 691444c63b877a640a3be888f0a3dbab,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: Infinity
       objectReference: {fileID: 0}
     - target: {fileID: 9180609114987742966, guid: 691444c63b877a640a3be888f0a3dbab,
         type: 3}
@@ -1940,6 +1955,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy 02
       objectReference: {fileID: 0}
+    - target: {fileID: 7690287302389534279, guid: 30c25d410a894404cbe607830852eeb0,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: Infinity
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30c25d410a894404cbe607830852eeb0, type: 3}
 --- !u!1001 &7366063444583752156
@@ -2078,6 +2098,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy 04
       objectReference: {fileID: 0}
+    - target: {fileID: 7477241202013766732, guid: cace4f71d37beac4289a4d18f583d794,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: Infinity
+      objectReference: {fileID: 0}
     - target: {fileID: 8241198458367973266, guid: cace4f71d37beac4289a4d18f583d794,
         type: 3}
       propertyPath: group
@@ -2121,7 +2146,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: Infinity
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
