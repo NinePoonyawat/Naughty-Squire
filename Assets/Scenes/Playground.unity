@@ -125,7 +125,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: 64482c03d307bcb448b7d2b7f37f353d, type: 2}
+  m_NavMeshData: {fileID: 0}
 --- !u!1001 &47408783
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1183,6 +1183,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4068510112189703431, guid: 0cb17d06b73c1454eb2cd813c707491c,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 392044172}
     - target: {fileID: 7462268529534942323, guid: 0cb17d06b73c1454eb2cd813c707491c,
         type: 3}
       propertyPath: m_Name
@@ -1391,6 +1396,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 392044172, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 392044172, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 1940140957, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
       propertyPath: aimVirtualCamera
       value: 
