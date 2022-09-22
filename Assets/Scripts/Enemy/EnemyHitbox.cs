@@ -8,7 +8,7 @@ public class EnemyHitbox : MonoBehaviour
 
     [SerializeField] private float maxHealth;
     [SerializeField] private float health;
-    public float damageRatio;
+    [SerializeField] private float damageRatio;
 
     void Awake()
     {
@@ -19,7 +19,7 @@ public class EnemyHitbox : MonoBehaviour
     {
         Debug.Log("i take " + damage*damageRatio + " dmg.");
         Me.TakeDamage(damage*damageRatio);
-        health -= damage;
+        health -= damage*damageRatio;
         if (health <= 0)
         {
             Destroy(this.gameObject);

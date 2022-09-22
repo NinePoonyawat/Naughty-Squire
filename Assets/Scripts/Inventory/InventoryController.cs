@@ -46,7 +46,6 @@ public class InventoryController : MonoBehaviour
             InsertItem(-1);
         }
 
-
         if (selectedItemGrid == null)
         {
             inventoryHighlight.Show(false);

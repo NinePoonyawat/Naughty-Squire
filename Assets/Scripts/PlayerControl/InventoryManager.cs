@@ -13,15 +13,13 @@ public class InventoryManager : MonoBehaviour
 
     public GameObject uiInventory;
     public GameObject inventoryController;
-    private CursorControl cursorControl;
+    [SerializeField] private CursorControl cursorControl;
 
     public event EventHandler OnInventoryOpen;
     public event EventHandler OnInventoryClose;
 
-    private void Awake() {
-        //inventory = new Inventory();
-        //uiInventory.SetInventory(inventory);
-
+    private void Awake()
+    {
         cursorControl = GameObject.Find("Cursor").GetComponent<CursorControl>();
     }
 
