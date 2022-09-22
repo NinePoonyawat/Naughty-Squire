@@ -46,10 +46,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectedItemGrid: {fileID: 0}
+  loadoutItemGrid: {fileID: 0}
   items:
-  - {fileID: 11400000, guid: 78ab7016d54c69d42a85a6fdd2c45eff, type: 2}
-  - {fileID: 11400000, guid: bfdce7d34baf7f84681b4a2f46ef17d8, type: 2}
   - {fileID: 11400000, guid: f80abb54e29f65a4c9631d0aa8f45588, type: 2}
+  - {fileID: 11400000, guid: bfdce7d34baf7f84681b4a2f46ef17d8, type: 2}
+  - {fileID: 11400000, guid: 78ab7016d54c69d42a85a6fdd2c45eff, type: 2}
+  - {fileID: 11400000, guid: ac9561505a0b7f940ac97fe910245ec7, type: 2}
   itemPrefab: {fileID: 2201193786818287487, guid: 4ad70f7cbcbbfec489a333520f6e48b2,
     type: 3}
   canvasTransform: {fileID: 0}

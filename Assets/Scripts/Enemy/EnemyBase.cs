@@ -117,7 +117,7 @@ public abstract class EnemyBase : MonoBehaviour
             {
                 if (hit.collider.tag == "Player") 
                 {
-                    Debug.Log("Found");
+                    //Debug.Log("Found");
                     playerIsInLOS = true;
                 } else
                 {

@@ -1181,7 +1181,7 @@ PrefabInstance:
         type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1828791224}
     - target: {fileID: 7462268529534942323, guid: 0cb17d06b73c1454eb2cd813c707491c,
         type: 3}
       propertyPath: m_Name
@@ -1569,6 +1569,12 @@ ReflectionProbe:
   m_UseOcclusionCulling: 1
   m_Importance: 1
   m_CustomBakedTexture: {fileID: 0}
+--- !u!1 &1828791224 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6595507138745510679, guid: 64dce48905ffd9b4293e595fa6941544,
+    type: 3}
+  m_PrefabInstance: {fileID: 1762682258}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1979352518
 PrefabInstance:
   m_ObjectHideFlags: 0

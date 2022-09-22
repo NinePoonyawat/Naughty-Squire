@@ -41,7 +41,7 @@ public class AIManager : MonoBehaviour
     {
         for (int i =0; i <3; i++) {
             SpawnPointList.Add(new Vector3(Random.Range(-10f, 10f), 0, Random.Range(-10f, 10f)),new List<EnemyBase>());
-            Debug.Log("ADD DICT");
+            //Debug.Log("ADD DICT");
         }
         
         if (Instance == null) {
@@ -84,7 +84,7 @@ public class AIManager : MonoBehaviour
     }
     private void MakeAgentsAlert()
     {
-        Debug.Log(Units.Count);
+        //Debug.Log(Units.Count);
         for (int i = 0; i < Units.Count; i++) {
             //Debug.Log("Alert!" + i);
             Units[i].SetAlert(true);

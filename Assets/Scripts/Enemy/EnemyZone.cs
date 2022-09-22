@@ -15,7 +15,7 @@ public class EnemyZone : EnemyBase
     }
 
     public override void walking() {
-        Debug.Log("find");
+        //Debug.Log("find");
         if (!playerIsInLOS) EnemyState = State.Idle;
         if (EnemyState != State.Attack) {
             agent.SetDestination(player.transform.position);

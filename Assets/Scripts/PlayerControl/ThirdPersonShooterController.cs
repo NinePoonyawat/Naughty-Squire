@@ -35,7 +35,6 @@ namespace Player
 
         void Start()
         {
-            Debug.Log("start");
             inventoryManager.OnInventoryOpen += Pause;
             inventoryManager.OnInventoryClose += Resume;
         }
