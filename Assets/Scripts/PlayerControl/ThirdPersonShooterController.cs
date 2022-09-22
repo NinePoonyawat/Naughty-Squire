@@ -94,5 +94,10 @@ namespace Player
         {
             isUpdate = false;
         }
+
+        public GunSystem GetGunSystem()
+        {
+            return gunSystem;
+        }
     }
 }

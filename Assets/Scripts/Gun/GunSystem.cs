@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using StarterAssets;
+using System;
 
 namespace Weapon
 {
@@ -13,6 +14,9 @@ namespace Weapon
         private bool isOutOfAmmo;
 
         private StarterAssetsInputs starterAssetsInputs;
+
+        public event EventHandler OnOutOfAmmoEvent;
+        public event EventHandler OnReloadEvent;
 
         void Awake()
         {
@@ -42,6 +46,7 @@ namespace Weapon
             bulletLeftInMagazine--;
             if (bulletLeftInMagazine <= 0)
             {
+                OnOutOfAmmoEvent?.Invoke(this,EventArgs.Empty);
                 SetOutOfAmmo(true);
             }
             Debug.Log("bullet :" + bulletLeftInMagazine + " / " + bulletPerMagazine);
@@ -49,6 +54,7 @@ namespace Weapon
 
         public void Reload()
         {
+            OnReloadEvent?.Invoke(this,EventArgs.Empty);
             starterAssetsInputs.shoot = false;
             bulletLeftInMagazine = bulletPerMagazine;
             starterAssetsInputs.reload = false;
