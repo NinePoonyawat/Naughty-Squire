@@ -25,6 +25,10 @@ namespace Player
 
         private bool isUpdate = true;
 
+        public event OnShootEvent OnShoot;
+        public delegate void OnShootEvent(float recoil);
+
+
         [SerializeField] private InventoryManager inventoryManager;
 
         private void Awake()
@@ -73,10 +77,10 @@ namespace Player
 
             if (starterAssetInputs.shoot && !gunSystem.getOutOfAmmo())
             {
-                Debug.Log("shoot");
                 Vector3 aimDir = (mouseWorldPosition - spawnBulletPosition.position).normalized;
                 GameObject bullet = Instantiate(pfBulletProjectile, spawnBulletPosition.position, Quaternion.LookRotation(aimDir, Vector3.up)).gameObject;
                 bullet.SendMessage("SetDamage",gunSystem.GetDamage());
+                OnShoot?.Invoke(2f);
                 gunSystem.Shoot();
                 starterAssetInputs.shoot = false;
             }
