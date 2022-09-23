@@ -48,7 +48,7 @@ public class AIManager : MonoBehaviour
             Instance = this;
             return;
         }
-        Destroy(gameObject);
+        //Destroy(gameObject);
     }
 
     // private void MakeAgentsCircleTarget()
@@ -81,6 +81,12 @@ public class AIManager : MonoBehaviour
     public void AddDictList(int group,EnemyBase Enemy) {
         GetListbyIndex(group).Add(Enemy);
         //Debug.Log("ADDed");
+    }
+
+    public void RemoveDictList(int group,EnemyBase Enemy) {
+        Debug.Log("Size before Remove" + GetListbyIndex(group).Count);
+        GetListbyIndex(group).Remove(Enemy);
+        Debug.Log("Size after Remove" +GetListbyIndex(group).Count);
     }
     private void MakeAgentsAlert()
     {

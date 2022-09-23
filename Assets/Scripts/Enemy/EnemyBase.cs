@@ -6,6 +6,10 @@ using StarterAssets;
 
 public abstract class EnemyBase : MonoBehaviour
 {
+    // Health
+    [SerializeField] private float maxHealth;
+    [SerializeField] private float health;
+
     public enum State {
         Idle,
         Alert,
@@ -55,6 +59,24 @@ public abstract class EnemyBase : MonoBehaviour
         if(group == -1) group = Random.Range(0,3);
         //AIManager.Instance.Units.Add(this);
         AIManager.Instance.AddDictList(group,this);
+        health = maxHealth;
+    }
+
+    // Health logic
+    public void TakeDamage(float damage)
+    {
+        health -= damage;
+
+        if (health <= 0)
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        Destroy(gameObject);
+        AIManager.Instance.RemoveDictList(group,this);
     }
 
     public void SetAlert(bool alert) {

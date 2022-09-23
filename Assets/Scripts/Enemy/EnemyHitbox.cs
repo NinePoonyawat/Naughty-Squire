@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyHitbox : MonoBehaviour
 {
-    [SerializeField] private EnemyHealth Me;
+    [SerializeField] private EnemyBase Me;
 
     [SerializeField] private float maxHealth;
     [SerializeField] private float health;

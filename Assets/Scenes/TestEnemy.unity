@@ -1524,6 +1524,19 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 281470214, guid: 0cb17d06b73c1454eb2cd813c707491c, type: 3}
+      propertyPath: Me
+      value: 
+      objectReference: {fileID: 2060755236}
+    - target: {fileID: 1273748677, guid: 0cb17d06b73c1454eb2cd813c707491c, type: 3}
+      propertyPath: Me
+      value: 
+      objectReference: {fileID: 2060755236}
+    - target: {fileID: 398361925019440309, guid: 0cb17d06b73c1454eb2cd813c707491c,
+        type: 3}
+      propertyPath: Me
+      value: 
+      objectReference: {fileID: 2060755236}
     - target: {fileID: 1966119620122941719, guid: 0cb17d06b73c1454eb2cd813c707491c,
         type: 3}
       propertyPath: m_RootOrder
@@ -1579,6 +1592,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2055239750595536520, guid: 0cb17d06b73c1454eb2cd813c707491c,
+        type: 3}
+      propertyPath: Me
+      value: 
+      objectReference: {fileID: 2060755236}
+    - target: {fileID: 3285599470081151824, guid: 0cb17d06b73c1454eb2cd813c707491c,
+        type: 3}
+      propertyPath: Me
+      value: 
+      objectReference: {fileID: 2060755236}
     - target: {fileID: 4068510112189703431, guid: 0cb17d06b73c1454eb2cd813c707491c,
         type: 3}
       propertyPath: group
@@ -1757,6 +1780,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ed5a4816dd02dad4f9e1bfffaea40342, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2060755236 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4068510112189703431, guid: 0cb17d06b73c1454eb2cd813c707491c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1677823167}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b992b0e3dcbdc74f83653b1136c13dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2081588147
