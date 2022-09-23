@@ -68,6 +68,7 @@ public abstract class EnemyBase : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Debug.Log(player.GetComponent<Collider>().tag);
         CheckLOS();
         NoiseCheck();
         //Debug.Log(playerIsInLOS);
@@ -115,6 +116,7 @@ public abstract class EnemyBase : MonoBehaviour
 
             if (Physics.Raycast(transform.position, direction.normalized, out hit, losRadius)) 
             {
+                //Debug.Log(hit.collider.tag);
                 if (hit.collider.tag == "Player") 
                 {
                     //Debug.Log("Found");
@@ -130,20 +132,20 @@ public abstract class EnemyBase : MonoBehaviour
     void NoiseCheck() {
         float distance = Vector3.Distance(player.transform.position, transform.position);
 
-        if (distance <= noiseTravelDistance) {
-            var vel = player.GetComponent<Rigidbody>().velocity;
-            float speed = vel.magnitude; 
-            //Debug.Log(speed);
-            if (speed > 0) 
-            {
-                noisePosition = player.transform.position;
-                aiHeardPlayer = true;
-            }
-            else 
-            {
-                aiHeardPlayer = false;
-            }
-        }
+        // if (distance <= noiseTravelDistance) {
+        //     var vel = player.GetComponent<Rigidbody>().velocity;
+        //     float speed = vel.magnitude; 
+        //     //Debug.Log(speed);
+        //     if (speed > 0) 
+        //     {
+        //         noisePosition = player.transform.position;
+        //         aiHeardPlayer = true;
+        //     }
+        //     else 
+        //     {
+        //         aiHeardPlayer = false;
+        //     }
+        // }
 
     }
 
