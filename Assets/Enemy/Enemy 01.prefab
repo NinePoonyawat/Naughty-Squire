@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 8873865725366753120}
   - component: {fileID: 2183461719631429144}
   - component: {fileID: 6542192042556527086}
+  - component: {fileID: 9059101680430112533}
+  - component: {fileID: 5737491252086992607}
   m_Layer: 0
   m_Name: Enemy 01
   m_TagString: Untagged
@@ -152,13 +154,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 517fb0b160b94f341a81fbefb580fedc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EnemyState: 0
   agent: {fileID: 2183461719631429144}
   player: {fileID: 0}
+  alert: 0
+  group: 0
   playerIsInLOS: 0
   fieldOfViewAngle: 45
   losRadius: 7
   height: 0.1
   meshColor: {r: 1, g: 0, b: 0, a: 1}
+  memoryStartTime: 10
+  noiseTravelDistance: 50
+  alreadyAttacked: 0
+--- !u!114 &9059101680430112533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5944689194889999870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e3b0537df85dc14cac49484332f143d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 30
+  health: 0
+--- !u!114 &5737491252086992607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5944689194889999870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9eecdeed28dd29f40a8cae33b5343e7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Me: {fileID: 9059101680430112533}
+  maxHealth: 30
+  health: 0
+  damageRatio: 1
 --- !u!1 &6589946522912636858
 GameObject:
   m_ObjectHideFlags: 0
