@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 4604637174267796995}
   - component: {fileID: 6525027686182483835}
   - component: {fileID: 2164597278987098253}
-  - component: {fileID: 4141302002071885430}
   - component: {fileID: 819392506570205116}
   m_Layer: 0
   m_Name: E_Mech_V
@@ -155,6 +154,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 517fb0b160b94f341a81fbefb580fedc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 30
+  health: 0
   EnemyState: 0
   agent: {fileID: 6525027686182483835}
   player: {fileID: 0}
@@ -164,24 +165,10 @@ MonoBehaviour:
   fieldOfViewAngle: 45
   losRadius: 15
   height: 0.1
-  meshColor: {r: 1, g: 0, b: 0, a: 1}
+  meshColor: {r: 1, g: 0, b: 0, a: 0.23529412}
   memoryStartTime: 10
   noiseTravelDistance: 50
   alreadyAttacked: 0
---- !u!114 &4141302002071885430
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1639169054607473821}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e3b0537df85dc14cac49484332f143d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 30
-  health: 0
 --- !u!114 &819392506570205116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,7 +181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eecdeed28dd29f40a8cae33b5343e7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Me: {fileID: 4141302002071885430}
+  Me: {fileID: 2164597278987098253}
   maxHealth: 30
   health: 0
   damageRatio: 1
@@ -310,7 +297,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eecdeed28dd29f40a8cae33b5343e7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Me: {fileID: 4141302002071885430}
+  Me: {fileID: 2164597278987098253}
   maxHealth: 20
   health: 0
   damageRatio: 2
