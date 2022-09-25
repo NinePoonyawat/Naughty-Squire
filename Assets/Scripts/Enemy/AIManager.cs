@@ -84,9 +84,9 @@ public class AIManager : MonoBehaviour
     }
 
     public void RemoveDictList(int group,EnemyBase Enemy) {
-        Debug.Log("Size before Remove" + GetListbyIndex(group).Count);
+        //Debug.Log("Size before Remove" + GetListbyIndex(group).Count);
         GetListbyIndex(group).Remove(Enemy);
-        Debug.Log("Size after Remove" +GetListbyIndex(group).Count);
+        //Debug.Log("Size after Remove" +GetListbyIndex(group).Count);
     }
     private void MakeAgentsAlert()
     {

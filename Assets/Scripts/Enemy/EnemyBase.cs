@@ -66,7 +66,7 @@ public abstract class EnemyBase : MonoBehaviour
     public void TakeDamage(float damage)
     {
         health -= damage;
-
+        //Debug.Log("i take " + damage + " dmg");
         if (health <= 0)
         {
             Die();

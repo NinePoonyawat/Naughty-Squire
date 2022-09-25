@@ -14,10 +14,10 @@ GameObject:
   - component: {fileID: 7622303574960646575}
   - component: {fileID: 4604637174267796995}
   - component: {fileID: 6525027686182483835}
-  - component: {fileID: 2164597278987098253}
+  - component: {fileID: 6381661388182043926}
   - component: {fileID: 819392506570205116}
   m_Layer: 0
-  m_Name: E_Mech_V
+  m_Name: E_Mech_Survey
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -142,7 +142,7 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &2164597278987098253
+--- !u!114 &6381661388182043926
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -151,7 +151,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1639169054607473821}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 517fb0b160b94f341a81fbefb580fedc, type: 3}
+  m_Script: {fileID: 11500000, guid: 8b992b0e3dcbdc74f83653b1136c13dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 30
@@ -163,7 +163,7 @@ MonoBehaviour:
   group: -1
   playerIsInLOS: 0
   fieldOfViewAngle: 45
-  losRadius: 15
+  losRadius: 30
   height: 0.1
   meshColor: {r: 1, g: 0, b: 0, a: 0.23529412}
   memoryStartTime: 10
@@ -181,7 +181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eecdeed28dd29f40a8cae33b5343e7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Me: {fileID: 2164597278987098253}
+  Me: {fileID: 6381661388182043926}
   maxHealth: 30
   health: 0
   damageRatio: 1
@@ -297,7 +297,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eecdeed28dd29f40a8cae33b5343e7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Me: {fileID: 2164597278987098253}
+  Me: {fileID: 6381661388182043926}
   maxHealth: 20
   health: 0
   damageRatio: 2
@@ -363,7 +363,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -6478536213147159724, guid: d7fb49bcf0d523e4fa41115d75cb2b72, type: 3}
+  - {fileID: 2100000, guid: fd2dbfc47fe60be4082492661c338cc0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
