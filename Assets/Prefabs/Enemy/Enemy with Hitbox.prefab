@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eecdeed28dd29f40a8cae33b5343e7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Me: {fileID: 980128321}
+  Me: {fileID: 0}
   maxHealth: 1000
   health: 0
   damageRatio: 0.3
@@ -174,7 +174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eecdeed28dd29f40a8cae33b5343e7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Me: {fileID: 980128321}
+  Me: {fileID: 0}
   maxHealth: 1000
   health: 0
   damageRatio: 0.3
@@ -209,9 +209,10 @@ Transform:
   m_LocalPosition: {x: -0.913, y: 1.2129999, z: 0}
   m_LocalScale: {x: 0.66412, y: 0.66412, z: 0.66412}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 4106856586912522210}
   m_Father: {fileID: 1966119620122941719}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 181.544, z: 0}
 --- !u!33 &6746198251146667039
 MeshFilter:
@@ -288,8 +289,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eecdeed28dd29f40a8cae33b5343e7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Me: {fileID: 980128321}
-  maxHealth: 20
+  Me: {fileID: 0}
+  maxHealth: 150
   health: 0
   damageRatio: 1.5
 --- !u!1 &6229643412214025178
@@ -402,7 +403,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eecdeed28dd29f40a8cae33b5343e7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Me: {fileID: 980128321}
+  Me: {fileID: 0}
   maxHealth: 20
   health: 0
   damageRatio: 1.5
@@ -443,7 +444,6 @@ Transform:
   - {fileID: 2996280426289945862}
   - {fileID: 375020203973410417}
   - {fileID: 6692431111617866254}
-  - {fileID: 4106856586912522210}
   - {fileID: 7358175728509455259}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -548,6 +548,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b992b0e3dcbdc74f83653b1136c13dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 150
+  health: 0
   EnemyState: 0
   agent: {fileID: 7462268529534942321}
   player: {fileID: 0}
@@ -602,13 +604,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8073596529290831438}
-  m_LocalRotation: {x: -0, y: -0, z: -0.057023622, w: 0.99837285}
-  m_LocalPosition: {x: -1.08, y: 0.39099997, z: 0}
-  m_LocalScale: {x: 0.71538097, y: 0.91208863, z: 1}
+  m_LocalRotation: {x: 0.057018433, y: -0.99828225, z: 0.0007681005, w: -0.013448525}
+  m_LocalPosition: {x: 0.2303, y: -1.0535, z: 0.0062}
+  m_LocalScale: {x: 1.0771861, y: 1.5587853, z: 1.5057518}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1966119620122941719}
-  m_RootOrder: 3
+  m_Father: {fileID: 7358175728509455259}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -6.538}
 --- !u!33 &3399271483884250714
 MeshFilter:
@@ -685,7 +687,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eecdeed28dd29f40a8cae33b5343e7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Me: {fileID: 980128321}
+  Me: {fileID: 0}
   maxHealth: 30
   health: 0
-  damageRatio: 0
+  damageRatio: 0.3

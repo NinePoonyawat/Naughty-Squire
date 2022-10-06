@@ -298,7 +298,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Me: {fileID: 2164597278987098253}
-  maxHealth: 20
+  maxHealth: 15
   health: 0
   damageRatio: 2
 --- !u!1 &4360170919738029492

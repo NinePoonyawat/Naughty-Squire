@@ -18,6 +18,7 @@ public class EnemyHitbox : MonoBehaviour
     public void TakeDamage(float damage)
     {
         //Debug.Log("i take " + damage*damageRatio + " dmg.");
+        
         Me.TakeDamage(damage*damageRatio);
         health -= damage*damageRatio;
         if (health <= 0)

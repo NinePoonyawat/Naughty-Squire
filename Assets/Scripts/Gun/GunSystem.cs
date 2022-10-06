@@ -69,7 +69,7 @@ namespace Weapon
             bulletLeftInMagazine = remainBullet;
             if (remainBullet > 0) SetOutOfAmmo(false);
             //Reload();
-            Debug.Log("Weapon Changed : " + bulletLeftInMagazine + "/" + bulletPerMagazine);
+            Debug.Log("Weapon Changed : " + bulletLeftInMagazine + "/" + bulletPerMagazine + " dmg = " + newDamage);
         }
 
         void SetOutOfAmmo(bool newInput)
