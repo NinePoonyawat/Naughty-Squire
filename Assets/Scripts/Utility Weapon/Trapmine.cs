@@ -34,8 +34,12 @@ public class Trapmine : MonoBehaviour
 
         foreach (Collider nearbyObject in colliders)
         {
-            Rigidbody rb = nearbyObject.GetComponent<Rigidbody>();
-            Debug.Log(rb);
+            EnemyHitbox entityHit = nearbyObject.GetComponent<EnemyHitbox>();
+            if (entityHit != null)
+            {
+                Debug.Log(entityHit);
+                entityHit.TakeDamage(damage);
+            }
         }
 
         Destroy(this.gameObject);

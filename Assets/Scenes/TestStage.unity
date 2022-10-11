@@ -3472,47 +3472,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -829497503463638878, guid: 130612278bf146849a636eaf7d5c7e46,
-        type: 3}
-      propertyPath: damage
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: -829497503463638878, guid: 130612278bf146849a636eaf7d5c7e46,
-        type: 3}
-      propertyPath: meshColor.a
-      value: 0.09803922
-      objectReference: {fileID: 0}
-    - target: {fileID: -829497503463638878, guid: 130612278bf146849a636eaf7d5c7e46,
-        type: 3}
-      propertyPath: meshColor.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -829497503463638878, guid: 130612278bf146849a636eaf7d5c7e46,
-        type: 3}
-      propertyPath: meshColor.g
-      value: 0.88550174
-      objectReference: {fileID: 0}
-    - target: {fileID: -829497503463638878, guid: 130612278bf146849a636eaf7d5c7e46,
-        type: 3}
-      propertyPath: meshColor.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -829497503463638878, guid: 130612278bf146849a636eaf7d5c7e46,
-        type: 3}
-      propertyPath: detectRadius
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: -829497503463638878, guid: 130612278bf146849a636eaf7d5c7e46,
-        type: 3}
-      propertyPath: explodeEffect
-      value: 
-      objectReference: {fileID: 1828176872806910, guid: 64891a0eb28db934898420d80ca07cb3,
-        type: 3}
-    - target: {fileID: -829497503463638878, guid: 130612278bf146849a636eaf7d5c7e46,
-        type: 3}
-      propertyPath: explodeRadius
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 2705097507732678408, guid: 130612278bf146849a636eaf7d5c7e46,
         type: 3}
       propertyPath: m_RootOrder
