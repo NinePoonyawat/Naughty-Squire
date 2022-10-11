@@ -93,7 +93,7 @@ public class AIManager : MonoBehaviour
         //Debug.Log(Units.Count);
         for (int i = 0; i < Units.Count; i++) {
             //Debug.Log("Alert!" + i);
-            Units[i].SetAlert(true);
+            Units[i].EnemyState = EnemyBase.State.Alert;
         }
         SetGroupAlerts(-1);
     }

@@ -19,7 +19,7 @@ public abstract class EnemyBase : MonoBehaviour
     public State EnemyState;
     public UnityEngine.AI.NavMeshAgent agent;
     public GameObject player;
-    public bool alert = false;
+    //public bool alert = false;
     public int group;
 
     //ai sight
@@ -27,7 +27,9 @@ public abstract class EnemyBase : MonoBehaviour
     public float fieldOfViewAngle;
     public float losRadius;
     public float height = 0.1f;
+    public float StopDistance;
     public Color meshColor = Color.red;
+
 
     //ai sight and memory
     private bool  aiMemoriesPlayer = false;
@@ -44,8 +46,8 @@ public abstract class EnemyBase : MonoBehaviour
     //public float spinTime = 3f;
     
     public bool alreadyAttacked = false;
-    protected float timeTilNextMovement = 2f;
-    protected float timeBetweenAttacks = 0.5f;
+    protected float timeTilNextMovement = 4f;
+    protected float timeBetweenAttacks = 5f;
 
     private StarterAssetsInputs starterAssetInputs;
 
@@ -79,13 +81,48 @@ public abstract class EnemyBase : MonoBehaviour
         AIManager.Instance.RemoveDictList(group,this);
     }
 
-    public void SetAlert(bool alert) {
-        this.alert = alert;
-    }
+    // public void SetAlert(bool alert) {
+    //     this.alert = alert;
+    // }
 
     public virtual void walking() {
-        agent.SetDestination(player.transform.position);
+        CheckAttacking();
+        if (!playerIsInLOS) EnemyState = State.Idle;
+        if (EnemyState != State.Attack) {
+            Debug.Log("STOPWALK!");
+            agent.SetDestination(player.transform.position);
+        } else {
+            Attack();
+        }
     }
+
+    void Attack() {
+        //Debug.Log("STOP Atack");
+        agent.SetDestination(transform.position);
+        transform.LookAt(player.transform);
+
+        if (!alreadyAttacked) {
+            Debug.Log("FIRE!!!++++");         
+            AttackMove();    
+            alreadyAttacked = true;
+            Invoke("ResetAttack",timeBetweenAttacks);
+        }
+    }
+    protected virtual void AttackMove() {
+        Debug.Log("-10hp");
+    }
+
+    void ResetAttack() {
+        alreadyAttacked = false;
+    }
+
+    public void CheckAttacking() {
+        if (playerIsInLOS && Vector3.Distance(transform.position,player.transform.position) <= StopDistance) {
+            EnemyState = State.Attack;
+            //Debug.Log("change attack state");
+        };
+    }
+
 
     // Update is called once per frame
     void Update()
@@ -93,10 +130,15 @@ public abstract class EnemyBase : MonoBehaviour
         //Debug.Log(player.GetComponent<Collider>().tag);
         CheckLOS();
         NoiseCheck();
+        
+        if (playerIsInLOS || EnemyState == State.Alert) {
+            if (EnemyState == State.Idle) EnemyState = State.Alert;
+        } else EnemyState = State.Idle;
+
         //Debug.Log(playerIsInLOS);
-        if (playerIsInLOS || alert) {
+        if (EnemyState == State.Alert) {
             if (playerIsInLOS) AIManager.Instance.SetGroupAlerts(group);
-            else alert = false;
+            if (EnemyState == State.Alert) EnemyState = State.Walk;
             walking();
             aiMemoriesPlayer = true;
         }else if (aiMemoriesPlayer) {
@@ -131,7 +173,7 @@ public abstract class EnemyBase : MonoBehaviour
         //Debug.Log(direction);
         float angle = Vector3.Angle(direction, transform.forward);
         //Debug.Log(angle);
-        if (angle < fieldOfViewAngle * 0.5f) 
+        if (angle < fieldOfViewAngle) 
         {   
             //playerIsInLOS = true;
             RaycastHit hit;
@@ -184,7 +226,7 @@ public abstract class EnemyBase : MonoBehaviour
             aiMemoriesPlayer = true;
             yield  return null;
         }
-        alert = false;
+        EnemyState = State.Idle;
         aiHeardPlayer = false;
         aiMemoriesPlayer = false;
     }
