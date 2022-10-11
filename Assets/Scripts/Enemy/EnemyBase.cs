@@ -33,7 +33,7 @@ public abstract class EnemyBase : MonoBehaviour
 
     //ai sight and memory
     private bool  aiMemoriesPlayer = false;
-    public float memoryStartTime = 2f;
+    public float memoryStartTime = 10f;
     private float increasingMemoryTime;
 
     //ai hearing
@@ -76,7 +76,7 @@ public abstract class EnemyBase : MonoBehaviour
         } else EnemyState = State.Idle;
 
         //Debug.Log(playerIsInLOS);
-        if (EnemyState == State.Alert) {
+        if (EnemyState != State.Idle) {
             if (playerIsInLOS && CanAlert) {
                 Debug.Log("Alert!");
                 AIManager.Instance.SetGroupAlerts(group);
@@ -159,7 +159,7 @@ public abstract class EnemyBase : MonoBehaviour
     public void CheckAttacking() {
         if (playerIsInLOS && Vector3.Distance(transform.position,player.transform.position) <= StopDistance) {
             EnemyState = State.Attack;
-            //Debug.Log("change attack state");
+            Debug.Log("change attack state");
         };
     }
     void CheckLOS() 
