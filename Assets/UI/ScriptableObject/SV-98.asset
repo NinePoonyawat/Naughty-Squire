@@ -16,5 +16,12 @@ MonoBehaviour:
   height: 1
   isTwoHanded: 1
   itemIcon: {fileID: 21300000, guid: b034b5a532e446048b77d392eb09c222, type: 3}
+  itemModel: {fileID: 0}
   damage: 20
   ammoCapacity: 5
+  ammoRemained: 5
+  bulletSpeed: 0
+  bulletLifetime: 0
+  fireDelay: 0
+  availableMagazine:
+  - {fileID: 11400000, guid: 47276e140fbee23449fa904d3f5bcd49, type: 2}

@@ -4,15 +4,11 @@ using UnityEngine;
 using StarterAssets;
 
 [CreateAssetMenu]
-public class WeaponData : ItemData
+public class MagazineData : ItemData
 {
-    public int damage;
     public int ammoCapacity;
     public int ammoRemained;
-    public float bulletSpeed;
-    public float bulletLifetime;
-    public float fireDelay;
-    public List<MagazineData> availableMagazine;
+    public List<WeaponData> availableWeapon;
 
     private void Awake()
     {

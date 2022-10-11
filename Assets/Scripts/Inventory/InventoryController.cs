@@ -186,7 +186,7 @@ public class InventoryController : MonoBehaviour
     }
 
     private void PlaceItem(Vector2Int tileGridPosition)
-    {
+    {     
         bool complete = selectedItemGrid.PlaceItem(selectedItem, tileGridPosition.x, tileGridPosition.y, ref overlapItem);
         if (complete)
         {
