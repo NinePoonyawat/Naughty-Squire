@@ -15,6 +15,10 @@ namespace Weapon
 
         private StarterAssetsInputs starterAssetsInputs;
 
+        private float cooldownTime = 2f;
+        private float cooldownTimeCount = 0f;
+        private bool isCooldown = false;
+
         public event EventHandler OnOutOfAmmoEvent;
         public event EventHandler OnReloadEvent;
 
@@ -38,11 +42,23 @@ namespace Weapon
             {
                 Reload();
             }
+            if(isCooldown)
+            {
+                UpdateCooldown();
+            }
+        }
+
+        void UpdateCooldown()
+        {
+            cooldownTimeCount -= Time.deltaTime;
+            if (cooldownTimeCount <= 0) isCooldown = false;
         }
 
         public void Shoot()
         {
             Debug.Log("shoot!");
+            cooldownTimeCount = cooldownTime;
+            isCooldown = true;
             bulletLeftInMagazine--;
             if (bulletLeftInMagazine <= 0)
             {
@@ -77,9 +93,9 @@ namespace Weapon
             isOutOfAmmo = newInput;
         }
 
-        public bool getOutOfAmmo()
+        public bool isShootable()
         {
-            return isOutOfAmmo;
+            return !isOutOfAmmo && !isCooldown;
         }
 
         public float GetDamage()
