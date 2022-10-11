@@ -20,7 +20,7 @@ public class BulletProjectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider hit)
     {
-        EnemyHitbox entityHit = hit.GetComponent<EnemyHitbox>();
+        HitableObject entityHit = hit.GetComponent<HitableObject>();
         
         //Debug.Log("this bullet damage is " + damage);
         //Debug.Log(entityHit);

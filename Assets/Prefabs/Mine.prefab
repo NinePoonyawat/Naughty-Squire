@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2705097507732678410}
   - component: {fileID: 2705097507732678413}
   - component: {fileID: -829497503463638878}
+  - component: {fileID: 5709388257133766303}
   m_Layer: 0
   m_Name: Mine
   m_TagString: Untagged
@@ -63,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 1598ff147655ecb4893e78f88baa9475, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -110,3 +111,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ec9c73b3a3f5f84b8afd7f508ba5ec2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  detectRadius: 2
+  explodeRadius: 4
+  explodeEffect: {fileID: 1828176872806910, guid: 64891a0eb28db934898420d80ca07cb3,
+    type: 3}
+  damage: 10
+  meshColor: {r: 0.24056602, g: 1, b: 0.8796538, a: 0.09803922}
+--- !u!114 &5709388257133766303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2705097507732678412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45ff8dc8e3f4561429ce4323cb38f1ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 5
+  health: 0
+  damageRatio: 1

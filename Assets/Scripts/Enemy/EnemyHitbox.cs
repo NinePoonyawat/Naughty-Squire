@@ -2,20 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyHitbox : MonoBehaviour
+public class EnemyHitbox : HitableObject
 {
     [SerializeField] private EnemyBase Me;
 
-    [SerializeField] private float maxHealth;
-    [SerializeField] private float health;
-    [SerializeField] private float damageRatio;
-
-    void Awake()
-    {
-        health = maxHealth;
-    }
-
-    public void TakeDamage(float damage)
+    public override void TakeDamage(float damage)
     {
         //Debug.Log("i take " + damage*damageRatio + " dmg.");
         
