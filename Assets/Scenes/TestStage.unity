@@ -3402,6 +3402,47 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -829497503463638878, guid: 130612278bf146849a636eaf7d5c7e46,
+        type: 3}
+      propertyPath: damage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -829497503463638878, guid: 130612278bf146849a636eaf7d5c7e46,
+        type: 3}
+      propertyPath: meshColor.a
+      value: 0.09803922
+      objectReference: {fileID: 0}
+    - target: {fileID: -829497503463638878, guid: 130612278bf146849a636eaf7d5c7e46,
+        type: 3}
+      propertyPath: meshColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -829497503463638878, guid: 130612278bf146849a636eaf7d5c7e46,
+        type: 3}
+      propertyPath: meshColor.g
+      value: 0.88550174
+      objectReference: {fileID: 0}
+    - target: {fileID: -829497503463638878, guid: 130612278bf146849a636eaf7d5c7e46,
+        type: 3}
+      propertyPath: meshColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -829497503463638878, guid: 130612278bf146849a636eaf7d5c7e46,
+        type: 3}
+      propertyPath: detectRadius
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -829497503463638878, guid: 130612278bf146849a636eaf7d5c7e46,
+        type: 3}
+      propertyPath: explodeEffect
+      value: 
+      objectReference: {fileID: 1828176872806910, guid: 64891a0eb28db934898420d80ca07cb3,
+        type: 3}
+    - target: {fileID: -829497503463638878, guid: 130612278bf146849a636eaf7d5c7e46,
+        type: 3}
+      propertyPath: explodeRadius
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 2705097507732678408, guid: 130612278bf146849a636eaf7d5c7e46,
         type: 3}
       propertyPath: m_RootOrder
@@ -3461,7 +3502,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: cceec12884c418c4bb19cef32dc2abc1, type: 2}
+      objectReference: {fileID: 2100000, guid: 1598ff147655ecb4893e78f88baa9475, type: 2}
     - target: {fileID: 2705097507732678412, guid: 130612278bf146849a636eaf7d5c7e46,
         type: 3}
       propertyPath: m_Name
