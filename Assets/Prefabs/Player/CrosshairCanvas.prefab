@@ -13,12 +13,12 @@ GameObject:
   - component: {fileID: 2589987544406277626}
   - component: {fileID: 2589987544406277624}
   m_Layer: 5
-  m_Name: Crosshair-U
+  m_Name: Crosshair-Dot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2589987544406277629
 RectTransform:
   m_ObjectHideFlags: 0
@@ -28,7 +28,7 @@ RectTransform:
   m_GameObject: {fileID: 2589987544406277628}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2589987545203073198}
@@ -36,7 +36,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 30}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2589987544406277627
@@ -67,7 +67,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ff3f25f10bca8584d9619e173283df7f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f438b3387036a3742856d6a230850100, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -91,6 +91,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultColor: {r: 0.3, g: 0.3, b: 0.3, a: 1}
   outOfAmmoColor: {r: 1, g: 0, b: 0, a: 1}
+  isRecoil: 0
 --- !u!1 &2589987544572653731
 GameObject:
   m_ObjectHideFlags: 0
@@ -104,12 +105,12 @@ GameObject:
   - component: {fileID: 2589987544572653729}
   - component: {fileID: 2589987544572654431}
   m_Layer: 5
-  m_Name: Crosshair-R
+  m_Name: Crosshair-Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2589987544572653728
 RectTransform:
   m_ObjectHideFlags: 0
@@ -119,7 +120,7 @@ RectTransform:
   m_GameObject: {fileID: 2589987544572653731}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2589987545203073198}
@@ -127,7 +128,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 30, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2589987544572654430
@@ -158,7 +159,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3d6c5fba14fdd274499358f18613c0d8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c4502626de9e07c40902cd373f976a97, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -182,6 +183,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultColor: {r: 0.3, g: 0.3, b: 0.3, a: 1}
   outOfAmmoColor: {r: 1, g: 0, b: 0, a: 1}
+  isRecoil: 1
 --- !u!1 &2589987544859495741
 GameObject:
   m_ObjectHideFlags: 0
@@ -336,10 +338,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e623799c888db5b4dafc5c91b576abca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CrosshairUp: {fileID: 2589987544406277624}
-  CrosshairDown: {fileID: 2589987545721942568}
-  CrosshairLeft: {fileID: 2589987545551122288}
-  CrosshairRight: {fileID: 2589987544572654431}
+  crosshair: {fileID: 0}
   thirdPersonShooterController: {fileID: 0}
   inventoryManager: {fileID: 0}
 --- !u!1 &2589987545551122292
@@ -355,12 +354,12 @@ GameObject:
   - component: {fileID: 2589987545551122290}
   - component: {fileID: 2589987545551122288}
   m_Layer: 5
-  m_Name: Crosshair-L
+  m_Name: Crosshair-Duplex
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2589987545551122293
 RectTransform:
   m_ObjectHideFlags: 0
@@ -370,7 +369,7 @@ RectTransform:
   m_GameObject: {fileID: 2589987545551122292}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
+  m_LocalScale: {x: 4, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2589987545203073198}
@@ -378,7 +377,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -30, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2589987545551122291
@@ -409,7 +408,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3d6c5fba14fdd274499358f18613c0d8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5501cfe88b7525f42a13c332729d50ce, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -433,6 +432,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultColor: {r: 0.3, g: 0.3, b: 0.3, a: 1}
   outOfAmmoColor: {r: 1, g: 0, b: 0, a: 1}
+  isRecoil: 1
 --- !u!1 &2589987545721942572
 GameObject:
   m_ObjectHideFlags: 0
@@ -446,12 +446,12 @@ GameObject:
   - component: {fileID: 2589987545721942570}
   - component: {fileID: 2589987545721942568}
   m_Layer: 5
-  m_Name: Crosshair-D
+  m_Name: Crosshair-Fine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2589987545721942573
 RectTransform:
   m_ObjectHideFlags: 0
@@ -461,7 +461,7 @@ RectTransform:
   m_GameObject: {fileID: 2589987545721942572}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2589987545203073198}
@@ -469,7 +469,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -30}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2589987545721942571
@@ -500,7 +500,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ff3f25f10bca8584d9619e173283df7f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0dd5d0af7b997c748a2a9cf2d4d98acf, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -524,3 +524,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultColor: {r: 0.3, g: 0.3, b: 0.3, a: 1}
   outOfAmmoColor: {r: 1, g: 0, b: 0, a: 1}
+  isRecoil: 1

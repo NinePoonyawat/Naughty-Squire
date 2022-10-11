@@ -7,7 +7,8 @@ using System;
 
 public class Crosshair : MonoBehaviour
 {
-    [SerializeField] CrosshairSection CrosshairUp,CrosshairDown,CrosshairLeft,CrosshairRight;
+    GameObject crosshairGO;
+    [SerializeField] CrosshairSection crosshair;
     [SerializeField] ThirdPersonShooterController thirdPersonShooterController;
     [SerializeField] InventoryManager inventoryManager;
     GunSystem gunSystem;
@@ -25,28 +26,46 @@ public class Crosshair : MonoBehaviour
         inventoryManager.OnInventoryClose += OpenCrosshair;
     }
 
+    private void Start()
+    {
+        crosshairGO = transform.GetChild(0).gameObject;
+        crosshair = crosshairGO.GetComponent<CrosshairSection>();
+
+        crosshairGO.SetActive(true);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            if (crosshair.name == "Crosshair-Circle") ChangeCrosshair(CrosshairType.Dot);
+            else ChangeCrosshair((CrosshairType) crosshairGO.transform.GetSiblingIndex() + 1); 
+        }
+    }
+
+    private void ChangeCrosshair(CrosshairType crosshairType)
+    {
+        crosshairGO.SetActive(false);
+
+        crosshairGO = transform.GetChild((int) crosshairType).gameObject;
+        crosshair = crosshairGO.GetComponent<CrosshairSection>();
+
+        crosshairGO.SetActive(true);
+    }
+
     public void ExpandCrosshair(float recoil)
     {
-        CrosshairUp.Recoil(recoil);
-        CrosshairDown.Recoil(recoil);
-        CrosshairLeft.Recoil(recoil);
-        CrosshairRight.Recoil(recoil);
+        crosshair.Recoil(recoil);
     }
 
     public void OutOfAmmo(object o,EventArgs e)
     {
-        CrosshairUp.OutOfAmmo();
-        CrosshairDown.OutOfAmmo();
-        CrosshairLeft.OutOfAmmo();
-        CrosshairRight.OutOfAmmo();
+        crosshair.OutOfAmmo();
     }
 
     public void Reload(object o,EventArgs e)
     {
-        CrosshairUp.Reload();
-        CrosshairDown.Reload();
-        CrosshairLeft.Reload();
-        CrosshairRight.Reload();
+        crosshair.Reload();
     }
 
     public void OpenCrosshair(object o,EventArgs e)
@@ -58,4 +77,12 @@ public class Crosshair : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
+}
+
+public enum CrosshairType
+{
+    Dot = 0,
+    Fine = 1,
+    Duplex = 2,
+    Circle = 3
 }

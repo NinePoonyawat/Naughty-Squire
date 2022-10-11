@@ -12,9 +12,11 @@ public class CrosshairSection : MonoBehaviour
     [SerializeField] private Color defaultColor = new Color(0.3f,0.3f,0.3f);
     [SerializeField] private Color outOfAmmoColor = Color.red;
 
-    private Vector3 defaultRange;
+    [SerializeField] private bool isRecoil = true;
 
-    private float speed = 1f;
+    private Vector3 defaultScale;
+
+    private float speed = 0.005f;
 
     // Start is called before the first frame update
     void Awake()
@@ -24,12 +26,14 @@ public class CrosshairSection : MonoBehaviour
 
         crosshairImage.color = defaultColor;
 
-        defaultRange = crosshairTransform.localPosition;
+        defaultScale = crosshairTransform.localScale;
     }
 
     void Update()
     {
-        crosshairTransform.localPosition = Vector3.MoveTowards(crosshairTransform.localPosition, Vector3.Lerp(crosshairTransform.localPosition,defaultRange,1f),speed);
+        if (crosshairTransform.localScale == defaultScale) return;
+        crosshairTransform.localScale -= Vector3.one * speed;
+        if (crosshairTransform.localScale.x < defaultScale.x) crosshairTransform.localScale = defaultScale;
     }
 
     public void OutOfAmmo()
@@ -44,6 +48,7 @@ public class CrosshairSection : MonoBehaviour
 
     public void Recoil(float recoil)
     {
-        crosshairTransform.localPosition = defaultRange * recoil;
+        if (!isRecoil) return;
+        crosshairTransform.localScale = defaultScale * recoil;
     }
 }
