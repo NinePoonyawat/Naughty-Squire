@@ -46,8 +46,10 @@ public abstract class EnemyBase : MonoBehaviour
     //public float spinTime = 3f;
     
     public bool alreadyAttacked = false;
-    protected float timeTilNextMovement = 4f;
-    protected float timeBetweenAttacks = 5f;
+    public bool CanAlert = true;
+    protected float timeTilAlert = 10f;
+    protected float timeTilNextMovement = 2f;
+    protected float timeBetweenAttacks = 3.5f;
 
     private StarterAssetsInputs starterAssetInputs;
 
@@ -63,68 +65,6 @@ public abstract class EnemyBase : MonoBehaviour
         AIManager.Instance.AddDictList(group,this);
         health = maxHealth;
     }
-
-    // Health logic
-    public void TakeDamage(float damage)
-    {
-        health -= damage;
-        //Debug.Log("i take " + damage + " dmg");
-        if (health <= 0)
-        {
-            Die();
-        }
-    }
-
-    void Die()
-    {
-        Destroy(gameObject);
-        AIManager.Instance.RemoveDictList(group,this);
-    }
-
-    // public void SetAlert(bool alert) {
-    //     this.alert = alert;
-    // }
-
-    public virtual void walking() {
-        CheckAttacking();
-        if (!playerIsInLOS) EnemyState = State.Idle;
-        if (EnemyState != State.Attack) {
-            Debug.Log("STOPWALK!");
-            agent.SetDestination(player.transform.position);
-        } else {
-            Attack();
-        }
-    }
-
-    void Attack() {
-        //Debug.Log("STOP Atack");
-        agent.SetDestination(transform.position);
-        transform.LookAt(player.transform);
-
-        if (!alreadyAttacked) {
-            Debug.Log("FIRE!!!++++");         
-            AttackMove();    
-            alreadyAttacked = true;
-            Invoke("ResetAttack",timeBetweenAttacks);
-        }
-    }
-    protected virtual void AttackMove() {
-        Debug.Log("-10hp");
-    }
-
-    void ResetAttack() {
-        alreadyAttacked = false;
-    }
-
-    public void CheckAttacking() {
-        if (playerIsInLOS && Vector3.Distance(transform.position,player.transform.position) <= StopDistance) {
-            EnemyState = State.Attack;
-            //Debug.Log("change attack state");
-        };
-    }
-
-
-    // Update is called once per frame
     void Update()
     {
         //Debug.Log(player.GetComponent<Collider>().tag);
@@ -136,9 +76,14 @@ public abstract class EnemyBase : MonoBehaviour
         } else EnemyState = State.Idle;
 
         //Debug.Log(playerIsInLOS);
-        if (EnemyState == State.Alert) {
-            if (playerIsInLOS) AIManager.Instance.SetGroupAlerts(group);
-            if (EnemyState == State.Alert) EnemyState = State.Walk;
+        if (EnemyState != State.Idle) {
+            if (playerIsInLOS && CanAlert) {
+                Debug.Log("Alert!");
+                AIManager.Instance.SetGroupAlerts(group);
+                CanAlert = false;
+                Invoke("ResetAlert",timeTilAlert);
+            }
+            EnemyState = State.Walk;
             walking();
             aiMemoriesPlayer = true;
         }else if (aiMemoriesPlayer) {
@@ -152,21 +97,71 @@ public abstract class EnemyBase : MonoBehaviour
             AImove();
         }
     }
-    
-    //Unity calls when the script is loaded or a value changes in the Inspector
-    void OnValidate() {
-        mesh = CreateWedgeMesh();
-    }
 
-    void OnDrawGizmos() {
-        if (mesh) {
-            Gizmos.color = meshColor;
-            Gizmos.DrawMesh(mesh,transform.position,transform.rotation);
-            Gizmos.color = Color.blue;
-            Gizmos.DrawLine(transform.position, agent.destination);
+    // Health logic
+    public void TakeDamage(float damage)
+    {
+        health -= damage;
+        //Debug.Log("i take " + damage + " dmg");
+        if (health <= 0)
+        {
+            Die();
         }
     }
+    void Die()
+    {
+        Destroy(gameObject);
+        AIManager.Instance.RemoveDictList(group,this);
+    }
 
+
+    // public void SetAlert(bool alert) {
+    //     this.alert = alert;
+    // }
+
+    public virtual void walking() {
+        CheckAttacking();
+        if (!playerIsInLOS) EnemyState = State.Idle;
+        Debug.Log("STOPWALK!");
+        agent.SetDestination(player.transform.position);   
+        if (EnemyState == State.Attack) Attack();
+    }
+
+    void Attack() {
+        //Debug.Log("STOP Atack");
+        //agent.SetDestination(transform.position);
+        transform.LookAt(player.transform);
+
+        if (!alreadyAttacked) {
+            Debug.Log("FIRE!!!++++");         
+            AttackMove();    
+            alreadyAttacked = true;
+            Invoke("ResetAttack",timeBetweenAttacks);
+        }
+    }
+    protected virtual void AttackMove() {
+        Debug.Log(this.name + ": -10hp");
+    }
+
+    void ResetAttack() {
+        alreadyAttacked = false;
+    }
+    void ResetAlert() {
+        CanAlert = true;
+    }
+
+
+
+    // Update is called once per frame
+    
+    //Unity calls when the script is loaded or a value changes in the Inspector
+
+    public void CheckAttacking() {
+        if (playerIsInLOS && Vector3.Distance(transform.position,player.transform.position) <= StopDistance) {
+            EnemyState = State.Attack;
+            Debug.Log("change attack state");
+        };
+    }
     void CheckLOS() 
     {
         Vector3 direction = player.transform.position - transform.position;
@@ -229,6 +224,18 @@ public abstract class EnemyBase : MonoBehaviour
         EnemyState = State.Idle;
         aiHeardPlayer = false;
         aiMemoriesPlayer = false;
+    }
+    void OnValidate() {
+        mesh = CreateWedgeMesh();
+    }
+
+    void OnDrawGizmos() {
+        if (mesh) {
+            Gizmos.color = meshColor;
+            Gizmos.DrawMesh(mesh,transform.position,transform.rotation);
+            Gizmos.color = Color.blue;
+            Gizmos.DrawLine(transform.position, agent.destination);
+        }
     }
 
     Mesh CreateWedgeMesh() {

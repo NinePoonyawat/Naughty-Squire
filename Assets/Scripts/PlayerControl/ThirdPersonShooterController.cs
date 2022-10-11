@@ -74,7 +74,7 @@ namespace Player
                 // thirdPersonController.SetRotateOnMove(true);
             }
 
-            if (starterAssetInputs.shoot && !gunSystem.getOutOfAmmo())
+            if (starterAssetInputs.shoot && gunSystem.isShootable())
             {
                 Vector3 aimDir = (mouseWorldPosition - spawnBulletPosition.position).normalized;
                 GameObject bullet = Instantiate(pfBulletProjectile, spawnBulletPosition.position, Quaternion.LookRotation(aimDir, Vector3.up)).gameObject;
