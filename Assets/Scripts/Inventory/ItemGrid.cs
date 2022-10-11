@@ -142,6 +142,24 @@ public class ItemGrid : MonoBehaviour
             }
         }
         /////////////////////////////
+        ///If its Weapon
+        //send data to GunSystem
+        WeaponData weaponData = inventoryItem.itemData as WeaponData;
+        if (weaponData != null)
+        {
+            placeItemEvent?.Invoke(weaponData.damage, weaponData.ammoCapacity, weaponData.ammoRemained);
+        }
+
+        ///If its Magazine -> Weapon
+        //Load Ammo instead
+        MagazineData magazineData = inventoryItem.itemData as MagazineData;
+        /*WeaponData overlapWeaponData = overlapItem.itemData as WeaponData;
+        if (magazineData != null)
+        {
+            Debug.Log("load ammo");
+        }*/
+
+        ////////////////////////////
 
         if (BoundryCheck(posX, posY, inventoryItem.WIDTH, inventoryItem.HEIGHT) == false)
         {
@@ -179,13 +197,6 @@ public class ItemGrid : MonoBehaviour
     {
         RectTransform rectTransform = inventoryItem.GetComponent<RectTransform>();
         rectTransform.SetParent(this.rectTransform);
-
-        //send data to GunSystem
-        WeaponData weaponData = inventoryItem.itemData as WeaponData;
-        if (weaponData != null)
-        {
-            placeItemEvent?.Invoke(weaponData.damage, weaponData.ammoCapacity, weaponData.ammoRemained);
-        }
 
         for (int ix = 0; ix < inventoryItem.WIDTH; ix++)
         {

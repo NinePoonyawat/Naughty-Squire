@@ -9,9 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e3ecb8364f359e409e74f7d3fd2e9a6, type: 3}
-  m_Name: 9x19Mag-Small
+  m_Script: {fileID: 11500000, guid: 7292a78aed840e242b7304e008b037ff, type: 3}
+  m_Name: 9x19Mag
   m_EditorClassIdentifier: 
   width: 1
   height: 1
+  isTwoHanded: 0
   itemIcon: {fileID: 21300000, guid: 74b694b8395b19e449209f68bfa50817, type: 3}
+  itemModel: {fileID: 0}
+  ammoCapacity: 17
+  ammoRemained: 17
+  availableWeapon:
+  - {fileID: 11400000, guid: bfdce7d34baf7f84681b4a2f46ef17d8, type: 2}
