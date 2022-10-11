@@ -1312,6 +1312,16 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1783996344}
+    - target: {fileID: 2164597278987098253, guid: 3ef9e50054fbb7d4a9c779c085a3d9e4,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2164597278987098253, guid: 3ef9e50054fbb7d4a9c779c085a3d9e4,
+        type: 3}
+      propertyPath: StopDistance
+      value: 1.3
+      objectReference: {fileID: 0}
     - target: {fileID: 2293926068390260462, guid: 3ef9e50054fbb7d4a9c779c085a3d9e4,
         type: 3}
       propertyPath: Me
@@ -1376,6 +1386,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6525027686182483835, guid: 3ef9e50054fbb7d4a9c779c085a3d9e4,
+        type: 3}
+      propertyPath: m_StoppingDistance
+      value: 1.3
       objectReference: {fileID: 0}
     - target: {fileID: 6648328955238893988, guid: 3ef9e50054fbb7d4a9c779c085a3d9e4,
         type: 3}
@@ -2295,6 +2310,16 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1783996344}
+    - target: {fileID: 6381661388182043926, guid: 01dc499e3c40d2049b6e9961e02ccaff,
+        type: 3}
+      propertyPath: StopDistance
+      value: 1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6525027686182483835, guid: 01dc499e3c40d2049b6e9961e02ccaff,
+        type: 3}
+      propertyPath: m_StoppingDistance
+      value: 1.3
+      objectReference: {fileID: 0}
     - target: {fileID: 6648328955238893988, guid: 01dc499e3c40d2049b6e9961e02ccaff,
         type: 3}
       propertyPath: m_Layer
@@ -2465,6 +2490,16 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1783996344}
+    - target: {fileID: 2164597278987098253, guid: 3ef9e50054fbb7d4a9c779c085a3d9e4,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2164597278987098253, guid: 3ef9e50054fbb7d4a9c779c085a3d9e4,
+        type: 3}
+      propertyPath: StopDistance
+      value: 1.3
+      objectReference: {fileID: 0}
     - target: {fileID: 2293926068390260462, guid: 3ef9e50054fbb7d4a9c779c085a3d9e4,
         type: 3}
       propertyPath: Me
@@ -2530,6 +2565,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 6525027686182483835, guid: 3ef9e50054fbb7d4a9c779c085a3d9e4,
+        type: 3}
+      propertyPath: m_StoppingDistance
+      value: 1.3
+      objectReference: {fileID: 0}
     - target: {fileID: 6648328955238893988, guid: 3ef9e50054fbb7d4a9c779c085a3d9e4,
         type: 3}
       propertyPath: m_Layer
@@ -2579,6 +2619,16 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1783996344}
+    - target: {fileID: 2164597278987098253, guid: 3ef9e50054fbb7d4a9c779c085a3d9e4,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2164597278987098253, guid: 3ef9e50054fbb7d4a9c779c085a3d9e4,
+        type: 3}
+      propertyPath: StopDistance
+      value: 1.3
+      objectReference: {fileID: 0}
     - target: {fileID: 2293926068390260462, guid: 3ef9e50054fbb7d4a9c779c085a3d9e4,
         type: 3}
       propertyPath: Me
@@ -2644,6 +2694,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 6525027686182483835, guid: 3ef9e50054fbb7d4a9c779c085a3d9e4,
+        type: 3}
+      propertyPath: m_StoppingDistance
+      value: 1.3
+      objectReference: {fileID: 0}
     - target: {fileID: 6648328955238893988, guid: 3ef9e50054fbb7d4a9c779c085a3d9e4,
         type: 3}
       propertyPath: m_Layer
@@ -2688,6 +2743,16 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1783996344}
+    - target: {fileID: 2164597278987098253, guid: 3ef9e50054fbb7d4a9c779c085a3d9e4,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2164597278987098253, guid: 3ef9e50054fbb7d4a9c779c085a3d9e4,
+        type: 3}
+      propertyPath: StopDistance
+      value: 1.3
+      objectReference: {fileID: 0}
     - target: {fileID: 2293926068390260462, guid: 3ef9e50054fbb7d4a9c779c085a3d9e4,
         type: 3}
       propertyPath: Me
@@ -2752,6 +2817,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6525027686182483835, guid: 3ef9e50054fbb7d4a9c779c085a3d9e4,
+        type: 3}
+      propertyPath: m_StoppingDistance
+      value: 1.3
       objectReference: {fileID: 0}
     - target: {fileID: 6648328955238893988, guid: 3ef9e50054fbb7d4a9c779c085a3d9e4,
         type: 3}
@@ -3547,6 +3617,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1783996344}
+    - target: {fileID: 2164597278987098253, guid: 3ef9e50054fbb7d4a9c779c085a3d9e4,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2164597278987098253, guid: 3ef9e50054fbb7d4a9c779c085a3d9e4,
         type: 3}
       propertyPath: maxHealth
