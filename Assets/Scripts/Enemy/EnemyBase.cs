@@ -124,7 +124,7 @@ public abstract class EnemyBase : MonoBehaviour
         if (!playerIsInLOS) EnemyState = State.Idle;
         Debug.Log("STOPWALK!");
         agent.SetDestination(player.transform.position);   
-        if (EnemyState != State.Attack) Attack();
+        if (EnemyState == State.Attack) Attack();
     }
 
     void Attack() {
