@@ -1450,10 +1450,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eecdeed28dd29f40a8cae33b5343e7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Me: {fileID: 2060755236}
   maxHealth: 30
   health: 0
   damageRatio: 0.3
+  Me: {fileID: 2060755236}
 --- !u!65 &1233676212
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2035,6 +2035,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1970931295450119848, guid: 873c4027cbdb77a488b4092ed5d41cda,
+        type: 3}
+      propertyPath: m_StoppingDistance
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 1970931295450119850, guid: 873c4027cbdb77a488b4092ed5d41cda,
         type: 3}
       propertyPath: m_Name
@@ -2055,6 +2060,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1048561418}
+    - target: {fileID: 5296068511380312396, guid: 873c4027cbdb77a488b4092ed5d41cda,
+        type: 3}
+      propertyPath: StopDistance
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 5296068511380312396, guid: 873c4027cbdb77a488b4092ed5d41cda,
         type: 3}
       propertyPath: HeightCurve.m_PreInfinity

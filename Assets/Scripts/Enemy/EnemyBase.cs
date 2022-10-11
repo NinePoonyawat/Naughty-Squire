@@ -83,7 +83,7 @@ public abstract class EnemyBase : MonoBehaviour
                 CanAlert = false;
                 Invoke("ResetAlert",timeTilAlert);
             }
-            EnemyState = State.Walk;
+            if (EnemyState == State.Alert) EnemyState = State.Walk;
             walking();
             aiMemoriesPlayer = true;
         }else if (aiMemoriesPlayer) {
@@ -127,7 +127,7 @@ public abstract class EnemyBase : MonoBehaviour
         if (EnemyState == State.Attack) Attack();
     }
 
-    void Attack() {
+    protected void Attack() {
         //Debug.Log("STOP Atack");
         //agent.SetDestination(transform.position);
         transform.LookAt(player.transform);
@@ -156,7 +156,7 @@ public abstract class EnemyBase : MonoBehaviour
     
     //Unity calls when the script is loaded or a value changes in the Inspector
 
-    public void CheckAttacking() {
+    protected virtual void CheckAttacking() {
         if (playerIsInLOS && Vector3.Distance(transform.position,player.transform.position) <= StopDistance) {
             EnemyState = State.Attack;
             Debug.Log("change attack state");

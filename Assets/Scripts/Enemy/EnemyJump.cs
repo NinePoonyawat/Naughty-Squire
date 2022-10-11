@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class EnemyJump : EnemyBase
 {
     float JumpSpeed;
+    bool Jumping;
     public float power = 10f;
     public float radius = 5f;
     public float upforce = 1f;
@@ -15,21 +16,33 @@ public class EnemyJump : EnemyBase
     void Awake()
     {
        JumpSpeed = 1 ;
-       distance = 4;
-       timeBetweenAttacks = 2f;
+       StopDistance = 4;
+       timeBetweenAttacks = 10f;
        EnemyState = State.Idle;
        //Physics.IgnoreCollision(player.GetComponent<Collider>(), GetComponent<Collider>());
     }
 
+    // public override void walking()
+    // {
+    //     CheckAttacking();
+    //     if (!playerIsInLOS) EnemyState = State.Idle;
+    //     Debug.Log("STOPWALK!");
+    //     agent.SetDestination(player.transform.position); 
+    //     StopCoroutine("Jump");
+    //     if (EnemyState == State.Attack) Attack();
+    // }
+
     public override void walking() {
         if (!playerIsInLOS) EnemyState = State.Idle;
-        if (EnemyState != State.Attack) {
+        if (!Jumping && EnemyState != State.Attack) {
             agent.SetDestination(player.transform.position);
-            CheckJumping();
+            //Debug.Log("attacking check");
+            CheckAttacking();
             StopCoroutine("Jump");
             timeBetweenAttacks -= Time.deltaTime;
         } else {
             Debug.Log("NOT yet");
+            Jumping = true;
             //Invoke("Jump",timeBetweenAttacks);
             StartCoroutine("Jump");
             // if (NavMesh.SamplePosition(player.transform.position, out NavMeshHit hit, 1f, agent.areaMask)) {
@@ -47,8 +60,13 @@ public class EnemyJump : EnemyBase
         //Debug.Log("AImove");
     }
 
-    public void CheckJumping() {
-        if (playerIsInLOS && Vector3.Distance(transform.position,player.transform.position) <= distance && timeBetweenAttacks < 0) EnemyState = State.Attack;
+    protected override void CheckAttacking() {
+        if (playerIsInLOS && Vector3.Distance(transform.position,player.transform.position) <= StopDistance) EnemyState = State.Attack;
+    }
+
+    protected override void AttackMove()
+    {
+        StartCoroutine("Jump");
     }
 
     // void OnCollisionEnter(Collision collision)
@@ -97,6 +115,7 @@ public class EnemyJump : EnemyBase
         //      Debug.Log("WARP");
         //      agent.Warp(hit.position);
         // }
+        Jumping = false;
         EnemyState = State.Idle;
         timeBetweenAttacks = 2f;
     }
