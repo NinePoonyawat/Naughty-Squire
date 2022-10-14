@@ -15,7 +15,10 @@ namespace Weapon
 
         private StarterAssetsInputs starterAssetsInputs;
 
-        private float cooldownTime = 2f;
+        private WeaponData currentData;
+        private bool isArmed = true;
+
+        private float cooldownTime = 0.5f;
         private float cooldownTimeCount = 0f;
         private bool isCooldown = false;
 
@@ -33,7 +36,8 @@ namespace Weapon
         {
             ItemGrid LhandItemGrid = GameObject.Find("UI/Grid-L-Hand").GetComponent<ItemGrid>();
             GameObject.Find("UI").SetActive(false);
-            LhandItemGrid.placeItemEvent += setNewData;
+            LhandItemGrid.weaponChangeEvent += setNewData;
+            LhandItemGrid.onPickupWeaponEvent += disarm;
         }
 
         void Update()
@@ -56,7 +60,6 @@ namespace Weapon
 
         public void Shoot()
         {
-            Debug.Log("shoot!");
             cooldownTimeCount = cooldownTime;
             isCooldown = true;
             bulletLeftInMagazine--;
@@ -78,14 +81,21 @@ namespace Weapon
             SetOutOfAmmo(false);
         }
 
-        public void setNewData(float newDamage,int maxBullet, int remainBullet)
+        public void setNewData(WeaponData weaponData)
         {
-            damage = newDamage;
-            bulletPerMagazine = maxBullet;
-            bulletLeftInMagazine = remainBullet;
-            if (remainBullet > 0) SetOutOfAmmo(false);
+            isArmed = true;
+            currentData = weaponData;
+            damage = weaponData.damage;
+            bulletPerMagazine = weaponData.ammoCapacity;
+            bulletLeftInMagazine = weaponData.ammoRemained;
+            cooldownTime = weaponData.fireDelay;
+            if (bulletLeftInMagazine > 0) SetOutOfAmmo(false);
             //Reload();
-            Debug.Log("Weapon Changed : " + bulletLeftInMagazine + "/" + bulletPerMagazine + " dmg = " + newDamage);
+        }
+
+        public void disarm()
+        {
+            isArmed = false;
         }
 
         void SetOutOfAmmo(bool newInput)
@@ -95,7 +105,7 @@ namespace Weapon
 
         public bool isShootable()
         {
-            return !isOutOfAmmo && !isCooldown;
+            return isArmed && !isOutOfAmmo && !isCooldown;
         }
 
         public float GetDamage()

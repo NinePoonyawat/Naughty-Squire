@@ -21,8 +21,11 @@ public class ItemGrid : MonoBehaviour
 
     int inventorySize;
 
-    public event PlaceItemEvent placeItemEvent;
-    public delegate void PlaceItemEvent(float damage,int bulletInMagazine, int remainInMagazine);
+    public event WeaponChangeEvent weaponChangeEvent;
+    public delegate void WeaponChangeEvent(WeaponData changeWeapon);
+
+    public event OnPickupWeaponEvent onPickupWeaponEvent;
+    public delegate void OnPickupWeaponEvent();
 
     private void Start()
     {
@@ -99,7 +102,7 @@ public class ItemGrid : MonoBehaviour
         WeaponData weaponData = toReturn.itemData as WeaponData;
         if (weaponData != null)
         {
-            placeItemEvent?.Invoke(0, 0, 0);
+            onPickupWeaponEvent.Invoke();
         }
 
         CleanGrid(toReturn);
@@ -147,7 +150,7 @@ public class ItemGrid : MonoBehaviour
         WeaponData weaponData = inventoryItem.itemData as WeaponData;
         if (weaponData != null)
         {
-            placeItemEvent?.Invoke(weaponData.damage, weaponData.ammoCapacity, weaponData.ammoRemained);
+            weaponChangeEvent?.Invoke(weaponData);
         }
 
         ///If its Magazine -> Weapon
