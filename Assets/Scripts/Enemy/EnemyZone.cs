@@ -5,12 +5,13 @@ using UnityEngine;
 public class EnemyZone : EnemyBase
 {
     // Start is called before the first frame update
+    [SerializeField] private Transform pfBulletProjectile;
     public Rigidbody projectile;
     //public bool stop = false;
     void Awake()
     {
        StopDistance = 7;
-       timeBetweenAttacks = 0.5f;
+       timeBetweenAttacks = 1f;
        //distance = Random.Range(5,10); 
     }
 
@@ -34,6 +35,8 @@ public class EnemyZone : EnemyBase
     }
 
     protected override void AttackMove() {
+        Debug.Log("SHOOOTTTT");
+        //GameObject bullet = Instantiate(pfBulletProjectile, transform.position, Quaternion.identity).gameObject;
         Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
         rb.AddForce(transform.forward *32f,ForceMode.Impulse);
         rb.AddForce(transform.up *8f,ForceMode.Impulse);
@@ -42,8 +45,8 @@ public class EnemyZone : EnemyBase
 
     
 
-    void ResetAttack() {
-        alreadyAttacked = false;
-    }
+    // void ResetAttack() {
+    //     alreadyAttacked = false;
+    // }
 
 }
