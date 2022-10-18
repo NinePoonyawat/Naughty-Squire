@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyHitbox : HitableObject
 {
     [SerializeField] private EnemyBase Me;
+    public bool isBroken;
     
 
     public override void TakeDamage(float damage)
@@ -15,9 +16,10 @@ public class EnemyHitbox : HitableObject
 
         Me.TakeDamage(damage*damageRatio);
         health -= damage*damageRatio;
-        if (health <= 0 && canDestroy)
+        if (health <= 0)
         {
-            Destroy(this.gameObject);
+            isBroken = true;
+            if (canDestroy) Destroy(this.gameObject);
         }
     }
 }

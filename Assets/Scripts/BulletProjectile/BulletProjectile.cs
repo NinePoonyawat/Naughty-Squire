@@ -11,6 +11,7 @@ public class BulletProjectile : MonoBehaviour
     private void Awake()
     {
         bulletRigidBody = GetComponent<Rigidbody>();
+        Destroy(gameObject, 3f);
     }
 
     private void Start()

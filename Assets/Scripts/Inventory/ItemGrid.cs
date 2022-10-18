@@ -118,7 +118,7 @@ public class ItemGrid : MonoBehaviour
 
         //send data to GunSystem
         WeaponData weaponData = toReturn.itemData as WeaponData;
-        if (weaponData != null)
+        if (inventoryType == InventoryType.HAND && weaponData != null)
         {
             onPickupWeaponEvent.Invoke();
         }
@@ -173,7 +173,7 @@ public class ItemGrid : MonoBehaviour
 
         ///If its Magazine -> Weapon
         //Load Ammo instead
-        MagazineData magazineData = inventoryItem.itemData as MagazineData;
+        //MagazineData magazineData = inventoryItem.itemData as MagazineData;
         /*WeaponData overlapWeaponData = overlapItem.itemData as WeaponData;
         if (magazineData != null)
         {

@@ -14,7 +14,7 @@ public class WeaponData : ItemData
     public float bulletSpeed;
     public float bulletLifetime;
     public float fireDelay;
-    public InventoryItem equippedMagazine;
+    public MagazineData equippedMagazine;
     public List<MagazineData> availableMagazine;
 
     private void Awake()
@@ -22,8 +22,21 @@ public class WeaponData : ItemData
         ammoRemained = ammoCapacity;
     }
 
+    public void EquipMagazine(MagazineData magazine)
+    {
+        equippedMagazine = magazine;
+    }
+
+    public MagazineData GetMagazine()
+    {
+        return equippedMagazine;
+    }
+
     public void Shoot()
     {
+        if(equippedMagazine == null) return;
+        if(equippedMagazine.ammoRemained <= 0) return;
+
         ammoRemained--;
     }
 }
