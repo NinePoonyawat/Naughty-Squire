@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class HitableObject : MonoBehaviour
 {
-    [SerializeField] protected float maxHealth;
+    [SerializeField] protected float maxHealth = 10;
     [SerializeField] protected float health;
-    [SerializeField] protected float damageRatio;
+    [SerializeField] protected float damageRatio = 1;
+
+    [SerializeField] protected bool canDestroy = true;
 
     void Awake()
     {
@@ -15,8 +17,11 @@ public class HitableObject : MonoBehaviour
 
     public virtual void TakeDamage(float damage)
     {
+        if (health <= 0) return;
+
         health -= damage*damageRatio;
-        if (health <= 0)
+
+        if (health <= 0 && canDestroy)
         {
             Destroy(this.gameObject);
         }

@@ -122,7 +122,7 @@ public abstract class EnemyBase : MonoBehaviour
     public virtual void walking() {
         CheckAttacking();
         if (!playerIsInLOS) EnemyState = State.Idle;
-        Debug.Log("STOPWALK!");
+        //Debug.Log("STOPWALK!");
         agent.SetDestination(player.transform.position);   
         if (EnemyState == State.Attack) Attack();
     }
@@ -159,7 +159,7 @@ public abstract class EnemyBase : MonoBehaviour
     protected virtual void CheckAttacking() {
         if (playerIsInLOS && Vector3.Distance(transform.position,player.transform.position) <= StopDistance) {
             EnemyState = State.Attack;
-            Debug.Log("change attack state");
+            //Debug.Log("change attack state");
         };
     }
     void CheckLOS() 

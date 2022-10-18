@@ -37,7 +37,7 @@ public class Trapmine : MonoBehaviour
             EnemyHitbox entityHit = nearbyObject.GetComponent<EnemyHitbox>();
             if (entityHit != null)
             {
-                Debug.Log(entityHit);
+                //Debug.Log(entityHit);
                 entityHit.TakeDamage(damage);
             }
         }

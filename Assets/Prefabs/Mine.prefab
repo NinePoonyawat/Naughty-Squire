@@ -115,7 +115,7 @@ MonoBehaviour:
   explodeRadius: 4
   explodeEffect: {fileID: 1828176872806910, guid: 64891a0eb28db934898420d80ca07cb3,
     type: 3}
-  damage: 10
+  damage: 5
   meshColor: {r: 0.24056602, g: 1, b: 0.8796538, a: 0.09803922}
 --- !u!114 &5709388257133766303
 MonoBehaviour:
@@ -132,3 +132,4 @@ MonoBehaviour:
   maxHealth: 5
   health: 0
   damageRatio: 1
+  canDestroy: 1

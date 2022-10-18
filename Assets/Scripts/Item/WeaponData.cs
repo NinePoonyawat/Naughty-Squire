@@ -12,6 +12,7 @@ public class WeaponData : ItemData
     public float bulletSpeed;
     public float bulletLifetime;
     public float fireDelay;
+    public InventoryItem equippedMagazine;
     public List<MagazineData> availableMagazine;
 
     private void Awake()

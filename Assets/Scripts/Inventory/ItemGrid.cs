@@ -78,6 +78,24 @@ public class ItemGrid : MonoBehaviour
         return null;
     }
 
+    public Vector2Int? FindItemInGrid(InventoryItem itemToFind)
+    {
+        int height = gridSizeHeight;
+        int width = gridSizeWidth;
+        for (int y = 0; y < height; y++)
+        {
+            for (int x = 0; x < width; x++)
+            {
+                if (inventoryItemSlot[x, y] == itemToFind)
+                {
+                    Debug.Log("FIND" + itemToFind);
+                }
+            }
+        }
+
+        return null;
+    }
+
     //PICK UP AN ITEM
     public InventoryItem PickUpItem(int x, int y)
     {

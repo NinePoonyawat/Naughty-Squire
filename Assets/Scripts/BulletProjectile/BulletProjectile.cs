@@ -6,6 +6,7 @@ public class BulletProjectile : MonoBehaviour
 {
     private float damage;
     private Rigidbody bulletRigidBody;
+    [SerializeField] private GameObject effectPrefab;
 
     private void Awake()
     {
@@ -29,6 +30,7 @@ public class BulletProjectile : MonoBehaviour
         {
             entityHit.TakeDamage(damage);
         }
+        Instantiate(effectPrefab, transform.position, transform.rotation);
         Destroy(gameObject);
     }
 
