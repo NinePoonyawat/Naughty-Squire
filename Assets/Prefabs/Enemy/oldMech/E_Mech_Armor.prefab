@@ -111,10 +111,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eecdeed28dd29f40a8cae33b5343e7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Me: {fileID: 2164597278987098253}
   maxHealth: 100
   health: 0
   damageRatio: 0
+  canDestroy: 1
+  Me: {fileID: 2164597278987098253}
 --- !u!1 &1639169054607473821
 GameObject:
   m_ObjectHideFlags: 0
@@ -131,6 +132,7 @@ GameObject:
   - component: {fileID: 6525027686182483835}
   - component: {fileID: 2164597278987098253}
   - component: {fileID: 819392506570205116}
+  - component: {fileID: -278257120524721976}
   m_Layer: 0
   m_Name: E_Mech_Armor
   m_TagString: Untagged
@@ -276,16 +278,19 @@ MonoBehaviour:
   EnemyState: 0
   agent: {fileID: 6525027686182483835}
   player: {fileID: 0}
-  alert: 0
   group: -1
+  nextgroup: 0
   playerIsInLOS: 0
   fieldOfViewAngle: 45
   losRadius: 15
   height: 0.1
-  meshColor: {r: 1, g: 0, b: 0, a: 0.23529412}
+  StopDistance: 0
+  aiMemoriesPlayer: 0
   memoryStartTime: 10
   noiseTravelDistance: 50
   alreadyAttacked: 0
+  CanAlert: 1
+  FleeAble: 0
 --- !u!114 &819392506570205116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -298,10 +303,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eecdeed28dd29f40a8cae33b5343e7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Me: {fileID: 2164597278987098253}
   maxHealth: 30
   health: 0
   damageRatio: 1
+  canDestroy: 1
+  Me: {fileID: 2164597278987098253}
+--- !u!114 &-278257120524721976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1639169054607473821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab739bebe66a9c344a71de19527448e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 0}
+  meshColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &1878708238862982202
 GameObject:
   m_ObjectHideFlags: 0
@@ -414,10 +434,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eecdeed28dd29f40a8cae33b5343e7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Me: {fileID: 2164597278987098253}
   maxHealth: 20
   health: 0
   damageRatio: 2
+  canDestroy: 1
+  Me: {fileID: 2164597278987098253}
 --- !u!1 &3364184079489666260
 GameObject:
   m_ObjectHideFlags: 0
@@ -529,10 +550,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eecdeed28dd29f40a8cae33b5343e7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Me: {fileID: 2164597278987098253}
   maxHealth: 100
   health: 0
   damageRatio: 0
+  canDestroy: 1
+  Me: {fileID: 2164597278987098253}
 --- !u!1 &4360170919738029492
 GameObject:
   m_ObjectHideFlags: 0

@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: 7477241202013766732}
   - component: {fileID: 6758492840493698533}
   - component: {fileID: 8241198458367973266}
+  - component: {fileID: -3322188269649671519}
   m_Layer: 0
   m_Name: Enemy 04
   m_TagString: Untagged
@@ -243,17 +244,34 @@ MonoBehaviour:
   agent: {fileID: 6758492840493698533}
   player: {fileID: 0}
   group: 0
+  nextgroup: 0
   playerIsInLOS: 0
   fieldOfViewAngle: 0
   losRadius: 0
   height: 0.1
   StopDistance: 0
-  meshColor: {r: 1, g: 0, b: 0, a: 1}
+  aiMemoriesPlayer: 0
   memoryStartTime: 10
   noiseTravelDistance: 50
   alreadyAttacked: 0
   CanAlert: 1
+  FleeAble: 0
+  pfBulletProjectile: {fileID: 0}
   projectile: {fileID: 0}
+--- !u!114 &-3322188269649671519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6758492840493698535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab739bebe66a9c344a71de19527448e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 8241198458367973266}
+  meshColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &7796174554526317134
 GameObject:
   m_ObjectHideFlags: 0
