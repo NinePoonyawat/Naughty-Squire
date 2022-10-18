@@ -32,7 +32,7 @@ public abstract class EnemyBase : MonoBehaviour
 
 
     //ai sight and memory
-    private bool  aiMemoriesPlayer = false;
+    public bool  aiMemoriesPlayer = false;
     public float memoryStartTime = 10f;
     private float increasingMemoryTime;
 
@@ -65,37 +65,60 @@ public abstract class EnemyBase : MonoBehaviour
         AIManager.Instance.AddDictList(group,this);
         health = maxHealth;
     }
+
+    void StartNextState() {
+        switch(EnemyState) {
+            case State.Idle:
+                AImove();
+                if (playerIsInLOS) EnemyState = State.Alert;
+                break;
+            case State.Alert:
+                CheckAlerting();
+                EnemyState = State.Walk;
+                break;
+            case State.Walk:
+                walking();
+                if (!playerIsInLOS) CheckWalking();
+                break;
+            case State.Attack:
+                agent.SetDestination(agent.transform.position);
+                Attack();
+                break;
+        }
+    }
     void Update()
     {
         //Debug.Log(player.GetComponent<Collider>().tag);
+        //Debug.Log(EnemyState);
         CheckLOS();
+        StartNextState();
         NoiseCheck();
         
-        if (playerIsInLOS || EnemyState == State.Alert) {
-            if (EnemyState == State.Idle) EnemyState = State.Alert;
-        } else EnemyState = State.Idle;
+        // if (playerIsInLOS || EnemyState == State.Alert) {
+        //     if (EnemyState == State.Idle) EnemyState = State.Alert;
+        // } else EnemyState = State.Idle;
 
-        //Debug.Log(playerIsInLOS);
-        if (EnemyState != State.Idle) {
-            if (playerIsInLOS && CanAlert) {
-                Debug.Log("Alert!");
-                AIManager.Instance.SetGroupAlerts(group);
-                CanAlert = false;
-                Invoke("ResetAlert",timeTilAlert);
-            }
-            if (EnemyState == State.Alert) EnemyState = State.Walk;
-            walking();
-            aiMemoriesPlayer = true;
-        }else if (aiMemoriesPlayer) {
-            StartCoroutine(AiMemory());
-            //Debug.Log("MEMO" + increasingMemoryTime);
-        }else if (aiHeardPlayer) {
-            //Debug.Log("HEard");
-            GoToNoisePosition();
-        }else {
-           // Debug.Log("lost");
-            AImove();
-        }
+        // //Debug.Log(playerIsInLOS);
+        // if (EnemyState != State.Idle) {
+        //     if (playerIsInLOS && CanAlert) {
+        //         Debug.Log("Alert!");
+        //         AIManager.Instance.SetGroupAlerts(group);
+        //         CanAlert = false;
+        //         Invoke("ResetAlert",timeTilAlert);
+        //     }
+        //     if (EnemyState == State.Alert) EnemyState = State.Walk;
+        //     walking();
+        //     aiMemoriesPlayer = true;
+        // }else if (aiMemoriesPlayer) {
+        //     StartCoroutine(AiMemory());
+        //     //Debug.Log("MEMO" + increasingMemoryTime);
+        // }else if (aiHeardPlayer) {
+        //     //Debug.Log("HEard");
+        //     GoToNoisePosition();
+        // }else {
+        //    // Debug.Log("lost");
+        //     AImove();
+        // }
     }
 
     // Health logic
@@ -120,11 +143,11 @@ public abstract class EnemyBase : MonoBehaviour
     // }
 
     public virtual void walking() {
-        CheckAttacking();
-        if (!playerIsInLOS) EnemyState = State.Idle;
+        //if (!playerIsInLOS) EnemyState = State.Idle;
         Debug.Log("STOPWALK!");
         agent.SetDestination(player.transform.position);   
-        if (EnemyState == State.Attack) Attack();
+        CheckAttacking();
+        //if (EnemyState == State.Attack) Attack();
     }
 
     protected void Attack() {
@@ -136,6 +159,7 @@ public abstract class EnemyBase : MonoBehaviour
             Debug.Log("FIRE!!!++++");         
             AttackMove();    
             alreadyAttacked = true;
+            CheckAttacking();
             Invoke("ResetAttack",timeBetweenAttacks);
         }
     }
@@ -155,12 +179,26 @@ public abstract class EnemyBase : MonoBehaviour
     // Update is called once per frame
     
     //Unity calls when the script is loaded or a value changes in the Inspector
-
+    protected virtual void CheckAlerting() {
+        aiMemoriesPlayer = true;
+        if (playerIsInLOS && CanAlert) {
+            Debug.Log("Alert!");
+            AIManager.Instance.SetGroupAlerts(group);
+            CanAlert = false;
+            Invoke("ResetAlert",timeTilAlert);
+        }
+    }
+    protected virtual void CheckWalking() {
+        if (aiMemoriesPlayer) StartCoroutine(AiMemory());
+    }
     protected virtual void CheckAttacking() {
-        if (playerIsInLOS && Vector3.Distance(transform.position,player.transform.position) <= StopDistance) {
+        if (Vector3.Distance(transform.position,player.transform.position) <= StopDistance) {
             EnemyState = State.Attack;
             Debug.Log("change attack state");
-        };
+        } else {
+            EnemyState = State.Walk;
+            Debug.Log("change walk state");
+        }
     }
     void CheckLOS() 
     {
@@ -179,6 +217,7 @@ public abstract class EnemyBase : MonoBehaviour
                 if (hit.collider.tag == "Player") 
                 {
                     //Debug.Log("Found");
+                    //EnemyState = State.Alert;
                     playerIsInLOS = true;
                 } else
                 {
@@ -221,9 +260,9 @@ public abstract class EnemyBase : MonoBehaviour
             aiMemoriesPlayer = true;
             yield  return null;
         }
-        EnemyState = State.Idle;
         aiHeardPlayer = false;
         aiMemoriesPlayer = false;
+        EnemyState = State.Idle;
     }
     void OnValidate() {
         mesh = CreateWedgeMesh();
