@@ -63,6 +63,7 @@ namespace Weapon
             cooldownTimeCount = cooldownTime;
             isCooldown = true;
             bulletLeftInMagazine--;
+            currentData.Shoot();
             if (bulletLeftInMagazine <= 0)
             {
                 OnOutOfAmmoEvent?.Invoke(this,EventArgs.Empty);
