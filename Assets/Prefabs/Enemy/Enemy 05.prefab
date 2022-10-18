@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2401726736243291905}
   - component: {fileID: 1970931295450119848}
   - component: {fileID: 5296068511380312396}
+  - component: {fileID: 155772728040247455}
   m_Layer: 0
   m_Name: Enemy 05
   m_TagString: Untagged
@@ -159,16 +160,18 @@ MonoBehaviour:
   agent: {fileID: 1970931295450119848}
   player: {fileID: 0}
   group: 0
+  nextgroup: 0
   playerIsInLOS: 0
   fieldOfViewAngle: 45
   losRadius: 7
   height: 0.1
   StopDistance: 0
-  meshColor: {r: 1, g: 0, b: 0, a: 1}
+  aiMemoriesPlayer: 0
   memoryStartTime: 10
   noiseTravelDistance: 50
   alreadyAttacked: 0
   CanAlert: 1
+  FleeAble: 0
   power: 10
   radius: 5
   upforce: 1
@@ -179,6 +182,20 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &155772728040247455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1970931295450119850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab739bebe66a9c344a71de19527448e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 5296068511380312396}
+  meshColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &3071817302088222979
 GameObject:
   m_ObjectHideFlags: 0

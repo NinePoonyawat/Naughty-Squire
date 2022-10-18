@@ -872,6 +872,7 @@ GameObject:
   - component: {fileID: 8096921408388389131}
   - component: {fileID: 8096921408388389128}
   - component: {fileID: 1391650458950777888}
+  - component: {fileID: 5132282983233689315}
   m_Layer: 0
   m_Name: MECH001
   m_TagString: Enemy
@@ -940,16 +941,18 @@ MonoBehaviour:
   agent: {fileID: 8096921408388389131}
   player: {fileID: 0}
   group: 0
+  nextgroup: 0
   playerIsInLOS: 0
   fieldOfViewAngle: 45
   losRadius: 10
   height: 2
   StopDistance: -11.97
-  meshColor: {r: 0, g: 0.06957388, b: 1, a: 0.2784314}
+  aiMemoriesPlayer: 0
   memoryStartTime: 10
   noiseTravelDistance: 50
   alreadyAttacked: 0
   CanAlert: 1
+  FleeAble: 0
 --- !u!65 &1391650458950777888
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -963,3 +966,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.2989341, z: 1.47352}
   m_Center: {x: 0, y: 1.6834848, z: 0.10113394}
+--- !u!114 &5132282983233689315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8980004821935517042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab739bebe66a9c344a71de19527448e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 8096921408388389128}
+  meshColor: {r: 1, g: 0, b: 0, a: 1}
