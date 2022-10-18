@@ -15,8 +15,8 @@ namespace Weapon
 
         private StarterAssetsInputs starterAssetsInputs;
 
-        private WeaponData currentData;
-        private bool isArmed = true;
+        private WeaponData currentData = null;
+        private bool isArmed;
 
         private float cooldownTime = 0.5f;
         private float cooldownTimeCount = 0f;
@@ -35,9 +35,16 @@ namespace Weapon
         void Start()
         {
             ItemGrid LhandItemGrid = GameObject.Find("UI/Grid-L-Hand").GetComponent<ItemGrid>();
+            ItemGrid RhandItemGrid = GameObject.Find("UI/Grid-R-Hand").GetComponent<ItemGrid>();
             GameObject.Find("UI").SetActive(false);
+
             LhandItemGrid.weaponChangeEvent += setNewData;
             LhandItemGrid.onPickupWeaponEvent += disarm;
+
+            RhandItemGrid.weaponChangeEvent += setNewData;
+            LhandItemGrid.onPickupWeaponEvent += disarm;
+
+            if (currentData == null) isArmed = false;
         }
 
         void Update()
@@ -76,8 +83,9 @@ namespace Weapon
         {
             OnReloadEvent?.Invoke(this,EventArgs.Empty);
             starterAssetsInputs.shoot = false;
-            bulletLeftInMagazine = bulletPerMagazine;
             starterAssetsInputs.reload = false;
+            if (!isArmed) return;
+            bulletLeftInMagazine = bulletPerMagazine;
             Debug.Log(bulletLeftInMagazine);
             SetOutOfAmmo(false);
         }
