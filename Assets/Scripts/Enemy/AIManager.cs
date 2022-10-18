@@ -78,6 +78,38 @@ public class AIManager : MonoBehaviour
         return new List<EnemyBase>();
     }
 
+    private Vector3 GetSpawnPoint(int group) {
+        int i = 0;
+        foreach (Vector3 key in SpawnPointList.Keys) {
+            if (group == i++) {
+                return key;
+            }
+        }
+        return new Vector3(0,0,0);
+    }
+
+    public Vector3 GetNearestSpawnPoint(int group, out int nextgroup) {
+        Vector3 spawnpoint = GetSpawnPoint(group);
+        Vector3 min_spawnpoint = spawnpoint;
+        float min_distance = float.PositiveInfinity;
+        nextgroup = group;
+        int i = 0;
+        foreach (Vector3 key in SpawnPointList.Keys) {
+            float distance = Vector3.Distance(spawnpoint,key);
+            if (group != i && distance < min_distance) {
+                nextgroup = i;
+                min_spawnpoint = key;
+                min_distance = distance;
+            }
+            i++;
+        }
+        return spawnpoint;
+    }
+
+    public int GetListSize(int group) {
+        return GetListbyIndex(group).Count;
+    }
+
     public void AddDictList(int group,EnemyBase Enemy) {
         GetListbyIndex(group).Add(Enemy);
         //Debug.Log("ADDed");

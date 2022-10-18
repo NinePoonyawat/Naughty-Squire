@@ -14,13 +14,17 @@ public abstract class EnemyBase : MonoBehaviour
         Idle,
         Alert,
         Walk,
-        Attack
+        Attack,
+        Flee,
     }
     public State EnemyState;
     public UnityEngine.AI.NavMeshAgent agent;
     public GameObject player;
     //public bool alert = false;
     public int group;
+    public int nextgroup;
+
+    private Vector3 nextPosition;
 
     //ai sight
     public bool playerIsInLOS;
@@ -50,6 +54,7 @@ public abstract class EnemyBase : MonoBehaviour
     protected float timeTilAlert = 10f;
     protected float timeTilNextMovement = 2f;
     protected float timeBetweenAttacks = 3.5f;
+
 
     private StarterAssetsInputs starterAssetInputs;
 
@@ -82,7 +87,10 @@ public abstract class EnemyBase : MonoBehaviour
                 break;
             case State.Attack:
                 agent.SetDestination(agent.transform.position);
-                Attack();
+                Attacking();
+                break;
+            case State.Flee:
+                Fleeing();
                 break;
         }
     }
@@ -91,6 +99,7 @@ public abstract class EnemyBase : MonoBehaviour
         //Debug.Log(player.GetComponent<Collider>().tag);
         //Debug.Log(EnemyState);
         CheckLOS();
+        CheckFlee();
         StartNextState();
         NoiseCheck();
         
@@ -150,7 +159,7 @@ public abstract class EnemyBase : MonoBehaviour
         //if (EnemyState == State.Attack) Attack();
     }
 
-    protected void Attack() {
+    protected void Attacking() {
         //Debug.Log("STOP Atack");
         //agent.SetDestination(transform.position);
         transform.LookAt(player.transform);
@@ -174,9 +183,26 @@ public abstract class EnemyBase : MonoBehaviour
         CanAlert = true;
     }
 
+    void ChangeGroup() {
+        nextPosition = AIManager.Instance.GetNearestSpawnPoint(group,out nextgroup);
+    }
 
+    void CheckFlee() {
+        if (AIManager.Instance.GetListSize(group) < 2) {
+            EnemyState = State.Flee;
+            ChangeGroup();
+        }
+    }
 
-    // Update is called once per frame
+    void Fleeing() {
+        agent.SetDestination(nextPosition);
+        if (Vector3.Distance(agent.transform.position, nextPosition) <= 5) {
+            AIManager.Instance.AddDictList(nextgroup,this);
+            AIManager.Instance.RemoveDictList(group,this);
+            group = nextgroup;
+            EnemyState = State.Idle;
+        }
+    }
     
     //Unity calls when the script is loaded or a value changes in the Inspector
     protected virtual void CheckAlerting() {
