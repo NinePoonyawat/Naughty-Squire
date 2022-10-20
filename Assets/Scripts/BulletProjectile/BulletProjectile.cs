@@ -16,7 +16,7 @@ public class BulletProjectile : MonoBehaviour
 
     private void Start()
     {
-        float speed = 10f;
+        float speed = 20f;
         bulletRigidBody.velocity = transform.forward * speed;
     }
 
@@ -32,6 +32,7 @@ public class BulletProjectile : MonoBehaviour
             entityHit.TakeDamage(damage);
         }
         Instantiate(effectPrefab, transform.position, transform.rotation);
+        FindObjectOfType<AudioManager>().Play("PistolBulletHit");
         Destroy(gameObject);
     }
 

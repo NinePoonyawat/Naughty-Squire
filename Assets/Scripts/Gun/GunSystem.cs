@@ -21,6 +21,8 @@ namespace Weapon
         private float cooldownTime = 0.5f;
         private float cooldownTimeCount = 0f;
         private bool isCooldown = false;
+        private string fireSoundName;
+        private string reloadSoundName;
 
         public event EventHandler OnOutOfAmmoEvent;
         public event EventHandler OnReloadEvent;
@@ -77,6 +79,8 @@ namespace Weapon
                 SetOutOfAmmo(true);
             }
             Debug.Log("bullet :" + bulletLeftInMagazine + " / " + bulletPerMagazine);
+
+            FindObjectOfType<AudioManager>().Play(fireSoundName);
         }
 
         public void Reload()
@@ -88,6 +92,8 @@ namespace Weapon
             bulletLeftInMagazine = bulletPerMagazine;
             Debug.Log(bulletLeftInMagazine);
             SetOutOfAmmo(false);
+
+            FindObjectOfType<AudioManager>().Play(reloadSoundName);
         }
 
         public void setNewData(WeaponData weaponData)
@@ -98,6 +104,8 @@ namespace Weapon
             bulletPerMagazine = weaponData.ammoCapacity;
             bulletLeftInMagazine = weaponData.ammoRemained;
             cooldownTime = weaponData.fireDelay;
+            fireSoundName = weaponData.fireSoundName;
+            reloadSoundName = weaponData.reloadSoundName;
             if (bulletLeftInMagazine > 0) SetOutOfAmmo(false);
             //Reload();
         }

@@ -24,6 +24,8 @@ MonoBehaviour:
   bulletSpeed: 0
   bulletLifetime: 0
   fireDelay: 2
+  fireSoundName: SniperFire
+  reloadSoundName: SniperReload
   equippedMagazine: {fileID: 0}
   availableMagazine:
   - {fileID: 11400000, guid: 47276e140fbee23449fa904d3f5bcd49, type: 2}

@@ -161,6 +161,8 @@ public class InventoryController : MonoBehaviour
         {
             PlaceItem(tileGridPosition);
         }
+
+        FindObjectOfType<AudioManager>().Play("InventoryInteract");
     }
 
     private Vector2Int GetTileGridPosition()
