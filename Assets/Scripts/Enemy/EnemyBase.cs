@@ -232,7 +232,7 @@ public abstract class EnemyBase : MonoBehaviour
     {
         Vector3 direction = player.transform.position - transform.position;
         Vector2 direction2d = new Vector2(player.transform.position.x,player.transform.position.z) - new Vector2(transform.position.x,transform.position.z);
-        float angle = Vector2.Angle(direction2d, transform.forward);
+        float angle = Vector2.Angle(direction2d, new Vector2(transform.forward.x,transform.forward.z));
         if (angle < fieldOfViewAngle) 
         {   
             //playerIsInLOS = true;
