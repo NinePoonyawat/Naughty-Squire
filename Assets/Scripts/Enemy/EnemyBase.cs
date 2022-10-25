@@ -155,7 +155,8 @@ public abstract class EnemyBase : MonoBehaviour
     public virtual void walking() {
         //if (!playerIsInLOS) EnemyState = State.Idle;
         Debug.Log("STOPWALK!");
-        agent.SetDestination(player.transform.position);   
+        agent.SetDestination(player.transform.position);
+        transform.LookAt(player.transform);
         CheckAttacking();
         //if (EnemyState == State.Attack) Attack();
     }
@@ -219,7 +220,7 @@ public abstract class EnemyBase : MonoBehaviour
         if (aiMemoriesPlayer) StartCoroutine(AiMemory());
     }
     protected virtual void CheckAttacking() {
-        if (Vector3.Distance(transform.position,player.transform.position) <= StopDistance) {
+        if (Vector2.Distance(new Vector2(player.transform.position.x,player.transform.position.z),new Vector2(transform.position.x,transform.position.z)) <= StopDistance) {
             EnemyState = State.Attack;
             Debug.Log("change attack state");
         } else {
@@ -230,9 +231,8 @@ public abstract class EnemyBase : MonoBehaviour
     void CheckLOS() 
     {
         Vector3 direction = player.transform.position - transform.position;
-        //Debug.Log(direction);
-        float angle = Vector3.Angle(direction, transform.forward);
-        //Debug.Log(angle);
+        Vector2 direction2d = new Vector2(player.transform.position.x,player.transform.position.z) - new Vector2(transform.position.x,transform.position.z);
+        float angle = Vector2.Angle(direction2d, transform.forward);
         if (angle < fieldOfViewAngle) 
         {   
             //playerIsInLOS = true;
