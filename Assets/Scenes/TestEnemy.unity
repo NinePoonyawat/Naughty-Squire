@@ -467,6 +467,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 286736443630780030, guid: 1019bd0e07bfcd44e97e2f78effe8bf3,
         type: 3}
+      propertyPath: m_Name
+      value: PlayerHitbox
+      objectReference: {fileID: 0}
+    - target: {fileID: 286736443630780030, guid: 1019bd0e07bfcd44e97e2f78effe8bf3,
+        type: 3}
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
@@ -598,7 +603,7 @@ PrefabInstance:
     - target: {fileID: 6535831317223767460, guid: 1019bd0e07bfcd44e97e2f78effe8bf3,
         type: 3}
       propertyPath: m_Name
-      value: PlayerWithCamera (1)
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1019bd0e07bfcd44e97e2f78effe8bf3, type: 3}

@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4520082150847349951
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4520082150847349949}
+  - component: {fileID: 4520082150847349948}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4520082150847349949
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4520082150847349951}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4520082150847349948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4520082150847349951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1731070908c056c41bebd821e0470f69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: PistolFire
+    clip: {fileID: 8300000, guid: c2543d3c793b2bc4ba97bd5ea2df4ba8, type: 3}
+    volume: 0.5
+    pitch: 1.5
+    source: {fileID: 0}
+  - name: PistolReload
+    clip: {fileID: 8300000, guid: 4be141c63cc357c4c86a10c25b99a446, type: 3}
+    volume: 0.5
+    pitch: 1
+    source: {fileID: 0}
+  - name: SniperFire
+    clip: {fileID: 8300000, guid: 993ade2fccfa4ba448c10753a482909d, type: 3}
+    volume: 0.5
+    pitch: 1
+    source: {fileID: 0}
+  - name: SniperReload
+    clip: {fileID: 8300000, guid: fe41cc27b766899419048d4702a6fcbf, type: 3}
+    volume: 0.5
+    pitch: 1
+    source: {fileID: 0}
+  - name: PistolBulletHit
+    clip: {fileID: 8300000, guid: 7851e66bde1878343a4cfd42ebde4c9c, type: 3}
+    volume: 0.08
+    pitch: 2
+    source: {fileID: 0}
+  - name: InventoryInteract
+    clip: {fileID: 8300000, guid: 88040bb0b5015744999c4a7dcd812a0c, type: 3}
+    volume: 0.5
+    pitch: 1
+    source: {fileID: 0}

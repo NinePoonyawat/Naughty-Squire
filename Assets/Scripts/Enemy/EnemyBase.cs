@@ -70,6 +70,8 @@ public abstract class EnemyBase : MonoBehaviour
         //AIManager.Instance.Units.Add(this);
         AIManager.Instance.AddDictList(group,this);
         health = maxHealth;
+
+        player = GameObject.Find("PlayerHitbox");
     }
 
     void StartNextState() {
@@ -175,6 +177,13 @@ public abstract class EnemyBase : MonoBehaviour
         }
     }
     protected virtual void AttackMove() {
+        HitableObject hit = player.GetComponent<HitableObject>();
+        if (hit != null)
+        {
+            hit.TakeDamage(10);
+            FindObjectOfType<AudioManager>().Play("PistolBulletHit");
+        }
+
         Debug.Log(this.name + ": -10hp");
     }
 
