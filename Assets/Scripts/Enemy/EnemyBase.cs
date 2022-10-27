@@ -6,7 +6,7 @@ using StarterAssets;
 
 public abstract class EnemyBase : MonoBehaviour
 {
-    // Health
+    [Header("Health")]
     [SerializeField] private float maxHealth;
     [SerializeField] private float health;
 
@@ -17,6 +17,7 @@ public abstract class EnemyBase : MonoBehaviour
         Attack,
         Flee,
     }
+    [Header("Essential")]
     public State EnemyState;
     public UnityEngine.AI.NavMeshAgent agent;
     public GameObject player;
@@ -26,7 +27,7 @@ public abstract class EnemyBase : MonoBehaviour
 
     private Vector3 nextPosition;
 
-    //ai sight
+    [Header("AI Detection")]
     public bool playerIsInLOS;
     public float fieldOfViewAngle;
     public float losRadius;
@@ -35,12 +36,12 @@ public abstract class EnemyBase : MonoBehaviour
     //public Color meshColor = Color.red;
 
 
-    //ai sight and memory
+    [Header("AI Memory")]
     public bool  aiMemoriesPlayer = false;
     public float memoryStartTime = 10f;
     private float increasingMemoryTime;
 
-    //ai hearing
+    [Header("AI Hearing")]
     Vector3 noisePosition;
     private bool aiHeardPlayer = false;
     public float noiseTravelDistance = 50f;
@@ -49,6 +50,7 @@ public abstract class EnemyBase : MonoBehaviour
     //private float isSpiningTime; // search player noise position
     //public float spinTime = 3f;
     
+    [Header("AI Bool Check")]
     public bool alreadyAttacked = false;
     public bool CanAlert = true;
     protected float timeTilAlert = 10f;
@@ -158,7 +160,11 @@ public abstract class EnemyBase : MonoBehaviour
         //if (!playerIsInLOS) EnemyState = State.Idle;
         Debug.Log("STOPWALK!");
         agent.SetDestination(player.transform.position);
-        transform.LookAt(player.transform);
+
+        Vector3 targetPosition = new Vector3( player.transform.position.x, 
+                                        transform.position.y, 
+                                        player.transform.position.z ) ;
+        transform.LookAt(targetPosition);
         CheckAttacking();
         //if (EnemyState == State.Attack) Attack();
     }
@@ -166,7 +172,10 @@ public abstract class EnemyBase : MonoBehaviour
     protected void Attacking() {
         //Debug.Log("STOP Atack");
         //agent.SetDestination(transform.position);
-        transform.LookAt(player.transform);
+        Vector3 targetPosition = new Vector3( player.transform.position.x, 
+                                        transform.position.y, 
+                                        player.transform.position.z ) ;
+        transform.LookAt(targetPosition);
 
         if (!alreadyAttacked) {
             Debug.Log("FIRE!!!++++");         

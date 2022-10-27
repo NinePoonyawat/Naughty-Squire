@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6209210684506683160}
   - component: {fileID: 6209210684506683161}
   - component: {fileID: 6209210684506683142}
+  - component: {fileID: 3960505859791662757}
   m_Layer: 0
   m_Name: BulletB
   m_TagString: Player
@@ -94,7 +95,7 @@ SphereCollider:
   m_GameObject: {fileID: 6209210684506683143}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
@@ -114,3 +115,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &3960505859791662757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6209210684506683143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ba28a0cdd228b340ae7ede5bbd9413f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
+  projectileType: 1
+  lifetime: 3
+  explodeDelay: 1
+  explodeRadius: 2.5
+  explodeForce: 300
+  explodeEffect: {fileID: 1337198075554910, guid: 25c7aa9ad705fe143a4d71c1c8deb7d4,
+    type: 3}
+  meshColor: {r: 1, g: 0.3915094, b: 0.3915094, a: 0.39215687}

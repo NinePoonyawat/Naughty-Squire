@@ -5,7 +5,9 @@ using UnityEngine;
 public class EnemyZone : EnemyBase
 {
     // Start is called before the first frame update
+    [Header("Bomb Shooter")]
     [SerializeField] private Transform pfBulletProjectile;
+    public Transform firePoint;
     public Rigidbody projectile;
     public Rigidbody projectileBomb;
     public bool IsBombBullet;
@@ -14,8 +16,8 @@ public class EnemyZone : EnemyBase
     //public bool stop = false;
     void Awake()
     {
-       StopDistance = 7;
-       timeBetweenAttacks = 1f;
+        StopDistance = 7;
+        timeBetweenAttacks = 1f;
        //distance = Random.Range(5,10); 
     }
 
@@ -42,7 +44,7 @@ public class EnemyZone : EnemyBase
         if (!IsBombBullet) {
             Debug.Log("SHOOOTTTT");
             //GameObject bullet = Instantiate(pfBulletProjectile, transform.position, Quaternion.identity).gameObject;
-            Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
+            Rigidbody rb = Instantiate(projectile, firePoint.position, Quaternion.identity).GetComponent<Rigidbody>();
             rb.AddForce(transform.forward *32f,ForceMode.Impulse);
             rb.AddForce(transform.up *8f,ForceMode.Impulse);
         } else {
