@@ -17,11 +17,14 @@ public class FPSController : MonoBehaviour
     public LayerMask GroundMask;
 
     Vector3 velocity;
+    Vector3 move;
     public bool isGrounded;
 
     public Camera playerCamera;
 
     float xRotation = 0f;
+
+    bool isWalking;
 
     void Start()
     {
@@ -54,7 +57,7 @@ public class FPSController : MonoBehaviour
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
-        Vector3 move = transform.right * x + transform.forward * z;
+        move = transform.right * x + transform.forward * z;
 
         controller.Move(move * speed * Time.deltaTime);
 
@@ -65,6 +68,8 @@ public class FPSController : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
 
         controller.Move(velocity * Time.deltaTime);
+
+        if(!isWalking) StartCoroutine(WalkSound());
     }
 
     void Update()
@@ -74,4 +79,20 @@ public class FPSController : MonoBehaviour
         PlayerMovement();
     }
 
+    IEnumerator WalkSound()
+    {
+        if (isWalking) { yield return null; }
+        while(move != Vector3.zero && isGrounded)
+        {
+            isWalking = true;
+            float wait = 0.4f;
+            FindObjectOfType<AudioManager>().PlayFootstep();
+            yield return new WaitForSeconds(wait);
+            
+        }
+        if(move == Vector3.zero || !isGrounded)
+        {
+            isWalking = false;
+        }
+    }
 }

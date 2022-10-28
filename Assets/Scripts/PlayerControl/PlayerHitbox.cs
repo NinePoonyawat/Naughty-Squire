@@ -18,9 +18,8 @@ public class PlayerHitbox : HitableObject
     public override void TakeDamage(float damage)
     {
         if (health <= 0) return;
-        hpText.text = health.ToString();
 
         health -= damage*damageRatio;
-        
+        hpText.text = health.ToString();
     }
 }
