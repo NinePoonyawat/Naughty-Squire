@@ -6,7 +6,7 @@ using TMPro;
 public class PlayerHitbox : HitableObject
 {
     [Header("UI")]
-    public TextMeshPro hpText;
+    public TMP_Text hpText;
 
     public override void Awake()
     {
