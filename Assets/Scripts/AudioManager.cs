@@ -46,7 +46,7 @@ public class AudioManager : MonoBehaviour
 
     public void PlayFootstep()
     {
-        Debug.Log(rand);
+        int rand = Random.Range(0, footsteps.Length);
         Sound s = footsteps[rand];
         s.source.Play();
     }

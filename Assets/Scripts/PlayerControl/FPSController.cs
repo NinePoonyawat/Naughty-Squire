@@ -10,7 +10,7 @@ public class FPSController : MonoBehaviour
     public float speed = 12f;
     public float gravity = -10f;
     public float jumpHeight = 3f;
-    public float mouseSensitivity = 100f;
+    public float mouseSensitivity = 60f;
 
     public Transform GroundCheck;
     public float groundDistance = 0.4f;
