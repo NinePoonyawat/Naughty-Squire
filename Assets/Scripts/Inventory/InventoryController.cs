@@ -161,8 +161,6 @@ public class InventoryController : MonoBehaviour
         {
             PlaceItem(tileGridPosition);
         }
-
-        FindObjectOfType<AudioManager>().Play("InventoryInteract");
     }
 
     private Vector2Int GetTileGridPosition()
@@ -192,6 +190,9 @@ public class InventoryController : MonoBehaviour
         bool complete = selectedItemGrid.PlaceItem(selectedItem, tileGridPosition.x, tileGridPosition.y, ref overlapItem);
         if (complete)
         {
+            //Debug.Log(selectedItem.itemData + " " + tileGridPosition);
+            FindObjectOfType<AudioManager>().Play("InventoryInteract");
+
             selectedItem = null;
             if (overlapItem != null)
             {

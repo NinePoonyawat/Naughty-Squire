@@ -20,7 +20,10 @@ public class InventoryManager : MonoBehaviour
 
     private void Awake()
     {
+        uiInventory = GameObject.Find("UIInventory");
+        inventoryController = GameObject.Find("InventoryController");
         cursorControl = GameObject.Find("Cursor").GetComponent<CursorControl>();
+        //Resume();
     }
 
     private void Update()

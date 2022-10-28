@@ -10,16 +10,17 @@ public class ItemGrid : MonoBehaviour
 
     InventoryItem[,] inventoryItemSlot;
 
+    [Header("Essential")]
     [SerializeField] RectTransform rectTransform;
-
-    enum InventoryType {LOADOUT, BAG, HAND};
-    [SerializeField] private InventoryType inventoryType;
-    public ItemGrid anotherHandGrid;
-
     [SerializeField] public int gridSizeWidth;
     [SerializeField] public int gridSizeHeight;
 
-    int inventorySize;
+    enum InventoryType {LOADOUT, BAG, HAND};
+    [SerializeField] private InventoryType inventoryType;
+
+    [Header("HAND TYPE")]
+    public ItemGrid anotherHandGrid;
+    public int inventorySize;
 
     public event WeaponChangeEvent weaponChangeEvent;
     public delegate void WeaponChangeEvent(WeaponData changeWeapon);

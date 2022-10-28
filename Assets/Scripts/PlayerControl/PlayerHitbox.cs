@@ -1,11 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerHitbox : HitableObject
 {
-    void Start()
+    [Header("UI")]
+    public TextMeshPro hpText;
+
+    public override void Awake()
     {
+        health = maxHealth;
         canDestroy = false;
+
+        hpText.text = health.ToString();
+    }
+    public override void TakeDamage(float damage)
+    {
+        if (health <= 0) return;
+        hpText.text = health.ToString();
+
+        health -= damage*damageRatio;
+        
     }
 }

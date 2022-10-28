@@ -11,7 +11,7 @@ public class HitableObject : MonoBehaviour
 
     [SerializeField] protected bool canDestroy = true;
 
-    void Awake()
+    public virtual void Awake()
     {
         health = maxHealth;
     }
