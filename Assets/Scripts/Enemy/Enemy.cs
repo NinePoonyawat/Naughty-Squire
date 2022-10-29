@@ -7,14 +7,26 @@ public class Enemy : EnemyBase
 {
     private float degreesPerSecond = 1f;
     private int DirRotate = 1;
+    Vector3 currentRandomPos;
+
+    public bool CanMove;
+
+    private void Awake() {
+        currentRandomPos = transform.position;
+    }
 
     protected override void MakeMovementDecision() {
-        DirRotate = Random.Range(-1,2);
-        timeTilNextMovement = 2f;
+        if (CanMove) {
+            timeTilNextMovement = 3f;
+            currentRandomPos = new Vector3(transform.position.x, transform.position.y, transform.position.z + Random.Range(-4,5));
+        } else {
+            DirRotate = Random.Range(-1,2);
+            timeTilNextMovement = 2f;
+        }
     }
 
     protected override void AImove() {
-        agent.velocity = Vector3.zero;
+        //agent.velocity = Vector3.zero;
         float angle = transform.rotation.eulerAngles.y;
         if (timeTilNextMovement <= 0) MakeMovementDecision();//Invoke("MakeMovementDecision",timeBetween);
         else {
@@ -27,8 +39,13 @@ public class Enemy : EnemyBase
         // if (turnright) angle += degreesPerSecond;
         // else angle -= degreesPerSecond; 
         // Debug.Log(angle);
-        angle += degreesPerSecond * DirRotate;
+        if (CanMove) {
+            Debug.Log(currentRandomPos);
+            agent.SetDestination(currentRandomPos);
+        } else {
+            angle += degreesPerSecond * DirRotate;
+            transform.rotation =  Quaternion.Euler(transform.rotation.eulerAngles.x, angle, transform.rotation.eulerAngles.z);
+        }
             
-        transform.rotation =  Quaternion.Euler(transform.rotation.eulerAngles.x, angle, transform.rotation.eulerAngles.z);
     }
 }

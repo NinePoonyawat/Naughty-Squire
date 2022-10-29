@@ -190,7 +190,7 @@ public abstract class EnemyBase : MonoBehaviour
         if (hit != null)
         {
             hit.TakeDamage(10);
-            FindObjectOfType<AudioManager>().Play("PistolBulletHit");
+            //FindObjectOfType<AudioManager>().Play("PistolBulletHit");
         }
 
         Debug.Log(this.name + ": -10hp");

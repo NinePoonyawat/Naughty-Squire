@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyZone : EnemyBase
+public class EnemyZone : Enemy
 {
     // Start is called before the first frame update
     [Header("Bomb Shooter")]
@@ -32,13 +32,13 @@ public class EnemyZone : EnemyBase
     //     }
     // }
 
-    protected override void MakeMovementDecision() {
-        Debug.Log("makemove");
-    }
+    // protected override void MakeMovementDecision() {
+    //     Debug.Log("makemove");
+    // }
 
-    protected override void AImove() {
-        //Debug.Log("AImove");
-    }
+    // protected override void AImove() {
+    //     //Debug.Log("AImove");
+    // }
 
     protected override void AttackMove() {
         if (!IsBombBullet) {

@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class EnemywithMove : EnemyBase
 {
+    [Header("Doesnt use this anymore!!")]
     Vector3 currentRandomPos;
 
     private void Awake() {
