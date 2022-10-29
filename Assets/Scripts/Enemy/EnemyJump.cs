@@ -11,7 +11,9 @@ public class EnemyJump : EnemyBase
     public float radius = 5f;
     public float upforce = 1f;
     public float distance;
-    public AnimationCurve HeightCurve;
+    public AnimationCurve HeightCurve;    
+    public float ShootAngle = 30;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -32,25 +34,25 @@ public class EnemyJump : EnemyBase
     //     if (EnemyState == State.Attack) Attack();
     // }
 
-    public override void walking() {
-        if (!playerIsInLOS) EnemyState = State.Idle;
-        if (!Jumping && EnemyState != State.Attack) {
-            agent.SetDestination(player.transform.position);
-            //Debug.Log("attacking check");
-            CheckAttacking();
-            StopCoroutine("Jump");
-            timeBetweenAttacks -= Time.deltaTime;
-        } else {
-            Debug.Log("NOT yet");
-            Jumping = true;
-            //Invoke("Jump",timeBetweenAttacks);
-            StartCoroutine("Jump");
-            // if (NavMesh.SamplePosition(player.transform.position, out NavMeshHit hit, 1f, agent.areaMask)) {
-            // Debug.Log("WARP");
-            // agent.Warp(hit.position);
-            // }
-        }
-    }
+    // public override void walking() {
+    //     if (!playerIsInLOS) EnemyState = State.Idle;
+    //     if (!Jumping && EnemyState != State.Attack) {
+    //         agent.SetDestination(player.transform.position);
+    //         //Debug.Log("attacking check");
+    //         CheckAttacking();
+    //         StopCoroutine("Jump");
+    //         timeBetweenAttacks -= Time.deltaTime;
+    //     } else {
+    //         Debug.Log("NOT yet");
+    //         Jumping = true;
+    //         //Invoke("Jump",timeBetweenAttacks);
+    //         StartCoroutine("Jump");
+    //         // if (NavMesh.SamplePosition(player.transform.position, out NavMeshHit hit, 1f, agent.areaMask)) {
+    //         // Debug.Log("WARP");
+    //         // agent.Warp(hit.position);
+    //         // }
+    //     }
+    // }
 
     protected override void MakeMovementDecision() {
         Debug.Log("makemove");
@@ -66,8 +68,14 @@ public class EnemyJump : EnemyBase
 
     protected override void AttackMove()
     {
-        StartCoroutine("Jump");
+        Debug.Log("JUMP!!");
+        Vector3 direction = (player.transform.position - transform.position).normalized;
+        float distance = Vector3.Distance(player.transform.position, transform.position);
+        float speed =  Mathf.Pow(distance*0.98f / Mathf.Sin(2*Mathf.Deg2Rad*ShootAngle),0.5f);
+        Rigidbody rb = agent.GetComponent<Rigidbody>();
+        rb.velocity = new Vector3(direction.x,direction.y + distance * Mathf.Sin(Mathf.Deg2Rad*ShootAngle),direction.z) * speed;
     }
+
 
     // void OnCollisionEnter(Collision collision)
     // {
@@ -77,6 +85,7 @@ public class EnemyJump : EnemyBase
     //     Physics.IgnoreCollision(player.GetComponent<Collider>(), GetComponent<Collider>());
     //   }
     // }
+
 
     public IEnumerator Jump() {
         Debug.Log("JUMP");

@@ -24,11 +24,17 @@ public class EnemyProjectile : MonoBehaviour
     {
         if (projectileType == ProjectileType.BOMB)
         {
-            StartCoroutine(ExplodeDelay(explodeDelay));
+
         }
         if (projectileType == ProjectileType.BULLET)
         {
             Destroy(gameObject, lifetime);
+        }
+    }
+
+    private void OnCollisionEnter(Collision other) {
+        if (other.gameObject.tag == "Ground") {
+            StartCoroutine(ExplodeDelay(explodeDelay));
         }
     }
 
