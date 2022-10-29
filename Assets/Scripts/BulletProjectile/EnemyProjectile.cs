@@ -19,6 +19,7 @@ public class EnemyProjectile : MonoBehaviour
     public GameObject explodeEffect;
     public Color meshColor;
 
+
     private void Awake()
     {
         if (projectileType == ProjectileType.BOMB)
