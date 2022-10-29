@@ -40,7 +40,7 @@ public class Enemy : EnemyBase
         // else angle -= degreesPerSecond; 
         // Debug.Log(angle);
         if (CanMove) {
-            Debug.Log(currentRandomPos);
+            //Debug.Log(currentRandomPos);
             agent.SetDestination(currentRandomPos);
         } else {
             angle += degreesPerSecond * DirRotate;
