@@ -53,26 +53,28 @@ namespace Player
             if (Physics.Raycast(ray, out RaycastHit raycastHit, 999f, aimColliderLayerMask))
             {
                 //debugTransform.position = raycastHit.point;
+                Debug.Log("update");
                 mouseWorldPosition = raycastHit.point;
             }
-            if (starterAssetInputs.aim)
-            {
-                aimVirtualCamera.gameObject.SetActive(true);
-                // thirdPersonController.SetSensitivity(aimSensitivity);
-                // thirdPersonController.SetRotateOnMove(false);
 
-                Vector3 worldAimTarget = mouseWorldPosition;
-                worldAimTarget.x = transform.position.y;
-                Vector3 aimDirection = (worldAimTarget - transform.position).normalized;
+            // if (starterAssetInputs.aim)
+            // {
+            //     aimVirtualCamera.gameObject.SetActive(true);
+            //     // thirdPersonController.SetSensitivity(aimSensitivity);
+            //     // thirdPersonController.SetRotateOnMove(false);
 
-                transform.forward = Vector3.Lerp(transform.forward, aimDirection, Time.deltaTime * 20f);
-            }
-            else
-            {
-                aimVirtualCamera.gameObject.SetActive(false);
-                // thirdPersonController.SetSensitivity(normalSensitivity);
-                // thirdPersonController.SetRotateOnMove(true);
-            }
+            //     Vector3 worldAimTarget = mouseWorldPosition;
+            //     worldAimTarget.x = transform.position.y;
+            //     Vector3 aimDirection = (worldAimTarget - transform.position).normalized;
+
+            //     transform.forward = Vector3.Lerp(transform.forward, aimDirection, Time.deltaTime * 20f);
+            // }
+            // else
+            // {
+            //     aimVirtualCamera.gameObject.SetActive(false);
+            //     // thirdPersonController.SetSensitivity(normalSensitivity);
+            //     // thirdPersonController.SetRotateOnMove(true);
+            //}
 
             if (starterAssetInputs.shoot && gunSystem.isShootable())
             {

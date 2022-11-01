@@ -36,9 +36,9 @@ namespace Weapon
 
         void Start()
         {
-            ItemGrid LhandItemGrid = GameObject.Find("UI/Grid-L-Hand").GetComponent<ItemGrid>();
-            ItemGrid RhandItemGrid = GameObject.Find("UI/Grid-R-Hand").GetComponent<ItemGrid>();
-            GameObject.Find("UI").SetActive(false);
+            ItemGrid LhandItemGrid = GameObject.Find("UI/UIInventory/Grid-L-Hand").GetComponent<ItemGrid>();
+            ItemGrid RhandItemGrid = GameObject.Find("UI/UIInventory/Grid-R-Hand").GetComponent<ItemGrid>();
+            GameObject.Find("UI/UIInventory").SetActive(false);
 
             LhandItemGrid.weaponChangeEvent += setNewData;
             LhandItemGrid.onPickupWeaponEvent += disarm;
@@ -69,6 +69,7 @@ namespace Weapon
 
         public void Shoot()
         {
+            Debug.Log("Shoot");
             cooldownTimeCount = cooldownTime;
             isCooldown = true;
             bulletLeftInMagazine--;
