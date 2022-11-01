@@ -98,18 +98,24 @@ public abstract class EnemyBase : MonoBehaviour
                 EnemyState = State.Cooldown;  StartCoroutine(Next(0f));
                 break;
             case State.Cooldown:
-                agent.ResetPath();
-                Vector3 direction = (transform.position - player.transform.position).normalized;
-                float distance = Vector3.Distance(player.transform.position, transform.position);
-                float speed =  Mathf.Pow(distance*0.98f / Mathf.Sin(2*Mathf.Deg2Rad*15),0.5f);
-                agent.velocity = new Vector3(direction.x,direction.y + distance * Mathf.Sin(Mathf.Deg2Rad*15),direction.z) * speed;
-                Invoke("ReState",timeBetweenAttacks);
-                //StartCoroutine(ReState(timeBetweenAttacks));
+                StartCoroutine(Cooldowning(2f));
                 break;
             case State.Flee:
                 Fleeing(); StartCoroutine(Next(0f));
                 break;
         }
+    }
+
+    IEnumerator Cooldowning(float delay) {
+        yield return new WaitForSeconds(delay);
+        agent.ResetPath();
+        agent.updateRotation =false;
+        Vector3 direction = (transform.position - player.transform.position).normalized;
+        float distance = Vector3.Distance(player.transform.position, transform.position);
+        float speed =  Mathf.Pow(distance*0.98f / Mathf.Sin(2*Mathf.Deg2Rad*15),0.5f);
+        agent.velocity = new Vector3(direction.x,direction.y + distance * Mathf.Sin(Mathf.Deg2Rad*15),direction.z) * speed;
+        agent.SetDestination(player.transform.position);
+        Invoke("ReState",timeBetweenAttacks);
     }
 
     IEnumerator Next(float delay) {
