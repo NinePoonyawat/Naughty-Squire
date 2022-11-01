@@ -15,6 +15,7 @@ public abstract class EnemyBase : MonoBehaviour
         Alert,
         Walk,
         Attack,
+        Cooldown,
         Flee,
     }
     [Header("Essential")]
@@ -66,6 +67,7 @@ public abstract class EnemyBase : MonoBehaviour
     
     void Start() {
         EnemyState = State.Idle;
+        StartNextState();
         //meshColor.a = 0.5f;
         //starterAssetInputs = GetComponent<StarterAssetsInputs>();
         if(group == -1) group = Random.Range(0,3);
@@ -80,32 +82,48 @@ public abstract class EnemyBase : MonoBehaviour
         switch(EnemyState) {
             case State.Idle:
                 AImove();
-                if (playerIsInLOS) EnemyState = State.Alert;
+                if (playerIsInLOS) EnemyState = State.Alert;  StartCoroutine(Next(0f));
                 break;
             case State.Alert:
                 CheckAlerting();
-                EnemyState = State.Walk;
+                EnemyState = State.Walk;  StartCoroutine(Next(0f));
                 break;
             case State.Walk:
                 walking();
-                if (!playerIsInLOS) CheckWalking();
+                if (!playerIsInLOS) CheckWalking();  StartCoroutine(Next(0f));
                 break;
             case State.Attack:
                 agent.SetDestination(agent.transform.position);
                 Attacking();
+                EnemyState = State.Cooldown;  StartCoroutine(Next(0f));
+                break;
+            case State.Cooldown:
+                agent.ResetPath();
+                Vector3 direction = (transform.position - player.transform.position).normalized;
+                float distance = Vector3.Distance(player.transform.position, transform.position);
+                float speed =  Mathf.Pow(distance*0.98f / Mathf.Sin(2*Mathf.Deg2Rad*15),0.5f);
+                agent.velocity = new Vector3(direction.x,direction.y + distance * Mathf.Sin(Mathf.Deg2Rad*15),direction.z) * speed;
+                Invoke("ReState",timeBetweenAttacks);
+                //StartCoroutine(ReState(timeBetweenAttacks));
                 break;
             case State.Flee:
-                Fleeing();
+                Fleeing(); StartCoroutine(Next(0f));
                 break;
         }
     }
+
+    IEnumerator Next(float delay) {
+        yield return new WaitForSeconds(delay);
+        StartNextState();
+    }
+    
     void Update()
     {
         //Debug.Log(player.GetComponent<Collider>().tag);
         //Debug.Log(EnemyState);
         CheckLOS();
         if (FleeAble) CheckFlee();
-        StartNextState();
+        //StartNextState();
         NoiseCheck();
         
         // if (playerIsInLOS || EnemyState == State.Alert) {
@@ -179,10 +197,11 @@ public abstract class EnemyBase : MonoBehaviour
 
         if (!alreadyAttacked) {
             Debug.Log("FIRE!!!++++");         
-            AttackMove();    
-            alreadyAttacked = true;
-            CheckAttacking();
-            Invoke("ResetAttack",timeBetweenAttacks);
+            AttackMove();
+            //agent.GetComponent<Rigidbody>().velocity =;
+            //alreadyAttacked = true;
+            //CheckAttacking();
+            //Invoke("ResetAttack",timeBetweenAttacks);
         }
     }
     protected virtual void AttackMove() {
@@ -212,6 +231,12 @@ public abstract class EnemyBase : MonoBehaviour
             EnemyState = State.Flee;
             ChangeGroup();
         }
+    }
+
+    void ReState() {
+        Debug.Log("Run");
+        CheckAttacking();
+        StartCoroutine(Next(0f));
     }
 
     void Fleeing() {
