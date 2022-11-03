@@ -53,7 +53,6 @@ namespace Player
             if (Physics.Raycast(ray, out RaycastHit raycastHit, 999f, aimColliderLayerMask))
             {
                 //debugTransform.position = raycastHit.point;
-                Debug.Log("update");
                 mouseWorldPosition = raycastHit.point;
             }
 
@@ -79,7 +78,6 @@ namespace Player
             if (starterAssetInputs.shoot && gunSystem.isShootable())
             {
                 Vector3 aimDir = (mouseWorldPosition - spawnBulletPosition.position).normalized;
-                Debug.Log(aimDir);
                 GameObject bullet = Instantiate(pfBulletProjectile, spawnBulletPosition.position, Quaternion.LookRotation(aimDir, Vector3.up)).gameObject;
                 bullet.SendMessage("SetDamage",gunSystem.GetDamage());
                 OnShoot?.Invoke(2f);
