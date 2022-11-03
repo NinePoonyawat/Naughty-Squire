@@ -69,7 +69,6 @@ namespace Weapon
 
         public void Shoot()
         {
-            Debug.Log("Shoot");
             cooldownTimeCount = cooldownTime;
             isCooldown = true;
             bulletLeftInMagazine--;
@@ -79,7 +78,6 @@ namespace Weapon
                 OnOutOfAmmoEvent?.Invoke(this,EventArgs.Empty);
                 SetOutOfAmmo(true);
             }
-            Debug.Log("bullet :" + bulletLeftInMagazine + " / " + bulletPerMagazine);
 
             FindObjectOfType<AudioManager>().Play(fireSoundName);
         }
