@@ -4558,6 +4558,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2316724056390825225, guid: a407795b5cb17234fa3cfc4708837c31,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3734626337720246927, guid: a407795b5cb17234fa3cfc4708837c31,
         type: 3}
       propertyPath: hpText
@@ -4652,6 +4657,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5761410224818206747, guid: a407795b5cb17234fa3cfc4708837c31,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9085856223103038798, guid: a407795b5cb17234fa3cfc4708837c31,
         type: 3}
