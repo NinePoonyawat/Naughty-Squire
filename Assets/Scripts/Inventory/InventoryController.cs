@@ -5,13 +5,16 @@ using UnityEngine.UI;
 
 public class InventoryController : MonoBehaviour
 {
+    [Header("Unique ItemGrid")]
     public ItemGrid selectedItemGrid;
     public ItemGrid loadoutItemGrid;
+    public ItemGrid pickupItemGrid;
 
     InventoryItem selectedItem;
     InventoryItem overlapItem;
     RectTransform rectTransform;
 
+    [Header("Custom")]
     [SerializeField] List<ItemData> items;
     [SerializeField] GameObject itemPrefab;
     [SerializeField] Transform canvasTransform;
@@ -147,6 +150,21 @@ public class InventoryController : MonoBehaviour
         if (posOnGrid == null) { return; }
 
         selectedItemGrid.PlaceItem(itemToInsert, posOnGrid.Value.x, posOnGrid.Value.y);
+    }
+
+    public bool InsertItem(ItemData selectedItem)
+    {
+        InventoryItem itemToInsert = Instantiate(itemPrefab).GetComponent<InventoryItem>();
+        
+        itemToInsert.Set(selectedItem);
+
+        Vector2Int? posOnGrid = pickupItemGrid.FindSpaceForObject(itemToInsert);
+        
+        if (posOnGrid == null) { return false; }
+
+        pickupItemGrid.PlaceItem(itemToInsert, posOnGrid.Value.x, posOnGrid.Value.y);
+
+        return true;
     }
 
     private void LeftMouseButtonPress()

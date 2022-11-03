@@ -7,6 +7,9 @@ using Random = UnityEngine.Random;
 
 public class AudioManager : MonoBehaviour
 {
+    [Range(0f, 10f)]
+    public float footStepvolumn = 1f;
+
     public Sound[] sounds;
     public Sound[] footsteps;
     
@@ -27,7 +30,7 @@ public class AudioManager : MonoBehaviour
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
 
-            s.source.volume = 0.8f;
+            s.source.volume = footStepvolumn;
             s.source.pitch = s.pitch;
             s.source.spatialBlend = 1;
         }
