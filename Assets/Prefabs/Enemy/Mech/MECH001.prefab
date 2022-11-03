@@ -101,7 +101,7 @@ MonoBehaviour:
   health: 0
   damageRatio: 2
   canDestroy: 1
-  Me: {fileID: 8096921408388389128}
+  Me: {fileID: 0}
   isBroken: 0
 --- !u!64 &7404190481926005235
 MeshCollider:
@@ -218,7 +218,7 @@ MonoBehaviour:
   health: 0
   damageRatio: 1
   canDestroy: 0
-  Me: {fileID: 8096921408388389128}
+  Me: {fileID: 0}
   isBroken: 0
 --- !u!65 &6773654107905383769
 BoxCollider:
@@ -335,7 +335,7 @@ MonoBehaviour:
   health: 0
   damageRatio: 1
   canDestroy: 0
-  Me: {fileID: 8096921408388389128}
+  Me: {fileID: 0}
   isBroken: 0
 --- !u!65 &7874758254747787058
 BoxCollider:
@@ -618,7 +618,7 @@ MonoBehaviour:
   health: 0
   damageRatio: 1
   canDestroy: 0
-  Me: {fileID: 8096921408388389128}
+  Me: {fileID: 0}
   isBroken: 0
 --- !u!65 &2291708471664932489
 BoxCollider:
@@ -734,7 +734,7 @@ MonoBehaviour:
   health: 0
   damageRatio: 1
   canDestroy: 0
-  Me: {fileID: 8096921408388389128}
+  Me: {fileID: 0}
   isBroken: 0
 --- !u!65 &7407028897015027490
 BoxCollider:
@@ -850,7 +850,7 @@ MonoBehaviour:
   health: 0
   damageRatio: 1
   canDestroy: 0
-  Me: {fileID: 8096921408388389128}
+  Me: {fileID: 0}
   isBroken: 0
 --- !u!64 &6565531092797862029
 MeshCollider:
@@ -876,10 +876,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8634722520331892680}
   - component: {fileID: 8096921408388389131}
-  - component: {fileID: 8096921408388389128}
   - component: {fileID: 1391650458950777888}
   - component: {fileID: 5132282983233689315}
   - component: {fileID: 7861731402434284181}
+  - component: {fileID: 543450653150807247}
   m_Layer: 0
   m_Name: MECH001
   m_TagString: Enemy
@@ -930,36 +930,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &8096921408388389128
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8980004821935517042}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b992b0e3dcbdc74f83653b1136c13dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 40
-  health: 0
-  EnemyState: 0
-  agent: {fileID: 8096921408388389131}
-  player: {fileID: 0}
-  group: 0
-  nextgroup: 0
-  playerIsInLOS: 0
-  fieldOfViewAngle: 45
-  losRadius: 10
-  height: 2
-  StopDistance: -11.97
-  aiMemoriesPlayer: 0
-  memoryStartTime: 10
-  noiseTravelDistance: 50
-  alreadyAttacked: 0
-  CanAlert: 1
-  FleeAble: 0
 --- !u!65 &1391650458950777888
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -985,8 +955,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab739bebe66a9c344a71de19527448e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 8096921408388389128}
-  meshColor: {r: 1, g: 0, b: 0, a: 1}
+  enemy: {fileID: 543450653150807247}
+  meshColor: {r: 1, g: 0, b: 0, a: 0.3137255}
 --- !u!54 &7861731402434284181
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -995,11 +965,42 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8980004821935517042}
   serializedVersion: 2
-  m_Mass: 0.0000001
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Mass: 100
+  m_Drag: Infinity
+  m_AngularDrag: Infinity
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &543450653150807247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8980004821935517042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 517fb0b160b94f341a81fbefb580fedc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 40
+  health: 0
+  EnemyState: 0
+  agent: {fileID: 8096921408388389131}
+  player: {fileID: 0}
+  group: 1
+  nextgroup: 0
+  playerIsInLOS: 0
+  fieldOfViewAngle: 60
+  losRadius: 25
+  height: 2
+  StopDistance: 1.5
+  aiMemoriesPlayer: 0
+  memoryStartTime: 10
+  noiseTravelDistance: 50
+  alreadyAttacked: 0
+  CanAlert: 1
+  FleeAble: 0
+  CanMove: 1
