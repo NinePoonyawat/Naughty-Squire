@@ -76,6 +76,7 @@ public abstract class EnemyBase : MonoBehaviour
         health = maxHealth;
 
         player = GameObject.Find("PlayerHitbox");
+        if (player == null) player = GameObject.Find("PlayerWithCamera/PlayerArmature");
     }
 
     void StartNextState() {
