@@ -416,7 +416,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af37a349c56c6ee40858f3a845173583, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickupRange: 5
+  inventoryController: {fileID: 0}
+  playerCamera: {fileID: 0}
+  _pointItem: {fileID: 0}
+  pickupRange: 7
 --- !u!1 &5990292133106142144
 GameObject:
   m_ObjectHideFlags: 0

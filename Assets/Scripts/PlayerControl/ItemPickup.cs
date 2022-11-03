@@ -6,6 +6,8 @@ public class ItemPickup : MonoBehaviour
 {
     [Header("Settings")]
     [SerializeField] private InventoryController inventoryController;
+    public Camera playerCamera;
+    public PickableItem _pointItem;
 
     [Header("Parameters")]
     public float pickupRange = 5f;
@@ -13,30 +15,45 @@ public class ItemPickup : MonoBehaviour
     void Start()
     {
         inventoryController = GameObject.Find("InventoryController").GetComponent<InventoryController>();
+        playerCamera = GameObject.Find("MainCamera").GetComponent<Camera>();
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        Ray ray = playerCamera.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit, pickupRange))
         {
-            RaycastHit hit;
-            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickupRange))
-            {
-                PickupItem(hit.transform.gameObject);
-            }
+            PointingItem(hit.transform.gameObject);
         }
     }
 
-    private void PickupItem (GameObject picked)
+    private void PointingItem (GameObject pointed)
     {
-        PickableItem pickItem = picked.GetComponent<PickableItem>();
+        PickableItem pointItem = pointed.GetComponent<PickableItem>();
 
-        if (pickItem != null)
+        if (_pointItem != null && _pointItem != pointItem)
         {
-            if(inventoryController.InsertItem(pickItem.itemData))
-            {
-                Destroy(picked.gameObject);
-            }
+            _pointItem.Glow(false);
+            _pointItem = pointItem;
         }
+        if (pointItem != null)
+        {
+            pointItem.Glow(true);
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                PickupItem(pointItem);
+            }
+            _pointItem = pointItem;
+        }
+    }
+
+    private void PickupItem (PickableItem pickItem)
+    {
+        if(inventoryController.InsertItem(pickItem.itemData))
+        {
+            pickItem.Picked();
+        }
+        FindObjectOfType<AudioManager>().Play("InventoryInteract");
     }
         
 }

@@ -10,5 +10,5 @@ public class ItemData : ScriptableObject
     public bool isTwoHanded = false;
 
     public Sprite itemIcon;
-    public GameObject itemModel;
+    public Mesh itemMesh;
 }
