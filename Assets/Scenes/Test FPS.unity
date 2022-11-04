@@ -4846,6 +4846,11 @@ PrefabInstance:
       propertyPath: inventoryController
       value: 
       objectReference: {fileID: 71100441}
+    - target: {fileID: 3734626339199097191, guid: a407795b5cb17234fa3cfc4708837c31,
+        type: 3}
+      propertyPath: inventoryManager
+      value: 
+      objectReference: {fileID: 828637142}
     - target: {fileID: 3734626339199097192, guid: a407795b5cb17234fa3cfc4708837c31,
         type: 3}
       propertyPath: m_Name

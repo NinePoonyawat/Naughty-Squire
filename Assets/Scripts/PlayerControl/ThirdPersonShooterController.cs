@@ -24,6 +24,7 @@ namespace Player
         private StarterAssetsInputs starterAssetInputs;
 
         private bool isUpdate = true;
+        private bool isInventoryOpen = false;
 
         public event OnShootEvent OnShoot;
         public delegate void OnShootEvent(float recoil);
@@ -45,6 +46,12 @@ namespace Player
         // Update is called once per frame
         void Update()
         {
+            if (starterAssetInputs.shoot && isInventoryOpen)
+            {
+                starterAssetInputs.shoot = false;
+                Debug.Log("enter");
+            }
+            
             if (!isUpdate) return;
 
             Vector3 mouseWorldPosition = Vector3.zero;
@@ -89,11 +96,13 @@ namespace Player
         public void Resume(object o,EventArgs e)
         {
             isUpdate = true;
+            isInventoryOpen = false;
         }
 
         public void Pause(object o,EventArgs e)
         {
             isUpdate = false;
+            isInventoryOpen = true;
         }
 
         public GunSystem GetGunSystem()

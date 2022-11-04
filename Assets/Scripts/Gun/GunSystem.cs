@@ -14,6 +14,8 @@ namespace Weapon
         private bool isOutOfAmmo;
 
         private StarterAssetsInputs starterAssetsInputs;
+        [SerializeField] private InventoryManager inventoryManager;
+        private bool isInventoryOpen = false;
 
         private WeaponData currentData = null;
         private bool isArmed;
@@ -45,6 +47,9 @@ namespace Weapon
 
             RhandItemGrid.weaponChangeEvent += setNewData;
             LhandItemGrid.onPickupWeaponEvent += disarm;
+
+            inventoryManager.OnInventoryOpen += openInventory;
+            inventoryManager.OnInventoryClose += closeInventory;
 
             if (currentData == null) isArmed = false;
         }
@@ -109,6 +114,16 @@ namespace Weapon
             //Reload();
         }
 
+        public void openInventory(object o,EventArgs e)
+        {
+            isInventoryOpen = true;
+        }
+
+        public void closeInventory(object o,EventArgs e)
+        {
+            isInventoryOpen = false;
+        }
+
         public void disarm()
         {
             isArmed = false;
@@ -121,7 +136,7 @@ namespace Weapon
 
         public bool isShootable()
         {
-            return isArmed && !isOutOfAmmo && !isCooldown;
+            return isArmed && !isOutOfAmmo && !isCooldown && !isInventoryOpen;
         }
 
         public float GetDamage()
