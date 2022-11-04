@@ -101,8 +101,12 @@ MonoBehaviour:
   health: 0
   damageRatio: 2
   canDestroy: 1
+  canDebuff: 0
   Me: {fileID: 0}
-  isBroken: 0
+  brokenParticle: {fileID: 1273915125232972, guid: a22b28b805449fa42ac5c3093b8389e1,
+    type: 3}
+  speedMultiply: 1
+  damageMultiply: 1
 --- !u!64 &7404190481926005235
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -218,8 +222,12 @@ MonoBehaviour:
   health: 0
   damageRatio: 1
   canDestroy: 0
+  canDebuff: 1
   Me: {fileID: 0}
-  isBroken: 0
+  brokenParticle: {fileID: 1273915125232972, guid: a22b28b805449fa42ac5c3093b8389e1,
+    type: 3}
+  speedMultiply: 0.5
+  damageMultiply: 1
 --- !u!65 &6773654107905383769
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -331,12 +339,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eecdeed28dd29f40a8cae33b5343e7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 20
+  maxHealth: 10
   health: 0
   damageRatio: 1
   canDestroy: 0
+  canDebuff: 1
   Me: {fileID: 0}
-  isBroken: 0
+  brokenParticle: {fileID: 1273915125232972, guid: a22b28b805449fa42ac5c3093b8389e1,
+    type: 3}
+  speedMultiply: 0.5
+  damageMultiply: 1
 --- !u!65 &7874758254747787058
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -614,12 +626,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eecdeed28dd29f40a8cae33b5343e7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 20
+  maxHealth: 10
   health: 0
   damageRatio: 1
   canDestroy: 0
+  canDebuff: 1
   Me: {fileID: 0}
-  isBroken: 0
+  brokenParticle: {fileID: 1273915125232972, guid: a22b28b805449fa42ac5c3093b8389e1,
+    type: 3}
+  speedMultiply: 0.5
+  damageMultiply: 1
 --- !u!65 &2291708471664932489
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -734,8 +750,12 @@ MonoBehaviour:
   health: 0
   damageRatio: 1
   canDestroy: 0
+  canDebuff: 1
   Me: {fileID: 0}
-  isBroken: 0
+  brokenParticle: {fileID: 1273915125232972, guid: a22b28b805449fa42ac5c3093b8389e1,
+    type: 3}
+  speedMultiply: 0.5
+  damageMultiply: 1
 --- !u!65 &7407028897015027490
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -850,8 +870,11 @@ MonoBehaviour:
   health: 0
   damageRatio: 1
   canDestroy: 0
+  canDebuff: 0
   Me: {fileID: 0}
-  isBroken: 0
+  brokenParticle: {fileID: 0}
+  speedMultiply: 1
+  damageMultiply: 1
 --- !u!64 &6565531092797862029
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -987,6 +1010,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 40
   health: 0
+  damageRatio: 1
   EnemyState: 0
   agent: {fileID: 8096921408388389131}
   player: {fileID: 0}

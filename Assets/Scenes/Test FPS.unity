@@ -139,7 +139,7 @@ PrefabInstance:
         type: 3}
       propertyPath: enemy
       value: 
-      objectReference: {fileID: 943775655}
+      objectReference: {fileID: 0}
     - target: {fileID: 8096921408388389128, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
         type: 3}
       propertyPath: group
@@ -1077,7 +1077,7 @@ PrefabInstance:
         type: 3}
       propertyPath: enemy
       value: 
-      objectReference: {fileID: 1543063796}
+      objectReference: {fileID: 0}
     - target: {fileID: 8096921408388389128, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
         type: 3}
       propertyPath: group
@@ -1714,52 +1714,9 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 909943012}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &943775653 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8980004821935517042, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
-    type: 3}
-  m_PrefabInstance: {fileID: 10030472}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &943775654 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8634722520331892680, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
-    type: 3}
-  m_PrefabInstance: {fileID: 10030472}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &943775655
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 943775653}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 517fb0b160b94f341a81fbefb580fedc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 0
-  health: 0
-  EnemyState: 0
-  agent: {fileID: 943775659}
-  player: {fileID: 0}
-  group: 2
-  nextgroup: 0
-  playerIsInLOS: 0
-  fieldOfViewAngle: 45
-  losRadius: 10
-  height: 2
-  StopDistance: 1.5
-  aiMemoriesPlayer: 0
-  memoryStartTime: 10
-  noiseTravelDistance: 50
-  alreadyAttacked: 0
-  CanAlert: 1
-  FleeAble: 0
-  CanMove: 1
---- !u!195 &943775659 stripped
-NavMeshAgent:
-  m_CorrespondingSourceObject: {fileID: 8096921408388389131, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
     type: 3}
   m_PrefabInstance: {fileID: 10030472}
   m_PrefabAsset: {fileID: 0}
@@ -2387,7 +2344,7 @@ PrefabInstance:
         type: 3}
       propertyPath: enemy
       value: 
-      objectReference: {fileID: 1244353940}
+      objectReference: {fileID: 0}
     - target: {fileID: 8096921408388389128, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
         type: 3}
       propertyPath: group
@@ -2472,49 +2429,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1244353936}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1244353938 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8980004821935517042, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
-    type: 3}
-  m_PrefabInstance: {fileID: 1244353936}
-  m_PrefabAsset: {fileID: 0}
---- !u!195 &1244353939 stripped
-NavMeshAgent:
-  m_CorrespondingSourceObject: {fileID: 8096921408388389131, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
-    type: 3}
-  m_PrefabInstance: {fileID: 1244353936}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1244353940
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1244353938}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 517fb0b160b94f341a81fbefb580fedc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 40
-  health: 0
-  EnemyState: 0
-  agent: {fileID: 1244353939}
-  player: {fileID: 0}
-  group: 1
-  nextgroup: 0
-  playerIsInLOS: 0
-  fieldOfViewAngle: 45
-  losRadius: 10
-  height: 2
-  StopDistance: 1.5
-  aiMemoriesPlayer: 0
-  memoryStartTime: 10
-  noiseTravelDistance: 50
-  alreadyAttacked: 0
-  CanAlert: 1
-  FleeAble: 0
-  CanMove: 1
 --- !u!1 &1358308372
 GameObject:
   m_ObjectHideFlags: 0
@@ -2911,49 +2825,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1515615191}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1543063791 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8980004821935517042, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
-    type: 3}
-  m_PrefabInstance: {fileID: 563129428}
-  m_PrefabAsset: {fileID: 0}
---- !u!195 &1543063793 stripped
-NavMeshAgent:
-  m_CorrespondingSourceObject: {fileID: 8096921408388389131, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
-    type: 3}
-  m_PrefabInstance: {fileID: 563129428}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1543063796
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1543063791}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 517fb0b160b94f341a81fbefb580fedc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 40
-  health: 0
-  EnemyState: 0
-  agent: {fileID: 1543063793}
-  player: {fileID: 0}
-  group: 2
-  nextgroup: 0
-  playerIsInLOS: 0
-  fieldOfViewAngle: 45
-  losRadius: 10
-  height: 2
-  StopDistance: 1.5
-  aiMemoriesPlayer: 0
-  memoryStartTime: 10
-  noiseTravelDistance: 50
-  alreadyAttacked: 0
-  CanAlert: 1
-  FleeAble: 0
-  CanMove: 1
 --- !u!1 &1584643995
 GameObject:
   m_ObjectHideFlags: 0

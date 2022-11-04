@@ -7,8 +7,9 @@ using StarterAssets;
 public abstract class EnemyBase : MonoBehaviour
 {
     [Header("Health")]
-    [SerializeField] private float maxHealth;
+    [SerializeField] private float maxHealth = 10;
     [SerializeField] private float health;
+    public float damageRatio = 1;
 
     public enum State {
         Idle,
@@ -161,9 +162,9 @@ public abstract class EnemyBase : MonoBehaviour
     }
 
     // Health logic
-    public void TakeDamage(float damage)
+    public void TakeDamage (float damage)
     {
-        health -= damage;
+        health -= damage * damageRatio;
         //Debug.Log("i take " + damage + " dmg");
         if (health <= 0)
         {
@@ -175,6 +176,15 @@ public abstract class EnemyBase : MonoBehaviour
         Destroy(gameObject);
         AIManager.Instance.RemoveDictList(group,this);
     }
+    // Debuff
+    public void Slow (float multiply)
+    {
+        GetComponent<UnityEngine.AI.NavMeshAgent>().speed *= multiply;
+    }
+    public void Fragile (float multiply)
+    {
+        damageRatio *= multiply;
+    }
 
 
     // public void SetAlert(bool alert) {
@@ -183,7 +193,7 @@ public abstract class EnemyBase : MonoBehaviour
 
     public virtual void walking() {
         //if (!playerIsInLOS) EnemyState = State.Idle;
-        Debug.Log("STOPWALK!");
+        //Debug.Log("STOPWALK!");
         agent.SetDestination(player.transform.position);
 
         Vector3 targetPosition = new Vector3( player.transform.position.x, 
@@ -275,7 +285,7 @@ public abstract class EnemyBase : MonoBehaviour
             Debug.Log("change attack state");
         } else {
             EnemyState = State.Walk;
-            Debug.Log("change walk state");
+            //Debug.Log("change walk state");
         }
     }
     void CheckLOS() 

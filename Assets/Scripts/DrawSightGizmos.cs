@@ -11,12 +11,12 @@ public class DrawSightGizmos : MonoBehaviour
 
     void Start()
     {
+        enemy = GetComponent<EnemyBase>();
         meshColor.a = 0.5f;
     }
 
-    // Update is called once per frame
     void OnValidate() {
-        mesh = CreateWedgeMesh();
+        if(enemy != null) mesh = CreateWedgeMesh();
     }
 
     void OnDrawGizmos() {

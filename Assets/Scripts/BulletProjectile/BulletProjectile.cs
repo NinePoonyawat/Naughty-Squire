@@ -24,8 +24,7 @@ public class BulletProjectile : MonoBehaviour
     {
         HitableObject entityHit = hit.GetComponent<HitableObject>();
         
-        //Debug.Log("this bullet damage is " + damage);
-        //Debug.Log(entityHit);
+        //Debug.Log("this bullet deal " + damage + " to " + entityHit);
 
         if (entityHit != null)
         {
