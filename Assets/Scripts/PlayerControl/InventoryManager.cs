@@ -53,9 +53,4 @@ public class InventoryManager : MonoBehaviour
         inventoryController.SetActive(true);
         isInventoryShowed = true;
     }
-
-    public bool IsInventoryShowed()
-    {
-        return isInventoryShowed;
-    }
 }

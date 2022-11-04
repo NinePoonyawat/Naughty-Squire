@@ -29,7 +29,7 @@ public class FPSController : MonoBehaviour
     void Start()
     {
         playerCamera = GameObject.Find("MainCamera").GetComponent<Camera>();
-        //controller = GameObject.GetComponent(typeof(CharacterController));
+        controller = GetComponent<CharacterController>();
         Cursor.lockState = CursorLockMode.Locked;
     }
 

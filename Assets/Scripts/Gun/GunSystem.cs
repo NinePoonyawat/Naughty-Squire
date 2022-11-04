@@ -32,6 +32,7 @@ namespace Weapon
         void Awake()
         {
             starterAssetsInputs = GetComponent<StarterAssetsInputs>();
+            inventoryManager = GetComponent<InventoryManager>();
             bulletLeftInMagazine = bulletPerMagazine;
             isOutOfAmmo = (bulletLeftInMagazine == 0)? true:false;
         }
@@ -40,7 +41,7 @@ namespace Weapon
         {
             ItemGrid LhandItemGrid = GameObject.Find("UI/UIInventory/Grid-L-Hand").GetComponent<ItemGrid>();
             ItemGrid RhandItemGrid = GameObject.Find("UI/UIInventory/Grid-R-Hand").GetComponent<ItemGrid>();
-            GameObject.Find("UI/UIInventory").SetActive(false);
+            //GameObject.Find("UI/UIInventory").SetActive(false);
 
             LhandItemGrid.weaponChangeEvent += setNewData;
             LhandItemGrid.onPickupWeaponEvent += disarm;

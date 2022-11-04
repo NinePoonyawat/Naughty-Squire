@@ -15,6 +15,7 @@ public class Crosshair : MonoBehaviour
 
     private void Awake()
     {
+        inventoryManager = GameObject.Find("Player").GetComponent<InventoryManager>();
         gunSystem = thirdPersonShooterController.GetGunSystem();
 
         thirdPersonShooterController.OnShoot += ExpandCrosshair;

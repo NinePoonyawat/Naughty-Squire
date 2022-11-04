@@ -211,7 +211,6 @@ GameObject:
   - component: {fileID: 3734626339199097191}
   - component: {fileID: 3734626339199097190}
   - component: {fileID: 3734626339199097185}
-  - component: {fileID: 3734626339199097184}
   - component: {fileID: 5684615017797870358}
   m_Layer: 0
   m_Name: Player
@@ -343,6 +342,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPerMagazine: 0
   damage: 0
+  inventoryManager: {fileID: 0}
 --- !u!114 &3734626339199097190
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -389,21 +389,6 @@ MonoBehaviour:
     type: 3}
   spawnBulletPosition: {fileID: 3734626338079289337}
   inventoryManager: {fileID: 3734626339199097188}
---- !u!114 &3734626339199097184
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3734626339199097192}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eebab0ba713efb44ba4dceac3d936670, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  uiInventory: {fileID: 0}
-  inventoryController: {fileID: 0}
-  cursorControl: {fileID: 0}
 --- !u!114 &5684615017797870358
 MonoBehaviour:
   m_ObjectHideFlags: 0

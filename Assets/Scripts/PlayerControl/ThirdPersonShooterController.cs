@@ -49,7 +49,6 @@ namespace Player
             if (starterAssetInputs.shoot && isInventoryOpen)
             {
                 starterAssetInputs.shoot = false;
-                Debug.Log("enter");
             }
             
             if (!isUpdate) return;

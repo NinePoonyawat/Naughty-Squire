@@ -29,7 +29,7 @@ public class EnemyHitbox : HitableObject
         health -= damage*damageRatio;
         if (health <= 0)
         {
-            Instantiate(brokenParticle, transform.position, transform.rotation, transform);
+            if (brokenParticle != null) Instantiate(brokenParticle, transform.position, transform.rotation, transform);
 
             if (canDebuff)
             {
