@@ -4,6 +4,7 @@ using UnityEngine;
 using StarterAssets;
 using System;
 
+[DisallowMultipleComponent]
 public class InventoryManager : MonoBehaviour
 {
     private bool isInventoryShowed = false;
