@@ -5,10 +5,13 @@ using UnityEngine;
 [CreateAssetMenu]
 public class ItemData : ScriptableObject
 {
+    [Header("Settings")]
     public int width = 1;
     public int height = 1;
     public bool isTwoHanded = false;
-
     public Sprite itemIcon;
     public Mesh itemMesh;
+
+    [Header("Data")]
+    public int value = 0;
 }

@@ -955,7 +955,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rectTransform: {fileID: 4863173326114198756}
   gridSizeWidth: 5
-  gridSizeHeight: 3
+  gridSizeHeight: 4
   inventoryType: 1
   anotherHandGrid: {fileID: 0}
   inventorySize: 0

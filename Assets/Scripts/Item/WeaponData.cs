@@ -6,7 +6,7 @@ using StarterAssets;
 [CreateAssetMenu]
 public class WeaponData : ItemData
 {
-
+    [Header("Weapon Data")]
     [SerializeField] private GameObject gunGO;
     public int damage;
     public int ammoCapacity;
