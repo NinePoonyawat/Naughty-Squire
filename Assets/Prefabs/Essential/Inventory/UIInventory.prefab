@@ -95,7 +95,7 @@ MonoBehaviour:
   gridSizeHeight: 2
   inventoryType: 1
   anotherHandGrid: {fileID: 0}
-  inventorySize: 0
+  remainSize: 2
 --- !u!114 &145824603385645564
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -480,7 +480,7 @@ MonoBehaviour:
   gridSizeHeight: 1
   inventoryType: 1
   anotherHandGrid: {fileID: 0}
-  inventorySize: 0
+  remainSize: 1
 --- !u!114 &2716310342338123896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -636,7 +636,7 @@ MonoBehaviour:
   gridSizeHeight: 1
   inventoryType: 1
   anotherHandGrid: {fileID: 0}
-  inventorySize: 0
+  remainSize: 1
 --- !u!114 &4143538654642650138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -746,7 +746,7 @@ MonoBehaviour:
   gridSizeHeight: 5
   inventoryType: 2
   anotherHandGrid: {fileID: 2188477631822504458}
-  inventorySize: 0
+  remainSize: 0
 --- !u!114 &2337331906954142070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -958,7 +958,7 @@ MonoBehaviour:
   gridSizeHeight: 4
   inventoryType: 1
   anotherHandGrid: {fileID: 0}
-  inventorySize: 0
+  remainSize: 20
 --- !u!114 &4863173326114198752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1068,7 +1068,7 @@ MonoBehaviour:
   gridSizeHeight: 5
   inventoryType: 2
   anotherHandGrid: {fileID: 7876952434288230958}
-  inventorySize: 0
+  remainSize: 0
 --- !u!114 &2428371680029514398
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1178,7 +1178,7 @@ MonoBehaviour:
   gridSizeHeight: 1
   inventoryType: 1
   anotherHandGrid: {fileID: 0}
-  inventorySize: 0
+  remainSize: 1
 --- !u!114 &5075018861905761682
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1288,7 +1288,7 @@ MonoBehaviour:
   gridSizeHeight: 1
   inventoryType: 1
   anotherHandGrid: {fileID: 0}
-  inventorySize: 0
+  remainSize: 1
 --- !u!114 &5215821835401964948
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1436,7 +1436,7 @@ MonoBehaviour:
   gridSizeHeight: 2
   inventoryType: 1
   anotherHandGrid: {fileID: 0}
-  inventorySize: 0
+  remainSize: 2
 --- !u!114 &7012555970245249409
 MonoBehaviour:
   m_ObjectHideFlags: 0

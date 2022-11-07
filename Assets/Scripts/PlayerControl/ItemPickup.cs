@@ -49,7 +49,7 @@ public class ItemPickup : MonoBehaviour
 
     private void PickupItem (PickableItem pickItem)
     {
-        if(inventoryController.InsertItem(pickItem.itemData))
+        if(inventoryController.FillItem(pickItem.itemData))
         {
             pickItem.Picked();
         }

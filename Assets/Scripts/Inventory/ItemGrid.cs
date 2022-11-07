@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class ItemGrid : MonoBehaviour
 {
@@ -20,7 +21,7 @@ public class ItemGrid : MonoBehaviour
 
     [Header("HAND TYPE")]
     public ItemGrid anotherHandGrid;
-    public int inventorySize;
+    public int remainSize = 1000;
 
     public event WeaponChangeEvent weaponChangeEvent;
     public delegate void WeaponChangeEvent(WeaponData changeWeapon);
@@ -32,6 +33,22 @@ public class ItemGrid : MonoBehaviour
     {
         rectTransform = GetComponent<RectTransform>();
         Init(gridSizeWidth, gridSizeHeight);
+
+        if (inventoryType == InventoryType.HAND) remainSize = 1;
+    }
+
+    private void Update()
+    {
+        if (remainSize == 0)
+        {
+            Image image = GetComponent<Image>();
+            image.color = new Color(image.color.r, image.color.g, image.color.b, 0.3f);
+        }
+        else
+        {
+            Image image = GetComponent<Image>();
+            image.color = new Color(image.color.r, image.color.g, image.color.b, 1f);
+        }
     }
 
     private void Init(int width, int height)
@@ -63,6 +80,8 @@ public class ItemGrid : MonoBehaviour
 
     public Vector2Int? FindSpaceForObject(InventoryItem itemToInsert)
     {
+        if (remainSize == 0) return null;
+
         int height = gridSizeHeight - itemToInsert.itemData.height + 1;
         int width = gridSizeWidth - itemToInsert.itemData.width + 1;
         for (int y = 0; y < height; y++)
@@ -107,7 +126,7 @@ public class ItemGrid : MonoBehaviour
         //check if this is HAND and item is twohanded
         if (inventoryType == InventoryType.HAND && toReturn.itemData.isTwoHanded == true)
         {
-            anotherHandGrid.inventorySize = 0;
+            anotherHandGrid.remainSize = 0;
         }
 
         //check if this is LOADOUT, return copy of item, so grid's item wont lost
@@ -126,7 +145,7 @@ public class ItemGrid : MonoBehaviour
 
         CleanGrid(toReturn);
 
-        inventorySize -= 1;
+        remainSize += 1;
 
         return toReturn;
     }
@@ -150,17 +169,17 @@ public class ItemGrid : MonoBehaviour
         // check if this is HAND
         if (inventoryType == InventoryType.HAND)
         {
-            if (inventorySize != 0)
+            if (remainSize == 0)
             {
                 return false;
             }
-            if (anotherHandGrid.inventorySize != 0 && inventoryItem.itemData.isTwoHanded == true)
+            if (anotherHandGrid.remainSize == 0 && inventoryItem.itemData.isTwoHanded == true)
             {
                 return false;
             }
-            if (inventorySize == 0 && inventoryItem.itemData.isTwoHanded == true)
+            if (remainSize > 0 && inventoryItem.itemData.isTwoHanded == true)
             {
-                anotherHandGrid.inventorySize = 1;
+                anotherHandGrid.remainSize = 1;
             }
         }
         /////////////////////////////
@@ -210,8 +229,6 @@ public class ItemGrid : MonoBehaviour
 
         PlaceItem(inventoryItem, posX, posY);
 
-        inventorySize += 1;
-
         return true;
     }
 
@@ -234,6 +251,8 @@ public class ItemGrid : MonoBehaviour
         Vector2 position = CalculatePositionOnGrid(inventoryItem, posX, posY);
 
         rectTransform.localPosition = position;
+
+        remainSize -= 1;
     }
 
     public Vector2 CalculatePositionOnGrid(InventoryItem inventoryItem, int posX, int posY)

@@ -13,5 +13,6 @@ public class ItemData : ScriptableObject
     public Mesh itemMesh;
 
     [Header("Data")]
+    public int weight = 1;
     public int value = 0;
 }

@@ -8,7 +8,7 @@ public class InventoryController : MonoBehaviour
     [Header("Unique ItemGrid")]
     public ItemGrid selectedItemGrid;
     public ItemGrid loadoutItemGrid;
-    public ItemGrid pickupItemGrid;
+    public ItemGrid[] itemGrids;
 
     InventoryItem selectedItem;
     InventoryItem overlapItem;
@@ -23,6 +23,7 @@ public class InventoryController : MonoBehaviour
 
     private void Awake() {
         inventoryHighlight = GetComponent<InventoryHighlight>();
+        itemGrids = FindObjectsOfType<ItemGrid>();
     }
 
     private void Update()
@@ -152,19 +153,32 @@ public class InventoryController : MonoBehaviour
         selectedItemGrid.PlaceItem(itemToInsert, posOnGrid.Value.x, posOnGrid.Value.y);
     }
 
-    public bool InsertItem(ItemData selectedItem)
+    public bool InsertItem(ItemData selectedItem, ItemGrid selectedItemGrid)
     {
         InventoryItem itemToInsert = Instantiate(itemPrefab).GetComponent<InventoryItem>();
         
         itemToInsert.Set(selectedItem);
 
-        Vector2Int? posOnGrid = pickupItemGrid.FindSpaceForObject(itemToInsert);
+        Vector2Int? posOnGrid = selectedItemGrid.FindSpaceForObject(itemToInsert);
+
+        if (posOnGrid == null)
+        {
+            Destroy(itemToInsert.gameObject);
+            return false;
+        }
+
+        selectedItemGrid.PlaceItem(itemToInsert, posOnGrid.Value.x, posOnGrid.Value.y);
         
-        if (posOnGrid == null) { return false; }
-
-        pickupItemGrid.PlaceItem(itemToInsert, posOnGrid.Value.x, posOnGrid.Value.y);
-
         return true;
+    }
+
+    public bool FillItem(ItemData selectedItem)
+    {
+        foreach (ItemGrid itemGrid in itemGrids)
+        {
+            if (InsertItem(selectedItem, itemGrid)) return true;
+        }
+        return false;
     }
 
     private void LeftMouseButtonPress()
