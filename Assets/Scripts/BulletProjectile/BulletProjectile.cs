@@ -31,7 +31,8 @@ public class BulletProjectile : MonoBehaviour
             entityHit.TakeDamage(damage);
         }
         Instantiate(effectPrefab, transform.position, transform.rotation);
-        FindObjectOfType<AudioManager>().Play("PistolBulletHit");
+        //FindObjectOfType<AudioManager>().Play("PistolBulletHit");
+        GetComponent<AudioSource>().Play();
         Destroy(gameObject);
     }
 
