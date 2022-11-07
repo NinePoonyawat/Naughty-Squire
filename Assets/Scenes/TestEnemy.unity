@@ -636,6 +636,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6bef4551c8ab9a4eab0ab9cd27d6177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &163938421 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2589987544572654431, guid: d78e24c4b8f0a1c4a862fb83b1dfffb0,
+    type: 3}
+  m_PrefabInstance: {fileID: 716805625}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5441a54487a42d4090655d15884dff7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!195 &225816847 stripped
 NavMeshAgent:
   m_CorrespondingSourceObject: {fileID: 5816365527541991406, guid: 30c25d410a894404cbe607830852eeb0,
@@ -907,6 +919,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 30
   health: 0
+  damageRatio: 1
   EnemyState: 0
   agent: {fileID: 1950960034}
   player: {fileID: 1048561418}
@@ -920,7 +933,6 @@ MonoBehaviour:
   aiMemoriesPlayer: 0
   memoryStartTime: 10
   noiseTravelDistance: 50
-  alreadyAttacked: 0
   CanAlert: 1
   FleeAble: 0
 --- !u!1001 &689459535
@@ -1136,6 +1148,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2589987545203073199, guid: d78e24c4b8f0a1c4a862fb83b1dfffb0,
         type: 3}
+      propertyPath: crosshair
+      value: 
+      objectReference: {fileID: 163938421}
+    - target: {fileID: 2589987545203073199, guid: d78e24c4b8f0a1c4a862fb83b1dfffb0,
+        type: 3}
       propertyPath: inventoryManager
       value: 
       objectReference: {fileID: 139982878}
@@ -1144,6 +1161,11 @@ PrefabInstance:
       propertyPath: thirdPersonShooterController
       value: 
       objectReference: {fileID: 139982879}
+    - target: {fileID: 2589987545203073201, guid: d78e24c4b8f0a1c4a862fb83b1dfffb0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d78e24c4b8f0a1c4a862fb83b1dfffb0, type: 3}
 --- !u!1 &752921727 stripped
@@ -1648,8 +1670,11 @@ MonoBehaviour:
   health: 0
   damageRatio: 0.3
   canDestroy: 1
+  canDebuff: 0
   Me: {fileID: 2060755236}
-  isBroken: 0
+  brokenParticle: {fileID: 0}
+  speedMultiply: 1
+  damageMultiply: 1
 --- !u!65 &1233676212
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1848,6 +1873,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 1233676210, guid: 0cb17d06b73c1454eb2cd813c707491c, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1273748677, guid: 0cb17d06b73c1454eb2cd813c707491c, type: 3}
       propertyPath: Me
       value: 
@@ -1999,6 +2028,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7462268529534942323, guid: 0cb17d06b73c1454eb2cd813c707491c,
         type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7462268529534942323, guid: 0cb17d06b73c1454eb2cd813c707491c,
+        type: 3}
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
@@ -2049,7 +2083,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1950960033
 Transform:
   m_ObjectHideFlags: 0
@@ -2362,6 +2396,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1970931295450119850, guid: acca2cc9088504142be5c46be3d6bb57,
         type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970931295450119850, guid: acca2cc9088504142be5c46be3d6bb57,
+        type: 3}
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
@@ -2453,6 +2492,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970931295450119850, guid: 873c4027cbdb77a488b4092ed5d41cda,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1970931295450119850, guid: 873c4027cbdb77a488b4092ed5d41cda,
         type: 3}
@@ -2625,6 +2669,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7907006875115078539, guid: ed9acb0ae9c6e4e409bb3597deade2f3,
         type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7907006875115078539, guid: ed9acb0ae9c6e4e409bb3597deade2f3,
+        type: 3}
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
@@ -2652,6 +2701,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2183461719631429144, guid: 691444c63b877a640a3be888f0a3dbab,
+        type: 3}
+      propertyPath: m_StoppingDistance
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4619066134411209670, guid: 691444c63b877a640a3be888f0a3dbab,
         type: 3}
       propertyPath: m_Layer
@@ -2666,6 +2720,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5944689194889999870, guid: 691444c63b877a640a3be888f0a3dbab,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5944689194889999870, guid: 691444c63b877a640a3be888f0a3dbab,
         type: 3}
@@ -2685,6 +2744,11 @@ PrefabInstance:
     - target: {fileID: 6542192042556527086, guid: 691444c63b877a640a3be888f0a3dbab,
         type: 3}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6542192042556527086, guid: 691444c63b877a640a3be888f0a3dbab,
+        type: 3}
+      propertyPath: StopDistance
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6589946522912636858, guid: 691444c63b877a640a3be888f0a3dbab,
@@ -2851,6 +2915,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 5816365527541991404, guid: 30c25d410a894404cbe607830852eeb0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7011136758585290821, guid: 30c25d410a894404cbe607830852eeb0,
         type: 3}
       propertyPath: m_Layer
@@ -3008,6 +3077,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6758492840493698535, guid: cace4f71d37beac4289a4d18f583d794,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6758492840493698535, guid: cace4f71d37beac4289a4d18f583d794,
         type: 3}

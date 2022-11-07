@@ -53,11 +53,12 @@ public abstract class EnemyBase : MonoBehaviour
     //public float spinTime = 3f;
     
     [Header("AI Bool Check")]
-    public bool alreadyAttacked = false;
     public bool CanAlert = true;
     protected float timeTilAlert = 10f;
     protected float timeTilNextMovement = 2f;
     protected float timeBetweenAttacks = 3.5f;
+
+    protected float timeAttack = 2.5f;
     public bool FleeAble;
 
 
@@ -91,13 +92,14 @@ public abstract class EnemyBase : MonoBehaviour
                 EnemyState = State.Walk;  StartCoroutine(Next(0f));
                 break;
             case State.Walk:
+                Debug.Log("State Walk");
                 walking();
                 if (!playerIsInLOS) CheckWalking();  StartCoroutine(Next(0f));
                 break;
             case State.Attack:
-                agent.SetDestination(agent.transform.position);
-                Attacking();
-                EnemyState = State.Cooldown;  StartCoroutine(Next(0f));
+                agent.ResetPath();
+                //Attacking();
+                StartCoroutine(Attacking(timeAttack));
                 break;
             case State.Cooldown:
                 StartCoroutine(Cooldowning(2f));
@@ -108,6 +110,7 @@ public abstract class EnemyBase : MonoBehaviour
         }
     }
 
+
     IEnumerator Cooldowning(float delay) {
         yield return new WaitForSeconds(delay);
         agent.ResetPath();
@@ -116,8 +119,10 @@ public abstract class EnemyBase : MonoBehaviour
         float distance = Vector3.Distance(player.transform.position, transform.position);
         float speed =  Mathf.Pow(distance*0.98f / Mathf.Sin(2*Mathf.Deg2Rad*15),0.5f);
         agent.velocity = new Vector3(direction.x,direction.y + distance * Mathf.Sin(Mathf.Deg2Rad*15),direction.z) * speed;
-        agent.SetDestination(player.transform.position);
-        Invoke("ReState",timeBetweenAttacks);
+        transform.LookAt(player.transform.position);
+        //agent.SetDestination(player.transform.position);
+        CheckAttacking();
+        StartCoroutine(Next(timeTilNextMovement));
     }
 
     IEnumerator Next(float delay) {
@@ -193,7 +198,7 @@ public abstract class EnemyBase : MonoBehaviour
 
     public virtual void walking() {
         //if (!playerIsInLOS) EnemyState = State.Idle;
-        //Debug.Log("STOPWALK!");
+        Debug.Log("Walking");
         agent.SetDestination(player.transform.position);
 
         Vector3 targetPosition = new Vector3( player.transform.position.x, 
@@ -204,7 +209,7 @@ public abstract class EnemyBase : MonoBehaviour
         //if (EnemyState == State.Attack) Attack();
     }
 
-    protected void Attacking() {
+    IEnumerator Attacking(float delay) {
         //Debug.Log("STOP Atack");
         //agent.SetDestination(transform.position);
         Vector3 targetPosition = new Vector3( player.transform.position.x, 
@@ -212,28 +217,21 @@ public abstract class EnemyBase : MonoBehaviour
                                         player.transform.position.z ) ;
         transform.LookAt(targetPosition);
 
-        if (!alreadyAttacked) {
-            Debug.Log("FIRE!!!++++");         
-            AttackMove();
-            //agent.GetComponent<Rigidbody>().velocity =;
-            //alreadyAttacked = true;
-            //CheckAttacking();
-            //Invoke("ResetAttack",timeBetweenAttacks);
-        }
+        Debug.Log("FIRE!!!++++");         
+        AttackMove();
+        yield return new WaitForSeconds(delay);
+        EnemyState = State.Cooldown;
+        StartCoroutine(Next(0f));
     }
     protected virtual void AttackMove() {
         HitableObject hit = player.GetComponent<HitableObject>();
         if (hit != null)
         {
             hit.TakeDamage(10);
-            FindObjectOfType<AudioManager>().Play("PistolBulletHit");
+            //FindObjectOfType<AudioManager>().Play("PistolBulletHit");
         }
 
         Debug.Log(this.name + ": -10hp");
-    }
-
-    void ResetAttack() {
-        alreadyAttacked = false;
     }
     void ResetAlert() {
         CanAlert = true;
@@ -248,12 +246,6 @@ public abstract class EnemyBase : MonoBehaviour
             EnemyState = State.Flee;
             ChangeGroup();
         }
-    }
-
-    void ReState() {
-        Debug.Log("Run");
-        CheckAttacking();
-        StartCoroutine(Next(0f));
     }
 
     void Fleeing() {
