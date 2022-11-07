@@ -6,6 +6,7 @@ public class BulletProjectile : MonoBehaviour
 {
     private float damage;
     private Rigidbody bulletRigidBody;
+    public float speed = 20f;
     [SerializeField] private GameObject effectPrefab;
 
     private void Awake()
@@ -16,7 +17,6 @@ public class BulletProjectile : MonoBehaviour
 
     private void Start()
     {
-        float speed = 20f;
         bulletRigidBody.velocity = transform.forward * speed;
     }
 
@@ -32,7 +32,6 @@ public class BulletProjectile : MonoBehaviour
         }
         Instantiate(effectPrefab, transform.position, transform.rotation);
         //FindObjectOfType<AudioManager>().Play("PistolBulletHit");
-        GetComponent<AudioSource>().Play();
         Destroy(gameObject);
     }
 
