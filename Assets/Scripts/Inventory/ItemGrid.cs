@@ -108,7 +108,7 @@ public class ItemGrid : MonoBehaviour
             {
                 if (inventoryItemSlot[x, y] == itemToFind)
                 {
-                    Debug.Log("FIND" + itemToFind);
+                    return new Vector2Int(x, y);
                 }
             }
         }
@@ -255,6 +255,8 @@ public class ItemGrid : MonoBehaviour
                 PlayerHitbox player = GameObject.FindObjectOfType<PlayerHitbox>();
                 if (player.getHealth() >= player.getMaxHealth()) return false;
                 player.Heal(consumableItem.healthRecover);
+                
+                FindObjectOfType<AudioManager>().Play("Eating");
             }
             DiscardItem(posX, posY);
             return true;

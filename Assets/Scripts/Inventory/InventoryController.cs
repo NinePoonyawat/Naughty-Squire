@@ -19,6 +19,9 @@ public class InventoryController : MonoBehaviour
     [SerializeField] GameObject itemPrefab;
     [SerializeField] Transform canvasTransform;
 
+    [Header("Quick Use")]
+    public InventoryItem[] quickUseItems;
+
     InventoryHighlight inventoryHighlight;
 
     private void Awake() {
@@ -29,6 +32,13 @@ public class InventoryController : MonoBehaviour
     private void Update()
     {
         ItemIconDrag();
+
+        if (selectedItemGrid == null)
+        {
+            inventoryHighlight.Show(false);
+            return;
+        }
+        HandleHighlight();
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
@@ -50,18 +60,26 @@ public class InventoryController : MonoBehaviour
             InsertItem(-1);
         }
 
-        if (selectedItemGrid == null)
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            inventoryHighlight.Show(false);
-            return;
+            QuickUseItem(0);
         }
 
-        HandleHighlight();
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            QuickUseItem(1);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            QuickUseItem(2);
+        }
 
         if (Input.GetMouseButtonDown(0))
         {
             LeftMouseButtonPress();
         }
+
         if (Input.GetMouseButtonDown(1))
         {
             RightMouseButtonPress();
@@ -185,6 +203,27 @@ public class InventoryController : MonoBehaviour
         return false;
     }
 
+    public void QuickUseItem(int num)
+    {
+        if (selectedItem != null)
+        {
+            quickUseItems[num] = selectedItem;
+            return;
+        }
+        if (quickUseItems[num] == null) { return; }
+
+        foreach (ItemGrid itemGrid in itemGrids)
+        {
+            Vector2Int? tileGridPosition = itemGrid.FindItemInGrid(quickUseItems[num]);
+            if (tileGridPosition != null)
+            {
+                bool complete = itemGrid.InteractItem(tileGridPosition.Value.x, tileGridPosition.Value.y);
+                if (complete) quickUseItems[num] = null;
+                return;
+            }
+        }
+    }
+
     private void LeftMouseButtonPress()
     {
         Vector2Int tileGridPosition = GetTileGridPosition();
@@ -251,10 +290,6 @@ public class InventoryController : MonoBehaviour
     private void InteractItem(Vector2Int tileGridPosition)
     {
         bool complete = selectedItemGrid.InteractItem(tileGridPosition.x, tileGridPosition.y);
-        if (complete)
-        {
-            FindObjectOfType<AudioManager>().Play("Eating");
-        }
     }
     
     private void ItemIconDrag()
