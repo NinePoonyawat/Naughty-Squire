@@ -9,7 +9,7 @@ public class MagazineData : ItemData
     [Header("Magazine Data")]
     public int ammoCapacity;
     public int ammoRemained;
-    public List<WeaponData> availableWeapon;
+    public WeaponData availableWeapon;
 
     private void Awake()
     {

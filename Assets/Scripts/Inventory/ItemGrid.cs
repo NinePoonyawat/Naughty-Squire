@@ -243,9 +243,11 @@ public class ItemGrid : MonoBehaviour
         remainSize -= 1;
     }
 
-    public bool InteractItem(int posX, int posY)
+    public ItemData InteractItem(int posX, int posY)
     {
         InventoryItem interactedItem = inventoryItemSlot[posX, posY];
+
+        if (interactedItem == null) return null;
         
         ConsumableData consumableItem = interactedItem.itemData as ConsumableData;
         if (consumableItem != null)
@@ -253,15 +255,49 @@ public class ItemGrid : MonoBehaviour
             if (consumableItem.consumableType == ConsumableData.ConsumableType.HEAL)
             {
                 PlayerHitbox player = GameObject.FindObjectOfType<PlayerHitbox>();
-                if (player.getHealth() >= player.getMaxHealth()) return false;
+                if (player.getHealth() >= player.getMaxHealth()) { return null; }
                 player.Heal(consumableItem.healthRecover);
-                
+
                 FindObjectOfType<AudioManager>().Play("Eating");
             }
             DiscardItem(posX, posY);
-            return true;
-        }    
-        return false;
+            return null;
+        }
+
+        WeaponData weaponItem = interactedItem.itemData as WeaponData;
+        if (weaponItem != null)
+        {
+            if (weaponItem.equippedMagazine != null)
+            {
+                MagazineData toReturn = weaponItem.equippedMagazine;
+                weaponItem.equippedMagazine = null;
+                return toReturn;
+            }
+        }
+
+        return null;
+    }
+
+    public InventoryItem ContactItem(InventoryItem contactItem, int posX, int posY)
+    {
+        InventoryItem interactedItem = inventoryItemSlot[posX, posY];
+
+        if (interactedItem == null) return contactItem;
+
+        WeaponData weaponItem = interactedItem.itemData as WeaponData;
+        MagazineData contactMagazine = contactItem.itemData as MagazineData;
+
+        if (weaponItem != null && contactMagazine != null)
+        {
+            if (contactMagazine.availableWeapon == weaponItem)
+            {
+                weaponItem.equippedMagazine = contactMagazine;
+                FindObjectOfType<AudioManager>().Play(weaponItem.reloadSoundName);
+                Destroy(contactItem.gameObject);
+                return null;
+            }
+        }
+        return contactItem;
     }
 
     public void DiscardItem(int posX, int posY)

@@ -100,48 +100,6 @@ public class InventoryController : MonoBehaviour
         selectedItem.Rotate();
     }
 
-    InventoryItem itemToHighlight;
-
-    private void HandleHighlight()
-    {
-        Vector2Int positionOnGrid = GetTileGridPosition();
-        if (selectedItem == null)
-        {
-            if (positionOnGrid.x < 0 || positionOnGrid.y < 0
-                || positionOnGrid.x >= selectedItemGrid.gridSizeWidth
-                || positionOnGrid.y >= selectedItemGrid.gridSizeHeight)
-            {
-                return;
-            }
-
-            itemToHighlight = selectedItemGrid.GetItem(positionOnGrid.x, positionOnGrid.y);
-
-            if (itemToHighlight != null)
-            {        
-                inventoryHighlight.Show(true);        
-                inventoryHighlight.SetSize(itemToHighlight);
-                inventoryHighlight.SetParent(selectedItemGrid);
-                inventoryHighlight.SetPosition(selectedItemGrid, itemToHighlight);
-            }
-            else
-            {
-                inventoryHighlight.Show(false);
-            }
-        }
-        else
-        {
-            inventoryHighlight.Show(selectedItemGrid.BoundryCheck(
-                positionOnGrid.x,
-                positionOnGrid.y,
-                selectedItem.WIDTH,
-                selectedItem.HEIGHT
-                ));        
-            inventoryHighlight.SetSize(selectedItem);
-            inventoryHighlight.SetParent(selectedItemGrid);
-            inventoryHighlight.SetPosition(selectedItemGrid, selectedItem, positionOnGrid.x, positionOnGrid.y);
-        }
-    }
-
     private void CreateItem(int selectedItemID)
     {
         if (selectedItem != null)
@@ -158,6 +116,23 @@ public class InventoryController : MonoBehaviour
         
         if (selectedItemID == -1) selectedItemID = UnityEngine.Random.Range(0, items.Count);
         inventoryItem.Set(items[selectedItemID]);
+    }
+
+    private void CreateItem(ItemData selectItemData)
+    {
+        if (selectedItem != null)
+        {
+            Destroy(selectedItem.gameObject);
+            selectedItem = null;
+        }
+
+        InventoryItem inventoryItem = Instantiate(itemPrefab).GetComponent<InventoryItem>();
+        selectedItem = inventoryItem;
+        
+        rectTransform = inventoryItem.GetComponent<RectTransform>();
+        rectTransform.SetParent(canvasTransform);
+        
+        inventoryItem.Set(selectItemData);
     }
 
     private void InsertItem(int selectedItemID)
@@ -246,6 +221,10 @@ public class InventoryController : MonoBehaviour
         {
             InteractItem(tileGridPosition);
         }
+        else
+        {
+            ContactItem(selectedItem, tileGridPosition);
+        }
     }
 
     private Vector2Int GetTileGridPosition()
@@ -289,7 +268,16 @@ public class InventoryController : MonoBehaviour
 
     private void InteractItem(Vector2Int tileGridPosition)
     {
-        bool complete = selectedItemGrid.InteractItem(tileGridPosition.x, tileGridPosition.y);
+        ItemData returnData = selectedItemGrid.InteractItem(tileGridPosition.x, tileGridPosition.y);
+        if (returnData != null)
+        {
+            CreateItem(returnData);
+        }
+    }
+
+    private void ContactItem(InventoryItem contactItem, Vector2Int tileGridPosition)
+    {
+        selectedItem = selectedItemGrid.ContactItem(contactItem, tileGridPosition.x, tileGridPosition.y);
     }
     
     private void ItemIconDrag()
@@ -297,6 +285,48 @@ public class InventoryController : MonoBehaviour
         if (selectedItem != null)
         {
             rectTransform.position = Input.mousePosition;
+        }
+    }
+
+    InventoryItem itemToHighlight;
+
+    private void HandleHighlight()
+    {
+        Vector2Int positionOnGrid = GetTileGridPosition();
+        if (selectedItem == null)
+        {
+            if (positionOnGrid.x < 0 || positionOnGrid.y < 0
+                || positionOnGrid.x >= selectedItemGrid.gridSizeWidth
+                || positionOnGrid.y >= selectedItemGrid.gridSizeHeight)
+            {
+                return;
+            }
+
+            itemToHighlight = selectedItemGrid.GetItem(positionOnGrid.x, positionOnGrid.y);
+
+            if (itemToHighlight != null)
+            {        
+                inventoryHighlight.Show(true);        
+                inventoryHighlight.SetSize(itemToHighlight);
+                inventoryHighlight.SetParent(selectedItemGrid);
+                inventoryHighlight.SetPosition(selectedItemGrid, itemToHighlight);
+            }
+            else
+            {
+                inventoryHighlight.Show(false);
+            }
+        }
+        else
+        {
+            inventoryHighlight.Show(selectedItemGrid.BoundryCheck(
+                positionOnGrid.x,
+                positionOnGrid.y,
+                selectedItem.WIDTH,
+                selectedItem.HEIGHT
+                ));        
+            inventoryHighlight.SetSize(selectedItem);
+            inventoryHighlight.SetParent(selectedItemGrid);
+            inventoryHighlight.SetPosition(selectedItemGrid, selectedItem, positionOnGrid.x, positionOnGrid.y);
         }
     }
 
