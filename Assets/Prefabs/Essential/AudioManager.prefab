@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1731070908c056c41bebd821e0470f69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  footStepvolumn: 1
   sounds:
   - name: PistolFire
     clip: {fileID: 8300000, guid: c2543d3c793b2bc4ba97bd5ea2df4ba8, type: 3}
@@ -73,5 +74,86 @@ MonoBehaviour:
   - name: InventoryInteract
     clip: {fileID: 8300000, guid: 88040bb0b5015744999c4a7dcd812a0c, type: 3}
     volume: 0.5
+    pitch: 1
+    source: {fileID: 0}
+  - name: Eating
+    clip: {fileID: 8300000, guid: 3dab492c20b95374685a0ad21ad81946, type: 3}
+    volume: 0.5
+    pitch: 1
+    source: {fileID: 0}
+  footsteps:
+  - name: 0
+    clip: {fileID: 8300000, guid: 97deae53ec08df746b738eb746113f61, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: 1
+    clip: {fileID: 8300000, guid: 8a0cbade516d0f24fb88299a5259053e, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: 2
+    clip: {fileID: 8300000, guid: 88c1370a8541c95479678d7ba0560124, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: 3
+    clip: {fileID: 8300000, guid: 95bf93a650f898644b52650735f3adb4, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: 4
+    clip: {fileID: 8300000, guid: c72517e1d9bff9c40adc46bdc5aa7944, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: 5
+    clip: {fileID: 8300000, guid: 55e5c285ae127d44096f68092a32490c, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: 6
+    clip: {fileID: 8300000, guid: 17c26acb026f29242996fe060c7d6985, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: 7
+    clip: {fileID: 8300000, guid: 33c3d2affb2081a46a8d0acc4c86d5cf, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: 8
+    clip: {fileID: 8300000, guid: 22730b896b348c44997c24e82ea45b26, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: 9
+    clip: {fileID: 8300000, guid: dbcc3ac8f06ea6247a21de9c725480f7, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: 10
+    clip: {fileID: 8300000, guid: 7ef09f6f431ae144aa60c95e0d22c531, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: 11
+    clip: {fileID: 8300000, guid: e1e951a4e9c75904487f5969b87a5e38, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: 12
+    clip: {fileID: 8300000, guid: e1e951a4e9c75904487f5969b87a5e38, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: 13
+    clip: {fileID: 8300000, guid: 08dbf84aead7555428925e707d4fedb2, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: 14
+    clip: {fileID: 8300000, guid: 7e57428a8bd6cd440b1b87f86bab0608, type: 3}
+    volume: 1
     pitch: 1
     source: {fileID: 0}

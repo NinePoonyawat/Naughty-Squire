@@ -62,6 +62,10 @@ public class InventoryController : MonoBehaviour
         {
             LeftMouseButtonPress();
         }
+        if (Input.GetMouseButtonDown(1))
+        {
+            RightMouseButtonPress();
+        }
     }
 
     private void DeleteItem()
@@ -195,6 +199,16 @@ public class InventoryController : MonoBehaviour
         }
     }
 
+    private void RightMouseButtonPress()
+    {
+        Vector2Int tileGridPosition = GetTileGridPosition();
+
+        if (selectedItem == null)
+        {
+            InteractItem(tileGridPosition);
+        }
+    }
+
     private Vector2Int GetTileGridPosition()
     {
         Vector2 position = Input.mousePosition;
@@ -222,7 +236,6 @@ public class InventoryController : MonoBehaviour
         bool complete = selectedItemGrid.PlaceItem(selectedItem, tileGridPosition.x, tileGridPosition.y, ref overlapItem);
         if (complete)
         {
-            //Debug.Log(selectedItem.itemData + " " + tileGridPosition);
             FindObjectOfType<AudioManager>().Play("InventoryInteract");
 
             selectedItem = null;
@@ -232,6 +245,15 @@ public class InventoryController : MonoBehaviour
                 overlapItem = null;
                 rectTransform = selectedItem.GetComponent<RectTransform>();
             }
+        }
+    }
+
+    private void InteractItem(Vector2Int tileGridPosition)
+    {
+        bool complete = selectedItemGrid.InteractItem(tileGridPosition.x, tileGridPosition.y);
+        if (complete)
+        {
+            FindObjectOfType<AudioManager>().Play("Eating");
         }
     }
     

@@ -28,4 +28,14 @@ public class HitableObject : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+
+    public float getHealth()
+    {
+        return health;
+    }
+
+    public float getMaxHealth()
+    {
+        return maxHealth;
+    }
 }

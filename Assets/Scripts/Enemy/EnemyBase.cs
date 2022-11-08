@@ -92,7 +92,7 @@ public abstract class EnemyBase : MonoBehaviour
                 EnemyState = State.Walk;  StartCoroutine(Next(0f));
                 break;
             case State.Walk:
-                Debug.Log("State Walk");
+//                Debug.Log("State Walk");
                 walking();
                 if (!playerIsInLOS) CheckWalking();  StartCoroutine(Next(0f));
                 break;
@@ -198,7 +198,7 @@ public abstract class EnemyBase : MonoBehaviour
 
     public virtual void walking() {
         //if (!playerIsInLOS) EnemyState = State.Idle;
-        Debug.Log("Walking");
+//        Debug.Log("Walking");
         agent.SetDestination(player.transform.position);
 
         Vector3 targetPosition = new Vector3( player.transform.position.x, 
@@ -295,7 +295,7 @@ public abstract class EnemyBase : MonoBehaviour
 
             if (Physics.Raycast(transform.position, direction.normalized, out hit, losRadius,layerMask)) 
             {
-                Debug.Log(hit.collider.tag);
+//                Debug.Log(hit.collider.tag);
                 if (hit.collider.tag == "Player") 
                 {
                     //Debug.Log("Found");

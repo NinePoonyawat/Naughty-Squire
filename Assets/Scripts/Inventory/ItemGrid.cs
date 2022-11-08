@@ -16,8 +16,8 @@ public class ItemGrid : MonoBehaviour
     [SerializeField] public int gridSizeWidth;
     [SerializeField] public int gridSizeHeight;
 
-    enum InventoryType {LOADOUT, BAG, HAND};
-    [SerializeField] private InventoryType inventoryType;
+    public enum InventoryType {LOADOUT, BAG, HAND};
+    public InventoryType inventoryType;
 
     [Header("HAND TYPE")]
     public ItemGrid anotherHandGrid;
@@ -116,7 +116,6 @@ public class ItemGrid : MonoBehaviour
         return null;
     }
 
-    //PICK UP AN ITEM
     public InventoryItem PickUpItem(int x, int y)
     {
         InventoryItem toReturn = inventoryItemSlot[x, y];
@@ -145,8 +144,6 @@ public class ItemGrid : MonoBehaviour
 
         CleanGrid(toReturn);
 
-        remainSize += 1;
-
         return toReturn;
     }
 
@@ -159,6 +156,7 @@ public class ItemGrid : MonoBehaviour
                 inventoryItemSlot[item.onGridPositionX + ix, item.onGridPositionY + iy] = null;
             }
         }
+        remainSize += 1;
     }
     
     /// PLACE DOWN AN ITEM
@@ -182,25 +180,13 @@ public class ItemGrid : MonoBehaviour
                 anotherHandGrid.remainSize = 1;
             }
         }
-        /////////////////////////////
-        ///If its Weapon
+
         //send data to GunSystem
         WeaponData weaponData = inventoryItem.itemData as WeaponData;
         if (weaponData != null)
         {
             weaponChangeEvent?.Invoke(weaponData);
         }
-
-        ///If its Magazine -> Weapon
-        //Load Ammo instead
-        //MagazineData magazineData = inventoryItem.itemData as MagazineData;
-        /*WeaponData overlapWeaponData = overlapItem.itemData as WeaponData;
-        if (magazineData != null)
-        {
-            Debug.Log("load ammo");
-        }*/
-
-        ////////////////////////////
 
         if (BoundryCheck(posX, posY, inventoryItem.WIDTH, inventoryItem.HEIGHT) == false)
         {
@@ -253,6 +239,33 @@ public class ItemGrid : MonoBehaviour
         rectTransform.localPosition = position;
 
         remainSize -= 1;
+    }
+
+    public bool InteractItem(int posX, int posY)
+    {
+        InventoryItem interactedItem = inventoryItemSlot[posX, posY];
+        
+        ConsumableData consumableItem = interactedItem.itemData as ConsumableData;
+        if (consumableItem != null)
+        {
+            if (consumableItem.consumableType == ConsumableData.ConsumableType.HEAL)
+            {
+                PlayerHitbox player = GameObject.FindObjectOfType<PlayerHitbox>();
+                if (player.getHealth() >= player.getMaxHealth()) return false;
+                player.Heal(consumableItem.healthRecover);
+            }
+            DiscardItem(posX, posY);
+            return true;
+        }    
+        return false;
+    }
+
+    public void DiscardItem(int posX, int posY)
+    {
+        InventoryItem discardedItem = inventoryItemSlot[posX, posY];
+
+        CleanGrid(discardedItem);
+        Destroy(discardedItem.gameObject);
     }
 
     public Vector2 CalculatePositionOnGrid(InventoryItem inventoryItem, int posX, int posY)

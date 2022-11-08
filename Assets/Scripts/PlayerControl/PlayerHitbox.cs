@@ -15,11 +15,24 @@ public class PlayerHitbox : HitableObject
 
         hpText.text = health.ToString();
     }
+
     public override void TakeDamage(float damage)
     {
         if (health <= 0) return;
 
         health -= damage*damageRatio;
+        UpdateUI();
+    }
+
+    public void Heal(float healAmount)
+    {
+        health += healAmount;
+        if (health > maxHealth) health = maxHealth;
+        UpdateUI();
+    }
+
+    public void UpdateUI()
+    {
         hpText.text = health.ToString();
     }
 }
