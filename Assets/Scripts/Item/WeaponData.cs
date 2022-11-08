@@ -37,6 +37,8 @@ public class WeaponData : ItemData
 
     public void Shoot()
     {
+        Debug.Log(ammoRemained);
+
         if(equippedMagazine == null) return;
         if(equippedMagazine.ammoRemained <= 0) return;
 
