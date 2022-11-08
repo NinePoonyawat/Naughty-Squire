@@ -47,7 +47,7 @@ namespace Weapon
             LhandItemGrid.onPickupWeaponEvent += disarm;
 
             RhandItemGrid.weaponChangeEvent += setNewData;
-            LhandItemGrid.onPickupWeaponEvent += disarm;
+            RhandItemGrid.onPickupWeaponEvent += disarm;
 
             inventoryManager.OnInventoryOpen += openInventory;
             inventoryManager.OnInventoryClose += closeInventory;
@@ -127,7 +127,12 @@ namespace Weapon
 
         public void disarm()
         {
+            Debug.Log("enter");
             isArmed = false;
+            currentData = null;
+            damage = 0;
+            bulletPerMagazine = 0;
+            bulletLeftInMagazine = 0;
         }
 
         void SetOutOfAmmo(bool newInput)

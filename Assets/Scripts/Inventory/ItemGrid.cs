@@ -126,7 +126,7 @@ public class ItemGrid : MonoBehaviour
         //check if this is HAND and item is twohanded
         if (inventoryType == InventoryType.HAND && toReturn.itemData.isTwoHanded == true)
         {
-            anotherHandGrid.remainSize = 0;
+            anotherHandGrid.remainSize = 1;
         }
 
         //check if this is LOADOUT, return copy of item, so grid's item wont lost
@@ -144,6 +144,8 @@ public class ItemGrid : MonoBehaviour
         }
 
         CleanGrid(toReturn);
+
+        Debug.Log(toReturn);
 
         remainSize += 1;
 
@@ -171,15 +173,17 @@ public class ItemGrid : MonoBehaviour
         {
             if (remainSize == 0)
             {
+                Debug.Log("enter 1");
                 return false;
             }
             if (anotherHandGrid.remainSize == 0 && inventoryItem.itemData.isTwoHanded == true)
             {
+                Debug.Log("enter 2");
                 return false;
             }
             if (remainSize > 0 && inventoryItem.itemData.isTwoHanded == true)
             {
-                anotherHandGrid.remainSize = 1;
+                anotherHandGrid.remainSize = 0;
             }
         }
         /////////////////////////////
