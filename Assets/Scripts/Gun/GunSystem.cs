@@ -98,6 +98,9 @@ namespace Weapon
             Debug.Log(bulletLeftInMagazine);
             SetOutOfAmmo(false);
 
+            isCooldown = true;
+            cooldownTimeCount = currentData.reloadDelay;
+
             FindObjectOfType<AudioManager>().Play(reloadSoundName);
         }
 

@@ -90,6 +90,7 @@ namespace Player
                 gunSystem.Shoot();
                 starterAssetInputs.shoot = false;
             }
+            if (starterAssetInputs.shoot && !gunSystem.isShootable()) starterAssetInputs.shoot = false;
         }
 
         public void Resume(object o,EventArgs e)

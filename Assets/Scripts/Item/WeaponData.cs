@@ -14,6 +14,7 @@ public class WeaponData : ItemData
     public float bulletSpeed;
     public float bulletLifetime;
     public float fireDelay;
+    public float reloadDelay;
     public string fireSoundName;
     public string reloadSoundName;
     public MagazineData equippedMagazine;
