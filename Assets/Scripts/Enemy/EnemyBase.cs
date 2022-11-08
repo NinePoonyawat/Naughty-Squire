@@ -112,14 +112,14 @@ public abstract class EnemyBase : MonoBehaviour
 
 
     IEnumerator Cooldowning(float delay) {
-        yield return new WaitForSeconds(delay);
         agent.ResetPath();
         agent.updateRotation =false;
         Vector3 direction = (transform.position - player.transform.position).normalized;
-        float distance = Vector3.Distance(player.transform.position, transform.position);
+        float distance = Vector3.Distance(transform.position, player.transform.position) * Random.Range(1,10);;
         float speed =  Mathf.Pow(distance*0.98f / Mathf.Sin(2*Mathf.Deg2Rad*15),0.5f);
         agent.velocity = new Vector3(direction.x,direction.y + distance * Mathf.Sin(Mathf.Deg2Rad*15),direction.z) * speed;
         transform.LookAt(player.transform.position);
+        yield return new WaitForSeconds(delay);
         //agent.SetDestination(player.transform.position);
         CheckAttacking();
         StartCoroutine(Next(timeTilNextMovement));
@@ -275,30 +275,34 @@ public abstract class EnemyBase : MonoBehaviour
         if (Vector2.Distance(new Vector2(player.transform.position.x,player.transform.position.z),new Vector2(transform.position.x,transform.position.z)) <= StopDistance) {
             EnemyState = State.Attack;
             Debug.Log("change attack state");
-        } else {
+        } else if (playerIsInLOS || aiMemoriesPlayer){
             EnemyState = State.Walk;
             //Debug.Log("change walk state");
-        }
+        } else EnemyState = State.Idle;
     }
     void CheckLOS() 
     {
+        int layerMask = 1 << 9;
+        layerMask = ~layerMask;
         Vector3 direction = player.transform.position - transform.position;
         Vector2 direction2d = new Vector2(player.transform.position.x,player.transform.position.z) - new Vector2(transform.position.x,transform.position.z);
         float angle = Vector2.Angle(direction2d, new Vector2(transform.forward.x,transform.forward.z));
+        //Debug.Log("Angel = " + angle);
         if (angle < fieldOfViewAngle) 
         {   
             //playerIsInLOS = true;
             RaycastHit hit;
 
-            if (Physics.Raycast(transform.position, direction.normalized, out hit, losRadius)) 
+            if (Physics.Raycast(transform.position, direction.normalized, out hit, losRadius,layerMask)) 
             {
-                //Debug.Log(hit.collider.tag);
+                Debug.Log(hit.collider.tag);
                 if (hit.collider.tag == "Player") 
                 {
                     //Debug.Log("Found");
                     //EnemyState = State.Alert;
                     playerIsInLOS = true;
-                } else
+                } 
+                else
                 {
                     playerIsInLOS = false;
                 }

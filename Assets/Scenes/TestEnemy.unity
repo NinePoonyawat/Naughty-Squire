@@ -2271,7 +2271,7 @@ GameObject:
   - component: {fileID: 2081588150}
   - component: {fileID: 2081588149}
   - component: {fileID: 2081588148}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Ground
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -2397,7 +2397,7 @@ PrefabInstance:
     - target: {fileID: 1970931295450119850, guid: acca2cc9088504142be5c46be3d6bb57,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1970931295450119850, guid: acca2cc9088504142be5c46be3d6bb57,
         type: 3}
@@ -2724,7 +2724,7 @@ PrefabInstance:
     - target: {fileID: 5944689194889999870, guid: 691444c63b877a640a3be888f0a3dbab,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5944689194889999870, guid: 691444c63b877a640a3be888f0a3dbab,
         type: 3}
@@ -2749,7 +2749,7 @@ PrefabInstance:
     - target: {fileID: 6542192042556527086, guid: 691444c63b877a640a3be888f0a3dbab,
         type: 3}
       propertyPath: StopDistance
-      value: 1
+      value: 1.7
       objectReference: {fileID: 0}
     - target: {fileID: 6589946522912636858, guid: 691444c63b877a640a3be888f0a3dbab,
         type: 3}
