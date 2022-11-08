@@ -8,16 +8,16 @@ public class GrenadeThrower : MonoBehaviour {
 
     private delegate IEnumerator ExplodeBehavior();
     private ExplodeBehavior Explode ;
-    private float lifeTime;
-    [SerializeField] private float explodeRadius;
+    private float lifeTime = 1f;
+    [SerializeField] private float explodeRadius = 3;
 
     [SerializeField] private GameObject explodeEffect;
 
-    [SerializeField] private float damage;
+    [SerializeField] private float damage = 10;
     [SerializeField] private float explodeForce = 100f;
     private Rigidbody GrenadeRigidBody;
 
-    public GrenadeData.BombType bombType;
+    public GrenadeData.BombType bombType = GrenadeData.BombType.BOMB;
 
     public float speed = 20f;
 
@@ -30,9 +30,11 @@ public class GrenadeThrower : MonoBehaviour {
                 break;
             case GrenadeData.BombType.FIRE :
                 Explode = ExplodeFire;
+                lifeTime = 10f;
                 break;
             case GrenadeData.BombType.SMOKE :
                 Explode = ExplodeSmoke;
+                lifeTime = 10f;
                 break;
         }
     }
@@ -41,7 +43,7 @@ public class GrenadeThrower : MonoBehaviour {
     {
         if (GrenadeRigidBody != null) {
             // **** cant find main cam ****
-            GrenadeRigidBody.velocity =  new Vector3(1,1,1) * speed;            
+            GrenadeRigidBody.velocity =  new Vector3(1,1,1) * speed;       
         }
     }
     private void OnCollisionEnter(Collision other) {
@@ -51,11 +53,11 @@ public class GrenadeThrower : MonoBehaviour {
         }
     }
     
-    IEnumerator ExplodeDelay(float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        Explode();
-    }
+    // IEnumerator ExplodeDelay(float delay)
+    // {
+    //     yield return new WaitForSeconds(delay);
+    //     Explode();
+    // }
     IEnumerator waitToDestroy()
     {
         yield return new WaitForSeconds(lifeTime);
