@@ -5,6 +5,7 @@ using StarterAssets;
 using System;
 
 public class GrenadeThrower : MonoBehaviour {
+
     private delegate IEnumerator ExplodeBehavior();
     private ExplodeBehavior Explode ;
     private float lifeTime;
@@ -39,7 +40,8 @@ public class GrenadeThrower : MonoBehaviour {
     void Start()
     {
         if (GrenadeRigidBody != null) {
-            GrenadeRigidBody.velocity = transform.forward * speed;
+            // **** cant find main cam ****
+            GrenadeRigidBody.velocity =  new Vector3(1,1,1) * speed;            
         }
     }
     private void OnCollisionEnter(Collision other) {
@@ -101,6 +103,10 @@ public class GrenadeThrower : MonoBehaviour {
     }
     IEnumerator ExplodeSmoke() {
         yield return new WaitForSeconds(0f);
+
+        // create layer that Raycast can hit
+        int LayerIgnoreRaycast = LayerMask.NameToLayer("Character");
+        gameObject.layer = LayerIgnoreRaycast;
     }
 
     IEnumerator ExplodeDecoy() {
