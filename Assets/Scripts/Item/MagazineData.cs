@@ -9,5 +9,6 @@ public class MagazineData : ItemData
     [Header("Magazine Data")]
     public int ammoCapacity;
     public WeaponData availableWeapon;
+    public ItemData refillTool;
 }
 

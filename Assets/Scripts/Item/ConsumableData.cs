@@ -6,9 +6,11 @@ using StarterAssets;
 [CreateAssetMenu]
 public class ConsumableData : ItemData
 {
-    public enum ConsumableType {HEAL};
+    public enum ConsumableType { HEAL, UTILITY };
 
     [Header("Consumable Data")]
     public ConsumableType consumableType;
-    public int healthRecover;
+    
+    [Header("Heal")]
+    public int healthRecover = 0;    
 }

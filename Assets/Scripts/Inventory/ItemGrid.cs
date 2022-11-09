@@ -304,9 +304,9 @@ public class ItemGrid : MonoBehaviour
         WeaponData weaponItem = interactedItem.itemData as WeaponData;
         MagazineData contactMagazine = contactItem.itemData as MagazineData;
 
-        if (weaponItem != null && contactMagazine != null)
+        if (contactMagazine != null)
         {
-            if (contactMagazine.availableWeapon == weaponItem && !interactedItem.HaveMagazine())
+            if (weaponItem != null && contactMagazine.availableWeapon == weaponItem && !interactedItem.HaveMagazine())
             {
                 interactedItem.EquipMagazine(contactItem);
                 FindObjectOfType<AudioManager>().Play(weaponItem.reloadSoundName);

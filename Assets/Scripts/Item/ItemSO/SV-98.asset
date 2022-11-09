@@ -18,18 +18,13 @@ MonoBehaviour:
   itemIcon: {fileID: 21300000, guid: b034b5a532e446048b77d392eb09c222, type: 3}
   itemMesh: {fileID: 3728131639483623836, guid: f0abf75740b4565418b9d7aa5cc19ca3,
     type: 3}
-  weight: 1
+  weight: 20
   value: 0
   gunGO: {fileID: 0}
   damage: 20
-  ammoCapacity: 5
-  ammoRemained: 5
   bulletSpeed: 0
   bulletLifetime: 0
   fireDelay: 2
   reloadDelay: 3
   fireSoundName: SniperFire
   reloadSoundName: SniperReload
-  equippedMagazine: {fileID: 0}
-  availableMagazine:
-  - {fileID: 11400000, guid: 47276e140fbee23449fa904d3f5bcd49, type: 2}

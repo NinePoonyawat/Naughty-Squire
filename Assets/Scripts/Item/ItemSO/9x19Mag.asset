@@ -18,7 +18,7 @@ MonoBehaviour:
   itemIcon: {fileID: 21300000, guid: 74b694b8395b19e449209f68bfa50817, type: 3}
   itemMesh: {fileID: -7745756782809674522, guid: faf35e45031de1744b38f392782c3d72,
     type: 3}
-  weight: 1
+  weight: 2
   value: 1
   ammoCapacity: 17
   availableWeapon: {fileID: 11400000, guid: bfdce7d34baf7f84681b4a2f46ef17d8, type: 2}
