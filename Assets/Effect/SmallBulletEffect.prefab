@@ -4804,6 +4804,7 @@ GameObject:
   - component: {fileID: 198856239026640498}
   - component: {fileID: 199756426985724656}
   - component: {fileID: 5709998424678077432}
+  - component: {fileID: 4353288922970794161}
   m_Layer: 0
   m_Name: SmallBulletEffect
   m_TagString: Untagged
@@ -9799,3 +9800,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &4353288922970794161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1329845292236604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 301794e650c297d40b4d4e0f1b4cada1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifetime: 2

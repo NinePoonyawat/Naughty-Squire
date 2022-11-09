@@ -22,15 +22,34 @@ public class InventoryController : MonoBehaviour
     [Header("Quick Use")]
     public InventoryItem[] quickUseItems;
 
+    public bool isInventoryOpen = true;
     InventoryHighlight inventoryHighlight;
 
-    private void Awake() {
+    private void Start() {
         inventoryHighlight = GetComponent<InventoryHighlight>();
         itemGrids = FindObjectsOfType<ItemGrid>();
+        SetOpen(false);
     }
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            QuickUseItem(0);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            QuickUseItem(1);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            QuickUseItem(2);
+        }
+
+        if (!isInventoryOpen) return;
+
         ItemIconDrag();
 
         if (selectedItemGrid == null)
@@ -58,21 +77,6 @@ public class InventoryController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.G))
         {
             InsertItem(-1);
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            QuickUseItem(0);
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            QuickUseItem(1);
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            QuickUseItem(2);
         }
 
         if (Input.GetMouseButtonDown(0))
@@ -157,7 +161,6 @@ public class InventoryController : MonoBehaviour
         itemToInsert.Set(selectedItem);
 
         Vector2Int? posOnGrid = selectedItemGrid.FindSpaceForObject(itemToInsert);
-
         if (posOnGrid == null)
         {
             Destroy(itemToInsert.gameObject);
@@ -330,4 +333,14 @@ public class InventoryController : MonoBehaviour
         }
     }
 
+    public void SetOpen(bool isOpen)
+    {
+        if (isOpen) { isInventoryOpen = true; }
+        else        { isInventoryOpen = false; }
+
+        foreach (ItemGrid itemGrid in itemGrids)
+        {
+            itemGrid.gameObject.SetActive(isInventoryOpen);
+        }
+    }
 }

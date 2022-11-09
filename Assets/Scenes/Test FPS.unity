@@ -6501,21 +6501,6 @@ PrefabInstance:
       propertyPath: inventoryController
       value: 
       objectReference: {fileID: 71100441}
-    - target: {fileID: 3734626339199097188, guid: a407795b5cb17234fa3cfc4708837c31,
-        type: 3}
-      propertyPath: uiInventory
-      value: 
-      objectReference: {fileID: 2011448701}
-    - target: {fileID: 3734626339199097188, guid: a407795b5cb17234fa3cfc4708837c31,
-        type: 3}
-      propertyPath: cursorControl
-      value: 
-      objectReference: {fileID: 1045677787}
-    - target: {fileID: 3734626339199097188, guid: a407795b5cb17234fa3cfc4708837c31,
-        type: 3}
-      propertyPath: inventoryController
-      value: 
-      objectReference: {fileID: 71100441}
     - target: {fileID: 3734626339199097191, guid: a407795b5cb17234fa3cfc4708837c31,
         type: 3}
       propertyPath: inventoryManager

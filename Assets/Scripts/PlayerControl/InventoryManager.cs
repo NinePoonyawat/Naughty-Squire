@@ -13,7 +13,7 @@ public class InventoryManager : MonoBehaviour
     private Inventory inventory;
 
     public GameObject uiInventory;
-    public GameObject inventoryController;
+    public InventoryController inventoryController;
     [SerializeField] private CursorControl cursorControl;
 
     public event EventHandler OnInventoryOpen;
@@ -22,36 +22,37 @@ public class InventoryManager : MonoBehaviour
     private void Awake()
     {
         uiInventory = GameObject.Find("UIInventory");
-        inventoryController = GameObject.Find("InventoryController");
+        inventoryController = GameObject.Find("InventoryController").GetComponent<InventoryController>();
         cursorControl = GameObject.Find("Cursor").GetComponent<CursorControl>();
-        //Resume();
+        Resume();
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E)) {
-            if(isInventoryShowed) {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if(isInventoryShowed)
+            {
                 Resume();
-                cursorControl.DeActive();
-                OnInventoryClose?.Invoke(this,EventArgs.Empty);
             }
-            else {
+            else
+            {
                 Pause();
-                cursorControl.Active();
-                OnInventoryOpen?.Invoke(this, EventArgs.Empty);
             }
         }
     }
 
     public void Resume() {
-        uiInventory.SetActive(false);
-        inventoryController.SetActive(false);
+        inventoryController.SetOpen(false);
         isInventoryShowed = false;
+        OnInventoryClose?.Invoke(this,EventArgs.Empty);
+        cursorControl.DeActive();
     }
 
     public void Pause() {
-        uiInventory.SetActive(true);
-        inventoryController.SetActive(true);
+        inventoryController.SetOpen(true);
         isInventoryShowed = true;
+        OnInventoryOpen?.Invoke(this, EventArgs.Empty);
+        cursorControl.Active();
     }
 }

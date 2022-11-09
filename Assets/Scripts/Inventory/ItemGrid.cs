@@ -29,7 +29,7 @@ public class ItemGrid : MonoBehaviour
     public event OnPickupWeaponEvent onPickupWeaponEvent;
     public delegate void OnPickupWeaponEvent();
 
-    private void Start()
+    private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
         Init(gridSizeWidth, gridSizeHeight);
