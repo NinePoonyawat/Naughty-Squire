@@ -78,7 +78,6 @@ namespace Weapon
             cooldownTimeCount = cooldownTime;
             isCooldown = true;
             bulletLeftInMagazine--;
-            currentData.Shoot();
             if (bulletLeftInMagazine <= 0)
             {
                 OnOutOfAmmoEvent?.Invoke(this,EventArgs.Empty);
@@ -109,8 +108,8 @@ namespace Weapon
             isArmed = true;
             currentData = weaponData;
             damage = weaponData.damage;
-            bulletPerMagazine = weaponData.ammoCapacity;
-            bulletLeftInMagazine = weaponData.ammoRemained;
+            bulletPerMagazine = 17;
+            bulletLeftInMagazine = 17;
             cooldownTime = weaponData.fireDelay;
             fireSoundName = weaponData.fireSoundName;
             reloadSoundName = weaponData.reloadSoundName;

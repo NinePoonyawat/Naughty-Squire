@@ -14,5 +14,5 @@ public class ItemData : ScriptableObject
 
     [Header("Data")]
     public int weight = 1;
-    public int value = 0;
+    public int value = 1;
 }

@@ -169,12 +169,10 @@ public class ItemGrid : MonoBehaviour
         {
             if (remainSize == 0)
             {
-                Debug.Log("enter 1");
                 return false;
             }
             if (anotherHandGrid.remainSize == 0 && inventoryItem.itemData.isTwoHanded == true)
             {
-                Debug.Log("enter 2");
                 return false;
             }
             if (remainSize > 0 && inventoryItem.itemData.isTwoHanded == true)
@@ -264,15 +262,11 @@ public class ItemGrid : MonoBehaviour
             return null;
         }
 
-        WeaponData weaponItem = interactedItem.itemData as WeaponData;
-        if (weaponItem != null)
+        WeaponData weaponData = interactedItem.itemData as WeaponData;
+        if (weaponData != null && interactedItem.HaveMagazine())
         {
-            if (weaponItem.equippedMagazine != null)
-            {
-                MagazineData toReturn = weaponItem.equippedMagazine;
-                weaponItem.equippedMagazine = null;
-                return toReturn;
-            }
+            MagazineData toReturn = interactedItem.GetMagazine();
+            return toReturn;
         }
 
         return null;
@@ -289,9 +283,9 @@ public class ItemGrid : MonoBehaviour
 
         if (weaponItem != null && contactMagazine != null)
         {
-            if (contactMagazine.availableWeapon == weaponItem)
+            if (contactMagazine.availableWeapon == weaponItem && !interactedItem.HaveMagazine())
             {
-                weaponItem.equippedMagazine = contactMagazine;
+                interactedItem.EquipMagazine(contactItem);
                 FindObjectOfType<AudioManager>().Play(weaponItem.reloadSoundName);
                 Destroy(contactItem.gameObject);
                 return null;
