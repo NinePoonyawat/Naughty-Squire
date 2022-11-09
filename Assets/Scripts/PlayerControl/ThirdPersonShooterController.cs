@@ -13,11 +13,13 @@ namespace Player
     {
         [SerializeField] private CinemachineVirtualCamera aimVirtualCamera;
         [SerializeField] private GunSystem gunSystem;
+        [SerializeField] private GrenadeThrower grenadeThrower;
         [SerializeField] private float normalSensitivity;
         [SerializeField] private float aimSensitivity;
         [SerializeField] private LayerMask aimColliderLayerMask = new LayerMask();
         [SerializeField] private Transform debugTransform;
         [SerializeField] private Transform pfBulletProjectile;
+        [SerializeField] private Transform pfGrenade;
         [SerializeField] private Transform spawnBulletPosition;
 
         private ThirdPersonController thirdPersonController;
@@ -89,6 +91,14 @@ namespace Player
                 OnShoot?.Invoke(2f);
                 gunSystem.Shoot();
                 starterAssetInputs.shoot = false;
+            } else if (Input.GetMouseButtonDown(0) && grenadeThrower.isThrowable()) {
+                Vector3 aimDir = (mouseWorldPosition - spawnBulletPosition.position).normalized;
+                GameObject grenade = Instantiate(pfGrenade, spawnBulletPosition.position, Quaternion.LookRotation(aimDir, Vector3.up)).gameObject;
+                grenade.SendMessage("SetData",grenadeThrower.getfloatdata());
+                grenade.SendMessage("Setbombtype",grenadeThrower.getbombtype());
+                if (Input.GetMouseButtonUp(0)) {
+                    grenade.SendMessage("Throw", aimDir);
+                }
             }
             if (starterAssetInputs.shoot && !gunSystem.isShootable()) starterAssetInputs.shoot = false;
         }

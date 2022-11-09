@@ -6,124 +6,88 @@ using System;
 
 public class GrenadeThrower : MonoBehaviour {
 
-    private delegate IEnumerator ExplodeBehavior();
-    private ExplodeBehavior Explode ;
-    private float lifeTime = 1f;
-    [SerializeField] private float explodeRadius = 3;
+
+    private float lifeTime;
+    private float ExplodeTime;
+    [SerializeField] private float explodeRadius;
+    private GrenadeData.BombType bombType;
 
     [SerializeField] private GameObject explodeEffect;
 
-    [SerializeField] private float damage = 10;
+    [SerializeField] private float damage;
     [SerializeField] private float explodeForce = 100f;
-    private Rigidbody GrenadeRigidBody;
+    [SerializeField] private InventoryManager inventoryManager;
+    private bool isInventoryOpen = false;
 
-    public GrenadeData.BombType bombType = GrenadeData.BombType.BOMB;
+    private GrenadeData currentData = null;
+    private bool isArmed =false;
 
-    public float speed = 20f;
-
-    private void Awake()
-    {   
-        GrenadeRigidBody = GetComponent<Rigidbody>();
-        switch (bombType) {
-            case GrenadeData.BombType.BOMB :
-                Explode = ExplodeBomb;
-                break;
-            case GrenadeData.BombType.FIRE :
-                Explode = ExplodeFire;
-                lifeTime = 10f;
-                break;
-            case GrenadeData.BombType.SMOKE :
-                Explode = ExplodeSmoke;
-                lifeTime = 10f;
-                break;
-        }
-    }
+    
     
     void Start()
-    {
-        if (GrenadeRigidBody != null) {
-            // **** cant find main cam ****
-            GrenadeRigidBody.velocity =  new Vector3(1,1,1) * speed;       
-        }
+    {   
+        ItemGrid LhandItemGrid = GameObject.Find("UI/UIInventory/Grid-L-Hand").GetComponent<ItemGrid>();
+        ItemGrid RhandItemGrid = GameObject.Find("UI/UIInventory/Grid-R-Hand").GetComponent<ItemGrid>();
+            //GameObject.Find("UI/UIInventory").SetActive(false);
+
+        LhandItemGrid.grenadeChangeEvent += setNewData;
+        LhandItemGrid.onPickupWeaponEvent += disarm;
+
+        RhandItemGrid.grenadeChangeEvent += setNewData;
+        RhandItemGrid.onPickupWeaponEvent += disarm;
+
+        inventoryManager.OnInventoryOpen += openInventory;
+        inventoryManager.OnInventoryClose += closeInventory;
+
+        if (currentData == null) isArmed = false;
     }
-    private void OnCollisionEnter(Collision other) {
-        if (other.gameObject.tag == "Ground") {
-            StartCoroutine(waitToDestroy());
-            StartCoroutine(Explode());
+
+    
+    
+
+    public void setNewData(GrenadeData grenadeData)
+        {
+            isArmed = true;
+            currentData = grenadeData;
+            damage = grenadeData.damage;
+            ExplodeTime = grenadeData.ExplodeTime;
+            lifeTime = grenadeData.lifeTime;
+            explodeRadius = grenadeData.explodeRadius;
+            bombType = grenadeData.bombtype;
         }
-    }
+    public void disarm()
+        {
+            Debug.Log("enter");
+            isArmed = false;
+            currentData = null;
+        }
     
     // IEnumerator ExplodeDelay(float delay)
     // {
     //     yield return new WaitForSeconds(delay);
     //     Explode();
     // }
-    IEnumerator waitToDestroy()
+    
+    public void openInventory(object o,EventArgs e)
+        {
+            isInventoryOpen = true;
+        }
+
+    public void closeInventory(object o,EventArgs e)
     {
-        yield return new WaitForSeconds(lifeTime);
-        Destroy(gameObject);
+        isInventoryOpen = false;
     }
-    IEnumerator ExplodeBomb()
+    public bool isThrowable()
     {
-        while (true) {
-            yield return new WaitForSeconds(0.5f);
-            Instantiate(explodeEffect, this.transform.position, Quaternion.identity);
-            Collider[] colliders = Physics.OverlapSphere(transform.position, explodeRadius);
-
-            foreach (Collider nearbyObject in colliders)
-            {
-                PlayerHitbox entityHit = nearbyObject.GetComponent<PlayerHitbox>();
-                if (entityHit != null)
-                {
-                    Debug.Log(entityHit);
-                    entityHit.TakeDamage(damage);
-                }
-                Rigidbody rb = nearbyObject.GetComponent<Rigidbody>();
-                if (rb != null)
-                {
-                    rb.AddExplosionForce(explodeForce, transform.position, explodeRadius);
-                }
-            }       
-        }
+        return isArmed;
     }
 
-    IEnumerator ExplodeFire() {
-        while(true) {
-            yield return new WaitForSeconds(1f);
-            Instantiate(explodeEffect, this.transform.position, Quaternion.identity);
-            Collider[] colliders = Physics.OverlapSphere(transform.position, explodeRadius);
-
-            foreach (Collider nearbyObject in colliders) {
-                PlayerHitbox entityHit = nearbyObject.GetComponent<PlayerHitbox>();
-                if (entityHit != null)
-                {
-                entityHit.TakeDamage(damage);
-                }
-            }
-        }
-        
+    public List<float> getfloatdata() {
+        List<float> ld = new List<float>();
+        ld.Add(damage); ld.Add(lifeTime); ld.Add(explodeRadius);
+        return ld;
     }
-    IEnumerator ExplodeSmoke() {
-        yield return new WaitForSeconds(0f);
-
-        // create layer that Raycast can hit
-        int LayerIgnoreRaycast = LayerMask.NameToLayer("Character");
-        gameObject.layer = LayerIgnoreRaycast;
-    }
-
-    IEnumerator ExplodeDecoy() {
-        while(true) {
-            yield return new WaitForSeconds(0.5f);
-            Instantiate(explodeEffect, this.transform.position, Quaternion.identity);
-            Collider[] colliders = Physics.OverlapSphere(transform.position, explodeRadius);
-
-            foreach (Collider nearbyObject in colliders) {
-                PlayerHitbox entityHit = nearbyObject.GetComponent<PlayerHitbox>();
-                if (entityHit != null)
-                {
-                    entityHit.TakeDamage(damage);
-                }
-            }
-        }
+    public GrenadeData.BombType getbombtype() {
+        return bombType;
     }
 }

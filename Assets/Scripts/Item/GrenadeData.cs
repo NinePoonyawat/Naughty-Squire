@@ -9,9 +9,10 @@ public class GrenadeData : ItemData
     public float ExplodeTime;
 
     public float lifeTime;
-    public float duration;
-    private float explodeRadius;
+    public float explodeRadius;
     public int damage;
+
+    public BombType bombtype;
     public enum BombType {
         BOMB,
         SMOKE,

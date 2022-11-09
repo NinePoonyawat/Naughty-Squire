@@ -26,6 +26,9 @@ public class ItemGrid : MonoBehaviour
     public event WeaponChangeEvent weaponChangeEvent;
     public delegate void WeaponChangeEvent(WeaponData changeWeapon);
 
+    public event GrenadeChangeEvent grenadeChangeEvent;
+    public delegate void GrenadeChangeEvent(GrenadeData changeGrenade);
+
     public event OnPickupWeaponEvent onPickupWeaponEvent;
     public delegate void OnPickupWeaponEvent();
 
@@ -142,6 +145,12 @@ public class ItemGrid : MonoBehaviour
             onPickupWeaponEvent.Invoke();
         }
 
+        GrenadeData grenadeData = toReturn.itemData as GrenadeData;
+        if (inventoryType == InventoryType.HAND && grenadeData != null)
+        {
+            onPickupWeaponEvent.Invoke();
+        }
+
         CleanGrid(toReturn);
 
         return toReturn;
@@ -187,6 +196,13 @@ public class ItemGrid : MonoBehaviour
         {
             weaponChangeEvent?.Invoke(weaponData);
         }
+
+        GrenadeData grenadeData = inventoryItem.itemData as GrenadeData;
+        if (grenadeData != null)
+        {
+            grenadeChangeEvent?.Invoke(grenadeData);
+        }
+
         /*
         GrenadeData grenadeData = inventoryItem.itemData as GrenadaData;
         if (grenadeData != null)
