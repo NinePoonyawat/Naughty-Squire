@@ -187,6 +187,13 @@ public class ItemGrid : MonoBehaviour
         {
             weaponChangeEvent?.Invoke(weaponData);
         }
+        /*
+        GrenadeData grenadeData = inventoryItem.itemData as GrenadaData;
+        if (grenadeData != null)
+        {
+            ;
+        }
+        */
 
         if (BoundryCheck(posX, posY, inventoryItem.WIDTH, inventoryItem.HEIGHT) == false)
         {

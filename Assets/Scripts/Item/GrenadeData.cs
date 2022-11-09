@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu]
-public class GrenadeData  : ItemData
+public class GrenadeData : ItemData
 {
     [Header("Bomb Data")]
     public float ExplodeTime;
