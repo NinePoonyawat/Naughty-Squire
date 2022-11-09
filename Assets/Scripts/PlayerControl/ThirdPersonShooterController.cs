@@ -94,10 +94,10 @@ namespace Player
             } else if (Input.GetMouseButtonDown(0) && grenadeThrower.isThrowable()) {
                 Vector3 aimDir = (mouseWorldPosition - spawnBulletPosition.position).normalized;
                 GameObject grenade = Instantiate(pfGrenade, spawnBulletPosition.position, Quaternion.LookRotation(aimDir, Vector3.up)).gameObject;
-                grenade.SendMessage("SetData",grenadeThrower.getfloatdata());
+                grenade.SendMessage("SetFloatData",grenadeThrower.getfloatdata());
                 grenade.SendMessage("Setbombtype",grenadeThrower.getbombtype());
+                //grenade.SendMessage("Throw", aimDir);
                 if (Input.GetMouseButtonUp(0)) {
-                    grenade.SendMessage("Throw", aimDir);
                 }
             }
             if (starterAssetInputs.shoot && !gunSystem.isShootable()) starterAssetInputs.shoot = false;

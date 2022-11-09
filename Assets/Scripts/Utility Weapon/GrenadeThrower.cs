@@ -12,7 +12,7 @@ public class GrenadeThrower : MonoBehaviour {
     [SerializeField] private float explodeRadius;
     private GrenadeData.BombType bombType;
 
-    [SerializeField] private GameObject explodeEffect;
+    //[SerializeField] private GameObject explodeEffect;
 
     [SerializeField] private float damage;
     [SerializeField] private float explodeForce = 100f;

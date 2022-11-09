@@ -15,7 +15,7 @@ public class GrenadeProjectile : MonoBehaviour
     private float ExplodeTime;
     private float explodeRadius;
 
-    private GameObject explodeEffect;
+    [SerializeField] private GameObject explodeEffect;
     private float explodeForce = 100f;
 
     public float speed = 10f;
@@ -25,9 +25,10 @@ public class GrenadeProjectile : MonoBehaviour
     {
        if (GrenadeRigidBody != null) {
             // **** cant find main cam ****
+            GrenadeRigidBody.AddForce(transform.forward *32f,ForceMode.Impulse); 
             StartCoroutine(waitToDestroy());
             StartCoroutine(Explode());     
-        } 
+        }
     }
     private void Awake()
     {   
@@ -46,37 +47,53 @@ public class GrenadeProjectile : MonoBehaviour
                 break;
         }
     }
+    private void OnCollisionEnter(Collision other) {
+        if (other.gameObject.tag == "Ground") {
+             GrenadeRigidBody.velocity = new Vector3(0,0,0);
+        }
+    }
+    void update() {
+        Debug.Log(GrenadeRigidBody.velocity);
+    }
     public void Throw(Vector3 aim) {
-       GrenadeRigidBody.velocity =  aim * speed;   
+       GrenadeRigidBody.AddForce(transform.forward *32f,ForceMode.Impulse);
+       Debug.Log(aim.x + " " + aim.y + " " + aim.z);
+       //GrenadeRigidBody.velocity =  aim * speed;
+       //Debug.Log(aim.x + " " + aim.y + " " + aim.z);   
     }
     IEnumerator waitToDestroy()
     {
         yield return new WaitForSeconds(lifeTime);
+        Instantiate(explodeEffect, this.transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
     IEnumerator ExplodeBomb()
     {
-        while (true) {
-            yield return new WaitForSeconds(ExplodeTime);
-            Instantiate(explodeEffect, this.transform.position, Quaternion.identity);
-            Collider[] colliders = Physics.OverlapSphere(transform.position, explodeRadius);
+        yield return new WaitForSeconds(lifeTime);
+        Collider[] colliders = Physics.OverlapSphere(transform.position, explodeRadius);
 
-            foreach (Collider nearbyObject in colliders)
+        foreach (Collider nearbyObject in colliders)
+        {
+            PlayerHitbox entityHit = nearbyObject.GetComponent<PlayerHitbox>();
+            if (entityHit != null)
             {
-                PlayerHitbox entityHit = nearbyObject.GetComponent<PlayerHitbox>();
-                if (entityHit != null)
-                {
-                    Debug.Log(entityHit);
-                    entityHit.TakeDamage(damage);
-                }
-                Rigidbody rb = nearbyObject.GetComponent<Rigidbody>();
-                if (rb != null)
-                {
-                    rb.AddExplosionForce(explodeForce, transform.position, explodeRadius);
-                }
-            }       
-        }
+                //Debug.Log(entityHit);
+                entityHit.TakeDamage(damage);
+            }
+            EnemyHitbox enemyHit = nearbyObject.GetComponent<EnemyHitbox>();
+            if (enemyHit != null)
+            {
+                //Debug.Log(entityHit);
+                enemyHit.TakeDamage(damage);
+            }
+            Rigidbody rb = nearbyObject.GetComponent<Rigidbody>();
+            if (rb != null)
+            {
+                rb.AddExplosionForce(explodeForce, transform.position, explodeRadius);
+            }
+        }       
     }
+    
 
     IEnumerator ExplodeFire() {
         while(true) {

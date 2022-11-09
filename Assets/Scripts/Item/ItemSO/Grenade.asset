@@ -18,7 +18,9 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemMesh: {fileID: 0}
   weight: 1
-  value: 0
-  ExplodeTime: 0
-  duration: 0
-  damage: 0
+  value: 1
+  ExplodeTime: 5
+  lifeTime: 5
+  explodeRadius: 7
+  damage: 5
+  bombtype: 0
