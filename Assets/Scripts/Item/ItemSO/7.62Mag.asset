@@ -21,3 +21,5 @@ MonoBehaviour:
   value: 1
   ammoCapacity: 5
   availableWeapon: {fileID: 11400000, guid: f80abb54e29f65a4c9631d0aa8f45588, type: 2}
+  refillTool: {fileID: 11400000, guid: ac96af1fadae157419d168790f4b60fd, type: 2}
+  refillSoundName: InventoryInteract

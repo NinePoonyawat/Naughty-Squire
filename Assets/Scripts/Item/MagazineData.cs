@@ -10,5 +10,6 @@ public class MagazineData : ItemData
     public int ammoCapacity;
     public WeaponData availableWeapon;
     public ItemData refillTool;
+    public string refillSoundName;
 }
 

@@ -16,6 +16,7 @@ MonoBehaviour:
   height: 1
   isTwoHanded: 0
   itemIcon: {fileID: 21300000, guid: 686424043330bbd429b74781559b1654, type: 3}
+  alternateIcon: {fileID: 21300000, guid: f0aa860cbc5509e45a59f8097a54181e, type: 3}
   itemMesh: {fileID: -8719869389123340411, guid: 1cc03cbb51606e04faa898feb8fab8e3,
     type: 3}
   weight: 5

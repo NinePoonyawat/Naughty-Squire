@@ -72,6 +72,7 @@ public class InventoryItem : MonoBehaviour
 
     public void EquipMagazine(InventoryItem magazine)
     {
+        GetComponent<Image>().sprite = itemData.alternateIcon;
         equippedMagazine = magazine.itemData as MagazineData;
         ammoCapacity = magazine.ammoCapacity;
         ammoRemained = magazine.ammoRemained;
@@ -79,6 +80,7 @@ public class InventoryItem : MonoBehaviour
 
     public MagazineData GetMagazine()
     {
+        GetComponent<Image>().sprite = itemData.itemIcon;
         MagazineData temp = equippedMagazine;
         equippedMagazine = null;
         return temp;
@@ -88,5 +90,12 @@ public class InventoryItem : MonoBehaviour
     {
         if (equippedMagazine != null) return true;
         return false;
+    }
+
+    public void RefillAmmo()
+    {
+        GetComponent<Image>().sprite = itemData.alternateIcon;
+        ammoRemained = ammoCapacity;
+        Debug.Log(ammoRemained);
     }
 }

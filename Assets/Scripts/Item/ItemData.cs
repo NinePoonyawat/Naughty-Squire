@@ -10,6 +10,7 @@ public class ItemData : ScriptableObject
     public int height = 1;
     public bool isTwoHanded = false;
     public Sprite itemIcon;
+    public Sprite alternateIcon;
     public Mesh itemMesh;
 
     [Header("Data")]

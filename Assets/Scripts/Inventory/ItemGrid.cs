@@ -301,17 +301,23 @@ public class ItemGrid : MonoBehaviour
 
         if (interactedItem == null) return contactItem;
 
-        WeaponData weaponItem = interactedItem.itemData as WeaponData;
+        WeaponData interactedWeapon = interactedItem.itemData as WeaponData;
         MagazineData contactMagazine = contactItem.itemData as MagazineData;
 
         if (contactMagazine != null)
         {
-            if (weaponItem != null && contactMagazine.availableWeapon == weaponItem && !interactedItem.HaveMagazine())
+            if (interactedWeapon != null && contactMagazine.availableWeapon == interactedWeapon && !interactedItem.HaveMagazine())
             {
                 interactedItem.EquipMagazine(contactItem);
-                FindObjectOfType<AudioManager>().Play(weaponItem.reloadSoundName);
+                FindObjectOfType<AudioManager>().Play(interactedWeapon.reloadSoundName);
                 Destroy(contactItem.gameObject);
                 return null;
+            }
+            if (contactMagazine.refillTool == interactedItem.itemData)
+            {
+                contactItem.RefillAmmo();
+                FindObjectOfType<AudioManager>().Play(contactMagazine.refillSoundName);
+                return contactItem;
             }
         }
         return contactItem;
