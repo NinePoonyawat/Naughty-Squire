@@ -91,9 +91,9 @@ namespace Player
             if (starterAssetInputs.shoot && gunSystem.isShootable())
             {
                 //Vector3 aimDir = Input.mousePosition;
-                Vector3 aimDir = playerCamera.transform.forward;
-                //Vector3 aimDir = (mouseWorldPosition - spawnBulletPosition.position).normalized;
-                GameObject bullet = Instantiate(pfBulletProjectile, playerCamera.transform.position, Quaternion.LookRotation(aimDir, Vector3.up)).gameObject;
+                //Vector3 aimDir = playerCamera.transform.forward;
+                Vector3 aimDir = (mouseWorldPosition - spawnBulletPosition.position).normalized;
+                GameObject bullet = Instantiate(pfBulletProjectile, spawnBulletPosition.position, Quaternion.LookRotation(aimDir, Vector3.up)).gameObject;
                 bullet.SendMessage("SetDamage",gunSystem.GetDamage());
                 OnShoot?.Invoke(2f);
                 gunSystem.Shoot();
