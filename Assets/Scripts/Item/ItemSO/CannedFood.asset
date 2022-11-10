@@ -25,5 +25,5 @@ MonoBehaviour:
   value: 2
   consumableType: 0
   healthRecover: 10
-  energyRecover: 20
+  energyRecover: 10
   consumeSoundName: Eating

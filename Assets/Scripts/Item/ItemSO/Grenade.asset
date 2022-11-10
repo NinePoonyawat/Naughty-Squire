@@ -15,8 +15,11 @@ MonoBehaviour:
   width: 1
   height: 1
   isTwoHanded: 0
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: 21300000, guid: 320febe6a88cee7409e01d9fc505e639, type: 3}
+  alternateIcon: {fileID: 0}
   itemMesh: {fileID: 0}
+  soundName: 
+  durable: 1
   weight: 1
   value: 1
   ExplodeTime: 5
