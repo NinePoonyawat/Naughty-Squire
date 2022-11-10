@@ -81,6 +81,11 @@ MonoBehaviour:
     volume: 0.5
     pitch: 1
     source: {fileID: 0}
+  - name: Bandage
+    clip: {fileID: 8300000, guid: dde0d24bb227b134caa9408424bfa22e, type: 3}
+    volume: 0.5
+    pitch: 1
+    source: {fileID: 0}
   footsteps:
   - name: 0
     clip: {fileID: 8300000, guid: 97deae53ec08df746b738eb746113f61, type: 3}

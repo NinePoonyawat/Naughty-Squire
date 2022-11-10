@@ -12,8 +12,10 @@ public class ItemData : ScriptableObject
     public Sprite itemIcon;
     public Sprite alternateIcon;
     public Mesh itemMesh;
+    public string soundName;
 
     [Header("Data")]
+    public int durable = 1;
     public int weight = 1;
     public int value = 1;
 }

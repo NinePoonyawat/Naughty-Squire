@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6855456404778989077
+--- !u!1 &3917876479689961790
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,47 +8,48 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6082298127282826415}
-  - component: {fileID: 7189841218173952778}
-  - component: {fileID: 4909914491957319616}
-  - component: {fileID: 8556576350430907800}
-  m_Layer: 0
-  m_Name: SM_GAS_CYLINDER_02
-  m_TagString: Untagged
+  - component: {fileID: 3917876479689961791}
+  - component: {fileID: 3917876479689961787}
+  - component: {fileID: 3917876479689961786}
+  - component: {fileID: 3917876479689961789}
+  - component: {fileID: 3917876479689961788}
+  m_Layer: 9
+  m_Name: MedKit
+  m_TagString: PickableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6082298127282826415
+--- !u!4 &3917876479689961791
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6855456404778989077}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_GameObject: {fileID: 3917876479689961790}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 9.702, y: 1.52, z: 23.91}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &7189841218173952778
+--- !u!33 &3917876479689961787
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6855456404778989077}
-  m_Mesh: {fileID: -1705546883744311471, guid: 5270a6afc871e2349a22b548c09c19b2, type: 3}
---- !u!23 &4909914491957319616
+  m_GameObject: {fileID: 3917876479689961790}
+  m_Mesh: {fileID: 5304385175697405907, guid: c6468f1b90f616a449318c252b93051f, type: 3}
+--- !u!23 &3917876479689961786
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6855456404778989077}
+  m_GameObject: {fileID: 3917876479689961790}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -62,7 +63,6 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e47e8f0bb92aaff4c93eedb0398a1c96, type: 2}
   - {fileID: 2100000, guid: e47e8f0bb92aaff4c93eedb0398a1c96, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -85,17 +85,35 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &8556576350430907800
+--- !u!114 &3917876479689961789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3917876479689961790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1732d85d47981c148b6741583cb22e1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meshFilter: {fileID: 0}
+  isGlow: 0
+  auraPrefab: {fileID: 6320648758858120341, guid: b0c5bcf2a43dba148bc9d8673bca703e,
+    type: 3}
+  aura: {fileID: 0}
+  itemData: {fileID: 11400000, guid: 12a5647a6c61e5842b0d668c3338aac1, type: 2}
+--- !u!64 &3917876479689961788
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6855456404778989077}
+  m_GameObject: {fileID: 3917876479689961790}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: -1705546883744311471, guid: 5270a6afc871e2349a22b548c09c19b2, type: 3}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}

@@ -19,8 +19,9 @@ MonoBehaviour:
   alternateIcon: {fileID: 21300000, guid: f0aa860cbc5509e45a59f8097a54181e, type: 3}
   itemMesh: {fileID: -8719869389123340411, guid: 1cc03cbb51606e04faa898feb8fab8e3,
     type: 3}
+  durable: 100
   weight: 5
-  value: 0
+  value: 10
   gunGO: {fileID: 0}
   damage: 3
   bulletSpeed: 0
