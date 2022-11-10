@@ -25,7 +25,7 @@ public class GrenadeProjectile : MonoBehaviour
     {
        if (GrenadeRigidBody != null) {
             // **** cant find main cam ****
-            GrenadeRigidBody.AddForce(transform.forward *32f,ForceMode.Impulse); 
+            //GrenadeRigidBody.AddForce(transform.forward *32f,ForceMode.Impulse); 
             StartCoroutine(waitToDestroy());
             StartCoroutine(Explode());     
         }
@@ -49,16 +49,16 @@ public class GrenadeProjectile : MonoBehaviour
     }
     private void OnCollisionEnter(Collision other) {
         if (other.gameObject.tag == "Ground") {
-             GrenadeRigidBody.velocity = new Vector3(0,0,0);
+            //GrenadeRigidBody.velocity = new Vector3(0,0,0);
         }
     }
     void update() {
         Debug.Log(GrenadeRigidBody.velocity);
     }
     public void Throw(Vector3 aim) {
-       GrenadeRigidBody.AddForce(transform.forward *32f,ForceMode.Impulse);
+       //GrenadeRigidBody.AddForce(transform.forward *32f,ForceMode.Impulse);
        Debug.Log(aim.x + " " + aim.y + " " + aim.z);
-       //GrenadeRigidBody.velocity =  aim * speed;
+       GrenadeRigidBody.velocity =  aim  * speed;
        //Debug.Log(aim.x + " " + aim.y + " " + aim.z);   
     }
     IEnumerator waitToDestroy()
