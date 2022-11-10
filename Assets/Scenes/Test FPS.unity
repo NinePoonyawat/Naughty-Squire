@@ -5627,6 +5627,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1169944862}
   m_PrefabAsset: {fileID: 0}
+--- !u!20 &1193842304 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 5761410224818206746, guid: a407795b5cb17234fa3cfc4708837c31,
+    type: 3}
+  m_PrefabInstance: {fileID: 3734626339244384845}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1197446563
 GameObject:
   m_ObjectHideFlags: 0
@@ -11857,6 +11863,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 840373825239723997, guid: b0557ee2647903e48853586574486c2f,
         type: 3}
+    - target: {fileID: 3734626339199097185, guid: a407795b5cb17234fa3cfc4708837c31,
+        type: 3}
+      propertyPath: playerCamera
+      value: 
+      objectReference: {fileID: 1193842304}
     - target: {fileID: 3734626339199097185, guid: a407795b5cb17234fa3cfc4708837c31,
         type: 3}
       propertyPath: grenadeThrower
