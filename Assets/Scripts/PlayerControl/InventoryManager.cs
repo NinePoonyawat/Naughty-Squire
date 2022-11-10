@@ -9,9 +9,6 @@ public class InventoryManager : MonoBehaviour
 {
     private bool isInventoryShowed = false;
 
-    //[SerializeField] private UI_Inventory uiInventory;
-    private Inventory inventory;
-
     public GameObject uiInventory;
     public InventoryController inventoryController;
     [SerializeField] private CursorControl cursorControl;

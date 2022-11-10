@@ -48,9 +48,9 @@ public class GrenadeProjectile : MonoBehaviour
         }
     }
     private void OnCollisionEnter(Collision other) {
-        if (other.gameObject.tag == "Ground") {
-             GrenadeRigidBody.velocity = new Vector3(0,0,0);
-        }
+        //if (other.gameObject.tag == "Ground") {
+        //     GrenadeRigidBody.velocity = new Vector3(0,0,0);
+        //}
     }
     void update() {
         Debug.Log(GrenadeRigidBody.velocity);

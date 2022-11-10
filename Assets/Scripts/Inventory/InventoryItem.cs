@@ -9,6 +9,7 @@ public class InventoryItem : MonoBehaviour
     public ItemData itemData;
     public enum ItemType {NORMAL, WEAPON, MAGAZINE, CONSUMABLE}
     public ItemType itemType;
+    public int durable;
 
     [Header("Weapon")]
     public MagazineData equippedMagazine = null;
@@ -54,6 +55,8 @@ public class InventoryItem : MonoBehaviour
         size.x = WIDTH * ItemGrid.tileSizeWidth;
         size.y = HEIGHT * ItemGrid.tileSizeHeight;
         GetComponent<RectTransform>().sizeDelta = size;
+
+        durable = itemData.durable;
 
         MagazineData magData = itemData as MagazineData;
         if (magData != null)

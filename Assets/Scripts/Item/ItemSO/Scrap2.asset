@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e3ecb8364f359e409e74f7d3fd2e9a6, type: 3}
-  m_Name: AmmoCrate
+  m_Name: Scrap2
   m_EditorClassIdentifier: 
   width: 2
   height: 1
   isTwoHanded: 0
-  itemIcon: {fileID: 21300000, guid: 8690674ac85955c4fa75e1d4271114b0, type: 3}
+  itemIcon: {fileID: 21300000, guid: 2c35c019e5a98d14caf6367c9f591081, type: 3}
   alternateIcon: {fileID: 0}
-  itemMesh: {fileID: -6228950244810339426, guid: c1474394c9ecac843a0f4c44e895f353,
+  itemMesh: {fileID: 1672080018128590399, guid: 0e80d84d1c2989c49ba3263d9a827506,
     type: 3}
-  durable: 5
-  weight: 10
-  value: 1
+  durable: 1
+  weight: 6
+  value: 6

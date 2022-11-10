@@ -273,15 +273,18 @@ public class ItemGrid : MonoBehaviour
         ConsumableData consumableItem = interactedItem.itemData as ConsumableData;
         if (consumableItem != null)
         {
-            if (consumableItem.consumableType == ConsumableData.ConsumableType.HEAL)
+            if (consumableItem.consumableType == ConsumableData.ConsumableType.CONSUME)
             {
                 PlayerHitbox player = GameObject.FindObjectOfType<PlayerHitbox>();
-                if (player.getHealth() >= player.getMaxHealth()) { return null; }
+                if (player.getHealth() >= player.getMaxHealth() &&
+                    player.energy >= player.maxEnergy) { return null; }
                 player.Heal(consumableItem.healthRecover);
+                player.Eat(consumableItem.energyRecover);
+                interactedItem.durable -= 1;
+                if (interactedItem.durable <= 0) DiscardItem(posX, posY);
 
-                FindObjectOfType<AudioManager>().Play("Eating");
+                FindObjectOfType<AudioManager>().Play(consumableItem.consumeSoundName);
             }
-            DiscardItem(posX, posY);
             return null;
         }
 
@@ -316,6 +319,8 @@ public class ItemGrid : MonoBehaviour
             if (contactMagazine.refillTool == interactedItem.itemData)
             {
                 contactItem.RefillAmmo();
+                interactedItem.durable -= 1;
+                if (interactedItem.durable <= 0) DiscardItem(posX, posY);
                 FindObjectOfType<AudioManager>().Play(contactMagazine.refillSoundName);
                 return contactItem;
             }

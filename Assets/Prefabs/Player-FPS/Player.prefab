@@ -132,7 +132,12 @@ MonoBehaviour:
   health: 0
   damageRatio: 1
   canDestroy: 1
+  maxEnergy: 60
+  energy: 0
+  maxStamina: 100
+  stamina: 0
   hpText: {fileID: 0}
+  energyText: {fileID: 0}
 --- !u!1 &3734626338079289342
 GameObject:
   m_ObjectHideFlags: 0
@@ -379,6 +384,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aimVirtualCamera: {fileID: 0}
   gunSystem: {fileID: 3734626339199097191}
+  grenadeThrower: {fileID: 0}
   normalSensitivity: 1
   aimSensitivity: 1.5
   aimColliderLayerMask:
@@ -387,6 +393,7 @@ MonoBehaviour:
   debugTransform: {fileID: 0}
   pfBulletProjectile: {fileID: 2484245806235318867, guid: 500ff7ad67f952a44823fe7931373a73,
     type: 3}
+  pfGrenade: {fileID: 0}
   spawnBulletPosition: {fileID: 3734626338079289337}
   inventoryManager: {fileID: 3734626339199097188}
 --- !u!114 &5684615017797870358

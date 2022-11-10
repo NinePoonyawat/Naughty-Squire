@@ -186,6 +186,7 @@ public class InventoryController : MonoBehaviour
         if (selectedItem != null)
         {
             quickUseItems[num] = selectedItem;
+            FindObjectOfType<AudioManager>().Play("InventoryInteract");
             return;
         }
         if (quickUseItems[num] == null) { return; }
