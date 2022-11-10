@@ -100,9 +100,9 @@ namespace Player
                 starterAssetInputs.shoot = false;
             } else if (Input.GetMouseButtonDown(0) && grenadeThrower.isThrowable()) {
                 //Vector3 aimDir = Input.mousePosition.normalized;
-                Vector3 aimDir = playerCamera.transform.forward;
-                //Vector3 aimDir = (mouseWorldPosition - spawnBulletPosition.position).normalized;
-                GameObject grenade = Instantiate(pfGrenade, playerCamera.transform.position, Quaternion.LookRotation(aimDir, Vector3.up)).gameObject;
+                //Vector3 aimDir = playerCamera.transform.forward;
+                Vector3 aimDir = (mouseWorldPosition - spawnBulletPosition.position).normalized;
+                GameObject grenade = Instantiate(pfGrenade, spawnBulletPosition.transform.position, Quaternion.LookRotation(aimDir, Vector3.up)).gameObject;
                 grenade.SendMessage("SetFloatData",grenadeThrower.getfloatdata());
                 grenade.SendMessage("Setbombtype",grenadeThrower.getbombtype());
                 grenade.SendMessage("Throw", aimDir);

@@ -121,6 +121,8 @@ public class ItemGrid : MonoBehaviour
 
     public InventoryItem PickUpItem(int x, int y)
     {
+        Debug.Log("X grid : " + x);
+        Debug.Log("Y grid : " + y);
         InventoryItem toReturn = inventoryItemSlot[x, y];
 
         if (toReturn == null) { return null; }

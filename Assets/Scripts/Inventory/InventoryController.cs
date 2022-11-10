@@ -54,9 +54,11 @@ public class InventoryController : MonoBehaviour
 
         if (selectedItemGrid == null)
         {
+            Debug.Log("Do nothing");
             inventoryHighlight.Show(false);
             return;
         }
+        //Debug.Log(selectedItem.itemData.name);
         HandleHighlight();
 
         if (Input.GetKeyDown(KeyCode.Q))
@@ -206,7 +208,7 @@ public class InventoryController : MonoBehaviour
     private void LeftMouseButtonPress()
     {
         Vector2Int tileGridPosition = GetTileGridPosition();
-
+        Debug.Log(tileGridPosition);
         if (selectedItem == null)
         {
             PickUpItem(tileGridPosition);
