@@ -84,23 +84,25 @@ namespace Player
             //     // thirdPersonController.SetSensitivity(normalSensitivity);
             //     // thirdPersonController.SetRotateOnMove(true);
             //}
-            Debug.Log("first : " + (mouseWorldPosition - spawnBulletPosition.position));
-            Debug.Log("second : " + (mouseWorldPosition));
-            Debug.Log("third : " + spawnBulletPosition.position);
+            // Debug.Log("first : " + (mouseWorldPosition - spawnBulletPosition.position));
+            // Debug.Log("second : " + (mouseWorldPosition));
+            // Debug.Log("third : " + spawnBulletPosition.position);
 
             if (starterAssetInputs.shoot && gunSystem.isShootable())
             {
+                //Vector3 aimDir = Input.mousePosition;
                 Vector3 aimDir = playerCamera.transform.forward;
                 //Vector3 aimDir = (mouseWorldPosition - spawnBulletPosition.position).normalized;
-                GameObject bullet = Instantiate(pfBulletProjectile, spawnBulletPosition.position, Quaternion.LookRotation(aimDir, Vector3.up)).gameObject;
+                GameObject bullet = Instantiate(pfBulletProjectile, playerCamera.transform.position, Quaternion.LookRotation(aimDir, Vector3.up)).gameObject;
                 bullet.SendMessage("SetDamage",gunSystem.GetDamage());
                 OnShoot?.Invoke(2f);
                 gunSystem.Shoot();
                 starterAssetInputs.shoot = false;
             } else if (Input.GetMouseButtonDown(0) && grenadeThrower.isThrowable()) {
+                //Vector3 aimDir = Input.mousePosition.normalized;
                 Vector3 aimDir = playerCamera.transform.forward;
                 //Vector3 aimDir = (mouseWorldPosition - spawnBulletPosition.position).normalized;
-                GameObject grenade = Instantiate(pfGrenade, spawnBulletPosition.position, Quaternion.LookRotation(aimDir, Vector3.up)).gameObject;
+                GameObject grenade = Instantiate(pfGrenade, playerCamera.transform.position, Quaternion.LookRotation(aimDir, Vector3.up)).gameObject;
                 grenade.SendMessage("SetFloatData",grenadeThrower.getfloatdata());
                 grenade.SendMessage("Setbombtype",grenadeThrower.getbombtype());
                 grenade.SendMessage("Throw", aimDir);

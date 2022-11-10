@@ -57,7 +57,7 @@ public class GrenadeProjectile : MonoBehaviour
     }
     public void Throw(Vector3 aim) {
        //GrenadeRigidBody.AddForce(transform.forward *32f,ForceMode.Impulse);
-       Debug.Log(aim.x + " " + aim.y + " " + aim.z);
+       //Debug.Log(aim.x + " " + aim.y + " " + aim.z);
        GrenadeRigidBody.velocity =  aim  * speed;
        //Debug.Log(aim.x + " " + aim.y + " " + aim.z);   
     }
