@@ -16,9 +16,11 @@ public class GrenadeProjectile : MonoBehaviour
     private float explodeRadius;
 
     [SerializeField] private GameObject explodeEffect;
+    [SerializeField] private GameObject smokeEffect;
     private float explodeForce = 100f;
 
     public float speed = 10f;
+    //private bool CollideGround = false;
 
     // Start is called before the first frame update
     void Start()
@@ -47,11 +49,12 @@ public class GrenadeProjectile : MonoBehaviour
                 break;
         }
     }
-    private void OnCollisionEnter(Collision other) {
-        //if (other.gameObject.tag == "Ground") {
-        //     GrenadeRigidBody.velocity = new Vector3(0,0,0);
-        //}
-    }
+    // private void OnCollisionEnter(Collision other) {
+    //     if (other.gameObject.tag == "Ground") {
+    //          GrenadeRigidBody.velocity = new Vector3(0,0,0);
+    //          CollideGround = true;
+    //     }
+    // }
     void update() {
         Debug.Log(GrenadeRigidBody.velocity);
     }
@@ -112,11 +115,12 @@ public class GrenadeProjectile : MonoBehaviour
         
     }
     IEnumerator ExplodeSmoke() {
-        yield return new WaitForSeconds(ExplodeTime);
+        yield return new WaitForSeconds(lifeTime);
+        GameObject grenade = Instantiate(smokeEffect, this.transform.position, Quaternion.identity);
 
         // create layer that Raycast can hit
-        int LayerIgnoreRaycast = LayerMask.NameToLayer("Character");
-        gameObject.layer = LayerIgnoreRaycast;
+        //int LayerIgnoreRaycast = LayerMask.NameToLayer("Character");
+        //gameObject.layer = LayerIgnoreRaycast;
     }
 
     IEnumerator ExplodeDecoy() {

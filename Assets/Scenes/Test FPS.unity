@@ -300,6 +300,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MECH001 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8980004821935517042, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8096921408388389128, guid: 3b2c7fa6dc005fe4495855adb84ab50c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3b2c7fa6dc005fe4495855adb84ab50c, type: 3}
@@ -584,6 +589,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MECH001 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8980004821935517042, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8096921408388389128, guid: 3b2c7fa6dc005fe4495855adb84ab50c, type: 3}
@@ -2787,6 +2797,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MECH001 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8980004821935517042, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8096921408388389128, guid: 3b2c7fa6dc005fe4495855adb84ab50c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3b2c7fa6dc005fe4495855adb84ab50c, type: 3}
@@ -2819,6 +2834,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MECH002
+      objectReference: {fileID: 0}
+    - target: {fileID: 7162500206454077421, guid: 4cec353629f23c147b8262b61681a12c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7506831326954859863, guid: 4cec353629f23c147b8262b61681a12c,
         type: 3}
@@ -5845,6 +5865,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MECH001 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 8980004821935517042, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8096921408388389128, guid: 3b2c7fa6dc005fe4495855adb84ab50c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3b2c7fa6dc005fe4495855adb84ab50c, type: 3}
@@ -6082,6 +6107,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MECH001 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8980004821935517042, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8096921408388389128, guid: 3b2c7fa6dc005fe4495855adb84ab50c, type: 3}
@@ -12388,6 +12418,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MECH001
+      objectReference: {fileID: 0}
+    - target: {fileID: 8980004821935517042, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9187767499914700043, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
         type: 3}
