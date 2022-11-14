@@ -28,14 +28,7 @@ public class GrenadeProjectile : MonoBehaviour
        if (GrenadeRigidBody != null) {
             // **** cant find main cam ****
             //GrenadeRigidBody.AddForce(transform.forward *32f,ForceMode.Impulse); 
-            StartCoroutine(waitToDestroy());
-            StartCoroutine(Explode());     
-        }
-    }
-    private void Awake()
-    {   
-        GrenadeRigidBody = GetComponent<Rigidbody>();
-        switch (bombType) {
+            switch (bombType) {
             case GrenadeData.BombType.BOMB :
                 Explode = ExplodeBomb;
                 break;
@@ -48,6 +41,14 @@ public class GrenadeProjectile : MonoBehaviour
                 lifeTime = 10f;
                 break;
         }
+            StartCoroutine(waitToDestroy());
+            StartCoroutine(Explode());     
+        }
+    }
+    private void Awake()
+    {   
+        GrenadeRigidBody = GetComponent<Rigidbody>();
+
     }
     // private void OnCollisionEnter(Collision other) {
     //     if (other.gameObject.tag == "Ground") {
@@ -143,6 +144,7 @@ public class GrenadeProjectile : MonoBehaviour
         damage = ld[0]; lifeTime = ld[1] ; explodeRadius = ld[2]; 
     }
     public void Setbombtype(GrenadeData.BombType bt) {
+        //Debug.Log(bt);
         bombType = bt;
     }
 }

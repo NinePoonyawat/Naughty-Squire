@@ -88,6 +88,7 @@ public class GrenadeThrower : MonoBehaviour {
         return ld;
     }
     public GrenadeData.BombType getbombtype() {
+        //Debug.Log(bombType);
         return bombType;
     }
 }
