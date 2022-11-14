@@ -193,17 +193,7 @@ public class ItemGrid : MonoBehaviour
         }
 
         //send data to GunSystem
-        WeaponData weaponData = inventoryItem.itemData as WeaponData;
-        if (weaponData != null)
-        {
-            weaponChangeEvent?.Invoke(weaponData);
-        }
-
-        GrenadeData grenadeData = inventoryItem.itemData as GrenadeData;
-        if (grenadeData != null)
-        {
-            grenadeChangeEvent?.Invoke(grenadeData);
-        }
+       
 
         /*
         GrenadeData grenadeData = inventoryItem.itemData as GrenadaData;
@@ -262,6 +252,18 @@ public class ItemGrid : MonoBehaviour
         Vector2 position = CalculatePositionOnGrid(inventoryItem, posX, posY);
 
         rectTransform.localPosition = position;
+
+        WeaponData weaponData = inventoryItem.itemData as WeaponData;
+        if (weaponData != null)
+        {
+            weaponChangeEvent?.Invoke(weaponData);
+        }
+
+        GrenadeData grenadeData = inventoryItem.itemData as GrenadeData;
+        if (grenadeData != null)
+        {
+            grenadeChangeEvent?.Invoke(grenadeData);
+        }
 
         remainSize -= 1;
     }
