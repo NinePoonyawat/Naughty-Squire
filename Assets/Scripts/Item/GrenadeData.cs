@@ -17,5 +17,6 @@ public class GrenadeData : ItemData
         BOMB,
         SMOKE,
         FIRE,
+        DECOY,
     }
 }

@@ -38,6 +38,9 @@ public class GrenadeProjectile : MonoBehaviour
             case GrenadeData.BombType.SMOKE :
                 Explode = ExplodeSmoke;
                 break;
+            case GrenadeData.BombType.DECOY :
+                Explode = ExplodeDecoy;
+                break;
         }
             StartCoroutine(waitToDestroy());
             StartCoroutine(Explode());     
@@ -116,24 +119,22 @@ public class GrenadeProjectile : MonoBehaviour
     IEnumerator ExplodeSmoke() {
         yield return new WaitForSeconds(lifeTime);
         GameObject grenade = Instantiate(smokeEffect, this.transform.position, Quaternion.identity);
-        grenade.transform.localScale = new Vector3(explodeRadius, explodeRadius, explodeRadius);
+        grenade.transform.localScale = new Vector3(explodeRadius * 2, explodeRadius * 2, explodeRadius * 2);
         Destroy(grenade, ExplodeTime);
     }
 
     IEnumerator ExplodeDecoy() {
-        while(true) {
-            yield return new WaitForSeconds(ExplodeTime);
-            Instantiate(explodeEffect, this.transform.position, Quaternion.identity);
-            Collider[] colliders = Physics.OverlapSphere(transform.position, explodeRadius);
+        yield return new WaitForSeconds(lifeTime);
+        Collider[] colliders = Physics.OverlapSphere(transform.position, explodeRadius);
 
-            foreach (Collider nearbyObject in colliders) {
-                PlayerHitbox entityHit = nearbyObject.GetComponent<PlayerHitbox>();
-                if (entityHit != null)
-                {
-                    entityHit.TakeDamage(damage);
-                }
+        foreach (Collider nearbyObject in colliders)
+        {
+            EnemyBase entityHit = nearbyObject.GetComponent<EnemyBase>();
+            if (entityHit != null) {
+                Debug.Log(nearbyObject.tag);
+                entityHit.NoiseAlert(transform.position);
             }
-        }
+        }     
     }
     public void SetFloatData(List<float> ld)
     {

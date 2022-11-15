@@ -28,6 +28,7 @@ public abstract class EnemyBase : MonoBehaviour
     public int nextgroup;
 
     private Vector3 nextPosition;
+    public Vector3 destination;
 
     [Header("AI Detection")]
     public bool playerIsInLOS;
@@ -199,7 +200,7 @@ public abstract class EnemyBase : MonoBehaviour
     public virtual void walking() {
         //if (!playerIsInLOS) EnemyState = State.Idle;
 //        Debug.Log("Walking");
-        agent.SetDestination(player.transform.position);
+        agent.SetDestination(destination);
 
         Vector3 targetPosition = new Vector3( player.transform.position.x, 
                                         transform.position.y, 
@@ -269,13 +270,14 @@ public abstract class EnemyBase : MonoBehaviour
         }
     }
     protected virtual void CheckWalking() {
-        if (aiMemoriesPlayer) StartCoroutine(AiMemory());
+        if (aiMemoriesPlayer || aiHeardPlayer) StartCoroutine(AiMemory());
+        //if (aiHeardPlayer) StartCoroutine(AiMemory());
     }
     protected virtual void CheckAttacking() {
         if (Vector2.Distance(new Vector2(player.transform.position.x,player.transform.position.z),new Vector2(transform.position.x,transform.position.z)) <= StopDistance) {
             EnemyState = State.Attack;
             Debug.Log("change attack state");
-        } else if (playerIsInLOS || aiMemoriesPlayer){
+        } else if (playerIsInLOS || aiMemoriesPlayer || aiHeardPlayer){
             EnemyState = State.Walk;
             //Debug.Log("change walk state");
         } else EnemyState = State.Idle;
@@ -301,6 +303,7 @@ public abstract class EnemyBase : MonoBehaviour
                     //Debug.Log("Found");
                     //EnemyState = State.Alert;
                     playerIsInLOS = true;
+                    destination = player.transform.position;
                 } 
                 else
                 {
@@ -308,6 +311,12 @@ public abstract class EnemyBase : MonoBehaviour
                 }
             }
         }
+    }
+    public void NoiseAlert(Vector3 Source) {
+        Debug.Log(this.name);
+        EnemyState = State.Walk;
+        aiHeardPlayer = true;
+        destination = Source;
     }
 
     void NoiseCheck() {
