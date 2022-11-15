@@ -29,6 +29,7 @@ namespace Player
         private bool isUpdate = true;
         private bool isInventoryOpen = false;
         private bool isbuttonDown = false;
+        public float timecount;
 
 
         public event OnShootEvent OnShoot;
@@ -99,21 +100,30 @@ namespace Player
                 OnShoot?.Invoke(2f);
                 gunSystem.Shoot();
                 starterAssetInputs.shoot = false;
-            }if (Input.GetMouseButtonDown(0) && grenadeThrower.isThrowable()) {
+            }if (Input.GetMouseButtonDown(0) && grenadeThrower.isThrowable() || isbuttonDown) {
                 isbuttonDown = true;
+                timecount += Time.deltaTime;
+                if (timecount > grenadeThrower.getlifetime()) {
+                    CreateandThrowGrenade(aimDir, timecount);
+                    timecount = 0; isbuttonDown = false;
+                }
                 //Vector3 aimDir = Input.mousePosition.normalized;
                 //Vector3 aimDir = playerCamera.transform.forward;
                 
             }
             if (Input.GetMouseButtonUp(0) && isbuttonDown && grenadeThrower.isThrowable()) {
-                grenadeThrower.disarm();
-                GameObject grenade = Instantiate(pfGrenade, spawnBulletPosition.transform.position, Quaternion.LookRotation(aimDir, Vector3.up)).gameObject;
-                grenade.SendMessage("SetFloatData",grenadeThrower.getfloatdata());
-                grenade.SendMessage("SetLifeTime",grenadeThrower.getlifetime());
-                grenade.SendMessage("Setbombtype",grenadeThrower.getbombtype());
-                grenade.SendMessage("Throw", aimDir);
+                CreateandThrowGrenade(aimDir, timecount);
+                timecount = 0; isbuttonDown = false;
             }
             if (starterAssetInputs.shoot && !gunSystem.isShootable()) starterAssetInputs.shoot = false;
+        }
+        private void CreateandThrowGrenade(Vector3 aimDir, float timecount) {
+            grenadeThrower.disarm();
+            GameObject grenade = Instantiate(pfGrenade, spawnBulletPosition.transform.position, Quaternion.LookRotation(aimDir, Vector3.up)).gameObject;
+            grenade.SendMessage("SetFloatData",grenadeThrower.getfloatdata());
+            grenade.SendMessage("SetLifeTime",Mathf.Max(grenadeThrower.getlifetime() - timecount, 0));
+            grenade.SendMessage("Setbombtype",grenadeThrower.getbombtype());
+            grenade.SendMessage("Throw", aimDir);
         }
 
         public void Resume(object o,EventArgs e)
