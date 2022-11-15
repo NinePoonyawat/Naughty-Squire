@@ -16,14 +16,14 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Wall
   - Enemy
   - Character
   - Ground
   - Postprocessing
   - Minimap
+  - EnemyProjectile
   - Bullet
-  - Wall
   - Effect
   - 
   - 
