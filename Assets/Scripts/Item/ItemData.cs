@@ -18,4 +18,9 @@ public class ItemData : ScriptableObject
     public int durable = 1;
     public int weight = 1;
     public int value = 1;
+
+    public bool equals(ItemData other)
+    {
+        return name == other.name;
+    }
 }
