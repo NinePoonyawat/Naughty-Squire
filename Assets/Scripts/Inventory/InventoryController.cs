@@ -60,7 +60,6 @@ public class InventoryController : MonoBehaviour
 
         if (selectedItemGrid == null)
         {
-            Debug.Log("Do nothing");
             inventoryHighlight.Show(false);
             return;
         }
@@ -189,6 +188,17 @@ public class InventoryController : MonoBehaviour
         return false;
     }
 
+    public int CountItem(ItemData selectedItem)
+    {
+        int count = 0;
+        int size = selectedItem.width * selectedItem.height;
+        foreach (ItemGrid itemGrid in itemGrids)
+        {
+            count += itemGrid.CountItemInGrid(selectedItem);
+        }
+        return count/size;
+    }
+
     public void QuickUseItem(int num)
     {
         if (selectedItem != null)
@@ -214,7 +224,6 @@ public class InventoryController : MonoBehaviour
     private void LeftMouseButtonPress()
     {
         Vector2Int tileGridPosition = GetTileGridPosition();
-        Debug.Log(tileGridPosition);
         if (selectedItem == null)
         {
             PickUpItem(tileGridPosition);
