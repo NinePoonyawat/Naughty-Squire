@@ -84,8 +84,11 @@ public class GrenadeThrower : MonoBehaviour {
 
     public List<float> getfloatdata() {
         List<float> ld = new List<float>();
-        ld.Add(damage); ld.Add(lifeTime); ld.Add(explodeRadius);
+        ld.Add(damage); ld.Add(ExplodeTime); ld.Add(explodeRadius);
         return ld;
+    }
+    public float getlifetime() {
+        return lifeTime;
     }
     public GrenadeData.BombType getbombtype() {
         //Debug.Log(bombType);
