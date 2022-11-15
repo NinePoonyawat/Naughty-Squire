@@ -119,10 +119,27 @@ public class ItemGrid : MonoBehaviour
         return null;
     }
 
+    public int CountItemInGrid(ItemData itemToFind)
+    {
+        int height = gridSizeHeight;
+        int width = gridSizeWidth;
+        int count = 0;
+        for (int y = 0; y < height; y++)
+        {
+            for (int x = 0; x < width; x++)
+            {
+                if (inventoryItemSlot[x, y] == null) { continue; }
+                if (inventoryItemSlot[x, y].itemData == itemToFind)
+                {
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+
     public InventoryItem PickUpItem(int x, int y)
     {
-        Debug.Log("X grid : " + x);
-        Debug.Log("Y grid : " + y);
         InventoryItem toReturn = inventoryItemSlot[x, y];
 
         if (toReturn == null) { return null; }
