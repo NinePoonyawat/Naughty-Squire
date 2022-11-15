@@ -7,7 +7,7 @@ public class ItemPickup : MonoBehaviour
     [Header("Settings")]
     [SerializeField] private InventoryController inventoryController;
     public Camera playerCamera;
-    public PickableItem _pointItem;
+    public InteractableItem _pointItem;
 
     [Header("Parameters")]
     public float pickupRange = 5f;
@@ -29,7 +29,7 @@ public class ItemPickup : MonoBehaviour
 
     private void PointingItem (GameObject pointed)
     {
-        PickableItem pointItem = pointed.GetComponent<PickableItem>();
+        InteractableItem pointItem = pointed.GetComponent<InteractableItem>();
 
         if (_pointItem != null && _pointItem != pointItem)
         {
@@ -41,19 +41,25 @@ public class ItemPickup : MonoBehaviour
             pointItem.Glow(true);
             if (Input.GetKeyDown(KeyCode.F))
             {
-                PickupItem(pointItem);
+                InteractItem(pointItem);
             }
             _pointItem = pointItem;
         }
     }
 
-    private void PickupItem (PickableItem pickItem)
+    private void InteractItem (InteractableItem interactItem)
     {
-        if(inventoryController.FillItem(pickItem.itemData))
+        PickableItem pickItem = interactItem as PickableItem;
+        if(pickItem != null && inventoryController.FillItem(pickItem.itemData))
         {
-            pickItem.Picked();
+            pickItem.Interacted();
+            FindObjectOfType<AudioManager>().Play("InventoryInteract");
         }
-        FindObjectOfType<AudioManager>().Play("InventoryInteract");
+        ObjectiveItem objective = interactItem as ObjectiveItem;
+        if (objective != null)
+        {
+            objective.Interacted();
+        }
     }
         
 }
