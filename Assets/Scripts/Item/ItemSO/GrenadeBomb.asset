@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4d06cde08be239b4d887b10308cf8b87, type: 3}
-  m_Name: Bomb
+  m_Name: GrenadeBomb
   m_EditorClassIdentifier: 
   width: 1
   height: 1
