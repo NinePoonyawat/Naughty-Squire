@@ -25,6 +25,12 @@ public class InventoryController : MonoBehaviour
     public bool isInventoryOpen = true;
     InventoryHighlight inventoryHighlight;
 
+    public event OnPlacingItemEvent OnPlacingItem;
+    public delegate void OnPlacingItemEvent(ItemData itemData);
+
+    public event OnPickUpItemEvent OnPickUpItem;
+    public delegate void OnPickUpItemEvent(ItemData itemData);
+
     private void Start() {
         inventoryHighlight = GetComponent<InventoryHighlight>();
         itemGrids = FindObjectsOfType<ItemGrid>();
@@ -252,6 +258,7 @@ public class InventoryController : MonoBehaviour
         if (selectedItem != null)
         {
             rectTransform = selectedItem.GetComponent<RectTransform>();
+            OnPickUpItem?.Invoke(selectedItem.itemData);
         }
     }
 
@@ -261,6 +268,8 @@ public class InventoryController : MonoBehaviour
         if (complete)
         {
             FindObjectOfType<AudioManager>().Play("InventoryInteract");
+
+            OnPlacingItem?.Invoke(selectedItem.itemData);
 
             selectedItem = null;
             if (overlapItem != null)
