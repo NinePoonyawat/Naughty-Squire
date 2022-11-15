@@ -109,6 +109,7 @@ namespace Player
                 grenadeThrower.disarm();
                 GameObject grenade = Instantiate(pfGrenade, spawnBulletPosition.transform.position, Quaternion.LookRotation(aimDir, Vector3.up)).gameObject;
                 grenade.SendMessage("SetFloatData",grenadeThrower.getfloatdata());
+                grenade.SendMessage("SetLifeTime",grenadeThrower.getlifetime());
                 grenade.SendMessage("Setbombtype",grenadeThrower.getbombtype());
                 grenade.SendMessage("Throw", aimDir);
             }

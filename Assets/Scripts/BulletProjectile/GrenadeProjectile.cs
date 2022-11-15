@@ -34,11 +34,9 @@ public class GrenadeProjectile : MonoBehaviour
                 break;
             case GrenadeData.BombType.FIRE :
                 Explode = ExplodeFire;
-                lifeTime = 10f;
                 break;
             case GrenadeData.BombType.SMOKE :
                 Explode = ExplodeSmoke;
-                lifeTime = 10f;
                 break;
         }
             StartCoroutine(waitToDestroy());
@@ -118,10 +116,8 @@ public class GrenadeProjectile : MonoBehaviour
     IEnumerator ExplodeSmoke() {
         yield return new WaitForSeconds(lifeTime);
         GameObject grenade = Instantiate(smokeEffect, this.transform.position, Quaternion.identity);
-
-        // create layer that Raycast can hit
-        //int LayerIgnoreRaycast = LayerMask.NameToLayer("Character");
-        //gameObject.layer = LayerIgnoreRaycast;
+        grenade.transform.localScale = new Vector3(explodeRadius, explodeRadius, explodeRadius);
+        Destroy(grenade, ExplodeTime);
     }
 
     IEnumerator ExplodeDecoy() {
@@ -141,7 +137,10 @@ public class GrenadeProjectile : MonoBehaviour
     }
     public void SetFloatData(List<float> ld)
     {
-        damage = ld[0]; lifeTime = ld[1] ; explodeRadius = ld[2]; 
+        damage = ld[0];  ExplodeTime = ld[1]; explodeRadius = ld[2]; 
+    }
+    public void SetLifeTime(float lt) {
+        lifeTime = lt;
     }
     public void Setbombtype(GrenadeData.BombType bt) {
         //Debug.Log(bt);
