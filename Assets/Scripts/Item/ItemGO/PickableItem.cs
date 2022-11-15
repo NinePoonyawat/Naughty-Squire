@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PickableItem : MonoBehaviour
+public class PickableItem : InteractableItem
 {
     [Header("Settings")]
     [SerializeField] private MeshFilter meshFilter;
@@ -25,7 +25,7 @@ public class PickableItem : MonoBehaviour
         GetComponent<MeshCollider>().sharedMesh = meshFilter.mesh;
     }
 
-    public void Glow(bool open)
+    public override void Glow(bool open)
     {
         if (!isGlow && open) {
             aura = Instantiate(auraPrefab, transform.position, Quaternion.identity, transform);
@@ -37,7 +37,8 @@ public class PickableItem : MonoBehaviour
             isGlow = false;
         }
     }
-    public void Picked()
+
+    public override void Interacted()
     {
         if (aura != null) Destroy(aura);
         Destroy(gameObject);
