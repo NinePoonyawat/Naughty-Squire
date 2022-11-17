@@ -58,4 +58,8 @@ public class FindingObjective : Objective
     {
         findingItem = itemData;
     }
+
+    public override void UpdateText()
+    { 
+    }
 }

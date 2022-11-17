@@ -57,4 +57,8 @@ public class ShootingObjective : Objective
     {
         return shootCount;
     }
+
+    public override void UpdateText()
+    {
+    }
 }

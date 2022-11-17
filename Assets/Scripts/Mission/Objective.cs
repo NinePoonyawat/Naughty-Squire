@@ -1,11 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
-public class Objective : MonoBehaviour
+public abstract class Objective : MonoBehaviour
 {
     [SerializeField] protected int[] score = new int[3];
     protected CompleteLevel level;
+
+    public TMP_Text text;
+
+    public abstract void UpdateText();
 
     public virtual void Promotions()
     {

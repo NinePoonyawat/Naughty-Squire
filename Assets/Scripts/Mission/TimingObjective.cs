@@ -50,4 +50,8 @@ public class TimingObjective : Objective
     {
         return ((int) timeCounter);
     }
+
+    public override void UpdateText()
+    {
+    }
 }
