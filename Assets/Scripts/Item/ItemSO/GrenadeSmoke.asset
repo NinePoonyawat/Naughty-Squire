@@ -19,10 +19,11 @@ MonoBehaviour:
   alternateIcon: {fileID: 0}
   itemMesh: {fileID: 0}
   soundName: 
+  name: 
   durable: 1
   weight: 1
   value: 1
-  ExplodeTime: 7
+  ExplodeTime: 3
   lifeTime: 5
   explodeRadius: 7
   damage: 0

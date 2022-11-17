@@ -108,13 +108,14 @@ namespace Weapon
             FindObjectOfType<AudioManager>().Play(reloadSoundName);
         }
 
-        public void setNewData(WeaponData weaponData)
+        public void setNewData(InventoryItem weaponItem)
         {
+            WeaponData weaponData = weaponItem.itemData as WeaponData;
             isArmed = true;
             currentData = weaponData;
             damage = weaponData.damage;
-            bulletPerMagazine = 17;
-            bulletLeftInMagazine = 17;
+            bulletPerMagazine = weaponItem.ammoCapacity;
+            bulletLeftInMagazine = weaponItem.ammoRemained;
             cooldownTime = weaponData.fireDelay;
             fireSoundName = weaponData.fireSoundName;
             reloadSoundName = weaponData.reloadSoundName;
