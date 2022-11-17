@@ -47,7 +47,7 @@ public abstract class EnemyBase : MonoBehaviour
     [Header("AI Hearing")]
     Vector3 noisePosition;
     private bool aiHeardPlayer = false;
-    public float noiseTravelDistance = 50f;
+    public float noiseTravelDistance;
     //public float spinspeed = 3f;
     //private bool canspin = false;
     //private float isSpiningTime; // search player noise position
@@ -63,12 +63,11 @@ public abstract class EnemyBase : MonoBehaviour
     public bool FleeAble;
 
 
-    private StarterAssetsInputs starterAssetInputs;
-
     
     Mesh mesh;
     
     void Start() {
+        player.GetComponent<FPSController>().walkEvent += NoiseCheck;
         EnemyState = State.Idle;
         StartNextState();
         //meshColor.a = 0.5f;
@@ -138,7 +137,7 @@ public abstract class EnemyBase : MonoBehaviour
         CheckLOS();
         if (FleeAble) CheckFlee();
         //StartNextState();
-        NoiseCheck();
+        //NoiseCheck();
         
         // if (playerIsInLOS || EnemyState == State.Alert) {
         //     if (EnemyState == State.Idle) EnemyState = State.Alert;
@@ -322,8 +321,11 @@ public abstract class EnemyBase : MonoBehaviour
 
     void NoiseCheck() {
         float distance = Vector3.Distance(player.transform.position, transform.position);
-
-        // if (distance <= noiseTravelDistance) {
+        //Debug.Log("distance = " + distance + " noiseTravel = " + noiseTravelDistance );
+        if (distance <= noiseTravelDistance) {
+            //Debug.Log("Alert");
+            NoiseAlert(player.transform.position);
+        }
         //     var vel = player.GetComponent<Rigidbody>().velocity;
         //     float speed = vel.magnitude; 
         //     //Debug.Log(speed);

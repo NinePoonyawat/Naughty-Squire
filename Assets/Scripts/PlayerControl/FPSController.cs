@@ -26,6 +26,9 @@ public class FPSController : MonoBehaviour
 
     bool isWalking;
 
+    public event WalkingEvent walkEvent;
+    public delegate void WalkingEvent();
+
     void Start()
     {
         playerCamera = GameObject.Find("MainCamera").GetComponent<Camera>();
@@ -56,6 +59,9 @@ public class FPSController : MonoBehaviour
 
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
+        if (x > 0 || z > 0) {
+            walkEvent?.Invoke();
+        }
 
         move = transform.right * x + transform.forward * z;
 
