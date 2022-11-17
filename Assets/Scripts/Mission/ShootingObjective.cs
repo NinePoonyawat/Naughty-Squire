@@ -64,6 +64,6 @@ public class ShootingObjective : Objective
 
     public override void UpdateText()
     {
-        uiText.text = "don't spend  more than <color=" + color + "> " + LevelShoot + "</color>" + " bullets (" + shootCount + " / " + LevelShoot + ")";
+        uiText.text = "don't spend  more than " + LevelShoot + " bullets <color=" + color + "> " + shootCount + " / " + LevelShoot + " )</color>";
     }
 }

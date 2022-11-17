@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FindingObjective : Objective
 {
     private InventoryController inventoryController;
     private ItemData findingItem;
+    private int levelRank;
     private int[] quantity = new int[3];
+    private int levelFinding;
     private int count;
 
     // Start is called before the first frame update
@@ -31,6 +34,8 @@ public class FindingObjective : Objective
             quantity[2] = 3;
         }
         count = 0;
+        levelRank = 0;
+        levelFinding = quantity[levelRank];
 
         UpdateText();
     }
@@ -40,6 +45,10 @@ public class FindingObjective : Objective
         if (findingItem.equals(itemData))
         {
             count--;
+            Relagations();
+            levelRank--;
+            levelFinding = quantity[levelRank];
+
         }
     }
 
@@ -48,6 +57,9 @@ public class FindingObjective : Objective
         if (findingItem.equals(itemData))
         {
             count++;
+            Promotions();
+            levelRank++;
+            levelFinding = quantity[levelRank];
         }
     }
 
@@ -61,8 +73,13 @@ public class FindingObjective : Objective
         findingItem = itemData;
     }
 
+    public Texture getTexture()
+    {
+        return findingItem.itemIcon.texture;
+    }
+
     public override void UpdateText()
     {
-        uiText.text = "find <color=" + color + ">(" + count + "</color>" + " of " + findingItem.name;
+        uiText.text = "find "  + levelFinding + " of " + findingItem.name + "<color=" + color + "> ( " + count + " / " + levelFinding + " )</color>";
     }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class ObjectiveController : MonoBehaviour
@@ -27,13 +28,18 @@ public class ObjectiveController : MonoBehaviour
         findingObjective2 = main.AddComponent<FindingObjective>();
         findingObjective3 = main.AddComponent<FindingObjective>();
         totalScore = 0;
-        SetFindingItem();
 
         timingObjective.uiText = UIObjective.transform.Find("TimingObjective").GetComponent<TMP_Text>();
         shootingObjective.uiText = UIObjective.transform.Find("ShootingObjective").GetComponent<TMP_Text>();
         findingObjective1.uiText = UIObjective.transform.Find("FindingObjective1").GetComponent<TMP_Text>();
         findingObjective2.uiText = UIObjective.transform.Find("FindingObjective2").GetComponent<TMP_Text>();
         findingObjective3.uiText = UIObjective.transform.Find("FindingObjective3").GetComponent<TMP_Text>();
+
+        SetFindingItem();
+
+        UIObjective.transform.Find("FindingImage1").GetComponent<RawImage>().texture = findingObjective1.getTexture();
+        UIObjective.transform.Find("FindingImage2").GetComponent<RawImage>().texture = findingObjective2.getTexture();
+        UIObjective.transform.Find("FindingImage3").GetComponent<RawImage>().texture = findingObjective3.getTexture();
 
         timingObjective.UpdateText();
         shootingObjective.UpdateText();
