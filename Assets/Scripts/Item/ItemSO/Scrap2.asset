@@ -19,6 +19,8 @@ MonoBehaviour:
   alternateIcon: {fileID: 0}
   itemMesh: {fileID: 1672080018128590399, guid: 0e80d84d1c2989c49ba3263d9a827506,
     type: 3}
+  soundName: 
+  name: Metal Pieces
   durable: 1
   weight: 6
   value: 6

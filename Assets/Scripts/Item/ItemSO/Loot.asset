@@ -16,6 +16,10 @@ MonoBehaviour:
   height: 2
   isTwoHanded: 0
   itemIcon: {fileID: 21300000, guid: a92b163eb8ecae64ca38a90cd9bb9f71, type: 3}
+  alternateIcon: {fileID: 0}
   itemMesh: {fileID: 0}
+  soundName: 
+  name: Valuable Crate
+  durable: 1
   weight: 30
   value: 100

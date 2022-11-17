@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7292a78aed840e242b7304e008b037ff, type: 3}
-  m_Name: 9x19Mag
+  m_Name: 9x19Mag-l
   m_EditorClassIdentifier: 
   width: 1
   height: 1
@@ -19,9 +19,12 @@ MonoBehaviour:
   alternateIcon: {fileID: 21300000, guid: 1e3bf4f89a0120e4a93eed53e29b8afd, type: 3}
   itemMesh: {fileID: -7745756782809674522, guid: faf35e45031de1744b38f392782c3d72,
     type: 3}
+  soundName: 
+  name: Glock17 16-round magazine
+  durable: 1
   weight: 2
   value: 1
-  ammoCapacity: 17
+  ammoCapacity: 16
   availableWeapon: {fileID: 11400000, guid: bfdce7d34baf7f84681b4a2f46ef17d8, type: 2}
   refillTool: {fileID: 11400000, guid: ac96af1fadae157419d168790f4b60fd, type: 2}
   refillSoundName: InventoryInteract

@@ -20,6 +20,7 @@ MonoBehaviour:
   itemMesh: {fileID: -303415722837671136, guid: 392ff5165006e464c86c9dbe80cc8d3f,
     type: 3}
   soundName: 
+  name: Canned Food
   durable: 1
   weight: 1
   value: 2

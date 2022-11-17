@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.15742597, g: 0.163062, b: 0.16545992, a: 1}
+  m_IndirectSpecularColor: {r: 0.15742645, g: 0.16306245, b: 0.1654604, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2764,13 +2764,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UIObjective: {fileID: 1140451881}
   itemData:
-  - {fileID: 11400000, guid: 47276e140fbee23449fa904d3f5bcd49, type: 2}
-  - {fileID: 11400000, guid: 40246b5927ec3274fa4f67251971c783, type: 2}
+  - {fileID: 11400000, guid: b27d83d66a0d1f844bc8e06998437af7, type: 2}
+  - {fileID: 11400000, guid: 06fac574cc5a5c1478a21a35bf7264f2, type: 2}
+  - {fileID: 11400000, guid: bfc090f4f84232e4dae86339bf48ab88, type: 2}
   - {fileID: 11400000, guid: ac96af1fadae157419d168790f4b60fd, type: 2}
-  - {fileID: 11400000, guid: ec27e16efe7de914583c25d214d2f12f, type: 2}
-  - {fileID: 11400000, guid: bfdce7d34baf7f84681b4a2f46ef17d8, type: 2}
-  - {fileID: 11400000, guid: 769b8d92fa69c02428f9f2f41152f205, type: 2}
-  - {fileID: 11400000, guid: f80abb54e29f65a4c9631d0aa8f45588, type: 2}
 --- !u!4 &494057460
 Transform:
   m_ObjectHideFlags: 0
@@ -5780,7 +5777,7 @@ GameObject:
   - component: {fileID: 1140451884}
   - component: {fileID: 1140451883}
   m_Layer: 5
-  m_Name: ObjecttiveCanvas
+  m_Name: ObjectiveCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

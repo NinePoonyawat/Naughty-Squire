@@ -63,6 +63,6 @@ public class FindingObjective : Objective
 
     public override void UpdateText()
     {
-        uiText.text = "find <color=" + color + ">(" + count + "</color>" + " of " + findingItem;
+        uiText.text = "find <color=" + color + ">(" + count + "</color>" + " of " + findingItem.name;
     }
 }

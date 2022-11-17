@@ -15,6 +15,7 @@ public class ItemData : ScriptableObject
     public string soundName;
 
     [Header("Data")]
+    public string name = "Example Name";
     public int durable = 1;
     public int weight = 1;
     public int value = 1;

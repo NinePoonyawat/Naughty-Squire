@@ -19,6 +19,8 @@ MonoBehaviour:
   alternateIcon: {fileID: 0}
   itemMesh: {fileID: -6228950244810339426, guid: c1474394c9ecac843a0f4c44e895f353,
     type: 3}
+  soundName: 
+  name: Ammo Crate
   durable: 5
   weight: 10
   value: 1

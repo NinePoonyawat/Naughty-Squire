@@ -19,6 +19,8 @@ MonoBehaviour:
   alternateIcon: {fileID: 0}
   itemMesh: {fileID: -6540302539617476139, guid: 413a0409464fe4e49ade5c528420b4a1,
     type: 3}
+  soundName: 
+  name: Gears
   durable: 1
   weight: 3
   value: 3
