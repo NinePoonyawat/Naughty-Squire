@@ -11,6 +11,8 @@ public class TimingObjective : Objective
     // Start is called before the first frame update
     void Start()
     {
+        color = "#00FF00";
+        
         if (score[0] == 0 && score[1] == 0 && score[2] == 0)
         {
             score[0] = 100;
@@ -26,6 +28,8 @@ public class TimingObjective : Objective
         timeCounter = 0;
         levelTime = time[2];
         levelRank = 2;
+
+        UpdateText();
     }
 
     // Update is called once per frame
@@ -33,6 +37,7 @@ public class TimingObjective : Objective
     {
         timeCounter += Time.deltaTime;
         TimeUpdate();
+        UpdateText();
     }
 
     void TimeUpdate()
@@ -53,5 +58,6 @@ public class TimingObjective : Objective
 
     public override void UpdateText()
     {
+        uiText.text = "clear mission in " + levelTime + " seconds <color=" + color + "> (" + GetTime() + " / " + levelTime + " )</color>";  
     }
 }

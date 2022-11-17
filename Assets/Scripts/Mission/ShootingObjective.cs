@@ -21,7 +21,9 @@ public class ShootingObjective : Objective
 
     void Start()
     {
+        color = "#00FF00";
         shootCount = 0;
+
         if (score[0] == 0 && score[1] == 0 && score[2] == 0)
         {
             score[0] = 100;
@@ -36,6 +38,8 @@ public class ShootingObjective : Objective
         }
         LevelShoot = shoot[0];
         LevelRank = 0;
+
+        UpdateText();
     }
 
     // Update is called once per frame
@@ -50,7 +54,7 @@ public class ShootingObjective : Objective
             LevelRank++;
             LevelShoot = shoot[LevelRank];
         }
-        Debug.Log(shootCount);
+        UpdateText();;
     }
 
     public int GetShoot()
@@ -60,5 +64,6 @@ public class ShootingObjective : Objective
 
     public override void UpdateText()
     {
+        uiText.text = "don't spend  more than <color=" + color + "> " + LevelShoot + "</color>" + " bullets (" + shootCount + " / " + LevelShoot + ")";
     }
 }

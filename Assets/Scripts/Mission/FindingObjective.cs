@@ -31,6 +31,8 @@ public class FindingObjective : Objective
             quantity[2] = 3;
         }
         count = 0;
+
+        UpdateText();
     }
 
     public void OnPickUpItem(ItemData itemData)
@@ -60,6 +62,7 @@ public class FindingObjective : Objective
     }
 
     public override void UpdateText()
-    { 
+    {
+        uiText.text = "find <color=" + color + ">(" + count + "</color>" + " of " + findingItem;
     }
 }
