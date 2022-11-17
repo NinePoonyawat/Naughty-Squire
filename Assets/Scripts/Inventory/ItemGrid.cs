@@ -26,9 +26,6 @@ public class ItemGrid : MonoBehaviour
     public event WeaponChangeEvent weaponChangeEvent;
     public delegate void WeaponChangeEvent(InventoryItem changeWeapon);
 
-    public event GrenadeChangeEvent grenadeChangeEvent;
-    public delegate void GrenadeChangeEvent(GrenadeData changeGrenade);
-
     public event OnPickupWeaponEvent onPickupWeaponEvent;
     public delegate void OnPickupWeaponEvent();
 
@@ -251,15 +248,10 @@ public class ItemGrid : MonoBehaviour
         rectTransform.localPosition = position;
 
         WeaponData weaponData = inventoryItem.itemData as WeaponData;
-        if (weaponData != null)
+        GrenadeData grenadeData = inventoryItem.itemData as GrenadeData;
+        if (weaponData != null || grenadeData != null)
         {
             weaponChangeEvent?.Invoke(inventoryItem);
-        }
-
-        GrenadeData grenadeData = inventoryItem.itemData as GrenadeData;
-        if (grenadeData != null)
-        {
-            grenadeChangeEvent?.Invoke(grenadeData);
         }
 
         remainSize -= 1;
@@ -406,5 +398,8 @@ public class ItemGrid : MonoBehaviour
             }
         }
         return true;
+    }
+    public InventoryItem getInventory(int x,int y) {
+        return inventoryItemSlot[x, y];
     }
 }

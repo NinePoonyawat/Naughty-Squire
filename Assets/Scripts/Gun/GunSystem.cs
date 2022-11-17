@@ -111,6 +111,7 @@ namespace Weapon
         public void setNewData(InventoryItem weaponItem)
         {
             WeaponData weaponData = weaponItem.itemData as WeaponData;
+            if (weaponData == null) return;
             isArmed = true;
             currentData = weaponData;
             damage = weaponData.damage;

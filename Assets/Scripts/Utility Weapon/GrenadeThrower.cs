@@ -21,19 +21,24 @@ public class GrenadeThrower : MonoBehaviour {
 
     private GrenadeData currentData = null;
     private bool isArmed =false;
+    private ItemGrid grenadeItemClone;
+    private int posX;
+    private int posY;
+    private ItemGrid LhandItemGrid;
+    private ItemGrid RhandItemGrid;
 
     
     
     void Start()
     {   
-        ItemGrid LhandItemGrid = GameObject.Find("UI/UIInventory/Grid-L-Hand").GetComponent<ItemGrid>();
-        ItemGrid RhandItemGrid = GameObject.Find("UI/UIInventory/Grid-R-Hand").GetComponent<ItemGrid>();
+        LhandItemGrid = GameObject.Find("UI/UIInventory/Grid-L-Hand").GetComponent<ItemGrid>();
+        RhandItemGrid = GameObject.Find("UI/UIInventory/Grid-R-Hand").GetComponent<ItemGrid>();
             //GameObject.Find("UI/UIInventory").SetActive(false);
 
-        LhandItemGrid.grenadeChangeEvent += setNewData;
+        LhandItemGrid.weaponChangeEvent += setNewData;
         LhandItemGrid.onPickupWeaponEvent += disarm;
 
-        RhandItemGrid.grenadeChangeEvent += setNewData;
+        RhandItemGrid.weaponChangeEvent += setNewData;
         RhandItemGrid.onPickupWeaponEvent += disarm;
 
         inventoryManager.OnInventoryOpen += openInventory;
@@ -45,8 +50,12 @@ public class GrenadeThrower : MonoBehaviour {
     
     
 
-    public void setNewData(GrenadeData grenadeData)
+    public void setNewData(InventoryItem grenadeItem)
         {
+            //grenadeItemClone = grenadeItem;
+            posX = grenadeItem.onGridPositionX ; posY = grenadeItem.onGridPositionY;
+            GrenadeData grenadeData = grenadeItem.itemData as GrenadeData;
+            if (grenadeData == null) return;
             isArmed = true;
             currentData = grenadeData;
             damage = grenadeData.damage;
@@ -57,9 +66,16 @@ public class GrenadeThrower : MonoBehaviour {
         }
     public void disarm()
         {
-            Debug.Log("enter");
             isArmed = false;
             currentData = null;
+            InventoryItem Li = LhandItemGrid.getInventory(posX,posY);
+            InventoryItem Ri = RhandItemGrid.getInventory(posX,posY);
+            if (Li != null && Li.itemData as GrenadeData != null) {
+                LhandItemGrid.DiscardItem(posX,posY); return;
+            }
+            if (Ri != null && Ri.itemData as GrenadeData != null) {
+                RhandItemGrid.DiscardItem(posX,posY); return;
+            }
         }
     
     // IEnumerator ExplodeDelay(float delay)

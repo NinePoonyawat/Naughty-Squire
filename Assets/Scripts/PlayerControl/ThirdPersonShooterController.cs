@@ -118,12 +118,12 @@ namespace Player
             if (starterAssetInputs.shoot && !gunSystem.isShootable()) starterAssetInputs.shoot = false;
         }
         private void CreateandThrowGrenade(Vector3 aimDir, float timecount) {
-            grenadeThrower.disarm();
             GameObject grenade = Instantiate(pfGrenade, spawnBulletPosition.transform.position, Quaternion.LookRotation(aimDir, Vector3.up)).gameObject;
             grenade.SendMessage("SetFloatData",grenadeThrower.getfloatdata());
             grenade.SendMessage("SetLifeTime",Mathf.Max(grenadeThrower.getlifetime() - timecount, 0));
             grenade.SendMessage("Setbombtype",grenadeThrower.getbombtype());
             grenade.SendMessage("Throw", aimDir);
+            grenadeThrower.disarm();
         }
 
         public void Resume(object o,EventArgs e)
