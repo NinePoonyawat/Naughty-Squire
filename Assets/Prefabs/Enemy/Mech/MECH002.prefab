@@ -31,6 +31,68 @@ Transform:
   m_Father: {fileID: 7506831326954859863}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1134444956496538663
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8798286881618096599}
+  m_Layer: 0
+  m_Name: BrokenPosition R Leg
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8798286881618096599
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1134444956496538663}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.572, y: -0.933, z: 0.639}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2169108866779036104}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1894893811979298520
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3172096940062590008}
+  m_Layer: 0
+  m_Name: BrokenPosition R Leg UP
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3172096940062590008
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1894893811979298520}
+  m_LocalRotation: {x: -0.101151586, y: -0.69983464, z: -0.47208464, w: 0.52643704}
+  m_LocalPosition: {x: 0.26781327, y: -0.9986725, z: 0.56399983}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7823374334829295404}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -33.66}
 --- !u!1 &3055990908496536657
 GameObject:
   m_ObjectHideFlags: 0
@@ -62,7 +124,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 1.6, z: 0.3}
   m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 3172096940062590008}
   m_Father: {fileID: 7506831326954859863}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -130,11 +193,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 20
   health: 0
+  conditionHealth: 0
   damageRatio: 1
   canDestroy: 0
   canDebuff: 1
   Me: {fileID: 0}
+  brokenPosition: {fileID: 3172096940062590008}
   brokenParticle: {fileID: 1273915125232972, guid: a22b28b805449fa42ac5c3093b8389e1,
+    type: 3}
+  droppedItem: {fileID: 4398294467192866887, guid: 78b9fd37a03ff1b4891531b2ded803e0,
     type: 3}
   speedMultiply: 0.5
   damageMultiply: 1
@@ -182,7 +249,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 1.6, z: 0.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 5803519275055465120}
   m_Father: {fileID: 7506831326954859863}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -250,12 +318,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 20
   health: 0
+  conditionHealth: 0
   damageRatio: 2
   canDestroy: 1
   canDebuff: 0
   Me: {fileID: 0}
+  brokenPosition: {fileID: 5803519275055465120}
   brokenParticle: {fileID: 1273915125232972, guid: a22b28b805449fa42ac5c3093b8389e1,
     type: 3}
+  droppedItem: {fileID: 0}
   speedMultiply: 1
   damageMultiply: 1
 --- !u!64 &8735247355153922924
@@ -303,7 +374,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 144387332682904221}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2623876110979343989
 MeshFilter:
@@ -386,7 +457,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2169108866779036104}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2501808889769196985
 MeshFilter:
@@ -470,6 +541,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 8798286881618096599}
   - {fileID: 639022824988644499}
   m_Father: {fileID: 7506831326954859863}
   m_RootOrder: 5
@@ -538,12 +610,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 10
   health: 0
+  conditionHealth: 0
   damageRatio: 1
   canDestroy: 0
   canDebuff: 1
   Me: {fileID: 0}
+  brokenPosition: {fileID: 8798286881618096599}
   brokenParticle: {fileID: 1273915125232972, guid: a22b28b805449fa42ac5c3093b8389e1,
     type: 3}
+  droppedItem: {fileID: 0}
   speedMultiply: 0.5
   damageMultiply: 1
 --- !u!65 &8264650513397089709
@@ -573,6 +648,7 @@ GameObject:
   - component: {fileID: 6395293018864520316}
   - component: {fileID: 8278555360570675210}
   - component: {fileID: 8471736993379747388}
+  - component: {fileID: 618479079790758997}
   m_Layer: 0
   m_Name: MECH002
   m_TagString: Enemy
@@ -687,16 +763,17 @@ MonoBehaviour:
   player: {fileID: 0}
   group: -1
   nextgroup: 0
+  destination: {x: 0, y: 0, z: 0}
   playerIsInLOS: 0
   fieldOfViewAngle: 40
-  losRadius: 12
+  losRadius: 30
   height: 0.1
   StopDistance: 0
   aiMemoriesPlayer: 0
   memoryStartTime: 10
   noiseTravelDistance: 50
   CanAlert: 1
-  FleeAble: 0
+  FleeAble: 1
   CanMove: 0
   pfBulletProjectile: {fileID: 0}
   firePoint: {fileID: 3392479213087189955}
@@ -706,6 +783,21 @@ MonoBehaviour:
     type: 3}
   IsBombBullet: 1
   ShootAngle: 45
+--- !u!114 &618479079790758997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7162500206454077421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b27690083ae0d447ab9efd47effef9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropPool: {fileID: 11400000, guid: d7420c513ed542f4f8b1fec32baea743, type: 2}
+  destroyPrefab: {fileID: 1121192042590650, guid: c9758f60661c3b64fb08d9aa1e39deb0,
+    type: 3}
 --- !u!1 &7455371729617891028
 GameObject:
   m_ObjectHideFlags: 0
@@ -805,11 +897,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 40
   health: 0
+  conditionHealth: 0
   damageRatio: 1
   canDestroy: 0
   canDebuff: 0
   Me: {fileID: 0}
+  brokenPosition: {fileID: 0}
   brokenParticle: {fileID: 0}
+  droppedItem: {fileID: 0}
   speedMultiply: 1
   damageMultiply: 1
 --- !u!64 &4964196652348221970
@@ -857,7 +952,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 1.6, z: 0.3000002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 946782291342930748}
   m_Father: {fileID: 7506831326954859863}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -925,11 +1021,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 20
   health: 0
+  conditionHealth: 0
   damageRatio: 1
   canDestroy: 0
   canDebuff: 1
   Me: {fileID: 0}
+  brokenPosition: {fileID: 946782291342930748}
   brokenParticle: {fileID: 1273915125232972, guid: a22b28b805449fa42ac5c3093b8389e1,
+    type: 3}
+  droppedItem: {fileID: 4398294467192866887, guid: 78b9fd37a03ff1b4891531b2ded803e0,
     type: 3}
   speedMultiply: 0.5
   damageMultiply: 1
@@ -946,6 +1046,99 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.51054007, y: 0.9181048, z: 0.4378268}
   m_Center: {x: -0.1874833, y: -0.7298033, z: -0.4970517}
+--- !u!1 &8865379979046059458
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5803519275055465120}
+  m_Layer: 0
+  m_Name: BrokenPosition Lower Body
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5803519275055465120
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8865379979046059458}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.78, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9198684414390345569}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8979792926015368038
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3447396770579597166}
+  m_Layer: 0
+  m_Name: BrokenPosition L Leg
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3447396770579597166
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8979792926015368038}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.51, y: -1.07, z: -0.648}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 144387332682904221}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &9089067774069219479
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 946782291342930748}
+  m_Layer: 0
+  m_Name: BrokenPosition L Leg UP
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &946782291342930748
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9089067774069219479}
+  m_LocalRotation: {x: -0.5328705, y: -0.46481085, z: -0.014884209, w: 0.7069501}
+  m_LocalPosition: {x: 0.26781312, y: -0.99867237, z: -0.4629981}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5295876415793172295}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 47.696}
 --- !u!1 &9121146628387078665
 GameObject:
   m_ObjectHideFlags: 0
@@ -978,6 +1171,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 3447396770579597166}
   - {fileID: 7646746978114253044}
   m_Father: {fileID: 7506831326954859863}
   m_RootOrder: 4
@@ -1046,12 +1240,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 10
   health: 0
+  conditionHealth: 0
   damageRatio: 1
   canDestroy: 0
   canDebuff: 1
   Me: {fileID: 0}
+  brokenPosition: {fileID: 3447396770579597166}
   brokenParticle: {fileID: 1273915125232972, guid: a22b28b805449fa42ac5c3093b8389e1,
     type: 3}
+  droppedItem: {fileID: 0}
   speedMultiply: 0.5
   damageMultiply: 1
 --- !u!65 &14889058447584278

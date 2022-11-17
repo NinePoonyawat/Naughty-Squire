@@ -17,6 +17,7 @@ public class GrenadeProjectile : MonoBehaviour
 
     [SerializeField] private GameObject explodeEffect;
     [SerializeField] private GameObject smokeEffect;
+    [SerializeField] private GameObject decoyEffect;
     private float explodeForce = 100f;
 
     public float speed = 10f;
@@ -69,12 +70,12 @@ public class GrenadeProjectile : MonoBehaviour
     IEnumerator waitToDestroy()
     {
         yield return new WaitForSeconds(lifeTime);
-        Instantiate(explodeEffect, this.transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
     IEnumerator ExplodeBomb()
     {
         yield return new WaitForSeconds(lifeTime);
+        Instantiate(explodeEffect, this.transform.position, Quaternion.identity);
         Collider[] colliders = Physics.OverlapSphere(transform.position, explodeRadius);
 
         foreach (Collider nearbyObject in colliders)
@@ -125,6 +126,7 @@ public class GrenadeProjectile : MonoBehaviour
 
     IEnumerator ExplodeDecoy() {
         yield return new WaitForSeconds(lifeTime);
+        Instantiate(decoyEffect, this.transform.position, Quaternion.identity);
         Collider[] colliders = Physics.OverlapSphere(transform.position, explodeRadius);
 
         foreach (Collider nearbyObject in colliders)

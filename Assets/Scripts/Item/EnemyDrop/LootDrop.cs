@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class LootDrop : MonoBehaviour
 {
-    [SerializeField] private Transform pickableParent;
     [SerializeField] private DropData dropPool;
+    [SerializeField] private GameObject destroyPrefab;
+    private Transform pickableParent;
 
     public void Drop()
     {
+        Instantiate(destroyPrefab, transform.position, transform.rotation);
         pickableParent = GameObject.Find("PickableItem").transform;
 
         float sum = 0;

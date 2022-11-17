@@ -1200,7 +1200,7 @@ MonoBehaviour:
   destination: {x: 0, y: 0, z: 0}
   playerIsInLOS: 0
   fieldOfViewAngle: 45
-  losRadius: 0
+  losRadius: 20
   height: 2
   StopDistance: 1.5
   aiMemoriesPlayer: 0
@@ -1222,3 +1222,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropPool: {fileID: 11400000, guid: 3d975cfd8e364f74c8a5b06ca2b7888d, type: 2}
+  destroyPrefab: {fileID: 1121192042590650, guid: c9758f60661c3b64fb08d9aa1e39deb0,
+    type: 3}
