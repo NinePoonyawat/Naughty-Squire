@@ -86,6 +86,8 @@ public class InventoryItem : MonoBehaviour
         GetComponent<Image>().sprite = itemData.itemIcon;
         MagazineData temp = equippedMagazine;
         equippedMagazine = null;
+        ammoRemained = 0;
+        ammoCapacity = 0;
         return temp;
     }
 

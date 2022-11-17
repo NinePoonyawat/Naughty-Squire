@@ -182,12 +182,8 @@ public class ItemGrid : MonoBehaviour
         remainSize += 1;
     }
     
-    /// PLACE DOWN AN ITEM
-    // LOADOUT - can place and remove it.
-    // BAG - can place.
     public bool PlaceItem(InventoryItem inventoryItem, int posX, int posY, ref InventoryItem overlapItem)
     {
-        // check if this is HAND
         if (inventoryType == InventoryType.HAND)
         {
             if (remainSize == 0)
@@ -203,17 +199,6 @@ public class ItemGrid : MonoBehaviour
                 anotherHandGrid.remainSize = 0;
             }
         }
-
-        //send data to GunSystem
-       
-
-        /*
-        GrenadeData grenadeData = inventoryItem.itemData as GrenadaData;
-        if (grenadeData != null)
-        {
-            ;
-        }
-        */
 
         if (BoundryCheck(posX, posY, inventoryItem.WIDTH, inventoryItem.HEIGHT) == false)
         {
@@ -308,6 +293,7 @@ public class ItemGrid : MonoBehaviour
         if (weaponData != null && interactedItem.HaveMagazine())
         {
             MagazineData toReturn = interactedItem.GetMagazine();
+            weaponChangeEvent?.Invoke(interactedItem);
             return toReturn;
         }
 
@@ -328,6 +314,7 @@ public class ItemGrid : MonoBehaviour
             if (interactedWeapon != null && contactMagazine.availableWeapon == interactedWeapon && !interactedItem.HaveMagazine())
             {
                 interactedItem.EquipMagazine(contactItem);
+                weaponChangeEvent?.Invoke(interactedItem);
                 FindObjectOfType<AudioManager>().Play(interactedWeapon.reloadSoundName);
                 Destroy(contactItem.gameObject);
                 return null;
