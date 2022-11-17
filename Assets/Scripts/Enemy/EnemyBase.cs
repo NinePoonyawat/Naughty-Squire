@@ -179,8 +179,9 @@ public abstract class EnemyBase : MonoBehaviour
     }
     void Die()
     {
-        Destroy(gameObject);
+        GetComponent<LootDrop>().Drop();
         AIManager.Instance.RemoveDictList(group,this);
+        Destroy(gameObject);
     }
     // Debuff
     public void Slow (float multiply)

@@ -8,7 +8,9 @@ public class EnemyHitbox : HitableObject
 
     [Header("Settings")]
     [SerializeField] private EnemyBase Me;
+    [SerializeField] private Transform brokenPosition;
     [SerializeField] private GameObject brokenParticle;
+    [SerializeField] private GameObject droppedItem;
 
     [Header("Broken Debuff")]
     [Tooltip("current speed * Speed Multiply")]
@@ -27,16 +29,27 @@ public class EnemyHitbox : HitableObject
 
         Me.TakeDamage(damage*damageRatio);
         health -= damage*damageRatio;
-        if (health <= 0)
+        if (health <= conditionHealth)
         {
-            if (brokenParticle != null) Instantiate(brokenParticle, transform.position, transform.rotation, transform);
-
+            if (brokenParticle != null && brokenPosition != null)
+            {
+                Instantiate(brokenParticle, brokenPosition.transform.position, brokenPosition.transform.rotation, transform);
+            }
+            if (droppedItem != null)
+            {
+                Instantiate(droppedItem, transform.position, transform.rotation);
+            }
             if (canDebuff)
             {
                 Me.Slow(speedMultiply);
                 Me.Fragile(damageMultiply);
             }
-            if (canDestroy) Destroy(this.gameObject);
+            conditionHealth = 0;
+        }
+        if (health <= 0 && canDestroy)
+        {
+            Instantiate(brokenParticle, brokenPosition.transform.position, brokenPosition.transform.rotation, Me.transform);
+            Destroy(this.gameObject);
         }
     }
 }

@@ -1,5 +1,98 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1232521402593863256
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3479261465519678362}
+  m_Layer: 0
+  m_Name: BrokenPosition Lower Body
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3479261465519678362
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1232521402593863256}
+  m_LocalRotation: {x: -0.095713235, y: -0.70059896, z: -0.095713235, w: 0.7005991}
+  m_LocalPosition: {x: 0.6260013, y: 0.021000266, z: 0.03399974}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6940442366531667454}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -15.559, y: 0, z: 0}
+--- !u!1 &1843760318602690179
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5227606945738571733}
+  m_Layer: 0
+  m_Name: BrokenPosition R Leg Up
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5227606945738571733
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1843760318602690179}
+  m_LocalRotation: {x: -0.48998404, y: -0.1297982, z: -0.833273, w: 0.22073585}
+  m_LocalPosition: {x: -0.14399987, y: -0.9309994, z: 0.59500057}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8316768291363351987}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -154.365, y: -122.630005, z: 15.481995}
+--- !u!1 &2540880975215613765
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 356789105690943903}
+  m_Layer: 0
+  m_Name: BrokenPosition L Leg UP
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &356789105690943903
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2540880975215613765}
+  m_LocalRotation: {x: -0.8908733, y: -0.23599456, z: -0.37519726, w: 0.09939036}
+  m_LocalPosition: {x: -0.14400071, y: -0.9309986, z: -0.6309996}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6235117930701460952}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -159.257, y: -41.65802, z: -21.708008}
 --- !u!1 &2617101748221193594
 GameObject:
   m_ObjectHideFlags: 0
@@ -31,7 +124,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 1.6, z: 0.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 3479261465519678362}
   m_Father: {fileID: 8634722520331892680}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -99,12 +193,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 20
   health: 0
+  conditionHealth: 0
   damageRatio: 2
   canDestroy: 1
   canDebuff: 0
   Me: {fileID: 0}
+  brokenPosition: {fileID: 3479261465519678362}
   brokenParticle: {fileID: 1273915125232972, guid: a22b28b805449fa42ac5c3093b8389e1,
     type: 3}
+  droppedItem: {fileID: 0}
   speedMultiply: 1
   damageMultiply: 1
 --- !u!64 &7404190481926005235
@@ -121,6 +218,37 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -3215004756502476309, guid: d74b80d1ddde99644aa7a274594adf17, type: 3}
+--- !u!1 &3017371538851729700
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6008434044665686053}
+  m_Layer: 0
+  m_Name: BrokenPosition L Leg
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6008434044665686053
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3017371538851729700}
+  m_LocalRotation: {x: -0, y: -0.70710677, z: 0.0000000028642262, w: 0.7071068}
+  m_LocalPosition: {x: 0.586, y: -0.963, z: -0.672}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2159997946072459266}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3859623061579628238
 GameObject:
   m_ObjectHideFlags: 0
@@ -150,9 +278,10 @@ Transform:
   m_GameObject: {fileID: 3859623061579628238}
   m_LocalRotation: {x: 0.2994439, y: 0.6405728, z: 0.29944378, w: 0.6405726}
   m_LocalPosition: {x: 0, y: 1.6, z: 0.3}
-  m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 5227606945738571733}
   m_Father: {fileID: 8634722520331892680}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -220,11 +349,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 20
   health: 0
+  conditionHealth: 10
   damageRatio: 1
   canDestroy: 0
   canDebuff: 1
   Me: {fileID: 0}
+  brokenPosition: {fileID: 5227606945738571733}
   brokenParticle: {fileID: 1273915125232972, guid: a22b28b805449fa42ac5c3093b8389e1,
+    type: 3}
+  droppedItem: {fileID: 4398294467192866887, guid: 78b9fd37a03ff1b4891531b2ded803e0,
     type: 3}
   speedMultiply: 0.5
   damageMultiply: 1
@@ -273,6 +406,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 5880197886040588805}
   - {fileID: 1668424147648712204}
   m_Father: {fileID: 8634722520331892680}
   m_RootOrder: 5
@@ -339,14 +473,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eecdeed28dd29f40a8cae33b5343e7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
+  maxHealth: 20
   health: 0
+  conditionHealth: 10
   damageRatio: 1
   canDestroy: 0
   canDebuff: 1
   Me: {fileID: 0}
+  brokenPosition: {fileID: 5880197886040588805}
   brokenParticle: {fileID: 1273915125232972, guid: a22b28b805449fa42ac5c3093b8389e1,
     type: 3}
+  droppedItem: {fileID: 0}
   speedMultiply: 0.5
   damageMultiply: 1
 --- !u!65 &7874758254747787058
@@ -393,7 +530,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 135974636215739223}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4413836449733076774
 MeshFilter:
@@ -476,7 +613,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2159997946072459266}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4292155124288535786
 MeshFilter:
@@ -560,6 +697,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 6008434044665686053}
   - {fileID: 8495933972672621163}
   m_Father: {fileID: 8634722520331892680}
   m_RootOrder: 4
@@ -626,14 +764,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eecdeed28dd29f40a8cae33b5343e7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
+  maxHealth: 20
   health: 0
+  conditionHealth: 10
   damageRatio: 1
   canDestroy: 0
   canDebuff: 1
   Me: {fileID: 0}
+  brokenPosition: {fileID: 6008434044665686053}
   brokenParticle: {fileID: 1273915125232972, guid: a22b28b805449fa42ac5c3093b8389e1,
     type: 3}
+  droppedItem: {fileID: 0}
   speedMultiply: 0.5
   damageMultiply: 1
 --- !u!65 &2291708471664932489
@@ -649,6 +790,37 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.6915521, y: 0.79472584, z: 0.367564}
   m_Center: {x: 0.4082118, y: -1.1677895, z: -0.5032375}
+--- !u!1 &8089665619308179588
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5880197886040588805}
+  m_Layer: 0
+  m_Name: BrokenPosition R Leg
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5880197886040588805
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8089665619308179588}
+  m_LocalRotation: {x: -0, y: -0.70710677, z: 0.0000000028642262, w: 0.7071068}
+  m_LocalPosition: {x: 0.5859987, y: -0.963, z: 0.658}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 135974636215739223}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8204810352555656517
 GameObject:
   m_ObjectHideFlags: 0
@@ -680,7 +852,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 1.6, z: 0.3000002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 356789105690943903}
   m_Father: {fileID: 8634722520331892680}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -748,11 +921,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 20
   health: 0
+  conditionHealth: 10
   damageRatio: 1
   canDestroy: 0
   canDebuff: 1
   Me: {fileID: 0}
+  brokenPosition: {fileID: 356789105690943903}
   brokenParticle: {fileID: 1273915125232972, guid: a22b28b805449fa42ac5c3093b8389e1,
+    type: 3}
+  droppedItem: {fileID: 4398294467192866887, guid: 78b9fd37a03ff1b4891531b2ded803e0,
     type: 3}
   speedMultiply: 0.5
   damageMultiply: 1
@@ -868,11 +1045,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 40
   health: 0
+  conditionHealth: 0
   damageRatio: 1
   canDestroy: 0
   canDebuff: 0
   Me: {fileID: 0}
+  brokenPosition: {fileID: 0}
   brokenParticle: {fileID: 0}
+  droppedItem: {fileID: 0}
   speedMultiply: 1
   damageMultiply: 1
 --- !u!64 &6565531092797862029
@@ -903,6 +1083,7 @@ GameObject:
   - component: {fileID: 5132282983233689315}
   - component: {fileID: 7861731402434284181}
   - component: {fileID: 543450653150807247}
+  - component: {fileID: 113859023750702941}
   m_Layer: 0
   m_Name: MECH001
   m_TagString: Enemy
@@ -1016,15 +1197,28 @@ MonoBehaviour:
   player: {fileID: 0}
   group: 1
   nextgroup: 0
+  destination: {x: 0, y: 0, z: 0}
   playerIsInLOS: 0
-  fieldOfViewAngle: 60
-  losRadius: 25
+  fieldOfViewAngle: 45
+  losRadius: 0
   height: 2
   StopDistance: 1.5
   aiMemoriesPlayer: 0
   memoryStartTime: 10
   noiseTravelDistance: 50
-  alreadyAttacked: 0
   CanAlert: 1
   FleeAble: 0
   CanMove: 1
+--- !u!114 &113859023750702941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8980004821935517042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b27690083ae0d447ab9efd47effef9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropPool: {fileID: 11400000, guid: 3d975cfd8e364f74c8a5b06ca2b7888d, type: 2}

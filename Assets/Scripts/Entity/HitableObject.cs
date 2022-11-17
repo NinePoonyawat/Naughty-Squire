@@ -8,6 +8,7 @@ public class HitableObject : MonoBehaviour
     [Header("Essentials")]
     [SerializeField] protected float maxHealth = 10;
     [SerializeField] protected float health;
+    [SerializeField] protected float conditionHealth = 0;
     [SerializeField] protected float damageRatio = 1;
 
     [SerializeField] protected bool canDestroy = true;
