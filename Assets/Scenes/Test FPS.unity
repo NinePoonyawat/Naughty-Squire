@@ -220,11 +220,6 @@ PrefabInstance:
       propertyPath: CanMove
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 543450653150807247, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
-        type: 3}
-      propertyPath: noiseTravelDistance
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 1391650458950777888, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
         type: 3}
       propertyPath: m_Enabled
@@ -520,11 +515,6 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1526423808}
-    - target: {fileID: 543450653150807247, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
-        type: 3}
-      propertyPath: noiseTravelDistance
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 1391650458950777888, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
         type: 3}
       propertyPath: m_Enabled
@@ -2994,11 +2984,6 @@ PrefabInstance:
         type: 3}
       propertyPath: CanMove
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 543450653150807247, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
-        type: 3}
-      propertyPath: noiseTravelDistance
-      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1391650458950777888, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
         type: 3}
@@ -6294,11 +6279,6 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1526423808}
-    - target: {fileID: 543450653150807247, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
-        type: 3}
-      propertyPath: noiseTravelDistance
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 1391650458950777888, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
         type: 3}
       propertyPath: m_Enabled
@@ -6682,11 +6662,6 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1526423808}
-    - target: {fileID: 543450653150807247, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
-        type: 3}
-      propertyPath: noiseTravelDistance
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 1391650458950777888, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
         type: 3}
       propertyPath: m_Enabled
@@ -13572,11 +13547,6 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1526423808}
-    - target: {fileID: 543450653150807247, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
-        type: 3}
-      propertyPath: noiseTravelDistance
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 1082239437486265469, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
         type: 3}
       propertyPath: Me

@@ -1205,7 +1205,7 @@ MonoBehaviour:
   StopDistance: 1.5
   aiMemoriesPlayer: 0
   memoryStartTime: 10
-  noiseTravelDistance: 50
+  noiseTravelDistance: 10
   CanAlert: 1
   FleeAble: 0
   CanMove: 1

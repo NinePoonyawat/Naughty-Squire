@@ -67,7 +67,7 @@ public abstract class EnemyBase : MonoBehaviour
     Mesh mesh;
     
     void Start() {
-        player.GetComponent<FPSController>().walkEvent += NoiseCheck;
+        FindObjectOfType<FPSController>().walkEvent += NoiseCheck;
         EnemyState = State.Idle;
         StartNextState();
         //meshColor.a = 0.5f;
@@ -180,6 +180,7 @@ public abstract class EnemyBase : MonoBehaviour
     {
         GetComponent<LootDrop>().Drop();
         AIManager.Instance.RemoveDictList(group,this);
+        FindObjectOfType<FPSController>().walkEvent -= NoiseCheck;
         Destroy(gameObject);
     }
     // Debuff
@@ -313,7 +314,6 @@ public abstract class EnemyBase : MonoBehaviour
         }
     }
     public void NoiseAlert(Vector3 Source) {
-        Debug.Log(this.name);
         EnemyState = State.Walk;
         aiHeardPlayer = true;
         destination = Source;
