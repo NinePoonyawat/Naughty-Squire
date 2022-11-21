@@ -203,9 +203,9 @@ public abstract class EnemyBase : MonoBehaviour
 //        Debug.Log("Walking");
         agent.SetDestination(destination);
 
-        Vector3 targetPosition = new Vector3( player.transform.position.x, 
+        Vector3 targetPosition = new Vector3( destination.x, 
                                         transform.position.y, 
-                                        player.transform.position.z ) ;
+                                        destination.z ) ;
         transform.LookAt(targetPosition);
         CheckAttacking();
         //if (EnemyState == State.Attack) Attack();

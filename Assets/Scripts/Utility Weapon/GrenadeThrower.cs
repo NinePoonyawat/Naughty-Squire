@@ -20,7 +20,8 @@ public class GrenadeThrower : MonoBehaviour {
     private bool isInventoryOpen = false;
 
     private GrenadeData currentData = null;
-    private bool isArmed =false;
+    private bool leftArmed =false;
+    private bool rightArmed =false;
     private ItemGrid grenadeItemClone;
     private int posX;
     private int posY;
@@ -44,7 +45,7 @@ public class GrenadeThrower : MonoBehaviour {
         inventoryManager.OnInventoryOpen += openInventory;
         inventoryManager.OnInventoryClose += closeInventory;
 
-        if (currentData == null) isArmed = false;
+        if (currentData == null) leftArmed = false; rightArmed = false;
     }
 
     
@@ -54,9 +55,18 @@ public class GrenadeThrower : MonoBehaviour {
         {
             //grenadeItemClone = grenadeItem;
             posX = grenadeItem.onGridPositionX ; posY = grenadeItem.onGridPositionY;
+            InventoryItem Li = LhandItemGrid.getInventory(posX,posY);
+            InventoryItem Ri = RhandItemGrid.getInventory(posX,posY);
+            if (Li != null && Li.itemData as GrenadeData != null) {
+                Debug.Log("left");
+                leftArmed = true;
+            }
+            if (Ri != null && Ri.itemData as GrenadeData != null) {
+                Debug.Log("right");
+                rightArmed = true;
+            }
             GrenadeData grenadeData = grenadeItem.itemData as GrenadeData;
             if (grenadeData == null) return;
-            isArmed = true;
             currentData = grenadeData;
             damage = grenadeData.damage;
             ExplodeTime = grenadeData.ExplodeTime;
@@ -66,14 +76,17 @@ public class GrenadeThrower : MonoBehaviour {
         }
     public void disarm()
         {
-            isArmed = false;
             currentData = null;
             InventoryItem Li = LhandItemGrid.getInventory(posX,posY);
             InventoryItem Ri = RhandItemGrid.getInventory(posX,posY);
             if (Li != null && Li.itemData as GrenadeData != null) {
+                Debug.Log("left");
+                leftArmed = false;
                 LhandItemGrid.DiscardItem(posX,posY); return;
             }
             if (Ri != null && Ri.itemData as GrenadeData != null) {
+                Debug.Log("right");
+                rightArmed = false;
                 RhandItemGrid.DiscardItem(posX,posY); return;
             }
         }
@@ -93,9 +106,13 @@ public class GrenadeThrower : MonoBehaviour {
     {
         isInventoryOpen = false;
     }
-    public bool isThrowable()
+    public bool isLeftThrowable()
     {
-        return isArmed;
+        return leftArmed;
+    }
+    public bool isRightThrowable()
+    {
+        return rightArmed;
     }
 
     public List<float> getfloatdata() {

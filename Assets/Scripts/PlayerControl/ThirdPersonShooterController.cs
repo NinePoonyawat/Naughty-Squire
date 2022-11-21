@@ -100,7 +100,7 @@ namespace Player
                 OnShoot?.Invoke(2f);
                 gunSystem.Shoot();
                 starterAssetInputs.shoot = false;
-            }if (Input.GetMouseButtonDown(0) && grenadeThrower.isThrowable() || isbuttonDown) {
+            }if (Input.GetMouseButtonDown(0) && grenadeThrower.isLeftThrowable() || isbuttonDown) {
                 isbuttonDown = true;
                 timecount += Time.deltaTime;
                 if (timecount > grenadeThrower.getlifetime()) {
@@ -111,10 +111,27 @@ namespace Player
                 //Vector3 aimDir = playerCamera.transform.forward;
                 
             }
-            if (Input.GetMouseButtonUp(0) && isbuttonDown && grenadeThrower.isThrowable()) {
+            if (Input.GetMouseButtonUp(0) && isbuttonDown && grenadeThrower.isLeftThrowable()) {
                 CreateandThrowGrenade(aimDir, timecount);
                 timecount = 0; isbuttonDown = false;
             }
+
+            if (Input.GetMouseButtonDown(1) && grenadeThrower.isRightThrowable() || isbuttonDown) {
+                isbuttonDown = true;
+                timecount += Time.deltaTime;
+                if (timecount > grenadeThrower.getlifetime()) {
+                    CreateandThrowGrenade(aimDir, timecount);
+                    timecount = 0; isbuttonDown = false;
+                }
+                //Vector3 aimDir = Input.mousePosition.normalized;
+                //Vector3 aimDir = playerCamera.transform.forward;
+                
+            }
+            if (Input.GetMouseButtonUp(1) && isbuttonDown && grenadeThrower.isRightThrowable()) {
+                CreateandThrowGrenade(aimDir, timecount);
+                timecount = 0; isbuttonDown = false;
+            }
+
             if (starterAssetInputs.shoot && !gunSystem.isShootable()) starterAssetInputs.shoot = false;
         }
         private void CreateandThrowGrenade(Vector3 aimDir, float timecount) {
