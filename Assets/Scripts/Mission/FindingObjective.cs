@@ -48,18 +48,21 @@ public class FindingObjective : Objective
             Relagations();
             levelRank--;
             levelFinding = quantity[levelRank];
-
+            UpdateText();
         }
     }
 
     public void OnPlacingItem(ItemData itemData)
     {
+        Debug.Log("enter1");
         if (findingItem.equals(itemData))
         {
+            Debug.Log("enter2");
             count++;
             Promotions();
             levelRank++;
             levelFinding = quantity[levelRank];
+            UpdateText();
         }
     }
 

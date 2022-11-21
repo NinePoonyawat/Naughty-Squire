@@ -18,7 +18,7 @@ namespace Weapon
         [SerializeField] private InventoryManager inventoryManager;
         private bool isInventoryOpen = false;
 
-        private WeaponData currentData = null;
+        public WeaponData currentData = null;
         private bool isArmed;
 
         private float cooldownTime = 0.5f;
@@ -123,6 +123,12 @@ namespace Weapon
             if (bulletLeftInMagazine > 0) SetOutOfAmmo(false);
             SetAmmoText(bulletLeftInMagazine,bulletPerMagazine);
             //Reload();
+
+            if (bulletLeftInMagazine <= 0)
+            {
+                OnOutOfAmmoEvent?.Invoke(this,EventArgs.Empty);
+                SetOutOfAmmo(true);
+            }
         }
 
         public void openInventory(object o,EventArgs e)

@@ -159,6 +159,7 @@ public class InventoryController : MonoBehaviour
         if (posOnGrid == null) { return; }
 
         selectedItemGrid.PlaceItem(itemToInsert, posOnGrid.Value.x, posOnGrid.Value.y);
+        
     }
 
     public bool InsertItem(ItemData selectedItem, ItemGrid selectedItemGrid)
@@ -175,7 +176,7 @@ public class InventoryController : MonoBehaviour
         }
 
         selectedItemGrid.PlaceItem(itemToInsert, posOnGrid.Value.x, posOnGrid.Value.y);
-        
+        OnPlacingItem?.Invoke(selectedItem);
         return true;
     }
 
@@ -277,8 +278,6 @@ public class InventoryController : MonoBehaviour
         if (complete)
         {
             FindObjectOfType<AudioManager>().Play("InventoryInteract");
-
-            OnPlacingItem?.Invoke(selectedItem.itemData);
 
             selectedItem = null;
             if (overlapItem != null)
