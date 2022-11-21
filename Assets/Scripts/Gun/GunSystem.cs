@@ -94,6 +94,7 @@ namespace Weapon
 
         public void Reload()
         {
+            if (currentData == null) return;
             OnReloadEvent?.Invoke(this,EventArgs.Empty);
             starterAssetsInputs.shoot = false;
             starterAssetsInputs.reload = false;

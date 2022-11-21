@@ -33,6 +33,8 @@ public class Crosshair : MonoBehaviour
         crosshair = crosshairGO.GetComponent<CrosshairSection>();
 
         crosshairGO.SetActive(true);
+
+        if (gunSystem.currentData == null) crosshair.OutOfAmmo();
     }
 
     private void Update()
