@@ -19,7 +19,4 @@ MonoBehaviour:
   - droppedItem: {fileID: 4398294467192866887, guid: 78b9fd37a03ff1b4891531b2ded803e0,
       type: 3}
     ratio: 4
-  - droppedItem: {fileID: 3917876479689961790, guid: 054dea839d4527447ad3da0957435407,
-      type: 3}
-    ratio: 2
-  poolRate: 10
+  poolRate: 8

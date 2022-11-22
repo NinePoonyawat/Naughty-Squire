@@ -17,7 +17,8 @@ MonoBehaviour:
   isTwoHanded: 0
   itemIcon: {fileID: 21300000, guid: e2ed64cac5b2bf4498b147c134d19d11, type: 3}
   alternateIcon: {fileID: 0}
-  itemMesh: {fileID: 0}
+  itemMesh: {fileID: -1705546883744311471, guid: 5270a6afc871e2349a22b548c09c19b2,
+    type: 3}
   soundName: 
   name: 
   durable: 1
