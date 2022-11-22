@@ -53,13 +53,16 @@ MonoBehaviour:
   - {fileID: 11400000, guid: bfdce7d34baf7f84681b4a2f46ef17d8, type: 2}
   - {fileID: 11400000, guid: 40246b5927ec3274fa4f67251971c783, type: 2}
   - {fileID: 11400000, guid: 47276e140fbee23449fa904d3f5bcd49, type: 2}
-  itemPrefab: {fileID: 2201193786818287487, guid: 4ad70f7cbcbbfec489a333520f6e48b2,
+  inventoryItemPrefab: {fileID: 2201193786818287487, guid: 4ad70f7cbcbbfec489a333520f6e48b2,
+    type: 3}
+  pickableItemPrefab: {fileID: 5519263594690423246, guid: 059e784240e54ce48b1c4f414f1db949,
     type: 3}
   canvasTransform: {fileID: 0}
   quickUseItems:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  isInventoryOpen: 1
 --- !u!114 &4438461459221597345
 MonoBehaviour:
   m_ObjectHideFlags: 0

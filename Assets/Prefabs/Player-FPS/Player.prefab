@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2914777528574494663
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5495299625998509827}
+  m_Layer: 0
+  m_Name: dropPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5495299625998509827
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2914777528574494663}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 0.278, z: 1.213}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3734626339199097195}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3734626337720247024
 GameObject:
   m_ObjectHideFlags: 0
@@ -130,12 +161,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   health: 0
+  conditionHealth: 0
   damageRatio: 1
   canDestroy: 1
   maxEnergy: 60
   energy: 0
   maxStamina: 100
   stamina: 0
+  energyDrainStart: 30
+  energyDrainInterval: 5
   hpText: {fileID: 0}
   energyText: {fileID: 0}
 --- !u!1 &3734626338079289342
@@ -167,7 +201,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3734626339199097195}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3734626338140812436
 GameObject:
@@ -240,6 +274,7 @@ Transform:
   - {fileID: 3734626337720247027}
   - {fileID: 3734626338140812439}
   - {fileID: 967851823124832673}
+  - {fileID: 5495299625998509827}
   - {fileID: 3734626338079289337}
   - {fileID: 313138157106362919}
   m_Father: {fileID: 0}
@@ -348,6 +383,8 @@ MonoBehaviour:
   bulletPerMagazine: 0
   damage: 0
   inventoryManager: {fileID: 0}
+  currentData: {fileID: 0}
+  ammoText: {fileID: 0}
 --- !u!114 &3734626339199097190
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -395,6 +432,8 @@ MonoBehaviour:
     type: 3}
   pfGrenade: {fileID: 0}
   spawnBulletPosition: {fileID: 3734626338079289337}
+  timecount: 0
+  playerCamera: {fileID: 0}
   inventoryManager: {fileID: 3734626339199097188}
 --- !u!114 &5684615017797870358
 MonoBehaviour:
@@ -442,7 +481,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3734626339199097195}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!212 &8528405709485243150
 SpriteRenderer:

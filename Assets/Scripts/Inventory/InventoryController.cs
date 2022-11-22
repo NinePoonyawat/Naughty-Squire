@@ -7,17 +7,21 @@ public class InventoryController : MonoBehaviour
 {
     [Header("Unique ItemGrid")]
     public ItemGrid selectedItemGrid;
-    public ItemGrid loadoutItemGrid;
     public ItemGrid[] itemGrids;
 
-    InventoryItem selectedItem;
+    [SerializeField] InventoryItem selectedItem;
     InventoryItem overlapItem;
     RectTransform rectTransform;
 
     [Header("Custom")]
     [SerializeField] List<ItemData> items;
-    [SerializeField] GameObject itemPrefab;
+    [SerializeField] GameObject inventoryItemPrefab;
     [SerializeField] Transform canvasTransform;
+
+    [Header("Drop Item")]
+    [SerializeField] GameObject pickableItemPrefab;
+    [SerializeField] private Transform dropPosition;
+    [SerializeField] private Transform pickableParent;
 
     [Header("Quick Use")]
     public InventoryItem[] quickUseItems;
@@ -31,10 +35,13 @@ public class InventoryController : MonoBehaviour
     public event OnPickUpItemEvent OnPickUpItem;
     public delegate void OnPickUpItemEvent(ItemData itemData);
 
-    private void Start() {
+    private void Start()
+    {
         inventoryHighlight = GetComponent<InventoryHighlight>();
         itemGrids = FindObjectsOfType<ItemGrid>();
         SetOpen(false);
+
+        pickableParent = GameObject.Find("PickableItem").transform;
     }
 
     private void Update()
@@ -61,10 +68,11 @@ public class InventoryController : MonoBehaviour
         if (selectedItemGrid == null)
         {
             inventoryHighlight.Show(false);
-            return;
         }
-        //Debug.Log(selectedItem.itemData.name);
-        HandleHighlight();
+        else
+        {
+            HandleHighlight();
+        }
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
@@ -119,7 +127,7 @@ public class InventoryController : MonoBehaviour
             selectedItem = null;
         }
 
-        InventoryItem inventoryItem = Instantiate(itemPrefab).GetComponent<InventoryItem>();
+        InventoryItem inventoryItem = Instantiate(inventoryItemPrefab).GetComponent<InventoryItem>();
         selectedItem = inventoryItem;
         
         rectTransform = inventoryItem.GetComponent<RectTransform>();
@@ -137,7 +145,7 @@ public class InventoryController : MonoBehaviour
             selectedItem = null;
         }
 
-        InventoryItem inventoryItem = Instantiate(itemPrefab).GetComponent<InventoryItem>();
+        InventoryItem inventoryItem = Instantiate(inventoryItemPrefab).GetComponent<InventoryItem>();
         selectedItem = inventoryItem;
         
         rectTransform = inventoryItem.GetComponent<RectTransform>();
@@ -164,7 +172,7 @@ public class InventoryController : MonoBehaviour
 
     public bool InsertItem(ItemData selectedItem, ItemGrid selectedItemGrid)
     {
-        InventoryItem itemToInsert = Instantiate(itemPrefab).GetComponent<InventoryItem>();
+        InventoryItem itemToInsert = Instantiate(inventoryItemPrefab).GetComponent<InventoryItem>();
         
         itemToInsert.Set(selectedItem);
 
@@ -200,6 +208,17 @@ public class InventoryController : MonoBehaviour
         return count/size;
     }
 
+    public void DropItem(InventoryItem selectedItem)
+    {
+        PickableItem pickableItem = Instantiate(pickableItemPrefab, dropPosition.position, dropPosition.rotation, pickableParent).GetComponent<PickableItem>();
+        
+        pickableItem.itemData = selectedItem.itemData;
+        pickableItem.SetMesh();
+
+        Destroy(selectedItem.gameObject);
+        selectedItem = null;
+    }
+
     public void QuickUseItem(int num)
     {
         if (selectedItem != null)
@@ -224,6 +243,8 @@ public class InventoryController : MonoBehaviour
 
     private void LeftMouseButtonPress()
     {
+        if (selectedItemGrid == null) { return; }
+
         Vector2Int tileGridPosition = GetTileGridPosition();
         if (selectedItem == null)
         {
@@ -237,6 +258,12 @@ public class InventoryController : MonoBehaviour
 
     private void RightMouseButtonPress()
     {
+
+        if (selectedItemGrid == null && selectedItem != null)
+        {
+            DropItem(selectedItem);
+            return;
+        }
         Vector2Int tileGridPosition = GetTileGridPosition();
 
         if (selectedItem == null)

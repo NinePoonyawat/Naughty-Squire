@@ -54,10 +54,8 @@ public class FindingObjective : Objective
 
     public void OnPlacingItem(ItemData itemData)
     {
-        Debug.Log("enter1");
         if (findingItem.equals(itemData))
         {
-            Debug.Log("enter2");
             count++;
             Promotions();
             levelRank++;

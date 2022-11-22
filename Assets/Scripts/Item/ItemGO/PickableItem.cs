@@ -17,6 +17,11 @@ public class PickableItem : InteractableItem
     {
         meshFilter = GetComponent<MeshFilter>();
 
+        if (itemData != null) SetMesh();
+    }
+
+    public void SetMesh()
+    {
         if (itemData.itemMesh != null)
         {
             meshFilter.mesh = itemData.itemMesh;
