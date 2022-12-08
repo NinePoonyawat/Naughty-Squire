@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3006288810399632350
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3006288810399632344}
+  - component: {fileID: 3006288810399632351}
+  m_Layer: 0
+  m_Name: LobbyAudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3006288810399632344
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3006288810399632350}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 952.319, y: 614.6725, z: -8.156555}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3006288810399632351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3006288810399632350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1731070908c056c41bebd821e0470f69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  footStepvolumn: 1
+  sounds:
+  - name: Failed
+    clip: {fileID: 8300000, guid: 1b6397a7375d48e4a85f57a391707cb8, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: Passed
+    clip: {fileID: 8300000, guid: 4319bbafee5168c4f8b74f63ce7c7fb6, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: Lobby
+    clip: {fileID: 8300000, guid: b289adbdf1d7b004fa6a6860a4e20419, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: Type
+    clip: {fileID: 8300000, guid: 827b621cec807c145ad6c7f3074045c7, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  footsteps: []
