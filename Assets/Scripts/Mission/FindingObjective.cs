@@ -47,7 +47,7 @@ public class FindingObjective : Objective
             count--;
             Relagations();
             levelRank--;
-            levelFinding = quantity[levelRank];
+            if (levelRank >= 0 && levelRank <= 3) levelFinding = quantity[levelRank];
             UpdateText();
         }
     }
@@ -59,7 +59,7 @@ public class FindingObjective : Objective
             count++;
             Promotions();
             levelRank++;
-            levelFinding = quantity[levelRank];
+            if (levelRank >= 0 && levelRank <= 3) levelFinding = quantity[levelRank];
             UpdateText();
         }
     }
