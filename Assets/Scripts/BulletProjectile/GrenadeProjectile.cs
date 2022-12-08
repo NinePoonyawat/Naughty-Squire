@@ -26,6 +26,9 @@ public class GrenadeProjectile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        ParticleSystem ps = smokeEffect.GetComponent<ParticleSystem>();
+        var main = ps.main;
+        main.startLifetime = lifeTime;
        if (GrenadeRigidBody != null) {
             // **** cant find main cam ****
             //GrenadeRigidBody.AddForce(transform.forward *32f,ForceMode.Impulse); 
