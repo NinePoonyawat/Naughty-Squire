@@ -9,6 +9,14 @@ public class TimingObjective : Objective
     private float levelTime;
     private int levelRank;
     // Start is called before the first frame update
+    void Awake()
+    {
+        level = CompleteLevel.Third;
+        score[0] = 2;
+        score[1] = 3;
+        score[2] = 4;
+    }
+
     void Start()
     {
         color = "#00FF00";

@@ -17,6 +17,10 @@ public class ShootingObjective : Objective
     {
         thirdPersonShooterController = GameObject.Find("Player").GetComponent<ThirdPersonShooterController>();
         thirdPersonShooterController.OnShoot += onShoot;
+        level = CompleteLevel.Third;
+        score[0] = 2;
+        score[1] = 3;
+        score[2] = 4;
     }
 
     void Start()

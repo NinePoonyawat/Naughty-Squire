@@ -14,4 +14,9 @@ public class ObjectiveData : ScriptableObject
         if (point < 0) point = 0;
         objectivePoint[idx] = point;
     }
+
+    public void UpdateScore(int idx,int point)
+    {
+        objectivePoint[idx] = point;
+    }
 }

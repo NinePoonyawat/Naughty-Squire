@@ -21,6 +21,8 @@ public class FindingObjective : Objective
     }
     void Start()
     {
+        level = CompleteLevel.Fail;
+        
         if (score[0] == 0 && score[1] == 0 && score[2] == 0)
         {
             score[0] = 2;
