@@ -103,4 +103,9 @@ public class InventoryItem : MonoBehaviour
         ammoRemained = ammoCapacity;
         Debug.Log(ammoRemained);
     }
+
+    public bool GetRotate()
+    {
+        return rotated;
+    }
 }
