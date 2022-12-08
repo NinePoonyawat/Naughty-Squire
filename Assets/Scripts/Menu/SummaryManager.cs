@@ -14,11 +14,12 @@ public class SummaryManager : MonoBehaviour
     {
         FindObjectOfType<AudioManager>().Play("Lobby");
         objectiveTexts = GetComponentsInChildren<TMP_Text>();
+
+        StartCoroutine(ShowObjective());
     }
 
     public void UpdateText()
     {
-
         StartCoroutine(ShowObjective());
     }
 
@@ -45,7 +46,7 @@ public class SummaryManager : MonoBehaviour
             for (int p = 0; p <= point; p++)
             {
                 yield return new WaitForSeconds(0.4f);
-                
+
                 objectivePoint.text = p.ToString();
                 FindObjectOfType<AudioManager>().Play("Type");
             }
