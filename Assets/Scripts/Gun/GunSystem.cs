@@ -129,6 +129,7 @@ namespace Weapon
             {
                 OnOutOfAmmoEvent?.Invoke(this,EventArgs.Empty);
                 SetOutOfAmmo(true);
+                Reload();
             }
         }
 

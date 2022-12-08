@@ -26,9 +26,9 @@ public class ShootingObjective : Objective
 
         if (score[0] == 0 && score[1] == 0 && score[2] == 0)
         {
-            score[0] = 100;
-            score[1] = 150;
-            score[2] = 200;
+            score[0] = 2;
+            score[1] = 3;
+            score[2] = 4;
         }
         if (shoot[0] == 0 && shoot[1] == 0 && shoot[2] == 0)
         {
