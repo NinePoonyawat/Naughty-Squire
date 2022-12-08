@@ -7,6 +7,8 @@ public abstract class Objective : MonoBehaviour
 {
     [SerializeField] protected int[] score = new int[3];
     protected CompleteLevel level;
+    public ObjectiveData objectiveData;
+    public int objectiveIdx;
 
     public TMP_Text uiText;
 
@@ -22,6 +24,8 @@ public abstract class Objective : MonoBehaviour
         else if (level == CompleteLevel.First) color = "#FFA500";
         else if (level == CompleteLevel.Second) color = "#FFFF00";
         else color = "#00FF00";
+
+        UpdateObjectiveData();
     }
 
     public virtual void Relagations()
@@ -32,6 +36,13 @@ public abstract class Objective : MonoBehaviour
         else if (level == CompleteLevel.First) color = "#FFA500";
         else if (level == CompleteLevel.Second) color = "#FFFF00";
         else color = "#00FF00";
+
+        UpdateObjectiveData();
+    }
+
+    public void UpdateObjectiveData()
+    {
+        objectiveData.UpdateScore(objectiveIdx,GetScore());
     }
 
     public CompleteLevel GetLevel()
@@ -41,6 +52,7 @@ public abstract class Objective : MonoBehaviour
 
     public int GetScore()
     {
+        Debug.Log(level);
         if (level == CompleteLevel.Fail) return 0;
         return score[((int) level) - 1];
     }
