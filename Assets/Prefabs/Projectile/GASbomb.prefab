@@ -111,7 +111,7 @@ MonoBehaviour:
   bombType: 0
   explodeEffect: {fileID: 1337198075554910, guid: 25c7aa9ad705fe143a4d71c1c8deb7d4,
     type: 3}
-  smokeEffect: {fileID: 8618187694610033026, guid: 36450cb81edbadc4bbc758dd5590689b,
+  smokeEffect: {fileID: 5933441276488276660, guid: c6e97dfbeb617d64483de42e1d16536a,
     type: 3}
   decoyEffect: {fileID: 1329845292236604, guid: dad682ed6d7929a44908b345c75ed01c,
     type: 3}
