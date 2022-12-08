@@ -145,6 +145,11 @@ PrefabInstance:
       propertyPath: CanMove
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 543450653150807247, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
+        type: 3}
+      propertyPath: StopDistance
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1391650458950777888, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
         type: 3}
       propertyPath: m_Enabled
@@ -169,6 +174,11 @@ PrefabInstance:
         type: 3}
       propertyPath: StopDistance
       value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8096921408388389131, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
+        type: 3}
+      propertyPath: m_StoppingDistance
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8634722520331892680, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
         type: 3}
@@ -440,6 +450,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1526423808}
+    - target: {fileID: 543450653150807247, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
+        type: 3}
+      propertyPath: StopDistance
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1391650458950777888, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
         type: 3}
       propertyPath: m_Enabled
@@ -464,6 +479,11 @@ PrefabInstance:
         type: 3}
       propertyPath: StopDistance
       value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8096921408388389131, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
+        type: 3}
+      propertyPath: m_StoppingDistance
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8634722520331892680, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
         type: 3}
@@ -2980,6 +3000,11 @@ PrefabInstance:
       propertyPath: CanMove
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 543450653150807247, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
+        type: 3}
+      propertyPath: StopDistance
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1391650458950777888, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
         type: 3}
       propertyPath: m_Enabled
@@ -3004,6 +3029,11 @@ PrefabInstance:
         type: 3}
       propertyPath: StopDistance
       value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8096921408388389131, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
+        type: 3}
+      propertyPath: m_StoppingDistance
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8634722520331892680, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
         type: 3}
@@ -3163,6 +3193,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8045441232570631060, guid: 4cec353629f23c147b8262b61681a12c,
+        type: 3}
+      propertyPath: m_StoppingDistance
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8471736993379747388, guid: 4cec353629f23c147b8262b61681a12c,
         type: 3}
       propertyPath: group
@@ -3173,6 +3208,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1526423808}
+    - target: {fileID: 8471736993379747388, guid: 4cec353629f23c147b8262b61681a12c,
+        type: 3}
+      propertyPath: StopDistance
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8471736993379747388, guid: 4cec353629f23c147b8262b61681a12c,
         type: 3}
       propertyPath: noiseTravelDistance
@@ -6337,6 +6377,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1526423808}
+    - target: {fileID: 543450653150807247, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
+        type: 3}
+      propertyPath: StopDistance
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1391650458950777888, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
         type: 3}
       propertyPath: m_Enabled
@@ -6361,6 +6406,11 @@ PrefabInstance:
         type: 3}
       propertyPath: StopDistance
       value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8096921408388389131, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
+        type: 3}
+      propertyPath: m_StoppingDistance
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8634722520331892680, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
         type: 3}
@@ -6720,6 +6770,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1526423808}
+    - target: {fileID: 543450653150807247, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
+        type: 3}
+      propertyPath: StopDistance
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1391650458950777888, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
         type: 3}
       propertyPath: m_Enabled
@@ -6744,6 +6799,11 @@ PrefabInstance:
         type: 3}
       propertyPath: StopDistance
       value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8096921408388389131, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
+        type: 3}
+      propertyPath: m_StoppingDistance
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8634722520331892680, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
         type: 3}
@@ -9449,10 +9509,10 @@ Transform:
   - {fileID: 1367147857}
   - {fileID: 1011196819}
   - {fileID: 90109516}
-  - {fileID: 69965308}
   - {fileID: 597621346}
-  - {fileID: 535048652}
+  - {fileID: 69965308}
   - {fileID: 1687085722}
+  - {fileID: 535048652}
   m_Father: {fileID: 1358308373}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -13536,6 +13596,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1526423808}
+    - target: {fileID: 543450653150807247, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
+        type: 3}
+      propertyPath: StopDistance
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1082239437486265469, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
         type: 3}
       propertyPath: Me
@@ -13560,6 +13625,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8096921408388389128, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
         type: 3}
+    - target: {fileID: 8096921408388389131, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
+        type: 3}
+      propertyPath: m_StoppingDistance
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8634722520331892680, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
         type: 3}
       propertyPath: m_RootOrder
