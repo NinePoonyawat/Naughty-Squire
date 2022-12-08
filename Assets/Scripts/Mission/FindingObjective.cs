@@ -23,10 +23,11 @@ public class FindingObjective : Objective
     {
         if (score[0] == 0 && score[1] == 0 && score[2] == 0)
         {
-            score[0] = 100;
-            score[1] = 150;
-            score[2] = 200;
+            score[0] = 2;
+            score[1] = 3;
+            score[2] = 4;
         }
+
         if (quantity[0] == 0 && quantity[1] == 0 && quantity[2] == 0)
         {
             quantity[0] = 1;
@@ -45,22 +46,28 @@ public class FindingObjective : Objective
         if (findingItem.equals(itemData))
         {
             count--;
-            Relagations();
-            levelRank--;
-            if (levelRank >= 0 && levelRank <= 3) levelFinding = quantity[levelRank];
+            if (level != 0 && count < quantity[levelRank - 1])
+            {
+                Relagations();
+                levelRank--;
+                if (levelRank >= 0 && levelRank <= 3) levelFinding = quantity[levelRank];
+            }
             UpdateText();
         }
     }
 
     public void OnPlacingItem(ItemData itemData)
     {
-        Debug.Log(findingItem.equals(itemData));
         if (findingItem.equals(itemData))
         {
             count++;
-            Promotions();
-            levelRank++;
-            if (levelRank >= 0 && levelRank <= 3) levelFinding = quantity[levelRank];
+            Debug.Log(levelRank);
+            if (levelRank != 3 && count >= quantity[levelRank])
+            {
+                Promotions();
+                levelRank++;
+                if (levelRank >= 0 && levelRank < 3) levelFinding = quantity[levelRank];
+            }
             UpdateText();
         }
     }
@@ -73,6 +80,13 @@ public class FindingObjective : Objective
     public void SetItem(ItemData itemData)
     {
         findingItem = itemData;
+    }
+
+    public void SetQuantity()
+    {
+        quantity[0] = findingItem.quantity[0];
+        quantity[1] = findingItem.quantity[1];
+        quantity[2] = findingItem.quantity[2];   
     }
 
     public Texture getTexture()

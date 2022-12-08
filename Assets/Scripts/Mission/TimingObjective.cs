@@ -15,9 +15,9 @@ public class TimingObjective : Objective
         
         if (score[0] == 0 && score[1] == 0 && score[2] == 0)
         {
-            score[0] = 100;
-            score[1] = 150;
-            score[2] = 200;
+            score[0] = 2;
+            score[1] = 3;
+            score[2] = 4;
         }
         if (time[0] == 0 && time[1] == 0 && time[2] == 0)
         {

@@ -19,6 +19,7 @@ public class ItemData : ScriptableObject
     public int durable = 1;
     public int weight = 1;
     public int value = 1;
+    public int[] quantity = new int[3];
 
     public bool equals(ItemData other)
     {

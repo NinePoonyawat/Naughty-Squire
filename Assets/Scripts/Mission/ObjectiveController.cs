@@ -41,6 +41,10 @@ public class ObjectiveController : MonoBehaviour
         UIObjective.transform.Find("FindingImage2").GetComponent<RawImage>().texture = findingObjective2.getTexture();
         UIObjective.transform.Find("FindingImage3").GetComponent<RawImage>().texture = findingObjective3.getTexture();
 
+        findingObjective1.SetQuantity();
+        findingObjective2.SetQuantity();
+        findingObjective3.SetQuantity();
+
         timingObjective.UpdateText();
         shootingObjective.UpdateText();
         findingObjective1.UpdateText();
