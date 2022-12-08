@@ -54,6 +54,7 @@ public class FindingObjective : Objective
 
     public void OnPlacingItem(ItemData itemData)
     {
+        Debug.Log(findingItem.equals(itemData));
         if (findingItem.equals(itemData))
         {
             count++;

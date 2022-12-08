@@ -216,6 +216,7 @@ public class InventoryController : MonoBehaviour
         pickableItem.SetMesh();
 
         Destroy(selectedItem.gameObject);
+        OnPickUpItem.Invoke(selectedItem.itemData);
         selectedItem = null;
     }
 
@@ -295,7 +296,6 @@ public class InventoryController : MonoBehaviour
         if (selectedItem != null)
         {
             rectTransform = selectedItem.GetComponent<RectTransform>();
-            OnPickUpItem?.Invoke(selectedItem.itemData);
         }
     }
 
