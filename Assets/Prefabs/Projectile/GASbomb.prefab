@@ -115,4 +115,6 @@ MonoBehaviour:
     type: 3}
   decoyEffect: {fileID: 1329845292236604, guid: dad682ed6d7929a44908b345c75ed01c,
     type: 3}
+  fireEffect: {fileID: 1184412652359084809, guid: c3e1f8694bd30984ba186b6cbbf2990e,
+    type: 3}
   speed: 17

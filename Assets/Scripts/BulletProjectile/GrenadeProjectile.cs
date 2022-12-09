@@ -18,6 +18,8 @@ public class GrenadeProjectile : MonoBehaviour
     [SerializeField] private GameObject explodeEffect;
     [SerializeField] private GameObject smokeEffect;
     [SerializeField] private GameObject decoyEffect;
+
+    [SerializeField] private GameObject fireEffect;
     private float explodeForce = 100f;
 
     public float speed = 10f;
@@ -26,11 +28,8 @@ public class GrenadeProjectile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ParticleSystem ps = smokeEffect.GetComponent<ParticleSystem>();
-        if (ps != null) {
-            var main = ps.main;
-            main.startLifetime = ExplodeTime;
-        }
+        
+        
        if (GrenadeRigidBody != null) {
             // **** cant find main cam ****
             //GrenadeRigidBody.AddForce(transform.forward *32f,ForceMode.Impulse); 
@@ -39,9 +38,21 @@ public class GrenadeProjectile : MonoBehaviour
                 Explode = ExplodeBomb;
                 break;
             case GrenadeData.BombType.FIRE :
+                ParticleSystem pfire = fireEffect.GetComponent<ParticleSystem>();
+                //FireCollision fc = fireEffect.GetComponent<FireCollision>();
+                if (pfire != null) {
+                    //fc.SendMessage("SetDamage",damage);
+                    var main = pfire.main;
+                    main.startLifetime = ExplodeTime;
+                }
                 Explode = ExplodeFire;
                 break;
             case GrenadeData.BombType.SMOKE :
+                ParticleSystem psmoke = smokeEffect.GetComponent<ParticleSystem>();
+                if (psmoke != null) {
+                    var main = psmoke.main;
+                    main.startLifetime = ExplodeTime;
+                }
                 Explode = ExplodeSmoke;
                 break;
             case GrenadeData.BombType.DECOY :
@@ -107,19 +118,25 @@ public class GrenadeProjectile : MonoBehaviour
     
 
     IEnumerator ExplodeFire() {
-        while(true) {
-            yield return new WaitForSeconds(ExplodeTime);
-            Instantiate(explodeEffect, this.transform.position, Quaternion.identity);
-            Collider[] colliders = Physics.OverlapSphere(transform.position, explodeRadius);
+        yield return new WaitForSeconds(lifeTime);
+        GameObject grenade = Instantiate(fireEffect, this.transform.position, Quaternion.identity);
+        grenade.SendMessage("SetDamage",damage);
+        grenade.SendMessage("SetExplodeRadius",explodeRadius);
+        grenade.transform.localScale = new Vector3(explodeRadius, explodeRadius, explodeRadius);
+        Destroy(grenade, ExplodeTime);
+        // while(true) {
+        //     yield return new WaitForSeconds(ExplodeTime);
+        //     Instantiate(explodeEffect, this.transform.position, Quaternion.identity);
+        //     Collider[] colliders = Physics.OverlapSphere(transform.position, explodeRadius);
 
-            foreach (Collider nearbyObject in colliders) {
-                PlayerHitbox entityHit = nearbyObject.GetComponent<PlayerHitbox>();
-                if (entityHit != null)
-                {
-                entityHit.TakeDamage(damage);
-                }
-            }
-        }
+        //     foreach (Collider nearbyObject in colliders) {
+        //         PlayerHitbox entityHit = nearbyObject.GetComponent<PlayerHitbox>();
+        //         if (entityHit != null)
+        //         {
+        //         entityHit.TakeDamage(damage);
+        //         }
+        //     }
+        // }
         
     }
     IEnumerator ExplodeSmoke() {
