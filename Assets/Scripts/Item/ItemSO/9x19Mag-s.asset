@@ -20,11 +20,12 @@ MonoBehaviour:
   itemMesh: {fileID: -7745756782809674522, guid: faf35e45031de1744b38f392782c3d72,
     type: 3}
   soundName: 
-  name: Glock17 8-round magazine
+  name: Glock17 10-round magazine
   durable: 1
   weight: 2
   value: 1
-  ammoCapacity: 8
+  quantity: 000000000000000000000000
+  ammoCapacity: 10
   availableWeapon: {fileID: 11400000, guid: bfdce7d34baf7f84681b4a2f46ef17d8, type: 2}
   refillTool: {fileID: 11400000, guid: ac96af1fadae157419d168790f4b60fd, type: 2}
   refillSoundName: InventoryInteract

@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e3ecb8364f359e409e74f7d3fd2e9a6, type: 3}
-  m_Name: Loot
+  m_Name: Capsule
   m_EditorClassIdentifier: 
   width: 2
-  height: 2
+  height: 1
   isTwoHanded: 0
-  itemIcon: {fileID: 21300000, guid: a92b163eb8ecae64ca38a90cd9bb9f71, type: 3}
+  itemIcon: {fileID: 21300000, guid: 30c6b9293407fc74cb0a0a0b5cb718c7, type: 3}
   alternateIcon: {fileID: 0}
   itemMesh: {fileID: 0}
   soundName: 
-  name: Valuable Crate
+  name: Capsule
   durable: 1
-  weight: 15
-  value: 30
-  quantity: 020000000300000004000000
+  weight: 5
+  value: 5
+  quantity: 010000000200000002000000

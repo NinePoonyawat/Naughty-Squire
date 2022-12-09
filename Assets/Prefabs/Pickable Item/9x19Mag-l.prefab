@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7458499706729735935}
   - component: {fileID: 7458499706729735931}
   m_Layer: 9
-  m_Name: 9x19Mag
+  m_Name: 9x19Mag-l
   m_TagString: PickableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -42,7 +42,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7458499706729735905}
-  m_Mesh: {fileID: -7745756782809674522, guid: faf35e45031de1744b38f392782c3d72, type: 3}
+  m_Mesh: {fileID: 2848015550864426646, guid: ae0baeda56766ad408a1ebf8e3f8639b, type: 3}
 --- !u!23 &7458499706729735933
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -102,7 +102,7 @@ MonoBehaviour:
   auraPrefab: {fileID: 6320648758858120341, guid: b0c5bcf2a43dba148bc9d8673bca703e,
     type: 3}
   aura: {fileID: 0}
-  itemData: {fileID: 11400000, guid: 40246b5927ec3274fa4f67251971c783, type: 2}
+  itemData: {fileID: 11400000, guid: 451b82f8f85b7b044bd414bd38e3459c, type: 2}
 --- !u!64 &7458499706729735931
 MeshCollider:
   m_ObjectHideFlags: 0

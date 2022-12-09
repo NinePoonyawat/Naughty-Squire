@@ -13,18 +13,19 @@ MonoBehaviour:
   m_Name: 9x19Mag-l
   m_EditorClassIdentifier: 
   width: 1
-  height: 1
+  height: 2
   isTwoHanded: 0
-  itemIcon: {fileID: 21300000, guid: 74b694b8395b19e449209f68bfa50817, type: 3}
-  alternateIcon: {fileID: 21300000, guid: 1e3bf4f89a0120e4a93eed53e29b8afd, type: 3}
-  itemMesh: {fileID: -7745756782809674522, guid: faf35e45031de1744b38f392782c3d72,
+  itemIcon: {fileID: 21300000, guid: eb7844d0364aa2543955a79e1479d5b0, type: 3}
+  alternateIcon: {fileID: 21300000, guid: eb7844d0364aa2543955a79e1479d5b0, type: 3}
+  itemMesh: {fileID: 2848015550864426646, guid: ae0baeda56766ad408a1ebf8e3f8639b,
     type: 3}
   soundName: 
-  name: Glock17 16-round magazine
+  name: Glock17 14-round magazine
   durable: 1
-  weight: 2
-  value: 1
-  ammoCapacity: 16
+  weight: 4
+  value: 2
+  quantity: 000000000000000000000000
+  ammoCapacity: 14
   availableWeapon: {fileID: 11400000, guid: bfdce7d34baf7f84681b4a2f46ef17d8, type: 2}
   refillTool: {fileID: 11400000, guid: ac96af1fadae157419d168790f4b60fd, type: 2}
   refillSoundName: InventoryInteract
