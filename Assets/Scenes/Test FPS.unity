@@ -7945,7 +7945,7 @@ PrefabInstance:
     - target: {fileID: 543450653150807247, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
         type: 3}
       propertyPath: StopDistance
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 543450653150807247, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
         type: 3}
