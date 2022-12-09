@@ -125,7 +125,7 @@ public class GrenadeProjectile : MonoBehaviour
     IEnumerator ExplodeSmoke() {
         yield return new WaitForSeconds(lifeTime);
         GameObject grenade = Instantiate(smokeEffect, this.transform.position, Quaternion.identity);
-        grenade.transform.localScale = new Vector3(explodeRadius * 2, explodeRadius * 2, explodeRadius * 2);
+        grenade.transform.localScale = new Vector3(explodeRadius, explodeRadius, explodeRadius);
         Destroy(grenade, ExplodeTime);
     }
 

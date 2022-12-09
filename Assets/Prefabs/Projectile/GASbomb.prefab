@@ -115,4 +115,4 @@ MonoBehaviour:
     type: 3}
   decoyEffect: {fileID: 1329845292236604, guid: dad682ed6d7929a44908b345c75ed01c,
     type: 3}
-  speed: 20
+  speed: 17
