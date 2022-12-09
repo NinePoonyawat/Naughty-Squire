@@ -28,7 +28,7 @@ public abstract class EnemyBase : MonoBehaviour
     public int nextgroup;
 
     private Vector3 nextPosition;
-    public Vector3 destination;
+    //public Vector3 destination;
 
     [Header("AI Detection")]
     public bool playerIsInLOS;
@@ -59,7 +59,7 @@ public abstract class EnemyBase : MonoBehaviour
     protected float timeTilNextMovement = 2f;
     protected float timeBetweenAttacks = 3.5f;
 
-    protected float timeAttack = 2.5f;
+    protected float timeAttack = 1f;
     public bool FleeAble;
     public AnimationCurve MoveCurve;
 
@@ -98,7 +98,7 @@ public abstract class EnemyBase : MonoBehaviour
                 if (!playerIsInLOS) CheckWalking();  StartCoroutine(Next(0f));
                 break;
             case State.Attack:
-                agent.ResetPath();
+                //agent.ResetPath();
                 //Attacking();
                 StartCoroutine(Attacking(timeAttack));
                 break;
@@ -119,7 +119,7 @@ public abstract class EnemyBase : MonoBehaviour
         Vector3 direction = (transform.position - player.transform.position).normalized;
         float distance = Vector3.Distance(transform.position, player.transform.position) * Random.Range(5,10);
         Vector3 dest = GetPositionAroundObject(transform);
-        Debug.Log(dest + ": " + transform.position);
+        //Debug.Log(dest + ": " + transform.position);
         StartCoroutine(MoveTo(new Vector3(dest.x,0,dest.z),delay));
         //transform.position = Vector3.Lerp(transform.position,dest,Time.deltaTime);
         // float speed =  Mathf.Pow(distance*0.98f / Mathf.Sin(2*Mathf.Deg2Rad*15),0.5f);
@@ -135,7 +135,8 @@ public abstract class EnemyBase : MonoBehaviour
 }
 
     IEnumerator Next(float delay) {
-        yield return new WaitForSeconds(delay);
+        if (delay > 0) yield return new WaitForSeconds(delay);
+        else yield return null;
         StartNextState();
     }
     
@@ -210,8 +211,8 @@ public abstract class EnemyBase : MonoBehaviour
     public virtual void walking() {
         //if (!playerIsInLOS) EnemyState = State.Idle;
 //        Debug.Log("Walking");
-        agent.SetDestination(destination);
-        lookatPlayer();
+        agent.SetDestination(nextPosition);
+        lookatPosition();
 
         
 
@@ -222,34 +223,40 @@ public abstract class EnemyBase : MonoBehaviour
         CheckAttacking();
         //if (EnemyState == State.Attack) Attack();
     }
-    private void lookatPlayer() {
-        Quaternion lookOnLook = Quaternion.LookRotation(player.transform.position - transform.position); 
+    private void lookatPosition() {
+        Vector3 targetPosition = new Vector3(nextPosition.x, transform.position.y,nextPosition.z );
+        //Vector3 targetPosition = nextPosition;
+        //Debug.Log(targetPosition - transform.position);
+        Quaternion lookOnLook = Quaternion.LookRotation(targetPosition - transform.position); 
         transform.rotation = Quaternion.Slerp(transform.rotation, lookOnLook, Time.deltaTime);
     }
 
     IEnumerator MoveTo(Vector3 position, float time) {
-        Debug.Log("MOVe");
+        //Debug.Log("MOVe");
         Vector3 start = transform.position;
         Vector3 end = position;
         float t = 0;
         while(t < 1) {
-            Debug.Log(t);
+            //Debug.Log(t);
             agent.SetDestination(Vector3.Lerp(start,end,MoveCurve.Evaluate(t)));
-            Quaternion lookOnLook = Quaternion.LookRotation(player.transform.position - transform.position); 
-            transform.rotation = Quaternion.Slerp(transform.rotation, lookOnLook, Time.deltaTime);
+            Quaternion lookOnLook = Quaternion.LookRotation(new Vector3(nextPosition.x, transform.position.y,nextPosition.z ) - transform.position);
+            transform.rotation = Quaternion.Slerp(transform.rotation, lookOnLook, t*2);
             t += Time.deltaTime * 1;
             // Vector3 targetPosition = new Vector3( player.transform.position.x, transform.position.y, player.transform.position.z ) ;
             // transform.LookAt(targetPosition);
             yield return null;
         }
+        lookatPosition();
         //agent.SetDestination(player.transform.position);
-        CheckAttacking();
+        //CheckAttacking();
+        nextPosition = player.transform.position;
+        EnemyState = State.Walk;
         StartCoroutine(Next(timeTilNextMovement));
     }
     IEnumerator Attacking(float delay) {
         //Debug.Log("STOP Atack");
         //agent.SetDestination(transform.position);
-        lookatPlayer();
+        lookatPosition();
         // Vector3 targetPosition = new Vector3( player.transform.position.x, 
         //                                 transform.position.y, 
         //                                 player.transform.position.z ) ;
@@ -316,9 +323,11 @@ public abstract class EnemyBase : MonoBehaviour
             EnemyState = State.Attack;
             Debug.Log("change attack state");
         } else if (playerIsInLOS || aiMemoriesPlayer || aiHeardPlayer){
+            nextPosition = player.transform.position;
             EnemyState = State.Walk;
             //Debug.Log("change walk state");
         } else EnemyState = State.Idle;
+        lookatPosition();
     }
     void CheckLOS() 
     {
@@ -335,13 +344,13 @@ public abstract class EnemyBase : MonoBehaviour
 
             if (Physics.Raycast(transform.position, direction.normalized, out hit, losRadius,layerMask)) 
             {
-//                Debug.Log(hit.collider.tag);
+                //Debug.Log(hit.collider.tag);
                 if (hit.collider.tag == "Player") 
                 {
                     //Debug.Log("Found");
                     //EnemyState = State.Alert;
                     playerIsInLOS = true;
-                    destination = player.transform.position;
+                    nextPosition = player.transform.position;
                 } 
                 else
                 {
@@ -353,7 +362,7 @@ public abstract class EnemyBase : MonoBehaviour
     public void NoiseAlert(Vector3 Source) {
         EnemyState = State.Walk;
         aiHeardPlayer = true;
-        destination = Source;
+        nextPosition = Source;
     }
 
     void NoiseCheck() {
@@ -361,7 +370,7 @@ public abstract class EnemyBase : MonoBehaviour
         //Debug.Log("distance = " + distance + " noiseTravel = " + noiseTravelDistance );
         if (distance <= noiseTravelDistance) {
             //Debug.Log("Alert");
-            NoiseAlert(player.transform.position);
+            NoiseAlert(nextPosition);
         }
         //     var vel = player.GetComponent<Rigidbody>().velocity;
         //     float speed = vel.magnitude; 
