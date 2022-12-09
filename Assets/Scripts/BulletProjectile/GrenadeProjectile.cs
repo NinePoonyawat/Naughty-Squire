@@ -27,8 +27,10 @@ public class GrenadeProjectile : MonoBehaviour
     void Start()
     {
         ParticleSystem ps = smokeEffect.GetComponent<ParticleSystem>();
-        var main = ps.main;
-        main.startLifetime = ExplodeTime;
+        if (ps != null) {
+            var main = ps.main;
+            main.startLifetime = ExplodeTime;
+        }
        if (GrenadeRigidBody != null) {
             // **** cant find main cam ****
             //GrenadeRigidBody.AddForce(transform.forward *32f,ForceMode.Impulse); 

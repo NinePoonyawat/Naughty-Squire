@@ -60,11 +60,11 @@ public class GrenadeThrower : MonoBehaviour {
             if (Li != null && Li.itemData as GrenadeData != null) {
                 Debug.Log("left");
                 leftArmed = true;
-            }
+            } else leftArmed = false;
             if (Ri != null && Ri.itemData as GrenadeData != null) {
                 Debug.Log("right");
                 rightArmed = true;
-            }
+            } else rightArmed = false;
             GrenadeData grenadeData = grenadeItem.itemData as GrenadeData;
             if (grenadeData == null) return;
             currentData = grenadeData;
