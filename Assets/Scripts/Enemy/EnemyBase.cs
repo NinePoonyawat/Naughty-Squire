@@ -59,7 +59,7 @@ public abstract class EnemyBase : MonoBehaviour
     protected float timeTilNextMovement = 2f;
     protected float timeBetweenAttacks = 3.5f;
 
-    protected float timeAttack = 1f;
+    protected float timeAttack = 2f;
     public bool FleeAble;
     public AnimationCurve MoveCurve;
 
@@ -98,7 +98,7 @@ public abstract class EnemyBase : MonoBehaviour
                 if (!playerIsInLOS) CheckWalking();  StartCoroutine(Next(0f));
                 break;
             case State.Attack:
-                //agent.ResetPath();
+                agent.ResetPath();
                 //Attacking();
                 StartCoroutine(Attacking(timeAttack));
                 break;
@@ -257,20 +257,22 @@ public abstract class EnemyBase : MonoBehaviour
         //Debug.Log("STOP Atack");
         //agent.SetDestination(transform.position);
         lookatPosition();
+        
         // Vector3 targetPosition = new Vector3( player.transform.position.x, 
         //                                 transform.position.y, 
         //                                 player.transform.position.z ) ;
         // transform.LookAt(targetPosition);
 
-        Debug.Log("FIRE!!!++++");         
-        AttackMove();
+        StartCoroutine(AttackMove(delay));
         yield return new WaitForSeconds(delay);
         EnemyState = State.Cooldown;
         StartCoroutine(Next(0f));
+        //yield return null;      
     }
-    protected virtual void AttackMove() {
+    protected virtual IEnumerator AttackMove(float delay) {
+        yield return new WaitForSeconds(delay);
         HitableObject hit = player.GetComponent<HitableObject>();
-        if (hit != null)
+        if (hit != null && (Vector2.Distance(new Vector2(player.transform.position.x,player.transform.position.z),new Vector2(transform.position.x,transform.position.z)) <= (StopDistance * 1.5)))
         {
             hit.TakeDamage(10);
             //FindObjectOfType<AudioManager>().Play("PistolBulletHit");

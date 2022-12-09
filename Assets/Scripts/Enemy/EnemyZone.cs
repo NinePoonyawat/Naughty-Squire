@@ -40,7 +40,8 @@ public class EnemyZone : Enemy
     //     //Debug.Log("AImove");
     // }
 
-    protected override void AttackMove() {
+    protected override IEnumerator AttackMove(float delay) {
+        yield return new WaitForSeconds(delay);
         if (!IsBombBullet) {
             Debug.Log("SHOOOTTTT");
             //GameObject bullet = Instantiate(pfBulletProjectile, transform.position, Quaternion.identity).gameObject;

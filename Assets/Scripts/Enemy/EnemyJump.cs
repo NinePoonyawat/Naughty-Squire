@@ -66,8 +66,9 @@ public class EnemyJump : EnemyBase
         if (playerIsInLOS && Vector3.Distance(transform.position,player.transform.position) <= StopDistance) EnemyState = State.Attack;
     }
 
-    protected override void AttackMove()
+    protected override IEnumerator AttackMove(float delay)
     {
+        yield return new WaitForSeconds(delay);
         Debug.Log("JUMP!!");
         Vector3 direction = (player.transform.position - transform.position).normalized;
         float distance = Vector3.Distance(player.transform.position, transform.position);
