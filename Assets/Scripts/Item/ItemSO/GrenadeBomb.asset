@@ -24,8 +24,9 @@ MonoBehaviour:
   durable: 1
   weight: 1
   value: 1
+  quantity: 000000000000000000000000
   ExplodeTime: 5
   lifeTime: 5
   explodeRadius: 7
-  damage: 5
+  damage: 10
   bombtype: 0

@@ -27,5 +27,5 @@ MonoBehaviour:
   ExplodeTime: 10
   lifeTime: 2
   explodeRadius: 3
-  damage: 1
+  damage: 2
   bombtype: 2

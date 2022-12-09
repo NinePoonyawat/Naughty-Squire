@@ -44,6 +44,8 @@ public class GrenadeProjectile : MonoBehaviour
                     //fc.SendMessage("SetDamage",damage);
                     var main = pfire.main;
                     main.startLifetime = ExplodeTime;
+                    var tex = pfire.textureSheetAnimation;
+                    tex.cycleCount = (int)ExplodeTime;
                 }
                 Explode = ExplodeFire;
                 break;
@@ -52,6 +54,8 @@ public class GrenadeProjectile : MonoBehaviour
                 if (psmoke != null) {
                     var main = psmoke.main;
                     main.startLifetime = ExplodeTime;
+                    var tex = psmoke.textureSheetAnimation;
+                    tex.cycleCount = (int)ExplodeTime;
                 }
                 Explode = ExplodeSmoke;
                 break;
