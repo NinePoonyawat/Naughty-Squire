@@ -35,7 +35,7 @@ public class GrenadeProjectile : MonoBehaviour
             //GrenadeRigidBody.AddForce(transform.forward *32f,ForceMode.Impulse); 
             switch (bombType) {
             case GrenadeData.BombType.BOMB :
-                Explode = ExplodeBomb;
+                Explode = ExplodeBomb; StartCoroutine(waitToDestroy());
                 break;
             case GrenadeData.BombType.FIRE :
                 ParticleSystem pfire = fireEffect.GetComponent<ParticleSystem>();
@@ -60,10 +60,9 @@ public class GrenadeProjectile : MonoBehaviour
                 Explode = ExplodeSmoke;
                 break;
             case GrenadeData.BombType.DECOY :
-                Explode = ExplodeDecoy;
+                Explode = ExplodeDecoy; StartCoroutine(waitToDestroy());
                 break;
-        }
-            StartCoroutine(waitToDestroy());
+        }            
             StartCoroutine(Explode());     
         }
     }
@@ -72,12 +71,14 @@ public class GrenadeProjectile : MonoBehaviour
         GrenadeRigidBody = GetComponent<Rigidbody>();
 
     }
-    // private void OnCollisionEnter(Collision other) {
-    //     if (other.gameObject.tag == "Ground") {
-    //          GrenadeRigidBody.velocity = new Vector3(0,0,0);
-    //          CollideGround = true;
-    //     }
-    // }
+    private bool isFireorSmoke() {
+        return bombType == GrenadeData.BombType.SMOKE || bombType == GrenadeData.BombType.FIRE;
+    }
+    private void OnCollisionEnter(Collision other) {
+        if (isFireorSmoke() && other.gameObject.tag == "Ground") {
+            StartCoroutine(waitToDestroy());
+        }
+    }
     void update() {
         Debug.Log(GrenadeRigidBody.velocity);
     }
