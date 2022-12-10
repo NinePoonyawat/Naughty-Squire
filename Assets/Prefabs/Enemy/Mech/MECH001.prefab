@@ -1084,6 +1084,7 @@ GameObject:
   - component: {fileID: 7861731402434284181}
   - component: {fileID: 543450653150807247}
   - component: {fileID: 113859023750702941}
+  - component: {fileID: 3252032220646644888}
   m_Layer: 0
   m_Name: MECH001
   m_TagString: Enemy
@@ -1197,7 +1198,6 @@ MonoBehaviour:
   player: {fileID: 0}
   group: 1
   nextgroup: 0
-  destination: {x: 0, y: 0, z: 0}
   playerIsInLOS: 0
   fieldOfViewAngle: 45
   losRadius: 20
@@ -1208,6 +1208,12 @@ MonoBehaviour:
   noiseTravelDistance: 10
   CanAlert: 1
   FleeAble: 0
+  MoveCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   CanMove: 1
 --- !u!114 &113859023750702941
 MonoBehaviour:
@@ -1224,3 +1230,23 @@ MonoBehaviour:
   dropPool: {fileID: 11400000, guid: 3d975cfd8e364f74c8a5b06ca2b7888d, type: 2}
   destroyPrefab: {fileID: 1121192042590650, guid: c9758f60661c3b64fb08d9aa1e39deb0,
     type: 3}
+--- !u!95 &3252032220646644888
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8980004821935517042}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a1230a8ecf75cd849a6bceedefc187af, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
