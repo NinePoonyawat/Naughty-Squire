@@ -75,6 +75,7 @@ public abstract class EnemyBase : MonoBehaviour
         //starterAssetInputs = GetComponent<StarterAssetsInputs>();
         if(group == -1) group = Random.Range(0,3);
         //AIManager.Instance.Units.Add(this);
+        nextgroup = 2;
         AIManager.Instance.AddDictList(group,this);
         health = maxHealth;
 
@@ -106,6 +107,7 @@ public abstract class EnemyBase : MonoBehaviour
                 StartCoroutine(Cooldowning(1f));
                 break;
             case State.Flee:
+                //Debug.Log(nextPosition);
                 Fleeing(); StartCoroutine(Next(0f));
                 break;
         }
@@ -145,7 +147,7 @@ public abstract class EnemyBase : MonoBehaviour
         //Debug.Log(player.GetComponent<Collider>().tag);
         //Debug.Log(EnemyState);
         CheckLOS();
-        if (FleeAble) CheckFlee();
+        if (FleeAble && EnemyState != State.Flee) CheckFlee();
         //StartNextState();
         //NoiseCheck();
         
@@ -286,22 +288,26 @@ public abstract class EnemyBase : MonoBehaviour
 
     void ChangeGroup() {
         nextPosition = AIManager.Instance.GetNearestSpawnPoint(group,out nextgroup);
+        //Debug.Log(nextPosition);
     }
 
     void CheckFlee() {
         if (AIManager.Instance.GetListSize(group) < 2) {
-            EnemyState = State.Flee;
             ChangeGroup();
+            //Debug.Log("check flee");
+            EnemyState = State.Flee;
         }
     }
 
     void Fleeing() {
         agent.SetDestination(nextPosition);
+        //EnemyState = State.Walk;
         if (Vector3.Distance(agent.transform.position, nextPosition) <= 5) {
             AIManager.Instance.AddDictList(nextgroup,this);
             AIManager.Instance.RemoveDictList(group,this);
             group = nextgroup;
             EnemyState = State.Idle;
+            //StartCoroutine(Next(0f));
         }
     }
     
