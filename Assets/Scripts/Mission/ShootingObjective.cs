@@ -51,14 +51,13 @@ public class ShootingObjective : Objective
     public void onShoot(float recoil)
     {
         shootCount++;
-        if (level != CompleteLevel.Fail) return;
         if (shootCount == LevelShoot)
         {
             Relagations();
             LevelRank++;
-            LevelShoot = shoot[LevelRank];
+            if (!(LevelRank == 3)) LevelShoot = shoot[LevelRank];
         }
-        UpdateText();;
+        UpdateText();
     }
 
     public int GetShoot()
@@ -68,6 +67,6 @@ public class ShootingObjective : Objective
 
     public override void UpdateText()
     {
-        uiText.text = "don't spend  more than " + LevelShoot + " bullets <color=" + color + "> " + shootCount + " / " + LevelShoot + " )</color>";
+        uiText.text = "don't spend  more than " + LevelShoot + " bullets <color=" + color + "> (" + shootCount + " / " + LevelShoot + " )</color>";
     }
 }
