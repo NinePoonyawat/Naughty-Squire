@@ -763,7 +763,6 @@ MonoBehaviour:
   player: {fileID: 0}
   group: -1
   nextgroup: 0
-  destination: {x: 0, y: 0, z: 0}
   playerIsInLOS: 0
   fieldOfViewAngle: 40
   losRadius: 30
@@ -774,6 +773,12 @@ MonoBehaviour:
   noiseTravelDistance: 50
   CanAlert: 1
   FleeAble: 1
+  MoveCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   CanMove: 0
   pfBulletProjectile: {fileID: 0}
   firePoint: {fileID: 3392479213087189955}
