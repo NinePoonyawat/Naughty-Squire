@@ -49,6 +49,8 @@ public class InventoryItem : MonoBehaviour
     {
         this.itemData = itemData;
 
+        if (itemData == null) return;
+        Debug.Log("not null");
         GetComponent<Image>().sprite = itemData.itemIcon;
 
         Vector2 size = new Vector2();

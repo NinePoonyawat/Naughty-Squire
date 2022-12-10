@@ -7,7 +7,7 @@ public class InventoryController : MonoBehaviour
 {
     [Header("Unique ItemGrid")]
     public ItemGrid selectedItemGrid;
-    public ItemGrid[] itemGrids;
+    [SerializeField] public ItemGrid[] itemGrids;
 
     [SerializeField] InventoryItem selectedItem;
     InventoryItem overlapItem;
@@ -29,6 +29,8 @@ public class InventoryController : MonoBehaviour
     public bool isInventoryOpen = true;
     InventoryHighlight inventoryHighlight;
 
+    [SerializeField] InventoryInitialize inventoryInitialize;
+
     public event OnPlacingItemEvent OnPlacingItem;
     public delegate void OnPlacingItemEvent(ItemData itemData);
 
@@ -38,7 +40,7 @@ public class InventoryController : MonoBehaviour
     private void Start()
     {
         inventoryHighlight = GetComponent<InventoryHighlight>();
-        itemGrids = FindObjectsOfType<ItemGrid>();
+        //itemGrids = FindObjectsOfType<ItemGrid>();
         SetOpen(false);
 
         pickableParent = GameObject.Find("PickableItem").transform;
@@ -184,7 +186,14 @@ public class InventoryController : MonoBehaviour
         }
 
         selectedItemGrid.PlaceItem(itemToInsert, posOnGrid.Value.x, posOnGrid.Value.y);
-        OnPlacingItem?.Invoke(selectedItem);
+        try
+        {
+            OnPlacingItem?.Invoke(selectedItem);
+        }
+        catch
+        {
+            
+        }
         return true;
     }
 
