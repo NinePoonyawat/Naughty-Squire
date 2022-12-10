@@ -21,7 +21,8 @@ MonoBehaviour:
     type: 3}
   soundName: 
   name: Ammo Crate
-  durable: 5
+  description: 
+  durable: 0
   weight: 10
   value: 1
   quantity: 010000000200000003000000

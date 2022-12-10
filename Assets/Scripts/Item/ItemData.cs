@@ -16,7 +16,8 @@ public class ItemData : ScriptableObject
 
     [Header("Data")]
     public string name = "Example Name";
-    public int durable = 1;
+    public string description = "";
+    public int durable = 0;
     public int weight = 1;
     public int value = 1;
     public int[] quantity = new int[3];

@@ -20,9 +20,12 @@ MonoBehaviour:
   itemMesh: {fileID: 5304385175697405907, guid: c6468f1b90f616a449318c252b93051f,
     type: 3}
   soundName: 
+  name: Medkit
+  description: recover 20 health
   durable: 3
   weight: 2
   value: 5
+  quantity: 000000000000000000000000
   consumableType: 0
   healthRecover: 20
   energyRecover: 0

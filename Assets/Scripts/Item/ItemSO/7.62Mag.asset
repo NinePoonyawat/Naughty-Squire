@@ -16,9 +16,15 @@ MonoBehaviour:
   height: 1
   isTwoHanded: 0
   itemIcon: {fileID: 21300000, guid: dd61881d16724b642a7c3891d02ad634, type: 3}
+  alternateIcon: {fileID: 0}
   itemMesh: {fileID: 0}
+  soundName: 
+  name: Example Name
+  description: 
+  durable: 0
   weight: 2
   value: 1
+  quantity: 000000000000000000000000
   ammoCapacity: 5
   availableWeapon: {fileID: 11400000, guid: f80abb54e29f65a4c9631d0aa8f45588, type: 2}
   refillTool: {fileID: 11400000, guid: ac96af1fadae157419d168790f4b60fd, type: 2}

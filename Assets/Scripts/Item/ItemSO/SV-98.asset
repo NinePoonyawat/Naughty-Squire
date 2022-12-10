@@ -21,9 +21,11 @@ MonoBehaviour:
     type: 3}
   soundName: 
   name: SV-98
-  durable: 100
+  description: 
+  durable: 0
   weight: 20
   value: 25
+  quantity: 000000000000000000000000
   gunGO: {fileID: 0}
   damage: 20
   bulletSpeed: 0

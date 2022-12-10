@@ -20,7 +20,8 @@ MonoBehaviour:
   itemMesh: {fileID: 0}
   soundName: 
   name: Valuable Crate
-  durable: 1
+  description: 
+  durable: 0
   weight: 15
   value: 30
   quantity: 020000000300000004000000

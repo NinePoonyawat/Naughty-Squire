@@ -21,9 +21,11 @@ MonoBehaviour:
     type: 3}
   soundName: 
   name: Canned Food
+  description: recover 10 health and 10 hunger point
   durable: 1
   weight: 1
   value: 2
+  quantity: 000000000000000000000000
   consumableType: 0
   healthRecover: 10
   energyRecover: 10

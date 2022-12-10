@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4438461459221597358}
   - component: {fileID: 4438461459221597359}
   - component: {fileID: 4438461459221597345}
+  - component: {fileID: 7777064759231873278}
   m_Layer: 0
   m_Name: InventoryController
   m_TagString: Untagged
@@ -46,8 +47,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectedItemGrid: {fileID: 0}
-  loadoutItemGrid: {fileID: 0}
   itemGrids: []
+  selectedItem: {fileID: 0}
   items:
   - {fileID: 11400000, guid: f80abb54e29f65a4c9631d0aa8f45588, type: 2}
   - {fileID: 11400000, guid: bfdce7d34baf7f84681b4a2f46ef17d8, type: 2}
@@ -55,9 +56,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 47276e140fbee23449fa904d3f5bcd49, type: 2}
   inventoryItemPrefab: {fileID: 2201193786818287487, guid: 4ad70f7cbcbbfec489a333520f6e48b2,
     type: 3}
+  canvasTransform: {fileID: 0}
   pickableItemPrefab: {fileID: 5519263594690423246, guid: 059e784240e54ce48b1c4f414f1db949,
     type: 3}
-  canvasTransform: {fileID: 0}
+  dropPosition: {fileID: 0}
+  pickableParent: {fileID: 0}
   quickUseItems:
   - {fileID: 0}
   - {fileID: 0}
@@ -76,3 +79,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   highlighter: {fileID: 0}
+--- !u!114 &7777064759231873278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4438461459221597356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be68de55113c2594db191cb4c4de9922, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: {fileID: 0}

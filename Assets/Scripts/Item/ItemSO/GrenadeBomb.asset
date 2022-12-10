@@ -20,8 +20,9 @@ MonoBehaviour:
   itemMesh: {fileID: -1705546883744311471, guid: 5270a6afc871e2349a22b548c09c19b2,
     type: 3}
   soundName: 
-  name: Example Name
-  durable: 1
+  name: Frag Grenade
+  description: 
+  durable: 0
   weight: 1
   value: 1
   quantity: 000000000000000000000000
