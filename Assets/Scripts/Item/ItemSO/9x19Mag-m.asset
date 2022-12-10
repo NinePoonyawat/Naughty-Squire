@@ -20,10 +20,12 @@ MonoBehaviour:
   itemMesh: {fileID: -7745756782809674522, guid: faf35e45031de1744b38f392782c3d72,
     type: 3}
   soundName: 
-  name: Glock17 12-round magazine
-  durable: 1
+  name: Magazine
+  description: Glock17 12-round magazine
+  durable: 0
   weight: 2
   value: 1
+  quantity: 000000000000000000000000
   ammoCapacity: 12
   availableWeapon: {fileID: 11400000, guid: bfdce7d34baf7f84681b4a2f46ef17d8, type: 2}
   refillTool: {fileID: 11400000, guid: ac96af1fadae157419d168790f4b60fd, type: 2}

@@ -19,8 +19,9 @@ MonoBehaviour:
   alternateIcon: {fileID: 0}
   itemMesh: {fileID: 0}
   soundName: 
-  name: Example Name
-  durable: 1
+  name: Fire Grenade
+  description: 
+  durable: 0
   weight: 1
   value: 1
   quantity: 000000000000000000000000

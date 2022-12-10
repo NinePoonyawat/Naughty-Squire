@@ -28,6 +28,7 @@ public class InventoryController : MonoBehaviour
 
     public bool isInventoryOpen = true;
     InventoryHighlight inventoryHighlight;
+    InventoryDescription inventoryDescription;
 
     [SerializeField] InventoryInitialize inventoryInitialize;
 
@@ -37,9 +38,12 @@ public class InventoryController : MonoBehaviour
     public event OnPickUpItemEvent OnPickUpItem;
     public delegate void OnPickUpItemEvent(ItemData itemData);
 
+    bool isToolOn = false;
+
     private void Start()
     {
         inventoryHighlight = GetComponent<InventoryHighlight>();
+        inventoryDescription = GetComponent<InventoryDescription>();
         //itemGrids = FindObjectsOfType<ItemGrid>();
         SetOpen(false);
 
@@ -63,6 +67,11 @@ public class InventoryController : MonoBehaviour
             QuickUseItem(2);
         }
 
+        if (Input.GetKeyDown(KeyCode.Semicolon))
+        {
+            isToolOn = !isToolOn;
+        }
+
         if (!isInventoryOpen) return;
 
         ItemIconDrag();
@@ -70,30 +79,12 @@ public class InventoryController : MonoBehaviour
         if (selectedItemGrid == null)
         {
             inventoryHighlight.Show(false);
+            inventoryDescription.Show(false);
         }
         else
         {
             HandleHighlight();
-        }
-
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            CreateItem(-1);
-        }
-
-        if (Input.GetKeyDown(KeyCode.X))
-        {
-            RotateItem();
-        }
-        
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-            DeleteItem();
-        }
-
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            InsertItem(-1);
+            HandleDescription();
         }
 
         if (Input.GetMouseButtonDown(0))
@@ -104,6 +95,26 @@ public class InventoryController : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             RightMouseButtonPress();
+        }
+
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            RotateItem();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Q) && isToolOn)
+        {
+            CreateItem(-1);
+        }
+        
+        if (Input.GetKeyDown(KeyCode.Z) && isToolOn)
+        {
+            DeleteItem();
+        }
+
+        if (Input.GetKeyDown(KeyCode.G) && isToolOn)
+        {
+            InsertItem(-1);
         }
     }
 
@@ -383,10 +394,42 @@ public class InventoryController : MonoBehaviour
                 positionOnGrid.y,
                 selectedItem.WIDTH,
                 selectedItem.HEIGHT
-                ));        
+                ));
             inventoryHighlight.SetSize(selectedItem);
             inventoryHighlight.SetParent(selectedItemGrid);
             inventoryHighlight.SetPosition(selectedItemGrid, selectedItem, positionOnGrid.x, positionOnGrid.y);
+        }
+    }
+
+    private void HandleDescription()
+    {
+        Vector2Int positionOnGrid = GetTileGridPosition();
+        if (selectedItem == null)
+        {
+            if (positionOnGrid.x < 0 || positionOnGrid.y < 0
+                || positionOnGrid.x >= selectedItemGrid.gridSizeWidth
+                || positionOnGrid.y >= selectedItemGrid.gridSizeHeight)
+            {
+                return;
+            }
+
+            itemToHighlight = selectedItemGrid.GetItem(positionOnGrid.x, positionOnGrid.y);
+
+            if (itemToHighlight != null)
+            {        
+                inventoryDescription.Show(true);
+                inventoryDescription.SetText(itemToHighlight);
+                inventoryDescription.SetParent(selectedItemGrid);
+                inventoryDescription.SetPosition(selectedItemGrid, itemToHighlight);
+            }
+            else
+            {
+                inventoryDescription.Show(false);
+            }
+        }
+        else
+        {
+            inventoryDescription.Show(false);
         }
     }
 

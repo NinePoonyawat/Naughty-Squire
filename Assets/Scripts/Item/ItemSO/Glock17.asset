@@ -21,9 +21,11 @@ MonoBehaviour:
     type: 3}
   soundName: 
   name: Glock17
-  durable: 100
+  description: 
+  durable: 0
   weight: 5
   value: 10
+  quantity: 000000000000000000000000
   gunGO: {fileID: 0}
   damage: 3
   bulletSpeed: 0

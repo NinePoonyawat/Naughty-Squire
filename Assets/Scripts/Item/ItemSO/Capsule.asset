@@ -20,7 +20,8 @@ MonoBehaviour:
   itemMesh: {fileID: 0}
   soundName: 
   name: Capsule
-  durable: 1
+  description: 
+  durable: 0
   weight: 5
   value: 5
   quantity: 010000000200000002000000
