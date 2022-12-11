@@ -2593,12 +2593,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3fe381333cb2a5428d077147ff1a442, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 200
+  maxHealth: 140
   health: 0
   agent: {fileID: 26548049}
   projectile: {fileID: 6209210684506683142, guid: 80f10046ed79041469d1538fd0d07469,
     type: 3}
   player: {fileID: 1526423808}
+  IsAttack: 0
 --- !u!137 &30739598
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0

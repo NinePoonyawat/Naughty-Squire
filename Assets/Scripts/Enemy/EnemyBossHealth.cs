@@ -11,8 +11,9 @@ public class EnemyBossHealth : MonoBehaviour
     public NavMeshAgent agent;
     public Rigidbody projectile;
     public GameObject player;
-    bool IsAttack = false;
+    public bool IsAttack = false;
     float damageRatio = 1;
+    private IEnumerator coroutine;
     // Start is called before the first frame update
     void Start()
     {
@@ -42,44 +43,56 @@ public class EnemyBossHealth : MonoBehaviour
         agent.transform.rotation = Quaternion.Slerp(agent.transform.rotation, lookOnLook, Time.deltaTime);
     }
 
-    public void StopAllCoroutinesFunc() {
-        StopAllCoroutines();
+    public void StopCoroutinesFunc() {
+        if (coroutine == null) return;
+        Debug.Log(coroutine);
+        StopCoroutine(coroutine);
     }
 
     public void DoShooting(float delay) {
+        coroutine = Shooting(delay);
         StartCoroutine(Shooting(delay));
     }
 
     public void DoCharge(float delay) {
+        coroutine = WaitCharge(delay);
         StartCoroutine(WaitCharge(delay));
      }
 
     public void DoChargeLaser(float delay) {
+        coroutine = WaitLaser(delay);
         StartCoroutine(WaitLaser(delay));
      }
 
     public void DoStunWait(float delay) {
+        coroutine = Stun(delay);
         StartCoroutine(Stun(delay));
     }
     IEnumerator Shooting(float delay) {
+        //StopAllCoroutinesFunc();
         yield return new WaitForSeconds(delay);
         Rigidbody rc = Instantiate(projectile, agent.transform.position, Quaternion.identity).GetComponent<Rigidbody>();
         rc.AddForce(agent.transform.forward *32f,ForceMode.Impulse);
         rc.AddForce(agent.transform.up *8f,ForceMode.Impulse);
-        StartCoroutine(Shooting(delay));
+        if (!GetComponent<Animator>().GetBool("ChangeCharge")) StartCoroutine(Shooting(delay));
     }
     IEnumerator WaitCharge(float delay) {
+        //StopAllCoroutinesFunc();
         yield return new WaitForSeconds(delay);
-        if (IsAttack) GetComponent<Animator>().SetTrigger("Attacking");
+        if (IsAttack) {
+            GetComponent<Animator>().SetTrigger("Attacking");
+        }
         else GetComponent<Animator>().SetBool("EnragedAttack",false);
     }
 
     IEnumerator WaitLaser(float delay) {
+        //StopAllCoroutinesFunc();
         yield return new WaitForSeconds(delay);
         GetComponent<Animator>().SetTrigger("Lasering"); // demo
     }
 
     IEnumerator Stun(float delay) {
+        //StopAllCoroutinesFunc();
         yield return new WaitForSeconds(delay);
         GetComponent<Animator>().SetBool("NotStun",true);
     }

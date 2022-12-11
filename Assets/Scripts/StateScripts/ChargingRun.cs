@@ -14,10 +14,12 @@ public class ChargingRun : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
        enemyboss = animator.GetComponent<EnemyBossHealth>();
-       if (enemyboss != null) {
-         enemyboss.DoCharge(timeTilNextMovement);
-       }    
        timeTilNextMovement = 2f;
+       if (enemyboss != null) {
+          enemyboss.StopCoroutinesFunc();
+          enemyboss.DoCharge(timeTilNextMovement);
+       }
+       //animator.SetBool("EnragedAttack",true);    
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -27,6 +29,7 @@ public class ChargingRun : StateMachineBehaviour
     //     else {
     //         timeTilNextMovement -= Time.fixedDeltaTime;
     //     }
+    //Debug.Log(Vector3.Distance(enemyboss.transform.position,enemyboss.player.transform.position) );
        if (Vector3.Distance(enemyboss.transform.position,enemyboss.player.transform.position) < 10) {
         enemyboss.SetIsAttack(true);
         //IsAttack = true;
@@ -36,7 +39,7 @@ public class ChargingRun : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-      enemyboss.StopAllCoroutinesFunc();
+
     }
 }
 // }

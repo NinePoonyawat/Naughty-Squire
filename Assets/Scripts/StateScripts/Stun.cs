@@ -12,7 +12,7 @@ public class Stun : StateMachineBehaviour
        enemyboss = animator.GetComponent<EnemyBossHealth>();    
        timeTilNextMovement = 2f;
        if (enemyboss != null) {
-
+         enemyboss.StopCoroutinesFunc();
          enemyboss.DoStunWait(timeTilNextMovement);
        }
     }
@@ -26,7 +26,6 @@ public class Stun : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-       enemyboss.StopAllCoroutinesFunc();
     }
 }
 

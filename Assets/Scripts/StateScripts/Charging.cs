@@ -15,8 +15,9 @@ public class Charging : StateMachineBehaviour
     {
        //player = GameObject.FindGameObjectWithTag("Player");
        enemyboss = animator.GetComponent<EnemyBossHealth>();    
-       timeTilNextMovement = 2f;
+       timeTilNextMovement = 1f;
        if (enemyboss != null) {
+         enemyboss.StopCoroutinesFunc();
          enemyboss.DoChargeLaser(timeTilNextMovement);
        }
     }
@@ -24,13 +25,13 @@ public class Charging : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-       
+      enemyboss.agent.SetDestination(enemyboss.player.transform.position);
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-       enemyboss.StopAllCoroutinesFunc();
+
     }
 }
 // public class ChargingCoroutine : MonoBehaviour {

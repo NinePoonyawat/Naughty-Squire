@@ -12,9 +12,12 @@ public class ShootingAttack : StateMachineBehaviour
     EnemyBossHealth enemyboss;
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-       
        enemyboss = animator.GetComponent<EnemyBossHealth>();
-       if (enemyboss != null) enemyboss.DoShooting(1f);
+       
+       if (enemyboss != null) {
+        enemyboss.StopCoroutinesFunc();
+        enemyboss.DoShooting(1f);
+       }
        //animator.GetComponent<EnemyBossHealth>().DoCoroutine(1f,projectile,agent);
     }
 
@@ -27,7 +30,6 @@ public class ShootingAttack : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-      enemyboss.StopAllCoroutinesFunc();
        //animator.GetComponent<ShootingAttackCoroutine>().StopAllCoroutinesFunc();
     }
 
