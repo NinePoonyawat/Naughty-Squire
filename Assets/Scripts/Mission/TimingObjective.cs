@@ -50,6 +50,7 @@ public class TimingObjective : Objective
 
     void TimeUpdate()
     {
+        objectiveData.UpdateTime(GetTime());
         if (level == CompleteLevel.Fail) return;
         if (timeCounter >= levelTime)
         {

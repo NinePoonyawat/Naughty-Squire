@@ -8,14 +8,24 @@ public class SummaryManager : MonoBehaviour
 {
     public TMP_Text[] objectiveTexts;
     public ObjectiveData objectiveData;
+    public Button[] buttons;
     
     public Sprite[] gradeList;
     public Image gradeImage;
 
     void Awake()
     {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
         FindObjectOfType<AudioManager>().Play("Lobby");
         objectiveTexts = GetComponentsInChildren<TMP_Text>();
+        buttons = GetComponentsInChildren<Button>();
+
+        foreach (Button button in buttons)
+        {
+            button.gameObject.SetActive(false);
+        }
 
         StartCoroutine(ShowObjective());
     }
@@ -27,6 +37,15 @@ public class SummaryManager : MonoBehaviour
 
     IEnumerator ShowObjective()
     {
+        int minutes = objectiveData.time/60;
+        int seconds = objectiveData.time%60;
+        if(minutes < 10) objectiveTexts[11].text = "0";
+        objectiveTexts[11].text += minutes.ToString() + ":";
+        if(seconds < 10) objectiveTexts[11].text += "0";
+        objectiveTexts[11].text += seconds.ToString();
+
+
+
         int sum = 0;
         for (int i = 0; i < 5; i++)
         {
@@ -79,8 +98,11 @@ public class SummaryManager : MonoBehaviour
             objectiveTexts[10].text = p.ToString();
             FindObjectOfType<AudioManager>().Play("Type");
         }
-        //objectiveTexts[11].text = grade;
         FindObjectOfType<AudioManager>().Play("Passed");
         gradeImage.color = new Color(gradeImage.color.r, gradeImage.color.g, gradeImage.color.b, 1f);
+        foreach (Button button in buttons)
+        {
+            button.gameObject.SetActive(true);
+        }
     }
 }
