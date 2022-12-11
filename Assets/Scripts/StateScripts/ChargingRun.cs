@@ -9,6 +9,7 @@ public class ChargingRun : StateMachineBehaviour
    //  GameObject player;
    //  public NavMeshAgent agent;
     float timeTilNextMovement;
+    public float attackDistance;
     EnemyBossHealth enemyboss;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -30,10 +31,10 @@ public class ChargingRun : StateMachineBehaviour
     //         timeTilNextMovement -= Time.fixedDeltaTime;
     //     }
     //Debug.Log(Vector3.Distance(enemyboss.transform.position,enemyboss.player.transform.position) );
-       if (Vector3.Distance(enemyboss.transform.position,enemyboss.player.transform.position) < 10) {
+       if (Vector3.Distance(enemyboss.transform.position,enemyboss.player.transform.position) < attackDistance) {
         enemyboss.SetIsAttack(true);
         //IsAttack = true;
-       }
+       } else enemyboss.SetIsAttack(false);
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state

@@ -40,7 +40,7 @@ public class EnemyBossHealth : MonoBehaviour
     public void lookatPosition() {
         Vector3 targetPosition = new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z);
         Quaternion lookOnLook = Quaternion.LookRotation(targetPosition - agent.transform.position); 
-        agent.transform.rotation = Quaternion.Slerp(agent.transform.rotation, lookOnLook, Time.deltaTime);
+        agent.transform.rotation = Quaternion.Slerp(agent.transform.rotation, lookOnLook, Time.deltaTime*2);
     }
 
     public void StopCoroutinesFunc() {

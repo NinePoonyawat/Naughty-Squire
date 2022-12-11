@@ -7,6 +7,7 @@ public class EnragedRun : StateMachineBehaviour
 {
     bool IsAttack = false;
     EnemyBossHealth enemyboss;
+    public float attackDistance;
     // GameObject player;
     // public NavMeshAgent agent;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
@@ -19,7 +20,7 @@ public class EnragedRun : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if (Vector3.Distance(enemyboss.agent.transform.position,enemyboss.player.transform.position) < 10) {
+        if (Vector3.Distance(enemyboss.agent.transform.position,enemyboss.player.transform.position) < attackDistance) {
             enemyboss.agent.ResetPath();
             animator.SetTrigger("Attacking");
         } else {

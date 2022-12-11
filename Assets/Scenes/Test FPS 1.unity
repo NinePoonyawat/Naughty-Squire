@@ -1267,7 +1267,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 17216304}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.261, y: -8.371, z: 0}
+  m_LocalPosition: {x: -4.6, y: -8.371, z: -9.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1545,6 +1545,7 @@ GameObject:
   - component: {fileID: 26548049}
   - component: {fileID: 26548048}
   - component: {fileID: 26548050}
+  - component: {fileID: 26548051}
   m_Layer: 0
   m_Name: Berserker
   m_TagString: Player
@@ -2170,7 +2171,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 16854800}
-  - component: {fileID: 17216307}
   - component: {fileID: 17216308}
   m_Layer: 0
   m_Name: Berserker
@@ -2179,19 +2179,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!65 &17216307
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 17216304}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 2.5354843, z: 1}
-  m_Center: {x: 0, y: 1.2536244, z: 0}
 --- !u!54 &17216308
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2600,6 +2587,19 @@ MonoBehaviour:
     type: 3}
   player: {fileID: 1526423808}
   IsAttack: 0
+--- !u!65 &26548051
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 17139234}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2.9722617, z: 1}
+  m_Center: {x: 0, y: 0.98613083, z: 0}
 --- !u!137 &30739598
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0
