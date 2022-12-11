@@ -10,7 +10,8 @@ public class GrenadeThrower : MonoBehaviour {
     private float lifeTime;
     private float ExplodeTime;
     [SerializeField] private float explodeRadius;
-    private GrenadeData.BombType bombType;
+    private GrenadeData.BombType bombTypeLeft;
+    private GrenadeData.BombType bombTypeRight;
 
     //[SerializeField] private GameObject explodeEffect;
 
@@ -36,10 +37,10 @@ public class GrenadeThrower : MonoBehaviour {
         RhandItemGrid = GameObject.Find("UI/UIInventory/Grid-R-Hand").GetComponent<ItemGrid>();
             //GameObject.Find("UI/UIInventory").SetActive(false);
 
-        LhandItemGrid.weaponChangeEvent += setNewData;
+        LhandItemGrid.weaponChangeEvent += setNewDataLeft;
         LhandItemGrid.onPickupWeaponEvent += disarm;
 
-        RhandItemGrid.weaponChangeEvent += setNewData;
+        RhandItemGrid.weaponChangeEvent += setNewDataRight;
         RhandItemGrid.onPickupWeaponEvent += disarm;
 
         inventoryManager.OnInventoryOpen += openInventory;
@@ -48,31 +49,40 @@ public class GrenadeThrower : MonoBehaviour {
         if (currentData == null) leftArmed = false; rightArmed = false;
     }
 
-    
+    public void setNewDataLeft(InventoryItem grenadeItem) {
+        posX = grenadeItem.onGridPositionX ; posY = grenadeItem.onGridPositionY;
+        InventoryItem Li = LhandItemGrid.getInventory(posX,posY);
+        GrenadeData grenadeData = grenadeItem.itemData as GrenadeData;
+        if (Li != null && Li.itemData as GrenadeData != null) {
+            Debug.Log("left");
+            leftArmed = true;
+            bombTypeLeft = grenadeData.bombtype;
+        } else leftArmed = false;
+        setNewData(grenadeData);
+    }
+
+    public void setNewDataRight(InventoryItem grenadeItem) {
+        posX = grenadeItem.onGridPositionX ; posY = grenadeItem.onGridPositionY;
+        InventoryItem Ri = RhandItemGrid.getInventory(posX,posY);
+        GrenadeData grenadeData = grenadeItem.itemData as GrenadeData;
+        if (Ri != null && Ri.itemData as GrenadeData != null) {
+            Debug.Log("right");
+            rightArmed = true;
+            bombTypeRight = grenadeData.bombtype;
+        } else rightArmed = false;
+        setNewData(grenadeData);
+    }
     
 
-    public void setNewData(InventoryItem grenadeItem)
+    public void setNewData(GrenadeData grenadeData)
         {
-            //grenadeItemClone = grenadeItem;
-            posX = grenadeItem.onGridPositionX ; posY = grenadeItem.onGridPositionY;
-            InventoryItem Li = LhandItemGrid.getInventory(posX,posY);
-            InventoryItem Ri = RhandItemGrid.getInventory(posX,posY);
-            if (Li != null && Li.itemData as GrenadeData != null) {
-                Debug.Log("left");
-                leftArmed = true;
-            } else leftArmed = false;
-            if (Ri != null && Ri.itemData as GrenadeData != null) {
-                Debug.Log("right");
-                rightArmed = true;
-            } else rightArmed = false;
-            GrenadeData grenadeData = grenadeItem.itemData as GrenadeData;
+            //grenadeItemClone = grenadeItem;           
             if (grenadeData == null) return;
             currentData = grenadeData;
             damage = grenadeData.damage;
             ExplodeTime = grenadeData.ExplodeTime;
             lifeTime = grenadeData.lifeTime;
             explodeRadius = grenadeData.explodeRadius;
-            bombType = grenadeData.bombtype;
         }
     public void disarm()
         {
@@ -82,15 +92,33 @@ public class GrenadeThrower : MonoBehaviour {
             if (Li != null && Li.itemData as GrenadeData != null) {
                 Debug.Log("left");
                 leftArmed = false;
-                LhandItemGrid.DiscardItem(posX,posY); return;
+                //LhandItemGrid.DiscardItem(posX,posY); return;
             }
             if (Ri != null && Ri.itemData as GrenadeData != null) {
                 Debug.Log("right");
                 rightArmed = false;
-                RhandItemGrid.DiscardItem(posX,posY); return;
+                //RhandItemGrid.DiscardItem(posX,posY); return;
             }
         }
     
+    public void disarmleft() {
+        currentData = null;
+        leftArmed = false;
+        InventoryItem Li = LhandItemGrid.getInventory(posX,posY);
+        if (Li != null && Li.itemData as GrenadeData != null) {
+            Debug.Log("left");
+            LhandItemGrid.DiscardItem(posX,posY); return;
+        }
+    }
+    public void disarmright() {
+        currentData = null;
+        rightArmed = false;
+        InventoryItem Ri = RhandItemGrid.getInventory(posX,posY);
+        if (Ri != null && Ri.itemData as GrenadeData != null) {
+            Debug.Log("right");
+            RhandItemGrid.DiscardItem(posX,posY); return;
+        }
+    }
     // IEnumerator ExplodeDelay(float delay)
     // {
     //     yield return new WaitForSeconds(delay);
@@ -123,8 +151,9 @@ public class GrenadeThrower : MonoBehaviour {
     public float getlifetime() {
         return lifeTime;
     }
-    public GrenadeData.BombType getbombtype() {
+    public GrenadeData.BombType getbombtype(bool isLeft) {
         //Debug.Log(bombType);
-        return bombType;
+        if (isLeft) return bombTypeLeft;
+        return bombTypeRight;
     }
 }

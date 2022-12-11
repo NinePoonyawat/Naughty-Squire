@@ -7,6 +7,16 @@ public class SceneSelect : MonoBehaviour
 {
     public void StartStage()
     {
-        SceneManager.LoadScene (sceneName:"Test FPS");
+        SceneManager.LoadScene ("Test FPS");
+    }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene ("LobbyScene");
+    }
+
+    public void SummaryMenu()
+    {
+        SceneManager.LoadScene ("SummaryScene");
     }
 }

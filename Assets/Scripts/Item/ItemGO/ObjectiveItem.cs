@@ -27,8 +27,6 @@ public class ObjectiveItem : InteractableItem
 
     public override void Interacted()
     {
-        Debug.Log("Interact Laew Na : " + objectiveType);
-        
         SceneManager.LoadScene (sceneName:"SummaryScene");
     }
 }

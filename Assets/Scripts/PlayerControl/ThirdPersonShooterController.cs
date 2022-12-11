@@ -104,7 +104,7 @@ namespace Player
                 isbuttonDown = true;
                 timecount += Time.deltaTime;
                 if (timecount > grenadeThrower.getlifetime()) {
-                    CreateandThrowGrenade(aimDir, timecount);
+                    CreateandThrowGrenade(aimDir, timecount,true);
                     timecount = 0; isbuttonDown = false;
                 }
                 //Vector3 aimDir = Input.mousePosition.normalized;
@@ -112,7 +112,7 @@ namespace Player
                 
             }
             if (Input.GetMouseButtonUp(0) && isbuttonDown && grenadeThrower.isLeftThrowable()) {
-                CreateandThrowGrenade(aimDir, timecount);
+                CreateandThrowGrenade(aimDir, timecount,true);
                 timecount = 0; isbuttonDown = false;
             }
 
@@ -120,7 +120,7 @@ namespace Player
                 isbuttonDown = true;
                 timecount += Time.deltaTime;
                 if (timecount > grenadeThrower.getlifetime()) {
-                    CreateandThrowGrenade(aimDir, timecount);
+                    CreateandThrowGrenade(aimDir, timecount,false);
                     timecount = 0; isbuttonDown = false;
                 }
                 //Vector3 aimDir = Input.mousePosition.normalized;
@@ -128,19 +128,21 @@ namespace Player
                 
             }
             if (Input.GetMouseButtonUp(1) && isbuttonDown && grenadeThrower.isRightThrowable()) {
-                CreateandThrowGrenade(aimDir, timecount);
+                CreateandThrowGrenade(aimDir, timecount,false);
                 timecount = 0; isbuttonDown = false;
             }
 
             if (starterAssetInputs.shoot && !gunSystem.isShootable()) starterAssetInputs.shoot = false;
         }
-        private void CreateandThrowGrenade(Vector3 aimDir, float timecount) {
+        private void CreateandThrowGrenade(Vector3 aimDir, float timecount, bool isLeft) {
             GameObject grenade = Instantiate(pfGrenade, spawnBulletPosition.transform.position, Quaternion.LookRotation(aimDir, Vector3.up)).gameObject;
             grenade.SendMessage("SetFloatData",grenadeThrower.getfloatdata());
             grenade.SendMessage("SetLifeTime",Mathf.Max(grenadeThrower.getlifetime() - timecount, 0));
-            grenade.SendMessage("Setbombtype",grenadeThrower.getbombtype());
+            grenade.SendMessage("Setbombtype",grenadeThrower.getbombtype(isLeft));
             grenade.SendMessage("Throw", aimDir);
-            grenadeThrower.disarm();
+            if (isLeft) grenadeThrower.disarmleft();
+            else grenadeThrower.disarmright();
+
         }
 
         public void Resume(object o,EventArgs e)
