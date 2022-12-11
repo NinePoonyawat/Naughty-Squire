@@ -5,6 +5,8 @@ using UnityEngine;
 [CreateAssetMenu]
 public class ObjectiveData : ScriptableObject
 {
+    public int time;
+
     public string[] objectiveName;
     public int[] objectivePoint;
 
@@ -18,5 +20,10 @@ public class ObjectiveData : ScriptableObject
     public void UpdateScore(int idx,int point)
     {
         objectivePoint[idx] = point;
+    }
+
+    public void UpdateTime(int t)
+    {
+        time = t;
     }
 }

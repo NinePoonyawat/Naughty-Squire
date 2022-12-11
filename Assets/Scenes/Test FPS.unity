@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.15742597, g: 0.163062, b: 0.16545992, a: 1}
+  m_IndirectSpecularColor: {r: 0.15742645, g: 0.16306245, b: 0.1654604, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1033,26 +1033,6 @@ PrefabInstance:
       propertyPath: canvasTransform
       value: 
       objectReference: {fileID: 2011448700}
-    - target: {fileID: 7777064759231873278, guid: 7cd09b2c3a52351499a3ff3a5157a5ea,
-        type: 3}
-      propertyPath: nameText
-      value: 
-      objectReference: {fileID: 289142203}
-    - target: {fileID: 7777064759231873278, guid: 7cd09b2c3a52351499a3ff3a5157a5ea,
-        type: 3}
-      propertyPath: usesText
-      value: 
-      objectReference: {fileID: 702132998}
-    - target: {fileID: 7777064759231873278, guid: 7cd09b2c3a52351499a3ff3a5157a5ea,
-        type: 3}
-      propertyPath: descriptionGO
-      value: 
-      objectReference: {fileID: 583877768}
-    - target: {fileID: 7777064759231873278, guid: 7cd09b2c3a52351499a3ff3a5157a5ea,
-        type: 3}
-      propertyPath: descriptionText
-      value: 
-      objectReference: {fileID: 1325097482}
     - target: {fileID: 4438461459221597359, guid: 7cd09b2c3a52351499a3ff3a5157a5ea,
         type: 3}
       propertyPath: inventoryInitialize
@@ -1108,6 +1088,26 @@ PrefabInstance:
       propertyPath: itemGrids.Array.data[8]
       value: 
       objectReference: {fileID: 1808335816}
+    - target: {fileID: 7777064759231873278, guid: 7cd09b2c3a52351499a3ff3a5157a5ea,
+        type: 3}
+      propertyPath: nameText
+      value: 
+      objectReference: {fileID: 289142203}
+    - target: {fileID: 7777064759231873278, guid: 7cd09b2c3a52351499a3ff3a5157a5ea,
+        type: 3}
+      propertyPath: usesText
+      value: 
+      objectReference: {fileID: 702132998}
+    - target: {fileID: 7777064759231873278, guid: 7cd09b2c3a52351499a3ff3a5157a5ea,
+        type: 3}
+      propertyPath: descriptionGO
+      value: 
+      objectReference: {fileID: 583877768}
+    - target: {fileID: 7777064759231873278, guid: 7cd09b2c3a52351499a3ff3a5157a5ea,
+        type: 3}
+      propertyPath: descriptionText
+      value: 
+      objectReference: {fileID: 1325097482}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7cd09b2c3a52351499a3ff3a5157a5ea, type: 3}
 --- !u!1 &71100441 stripped
@@ -13533,6 +13533,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6721319801666318980, guid: 75755c9a38fe79541b296b1e7d238e48,
+        type: 3}
+      propertyPath: m_Name
+      value: UIStat
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75755c9a38fe79541b296b1e7d238e48, type: 3}

@@ -42,7 +42,7 @@ public abstract class Objective : MonoBehaviour
 
     public void UpdateObjectiveData()
     {
-        objectiveData.UpdateScore(objectiveIdx,GetScore());
+        objectiveData.UpdateScore(objectiveIdx, GetScore());
     }
 
     public CompleteLevel GetLevel()
