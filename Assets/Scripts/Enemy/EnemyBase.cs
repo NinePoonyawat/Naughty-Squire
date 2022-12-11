@@ -183,7 +183,7 @@ public abstract class EnemyBase : MonoBehaviour
         // }
     }
 
-    float CalculateHealth() {
+    protected float CalculateHealth() {
         return health/maxHealth;
     }
 
@@ -300,7 +300,7 @@ public abstract class EnemyBase : MonoBehaviour
         //Debug.Log(nextPosition);
     }
 
-    void CheckFlee() {
+    public void CheckFlee() {
         if (AIManager.Instance.GetListSize(group) < 2) {
             ChangeGroup();
             //Debug.Log("check flee");
@@ -346,7 +346,7 @@ public abstract class EnemyBase : MonoBehaviour
         } else EnemyState = State.Idle;
         lookatPosition();
     }
-    void CheckLOS() 
+    public void CheckLOS() 
     {
         int layerMask = 1 << 9;
         layerMask = ~layerMask;
@@ -373,7 +373,7 @@ public abstract class EnemyBase : MonoBehaviour
                 {
                     playerIsInLOS = false;
                 }
-            }
+            } else playerIsInLOS = false;
         }
     }
     public void NoiseAlert(Vector3 Source) {
