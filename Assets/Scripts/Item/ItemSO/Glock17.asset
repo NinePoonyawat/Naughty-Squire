@@ -20,8 +20,8 @@ MonoBehaviour:
   itemMesh: {fileID: -8719869389123340411, guid: 1cc03cbb51606e04faa898feb8fab8e3,
     type: 3}
   soundName: 
-  name: Glock17
-  description: 
+  name: Pistol
+  description: Glock17
   durable: 0
   weight: 5
   value: 10
