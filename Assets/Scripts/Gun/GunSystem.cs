@@ -165,12 +165,17 @@ namespace Weapon
 
         public bool isShootable()
         {
-            return isArmed && !isOutOfAmmo && !isCooldown && !isInventoryOpen;
+            return isArmed && !GetIsOutOfAmmo() && !isCooldown && !isInventoryOpen;
         }
 
         public float GetDamage()
         {
             return damage;
+        }
+
+        public bool GetIsOutOfAmmo()
+        {
+            return bulletLeftInMagazine == 0;
         }
     }
 }
