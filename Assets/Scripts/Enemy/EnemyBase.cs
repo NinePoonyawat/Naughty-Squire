@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using StarterAssets;
 
 
@@ -62,6 +63,8 @@ public abstract class EnemyBase : MonoBehaviour
     protected float timeAttack = 2f;
     public bool FleeAble;
     public AnimationCurve MoveCurve;
+    public GameObject healthBarUI;
+    public Slider slider;
 
 
     
@@ -81,6 +84,7 @@ public abstract class EnemyBase : MonoBehaviour
 
         player = GameObject.Find("PlayerHitbox");
         if (player == null) player = GameObject.Find("PlayerWithCamera/PlayerArmature");
+        slider.value = CalculateHealth();
     }
 
     void StartNextState() {
@@ -146,6 +150,7 @@ public abstract class EnemyBase : MonoBehaviour
     {
         //Debug.Log(player.GetComponent<Collider>().tag);
         //Debug.Log(EnemyState);
+        slider.value = CalculateHealth();
         CheckLOS();
         if (FleeAble && EnemyState != State.Flee) CheckFlee();
         //StartNextState();
@@ -176,6 +181,10 @@ public abstract class EnemyBase : MonoBehaviour
         //    // Debug.Log("lost");
         //     AImove();
         // }
+    }
+
+    float CalculateHealth() {
+        return health/maxHealth;
     }
 
     // Health logic

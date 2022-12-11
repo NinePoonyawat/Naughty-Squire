@@ -103,19 +103,19 @@ public class GrenadeThrower : MonoBehaviour {
     
     public void disarmleft() {
         currentData = null;
+        leftArmed = false;
         InventoryItem Li = LhandItemGrid.getInventory(posX,posY);
         if (Li != null && Li.itemData as GrenadeData != null) {
             Debug.Log("left");
-            leftArmed = false;
             LhandItemGrid.DiscardItem(posX,posY); return;
         }
     }
     public void disarmright() {
         currentData = null;
+        rightArmed = false;
         InventoryItem Ri = RhandItemGrid.getInventory(posX,posY);
         if (Ri != null && Ri.itemData as GrenadeData != null) {
             Debug.Log("right");
-            rightArmed = false;
             RhandItemGrid.DiscardItem(posX,posY); return;
         }
     }
