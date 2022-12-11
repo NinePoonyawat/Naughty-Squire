@@ -21,7 +21,7 @@ MonoBehaviour:
     type: 3}
   soundName: 
   name: Frag Grenade
-  description: 
+  description: Deal damage to surround entity.
   durable: 0
   weight: 1
   value: 1

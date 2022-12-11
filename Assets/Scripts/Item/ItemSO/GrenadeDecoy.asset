@@ -21,7 +21,7 @@ MonoBehaviour:
     type: 3}
   soundName: 
   name: Decoy Grenade
-  description: 
+  description: Make a sound that lure enemies for small period of time.
   durable: 0
   weight: 1
   value: 1
