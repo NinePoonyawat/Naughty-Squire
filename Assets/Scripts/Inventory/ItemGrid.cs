@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
+public enum GridType {ITEMSELECTED,LOADOUT,INGAME};
 public class ItemGrid : MonoBehaviour
 {
     public const float tileSizeWidth = 100;
@@ -18,6 +19,7 @@ public class ItemGrid : MonoBehaviour
 
     public enum InventoryType {LOADOUT, BAG, HAND};
     public InventoryType inventoryType;
+    public GridType gridType = GridType.INGAME;
 
     [Header("HAND TYPE")]
     public ItemGrid anotherHandGrid;

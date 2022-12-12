@@ -19,4 +19,14 @@ public class InventoryLoadoutSystem : ScriptableObject
     {
         return itemData;
     }
+
+    public void RemoveItem(ItemData itemtoRemove)
+    {
+        itemData.Remove(itemtoRemove);
+    }
+
+    public void AddItem(ItemData itemToAdd)
+    {
+        itemData.Add(itemToAdd);
+    }
 }
