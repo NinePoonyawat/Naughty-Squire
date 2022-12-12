@@ -9,6 +9,7 @@ namespace Weapon
 {
     public class GunSystem : MonoBehaviour
     {
+        [SerializeField] private GameObject Gun;
         [SerializeField] private int bulletPerMagazine = 0;
         [SerializeField] private float damage;
         private int bulletLeftInMagazine = 0;
@@ -92,6 +93,8 @@ namespace Weapon
                 SetOutOfAmmo(true);
             }
             FindObjectOfType<AudioManager>().Play(fireSoundName);
+            Animator gunAnim = Gun.GetComponentInChildren<Animator>();
+            gunAnim.SetTrigger("Fire");
         }
 
         public void Reload()
@@ -109,6 +112,8 @@ namespace Weapon
             cooldownTimeCount = currentData.reloadDelay;
 
             FindObjectOfType<AudioManager>().Play(reloadSoundName);
+            Animator gunAnim = Gun.GetComponentInChildren<Animator>();
+            gunAnim.SetTrigger("Reload");
         }
 
         public void setNewData(InventoryItem weaponItem)
@@ -131,7 +136,7 @@ namespace Weapon
             SetAmmoText(bulletLeftInMagazine,bulletPerMagazine);
             //Reload();
 
-            if (bulletLeftInMagazine <= 0)
+            if (bulletLeftInMagazine <= 0 && bulletPerMagazine > 0)
             {
                 OnOutOfAmmoEvent?.Invoke(this,EventArgs.Empty);
                 SetOutOfAmmo(true);
@@ -141,7 +146,7 @@ namespace Weapon
 
         public void SetBulletLeftInMagazine(int newBulletLeftInMagazine)
         {
-            Debug.Log("sett");
+            Debug.Log("sett " + newBulletLeftInMagazine);
             bulletLeftInMagazine = newBulletLeftInMagazine;
         }
 
