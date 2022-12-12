@@ -15,12 +15,13 @@ MonoBehaviour:
   width: 1
   height: 1
   isTwoHanded: 0
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: 21300000, guid: 3b505cf13ea21eb41af175cfee1cd7a6, type: 3}
   alternateIcon: {fileID: 0}
-  itemMesh: {fileID: 0}
+  itemMesh: {fileID: -1705546883744311471, guid: 5270a6afc871e2349a22b548c09c19b2,
+    type: 3}
   soundName: 
   name: Fire Grenade
-  description: 
+  description: Create a fire for small period of time.
   durable: 0
   weight: 1
   value: 1
