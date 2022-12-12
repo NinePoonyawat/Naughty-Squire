@@ -30,6 +30,7 @@ public class ItemPickup : MonoBehaviour
     private void PointingItem (GameObject pointed)
     {
         InteractableItem pointItem = pointed.GetComponent<InteractableItem>();
+        BulletRecognize bulletRecognize = pointed.GetComponent<BulletRecognize>();
 
         if (_pointItem != null && _pointItem != pointItem)
         {
@@ -41,16 +42,16 @@ public class ItemPickup : MonoBehaviour
             pointItem.Glow(true);
             if (Input.GetKeyDown(KeyCode.F))
             {
-                InteractItem(pointItem);
+                InteractItem(pointItem,bulletRecognize);
             }
             _pointItem = pointItem;
         }
     }
 
-    private void InteractItem (InteractableItem interactItem)
+    private void InteractItem (InteractableItem interactItem,BulletRecognize bulletRecognize)
     {
         PickableItem pickItem = interactItem as PickableItem;
-        if(pickItem != null && inventoryController.FillItem(pickItem.itemData))
+        if(pickItem != null && inventoryController.FillItem(pickItem.itemData,bulletRecognize))
         {
             pickItem.Interacted();
             FindObjectOfType<AudioManager>().Play("InventoryInteract");

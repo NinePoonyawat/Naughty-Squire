@@ -50,7 +50,6 @@ public class InventoryItem : MonoBehaviour
         this.itemData = itemData;
 
         if (itemData == null) return;
-        Debug.Log("not null");
         GetComponent<Image>().sprite = itemData.itemIcon;
 
         Vector2 size = new Vector2();
@@ -81,6 +80,14 @@ public class InventoryItem : MonoBehaviour
         equippedMagazine = magazine.itemData as MagazineData;
         ammoCapacity = magazine.ammoCapacity;
         ammoRemained = magazine.ammoRemained;
+    }
+
+    public void EquipMagazine(MagazineData magazine)
+    {
+        GetComponent<Image>().sprite = itemData.alternateIcon;
+        equippedMagazine = magazine;
+        ammoCapacity = magazine.ammoCapacity;
+        ammoRemained = magazine.ammoCapacity;
     }
 
     public MagazineData GetMagazine()

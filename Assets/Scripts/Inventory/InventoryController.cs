@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Weapon;
 using UnityEngine.UI;
 
 public class InventoryController : MonoBehaviour
@@ -8,6 +9,7 @@ public class InventoryController : MonoBehaviour
     [Header("Unique ItemGrid")]
     public ItemGrid selectedItemGrid;
     [SerializeField] public ItemGrid[] itemGrids;
+    [SerializeField] public ItemGrid[] handItemGrid;
 
     [SerializeField] InventoryItem selectedItem;
     InventoryItem overlapItem;
@@ -30,6 +32,10 @@ public class InventoryController : MonoBehaviour
     InventoryHighlight inventoryHighlight;
     InventoryDescription inventoryDescription;
 
+
+    [SerializeField] private GunSystem gunSystem;
+    private int bulletLeft = -1;
+
     [SerializeField] InventoryInitialize inventoryInitialize;
 
     public event OnPlacingItemEvent OnPlacingItem;
@@ -48,6 +54,12 @@ public class InventoryController : MonoBehaviour
         SetOpen(false);
 
         pickableParent = GameObject.Find("PickableItem").transform;
+
+        foreach(ItemGrid itemGrid in handItemGrid)
+        {
+            itemGrid.onPickupWeaponEvent += GetBulletLeftInMagazine;
+            itemGrid.weaponChangeEvent += WeaponChange;
+        }
     }
 
     private void Update()
@@ -183,7 +195,7 @@ public class InventoryController : MonoBehaviour
         
     }
 
-    public bool InsertItem(ItemData selectedItem, ItemGrid selectedItemGrid)
+    public bool InsertItem(ItemData selectedItem, ItemGrid selectedItemGrid,BulletRecognize bulletRecognize)
     {
         InventoryItem itemToInsert = Instantiate(inventoryItemPrefab).GetComponent<InventoryItem>();
         
@@ -196,7 +208,7 @@ public class InventoryController : MonoBehaviour
             return false;
         }
 
-        selectedItemGrid.PlaceItem(itemToInsert, posOnGrid.Value.x, posOnGrid.Value.y);
+        selectedItemGrid.PlaceItem(itemToInsert, posOnGrid.Value.x, posOnGrid.Value.y,bulletRecognize);
         try
         {
             OnPlacingItem?.Invoke(selectedItem);
@@ -212,7 +224,16 @@ public class InventoryController : MonoBehaviour
     {
         foreach (ItemGrid itemGrid in itemGrids)
         {
-            if (InsertItem(selectedItem, itemGrid)) return true;
+            if (InsertItem(selectedItem, itemGrid, null)) return true;
+        }
+        return false;
+    }
+
+    public bool FillItem(ItemData selectedItem,BulletRecognize bulletRecognize)
+    {
+        foreach (ItemGrid itemGrid in itemGrids)
+        {
+            if (InsertItem(selectedItem, itemGrid, bulletRecognize)) return true;
         }
         return false;
     }
@@ -230,7 +251,13 @@ public class InventoryController : MonoBehaviour
 
     public void DropItem(InventoryItem selectedItem)
     {
-        PickableItem pickableItem = Instantiate(pickableItemPrefab, dropPosition.position, dropPosition.rotation, pickableParent).GetComponent<PickableItem>();
+        GameObject pickableGO = Instantiate(pickableItemPrefab, dropPosition.position, dropPosition.rotation, pickableParent) as GameObject;
+        PickableItem pickableItem = pickableGO.GetComponent<PickableItem>();
+        BulletRecognize bulletRecognize = pickableItem.GetComponent<BulletRecognize>();
+        if (bulletRecognize != null)
+        {
+            bulletRecognize.SetMagazine(selectedItem.GetMagazine());
+        }
         
         pickableItem.itemData = selectedItem.itemData;
         pickableItem.SetMesh();
@@ -326,6 +353,12 @@ public class InventoryController : MonoBehaviour
         if (complete)
         {
             FindObjectOfType<AudioManager>().Play("InventoryInteract");
+
+            WeaponData weaponData = selectedItem.itemData as WeaponData;
+            if (weaponData != null && bulletLeft != -1)
+            {
+                gunSystem.SetBulletLeftInMagazine(bulletLeft);
+            }
 
             selectedItem = null;
             if (overlapItem != null)
@@ -441,6 +474,21 @@ public class InventoryController : MonoBehaviour
         foreach (ItemGrid itemGrid in itemGrids)
         {
             itemGrid.gameObject.SetActive(isInventoryOpen);
+        }
+    }
+
+    public void GetBulletLeftInMagazine()
+    {
+        bulletLeft = gunSystem.GetBulletLeftInMagazine();
+        Debug.Log(bulletLeft);
+    }
+
+    public void WeaponChange(InventoryItem inventoryItem)
+    {
+        if(bulletLeft != -1)
+        {
+            gunSystem.SetBulletLeftInMagazine(bulletLeft);
+            gunSystem.isSetBullet = true;
         }
     }
 }

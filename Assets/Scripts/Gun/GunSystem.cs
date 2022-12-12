@@ -13,6 +13,7 @@ namespace Weapon
         [SerializeField] private float damage;
         private int bulletLeftInMagazine = 0;
         private bool isOutOfAmmo;
+        private int prevBulletLeffInMagazine;
 
         private StarterAssetsInputs starterAssetsInputs;
         [SerializeField] private InventoryManager inventoryManager;
@@ -20,6 +21,7 @@ namespace Weapon
 
         public WeaponData currentData = null;
         private bool isArmed;
+        public bool isSetBullet = false;
 
         private float cooldownTime = 0.5f;
         private float cooldownTimeCount = 0f;
@@ -117,7 +119,11 @@ namespace Weapon
             currentData = weaponData;
             damage = weaponData.damage;
             bulletPerMagazine = weaponItem.ammoCapacity;
-            bulletLeftInMagazine = weaponItem.ammoRemained;
+            if (!isSetBullet)
+            {
+                bulletLeftInMagazine = weaponItem.ammoRemained;
+            }
+            else isSetBullet = false;
             cooldownTime = weaponData.fireDelay;
             fireSoundName = weaponData.fireSoundName;
             reloadSoundName = weaponData.reloadSoundName;
@@ -131,6 +137,12 @@ namespace Weapon
                 SetOutOfAmmo(true);
                 Reload();
             }
+        }
+
+        public void SetBulletLeftInMagazine(int newBulletLeftInMagazine)
+        {
+            Debug.Log("sett");
+            bulletLeftInMagazine = newBulletLeftInMagazine;
         }
 
         public void openInventory(object o,EventArgs e)
@@ -148,6 +160,7 @@ namespace Weapon
             isArmed = false;
             currentData = null;
             damage = 0;
+            prevBulletLeffInMagazine = bulletLeftInMagazine;
             bulletPerMagazine = 0;
             bulletLeftInMagazine = 0;
             SetAmmoText(bulletLeftInMagazine,bulletPerMagazine);
@@ -176,6 +189,11 @@ namespace Weapon
         public bool GetIsOutOfAmmo()
         {
             return bulletLeftInMagazine == 0;
+        }
+
+        public int GetBulletLeftInMagazine()
+        {
+            return prevBulletLeffInMagazine;
         }
     }
 }

@@ -257,6 +257,41 @@ public class ItemGrid : MonoBehaviour
         remainSize -= 1;
     }
 
+    public void PlaceItem(InventoryItem inventoryItem, int posX, int posY,BulletRecognize bulletRecognize)
+    {
+        RectTransform rectTransform = inventoryItem.GetComponent<RectTransform>();
+        rectTransform.SetParent(this.rectTransform);
+
+        for (int ix = 0; ix < inventoryItem.WIDTH; ix++)
+        {
+            for (int iy = 0; iy < inventoryItem.HEIGHT; iy++)
+            {
+                inventoryItemSlot[posX + ix, posY + iy] = inventoryItem;
+            }
+        }
+        
+        inventoryItem.onGridPositionX = posX;
+        inventoryItem.onGridPositionY = posY;
+
+        Vector2 position = CalculatePositionOnGrid(inventoryItem, posX, posY);
+
+        rectTransform.localPosition = position;
+
+        WeaponData weaponData = inventoryItem.itemData as WeaponData;
+        GrenadeData grenadeData = inventoryItem.itemData as GrenadeData;
+        if (weaponData != null || grenadeData != null)
+        {
+            weaponChangeEvent?.Invoke(inventoryItem);
+        }
+
+        remainSize -= 1;
+
+        if (bulletRecognize != null && bulletRecognize != null)
+        {
+            ContactMagazine(bulletRecognize.GetMagazine(),posX,posY);
+        }
+    }
+
     public ItemData InteractItem(int posX, int posY)
     {
         InventoryItem interactedItem = inventoryItemSlot[posX, posY];
@@ -321,6 +356,28 @@ public class ItemGrid : MonoBehaviour
             }
         }
         return contactItem;
+    }
+
+    public void ContactMagazine(MagazineData contactMagazine,int posX,int posY)
+    {
+        InventoryItem interactedItem = inventoryItemSlot[posX, posY];
+        if (interactedItem == null) return;
+        WeaponData interactedWeapon = interactedItem.itemData as WeaponData;
+        if (contactMagazine != null)
+        {
+            if (interactedWeapon != null && contactMagazine.availableWeapon == interactedWeapon && !interactedItem.HaveMagazine())
+            {
+                interactedItem.EquipMagazine(contactMagazine);
+                weaponChangeEvent?.Invoke(interactedItem);
+                FindObjectOfType<AudioManager>().Play(interactedWeapon.reloadSoundName);
+            }
+            if (contactMagazine.refillTool == interactedItem.itemData)
+            {
+                interactedItem.durable -= 1;
+                if (interactedItem.durable <= 0) DiscardItem(posX, posY);
+                FindObjectOfType<AudioManager>().Play(contactMagazine.refillSoundName);
+            }
+        }
     }
 
     public void DiscardItem(int posX, int posY)
