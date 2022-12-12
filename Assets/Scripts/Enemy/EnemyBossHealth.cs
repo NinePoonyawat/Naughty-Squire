@@ -44,6 +44,7 @@ public class EnemyBossHealth : MonoBehaviour
     }
 
     public void StopCoroutinesFunc() {
+        agent.speed = 3.5f;
         if (coroutine == null) return;
         Debug.Log(coroutine);
         StopCoroutine(coroutine);

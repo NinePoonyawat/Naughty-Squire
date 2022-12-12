@@ -1398,6 +1398,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  healthBarUI: {fileID: 0}
+  slider: {fileID: 0}
   CanMove: 0
   pfBulletProjectile: {fileID: 0}
   firePoint: {fileID: 0}
@@ -1416,7 +1418,7 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 3.5
-  m_Acceleration: 8
+  m_Acceleration: Infinity
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 0
