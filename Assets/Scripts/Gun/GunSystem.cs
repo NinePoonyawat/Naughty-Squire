@@ -136,7 +136,7 @@ namespace Weapon
             SetAmmoText(bulletLeftInMagazine,bulletPerMagazine);
             //Reload();
 
-            if (bulletLeftInMagazine <= 0)
+            if (bulletLeftInMagazine <= 0 && bulletPerMagazine > 0)
             {
                 OnOutOfAmmoEvent?.Invoke(this,EventArgs.Empty);
                 SetOutOfAmmo(true);
@@ -146,7 +146,7 @@ namespace Weapon
 
         public void SetBulletLeftInMagazine(int newBulletLeftInMagazine)
         {
-            Debug.Log("sett");
+            Debug.Log("sett " + newBulletLeftInMagazine);
             bulletLeftInMagazine = newBulletLeftInMagazine;
         }
 

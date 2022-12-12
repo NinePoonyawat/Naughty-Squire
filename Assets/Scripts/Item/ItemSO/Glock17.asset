@@ -31,6 +31,6 @@ MonoBehaviour:
   bulletSpeed: 0
   bulletLifetime: 0
   fireDelay: 0.5
-  reloadDelay: 2
+  reloadDelay: 1
   fireSoundName: PistolFire
   reloadSoundName: PistolReload
