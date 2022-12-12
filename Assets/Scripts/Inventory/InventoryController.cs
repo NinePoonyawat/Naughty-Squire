@@ -343,7 +343,7 @@ public class InventoryController : MonoBehaviour
         if (selectedItem != null)
         {
             rectTransform = selectedItem.GetComponent<RectTransform>();
-            if (!selectedItem.GetRotate()) RotateItem();
+            //if (!selectedItem.GetRotate()) RotateItem();
         }
     }
 

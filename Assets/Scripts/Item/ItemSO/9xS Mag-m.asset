@@ -10,23 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7292a78aed840e242b7304e008b037ff, type: 3}
-  m_Name: 9x19Mag-s
+  m_Name: 9xS Mag-m
   m_EditorClassIdentifier: 
   width: 1
   height: 1
   isTwoHanded: 0
-  itemIcon: {fileID: 21300000, guid: 74b694b8395b19e449209f68bfa50817, type: 3}
-  alternateIcon: {fileID: 21300000, guid: 1e3bf4f89a0120e4a93eed53e29b8afd, type: 3}
+  itemIcon: {fileID: 21300000, guid: fb5794979b3fc3f498424fb64063155f, type: 3}
+  alternateIcon: {fileID: 21300000, guid: fb5794979b3fc3f498424fb64063155f, type: 3}
   itemMesh: {fileID: -7745756782809674522, guid: faf35e45031de1744b38f392782c3d72,
     type: 3}
   soundName: 
   name: Magazine
-  description: Glock 10-round magazine
+  description: Sharp 7-Round Magazine
   durable: 0
   weight: 2
   value: 1
   quantity: 000000000000000000000000
-  ammoCapacity: 10
-  availableWeapon: {fileID: 11400000, guid: bfdce7d34baf7f84681b4a2f46ef17d8, type: 2}
+  ammoCapacity: 7
+  availableWeapon: {fileID: 11400000, guid: 2d6619258a1bfef4f84a80bb8c9b9d70, type: 2}
   refillTool: {fileID: 11400000, guid: ac96af1fadae157419d168790f4b60fd, type: 2}
   refillSoundName: InventoryInteract

@@ -10,27 +10,27 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 358cadfb1a7deab4595ea3ff59babe36, type: 3}
-  m_Name: Glock17
+  m_Name: GlockSharp
   m_EditorClassIdentifier: 
   width: 2
   height: 1
   isTwoHanded: 0
-  itemIcon: {fileID: 21300000, guid: 686424043330bbd429b74781559b1654, type: 3}
-  alternateIcon: {fileID: 21300000, guid: f0aa860cbc5509e45a59f8097a54181e, type: 3}
+  itemIcon: {fileID: 21300000, guid: 988aaafe5fda9e247aa5330e6127fe3a, type: 3}
+  alternateIcon: {fileID: 21300000, guid: 04b27aea32fce914c877d517d841eca0, type: 3}
   itemMesh: {fileID: -8719869389123340411, guid: 1cc03cbb51606e04faa898feb8fab8e3,
     type: 3}
   soundName: 
-  name: Glock
-  description: Moderate damage, High rate of fire
+  name: Sharp
+  description: High damage, Moderate rate of fire
   durable: 0
   weight: 5
   value: 10
   quantity: 000000000000000000000000
   gunGO: {fileID: 0}
-  damage: 3
+  damage: 8
   bulletSpeed: 0
   bulletLifetime: 0
-  fireDelay: 0.3
-  reloadDelay: 1
+  fireDelay: 0.6
+  reloadDelay: 1.4
   fireSoundName: PistolFire
   reloadSoundName: PistolReload
