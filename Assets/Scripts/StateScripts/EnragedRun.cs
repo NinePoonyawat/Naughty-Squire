@@ -24,6 +24,7 @@ public class EnragedRun : StateMachineBehaviour
             enemyboss.agent.ResetPath();
             animator.SetTrigger("Attacking");
         } else {
+            Debug.Log("WHat");
             enemyboss.agent.SetDestination(enemyboss.player.transform.position);
         }
     }

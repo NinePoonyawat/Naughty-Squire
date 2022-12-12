@@ -222,6 +222,7 @@ public abstract class EnemyBase : MonoBehaviour
     public virtual void walking() {
         //if (!playerIsInLOS) EnemyState = State.Idle;
 //        Debug.Log("Walking");
+        Debug.Log(nextPosition);
         agent.SetDestination(nextPosition);
         lookatPosition();
 
