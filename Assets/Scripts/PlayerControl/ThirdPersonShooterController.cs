@@ -21,7 +21,6 @@ namespace Player
         [SerializeField] private Transform pfBulletProjectile;
         [SerializeField] private Transform pfGrenade;
         [SerializeField] private Transform spawnBulletPosition;
-        
 
         private ThirdPersonController thirdPersonController;
         private StarterAssetsInputs starterAssetInputs;
@@ -100,7 +99,10 @@ namespace Player
                 OnShoot?.Invoke(2f);
                 gunSystem.Shoot();
                 starterAssetInputs.shoot = false;
-            }if (Input.GetMouseButtonDown(0) && grenadeThrower.isLeftThrowable() || isbuttonDown) {
+            }
+
+            if (Input.GetMouseButtonDown(0) && grenadeThrower.isLeftThrowable() || isbuttonDown)
+            {
                 isbuttonDown = true;
                 timecount += Time.deltaTime;
                 if (timecount > grenadeThrower.getlifetime()) {
@@ -109,14 +111,16 @@ namespace Player
                 }
                 //Vector3 aimDir = Input.mousePosition.normalized;
                 //Vector3 aimDir = playerCamera.transform.forward;
-                
             }
-            if (Input.GetMouseButtonUp(0) && isbuttonDown && grenadeThrower.isLeftThrowable()) {
+
+            if (Input.GetMouseButtonUp(0) && isbuttonDown && grenadeThrower.isLeftThrowable())
+            {
                 CreateandThrowGrenade(aimDir, timecount,true);
                 timecount = 0; isbuttonDown = false;
             }
 
-            if (Input.GetMouseButtonDown(1) && grenadeThrower.isRightThrowable() || isbuttonDown) {
+            if (Input.GetMouseButtonDown(1) && grenadeThrower.isRightThrowable() || isbuttonDown)
+            {
                 isbuttonDown = true;
                 timecount += Time.deltaTime;
                 if (timecount > grenadeThrower.getlifetime()) {
