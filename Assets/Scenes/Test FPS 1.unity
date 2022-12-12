@@ -2582,11 +2582,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 140
   health: 0
+  conditionHealth: 0
+  damageRatio: 1
+  canDestroy: 1
   agent: {fileID: 26548049}
   projectile: {fileID: 6209210684506683142, guid: 80f10046ed79041469d1538fd0d07469,
     type: 3}
   player: {fileID: 1526423808}
+  JumpEffect: {fileID: 0}
   IsAttack: 0
+  bulletspawn: {fileID: 0}
+  JumpDamage: 0
 --- !u!65 &26548051
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11651,6 +11657,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1656430285}
   m_CullTransparentMesh: 1
+--- !u!1 &1683050166
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1683050167}
+  m_Layer: 0
+  m_Name: bulletspawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1683050167
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1683050166}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.22, y: 1.571, z: 1.61}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 481621060390778106}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1687085721
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15951,6 +15988,7 @@ Transform:
   - {fileID: 481621060390778008}
   - {fileID: 481621060390778014}
   - {fileID: 481621060390777996}
+  - {fileID: 1683050167}
   m_Father: {fileID: 0}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -16548,11 +16586,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 140
   health: 0
+  conditionHealth: 0
+  damageRatio: 1
+  canDestroy: 1
   agent: {fileID: 481621060391266529}
-  projectile: {fileID: 6209210684506683142, guid: 80f10046ed79041469d1538fd0d07469,
+  projectile: {fileID: 5515353475798057132, guid: 6fe78deaa06aeb24d9c93149fe6a8c29,
     type: 3}
   player: {fileID: 1526423808}
+  JumpEffect: {fileID: 1632423149325034024, guid: 2a279ec85c3ea1044bf69c32294fa13e,
+    type: 3}
   IsAttack: 0
+  bulletspawn: {fileID: 1683050166}
+  JumpDamage: 30
 --- !u!1 &481621060391266528
 GameObject:
   m_ObjectHideFlags: 0
@@ -17490,6 +17535,11 @@ PrefabInstance:
     - target: {fileID: 3734626339199097192, guid: a407795b5cb17234fa3cfc4708837c31,
         type: 3}
       propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 3734626339199097192, guid: a407795b5cb17234fa3cfc4708837c31,
+        type: 3}
+      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 3734626339199097195, guid: a407795b5cb17234fa3cfc4708837c31,
