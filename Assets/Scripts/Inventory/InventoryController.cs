@@ -491,4 +491,14 @@ public class InventoryController : MonoBehaviour
             gunSystem.isSetBullet = true;
         }
     }
+
+    public int GetScore()
+    {
+        int score = 0;
+        foreach(var grid in itemGrids)
+        {
+            score += grid.GetGridScore();
+        }
+        return score;
+    }
 }

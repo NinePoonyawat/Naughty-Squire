@@ -1309,6 +1309,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: ExitObjective
       objectReference: {fileID: 0}
+    - target: {fileID: 2161002967203147615, guid: 956210c23fe8ead48bcb732dbf830116,
+        type: 3}
+      propertyPath: objectiveData
+      value: 
+      objectReference: {fileID: 11400000, guid: 6ca52430359171a449375ccc8489f1ee,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 956210c23fe8ead48bcb732dbf830116, type: 3}
 --- !u!1001 &90109515
@@ -12737,7 +12743,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2011448699
 PrefabInstance:

@@ -27,6 +27,8 @@ public class SummaryManager : MonoBehaviour
             button.gameObject.SetActive(false);
         }
 
+        Debug.Log(objectiveData.inventoryScore);
+
         StartCoroutine(ShowObjective());
     }
 
@@ -80,14 +82,13 @@ public class SummaryManager : MonoBehaviour
             yield return new WaitForSeconds(1f);
         }
         
-        string grade;
-        if (sum == 0) { grade = "D"; gradeImage.sprite = gradeList[0]; }
-        else if (sum <= 8) { grade = "C"; gradeImage.sprite = gradeList[1]; }
-        else if (sum <= 10) { grade = "B"; gradeImage.sprite = gradeList[2]; }
-        else if (sum <= 12) { grade = "A"; gradeImage.sprite = gradeList[3]; }
-        else if (sum <= 16) { grade = "S"; gradeImage.sprite = gradeList[4]; }
-        else if (sum <= 19) { grade = "SS"; gradeImage.sprite = gradeList[5]; }
-        else { grade = "SSS"; gradeImage.sprite = gradeList[6]; }
+        if (sum == 0) { gradeImage.sprite = gradeList[0]; }
+        else if (sum <= 8) { gradeImage.sprite = gradeList[1]; }
+        else if (sum <= 10) { gradeImage.sprite = gradeList[2]; }
+        else if (sum <= 12) { gradeImage.sprite = gradeList[3]; }
+        else if (sum <= 16) { gradeImage.sprite = gradeList[4]; }
+        else if (sum <= 19) { gradeImage.sprite = gradeList[5]; }
+        else { gradeImage.sprite = gradeList[6]; }
 
         float textspeed = 0.4f;
         for (int p = 0; p <= sum; p++)

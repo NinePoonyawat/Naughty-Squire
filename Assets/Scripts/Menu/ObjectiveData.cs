@@ -5,10 +5,14 @@ using UnityEngine;
 [CreateAssetMenu]
 public class ObjectiveData : ScriptableObject
 {
-    public int time;
+    [Header("Level")]
+    public int stage = 0;
 
+    [Header("Objective")]
+    public int time;
     public string[] objectiveName;
     public int[] objectivePoint;
+    public int inventoryScore;
 
     public void updateObjective(int idx, string name, int point)
     {
@@ -26,4 +30,9 @@ public class ObjectiveData : ScriptableObject
     {
         time = t;
     }
+
+    public void SetInventoryScore(int newInventoryScore)
+    {
+        inventoryScore = newInventoryScore;
+    } 
 }

@@ -7,7 +7,10 @@ public class SceneController : MonoBehaviour
 {
     [SerializeField] private string currentScene;
     [SerializeField] private bool isGameScene;
-    public void Update()
+
+    public ObjectiveData objectiveData;
+    
+    /*public void Update()
     {
         if (!isGameScene) return;
 
@@ -33,5 +36,18 @@ public class SceneController : MonoBehaviour
 
         SceneManager.SetActiveScene(SceneManager.GetSceneByName(scene));
         yield break;
+    }*/
+
+    public void PlayStage()
+    {
+        int stage = objectiveData.stage;
+        if (stage == 1)
+        {
+            SceneManager.LoadScene ("Test FPS");
+        }
+        if (stage == 2)
+        {
+            SceneManager.LoadScene ("Test FPS 1");
+        }
     }
 }
