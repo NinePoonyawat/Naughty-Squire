@@ -11,6 +11,8 @@ public class ObjectiveItem : InteractableItem
     [SerializeField] private GameObject aura;
     private enum ObjectiveType { EXIT }
     [SerializeField] private ObjectiveType objectiveType;
+    [SerializeField] private ObjectiveData objectiveData;
+    [SerializeField]
 
     public override void Glow(bool open)
     {
@@ -27,6 +29,9 @@ public class ObjectiveItem : InteractableItem
 
     public override void Interacted()
     {
+        InventoryController inventoryController = GameObject.Find("InventoryController").GetComponent<InventoryController>();
+        objectiveData.SetInventoryScore(inventoryController.GetScore());
+        
         SceneManager.LoadScene (sceneName:"SummaryScene");
     }
 }

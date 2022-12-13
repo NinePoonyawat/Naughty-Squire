@@ -459,4 +459,27 @@ public class ItemGrid : MonoBehaviour
     public InventoryItem getInventory(int x,int y) {
         return inventoryItemSlot[x, y];
     }
+
+    public int GetGridScore()
+    {
+        int score = 0;
+        InventoryItem it;
+        Dictionary<ItemData,int> data = new Dictionary<ItemData, int>();
+        for(int i = 0; i != gridSizeWidth; i++)
+        {
+            for(int j = 0; j != gridSizeHeight; j++)
+            {
+                Debug.Log(i + " " + j);
+                if (inventoryItemSlot[i,j] == null) continue;
+                it = inventoryItemSlot[i,j];
+                if(data.ContainsKey(it.itemData)) data[it.itemData] += 1;
+                else data[it.itemData] = 1;
+            }
+        }
+        foreach(var item in data)
+        {
+            score += item.Value / item.Key.GetSize();
+        }
+        return score;
+    }
 }

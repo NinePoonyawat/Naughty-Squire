@@ -26,4 +26,9 @@ public class ItemData : ScriptableObject
     {
         return name == other.name;
     }
+
+    public int GetSize()
+    {
+        return width * height;
+    }
 }

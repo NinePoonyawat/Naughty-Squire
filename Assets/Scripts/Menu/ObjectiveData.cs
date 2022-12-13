@@ -9,6 +9,7 @@ public class ObjectiveData : ScriptableObject
 
     public string[] objectiveName;
     public int[] objectivePoint;
+    public int inventoryScore;
 
     public void updateObjective(int idx, string name, int point)
     {
@@ -26,4 +27,9 @@ public class ObjectiveData : ScriptableObject
     {
         time = t;
     }
+
+    public void SetInventoryScore(int newInventoryScore)
+    {
+        inventoryScore = newInventoryScore;
+    } 
 }

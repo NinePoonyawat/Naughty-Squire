@@ -27,6 +27,8 @@ public class SummaryManager : MonoBehaviour
             button.gameObject.SetActive(false);
         }
 
+        Debug.Log(objectiveData.inventoryScore);
+
         StartCoroutine(ShowObjective());
     }
 
