@@ -12,9 +12,10 @@ public class EnemyBossHealth : HitableObject
     public Rigidbody projectile;
     public GameObject player;
     [SerializeField] private GameObject JumpEffect;
+    [SerializeField] private GameObject BeamEffect;
     [SerializeField] private GameObject Head;
     public bool IsAttack = false;
-    //public bool IsStun = false;
+    public bool IsStun = false;
     // float damageRatio = 1;
     private IEnumerator coroutine;
 
@@ -40,7 +41,7 @@ public class EnemyBossHealth : HitableObject
         }
         else {
             Head.GetComponent<BossHead>().SetOpen();
-            GetComponent<Animator>().SetBool("ChangeCharge", false);
+            GetComponent<Animator>().SetBool("ChangeCharge", true);
             GetComponent<Animator>().SetBool("ChangeLaser", true);
         }
     }
@@ -54,7 +55,7 @@ public class EnemyBossHealth : HitableObject
     public void StopCoroutinesFunc() {
         agent.speed = 3.5f;
         if (coroutine == null) return;
-        Debug.Log(coroutine);
+        Debug.Log("Stop :" + coroutine);
         StopCoroutine(coroutine);
     }
 
@@ -98,7 +99,7 @@ public class EnemyBossHealth : HitableObject
     IEnumerator WaitLaser(float delay) {
         //StopAllCoroutinesFunc();
         yield return new WaitForSeconds(delay);
-        GetComponent<Animator>().SetTrigger("Lasering"); // demo
+        if (!IsStun) GetComponent<Animator>().SetTrigger("Lasering"); // demo
     }
 
     IEnumerator Stun(float delay) {
@@ -112,9 +113,13 @@ public class EnemyBossHealth : HitableObject
     }
     public void SetStun() {
         StopCoroutinesFunc();
+        IsStun = true;
         agent.ResetPath();
         GetComponent<Animator>().SetTrigger("Stunning");
         //IsStun = isStun;
+    }
+    public void setIsStun(bool s) {
+        IsStun = s;
     }
 
     // public void TakeDamage (float damage)
@@ -145,6 +150,10 @@ public class EnemyBossHealth : HitableObject
             }
          }
         Destroy(grenade, 3f);
+    }
+
+    public void LaserAttack() {
+        GameObject grenade = Instantiate(BeamEffect, bulletspawn.transform.position, transform.rotation);
     }
     
 }

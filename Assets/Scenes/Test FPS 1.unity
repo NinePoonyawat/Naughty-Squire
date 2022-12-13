@@ -2590,8 +2590,10 @@ MonoBehaviour:
     type: 3}
   player: {fileID: 1526423808}
   JumpEffect: {fileID: 0}
+  BeamEffect: {fileID: 0}
   Head: {fileID: 0}
   IsAttack: 0
+  IsStun: 0
   bulletspawn: {fileID: 0}
   JumpDamage: 0
 --- !u!65 &26548051
@@ -14953,6 +14955,11 @@ PrefabInstance:
       objectReference: {fileID: 481621060391266555}
     - target: {fileID: 481621060391266553, guid: 63904d215e43d1a408c49b1215f300f9,
         type: 3}
+      propertyPath: maxHealth
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 481621060391266553, guid: 63904d215e43d1a408c49b1215f300f9,
+        type: 3}
       propertyPath: auraPrefab
       value: 
       objectReference: {fileID: 6320648758858120341, guid: cbd324e5c755cd94eb19c004f67ed589,
@@ -14995,8 +15002,14 @@ PrefabInstance:
     - target: {fileID: 4695028934192624028, guid: 63904d215e43d1a408c49b1215f300f9,
         type: 3}
       propertyPath: maxHealth
-      value: 200
+      value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 4695028934192624028, guid: 63904d215e43d1a408c49b1215f300f9,
+        type: 3}
+      propertyPath: BeamEffect
+      value: 
+      objectReference: {fileID: 1329845292236604, guid: 8cd7da886d354f2438afd5d3223c92d8,
+        type: 3}
     - target: {fileID: 4695028934192721337, guid: 63904d215e43d1a408c49b1215f300f9,
         type: 3}
       propertyPath: m_RootOrder

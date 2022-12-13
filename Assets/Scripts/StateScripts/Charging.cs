@@ -18,6 +18,7 @@ public class Charging : StateMachineBehaviour
        enemyboss = animator.GetComponent<EnemyBossHealth>();    
        timeTilNextMovement = 10f;
        if (enemyboss != null) {
+         enemyboss.setIsStun(false);
          enemyboss.StopCoroutinesFunc();
          enemyboss.DoChargeLaser(timeTilNextMovement);
        }
@@ -26,6 +27,7 @@ public class Charging : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+      enemyboss.lookatPosition();
       if (Vector3.Distance(enemyboss.transform.position,enemyboss.player.transform.position) < StopDistance) {
         enemyboss.agent.ResetPath();
         //IsAttack = true;
