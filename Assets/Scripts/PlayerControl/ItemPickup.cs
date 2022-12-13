@@ -48,10 +48,10 @@ public class ItemPickup : MonoBehaviour
         }
     }
 
-    private void InteractItem (InteractableItem interactItem,BulletRecognize bulletRecognize)
+    private void InteractItem (InteractableItem interactItem, BulletRecognize bulletRecognize)
     {
         PickableItem pickItem = interactItem as PickableItem;
-        if(pickItem != null && inventoryController.FillItem(pickItem.itemData,bulletRecognize))
+        if(pickItem != null && inventoryController.FillItem(pickItem.itemData, bulletRecognize))
         {
             pickItem.Interacted();
             FindObjectOfType<AudioManager>().Play("InventoryInteract");

@@ -15,8 +15,8 @@ MonoBehaviour:
   width: 1
   height: 1
   isTwoHanded: 0
-  itemIcon: {fileID: 21300000, guid: dd61881d16724b642a7c3891d02ad634, type: 3}
-  alternateIcon: {fileID: 0}
+  itemIcon: {fileID: 21300000, guid: b1990efc88d87ea498f96e63696c5635, type: 3}
+  alternateIcon: {fileID: 21300000, guid: b1990efc88d87ea498f96e63696c5635, type: 3}
   itemMesh: {fileID: 0}
   soundName: 
   name: Example Name

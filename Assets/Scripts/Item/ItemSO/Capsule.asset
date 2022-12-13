@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e3ecb8364f359e409e74f7d3fd2e9a6, type: 3}
   m_Name: Capsule
   m_EditorClassIdentifier: 
-  width: 2
-  height: 1
+  width: 1
+  height: 2
   isTwoHanded: 0
   itemIcon: {fileID: 21300000, guid: 30c6b9293407fc74cb0a0a0b5cb718c7, type: 3}
   alternateIcon: {fileID: 0}

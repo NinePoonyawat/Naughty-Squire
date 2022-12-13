@@ -222,7 +222,7 @@ public abstract class EnemyBase : MonoBehaviour
     public virtual void walking() {
         //if (!playerIsInLOS) EnemyState = State.Idle;
 //        Debug.Log("Walking");
-        Debug.Log(nextPosition);
+        //Debug.Log(nextPosition);
         agent.SetDestination(nextPosition);
         lookatPosition();
 
@@ -339,7 +339,7 @@ public abstract class EnemyBase : MonoBehaviour
         //Debug.Log(StopDistance + ": " + Vector2.Distance(new Vector2(player.transform.position.x,player.transform.position.z),new Vector2(transform.position.x,transform.position.z)));
         if (Vector2.Distance(new Vector2(player.transform.position.x,player.transform.position.z),new Vector2(transform.position.x,transform.position.z)) <= StopDistance) {
             EnemyState = State.Attack;
-            Debug.Log("change attack state");
+            //Debug.Log("change attack state");
         } else if (playerIsInLOS || aiMemoriesPlayer || aiHeardPlayer){
             nextPosition = player.transform.position;
             EnemyState = State.Walk;

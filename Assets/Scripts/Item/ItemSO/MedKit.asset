@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 251fc2675f0e5824f9c9a0c73ac96e6e, type: 3}
   m_Name: MedKit
   m_EditorClassIdentifier: 
-  width: 2
-  height: 1
+  width: 1
+  height: 2
   isTwoHanded: 0
   itemIcon: {fileID: 21300000, guid: 16eb9077a8740464195a1b3c0ce74f3a, type: 3}
-  alternateIcon: {fileID: 0}
+  alternateIcon: {fileID: 21300000, guid: 98760a5edb738ac46b20be5fb955a754, type: 3}
   itemMesh: {fileID: 5304385175697405907, guid: c6468f1b90f616a449318c252b93051f,
     type: 3}
   soundName: 
