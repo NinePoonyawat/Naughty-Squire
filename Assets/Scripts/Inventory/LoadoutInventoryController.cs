@@ -68,6 +68,8 @@ public class LoadoutInventoryController : MonoBehaviour
         }
 
         selectedItem = null;
+
+        Cursor.lockState = CursorLockMode.None;
     }
 
     public void SetItemAtGrid(ItemData itemData,ItemGrid itemGrid)
