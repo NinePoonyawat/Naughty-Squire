@@ -36,6 +36,8 @@ public class LoadoutInventoryController : MonoBehaviour
 
     [SerializeField] InventoryLoadoutSystem inventoryLoadoutSystem;
 
+    private Dictionary<ItemData,ItemGrid> itemPositions = new Dictionary<ItemData, ItemGrid>();
+
     // public event OnPlacingItemEvent OnPlacingItem;
     // public delegate void OnPlacingItemEvent(ItemData itemData);
 
@@ -56,14 +58,24 @@ public class LoadoutInventoryController : MonoBehaviour
 
         foreach(SelectedItemGridInitilize itemAndGrid in selectedItemGridInitilize)
         {
-            Debug.Log("enter");
-            CreateItem(itemAndGrid.GetItemData());
-            InventoryItem addingItem = CreateInventoryItem(itemAndGrid.GetItemData());
-            if (addingItem.WIDTH > 1) addingItem.Rotate();
-            (itemAndGrid.GetItemGrid()).PlaceItem(addingItem,0,0);
+            // CreateItem(itemAndGrid.GetItemData());
+            // InventoryItem addingItem = CreateInventoryItem(itemAndGrid.GetItemData());
+            // ItemGrid itemGrid = itemAndGrid.GetItemGrid();
+            // if (addingItem.WIDTH > itemGrid.gridSizeWidth) addingItem.Rotate();
+            // (itemGrid).PlaceItem(addingItem,0,0);
+            SetItemAtGrid(itemAndGrid.GetItemData(),itemAndGrid.GetItemGrid());
+            itemPositions.Add(itemAndGrid.GetItemData(),itemAndGrid.GetItemGrid());
         }
 
         selectedItem = null;
+    }
+
+    public void SetItemAtGrid(ItemData itemData,ItemGrid itemGrid)
+    {
+        CreateItem(itemData);
+        InventoryItem addingItem = CreateInventoryItem(itemData);
+        if (addingItem.WIDTH > itemGrid.gridSizeWidth) addingItem.Rotate();
+        (itemGrid).PlaceItem(addingItem,0,0);
     }
 
     private void Update()
@@ -333,8 +345,11 @@ public class LoadoutInventoryController : MonoBehaviour
             if (selectedItemGrid.gridType == GridType.LOADOUT)
             {
                 inventoryLoadoutSystem.RemoveItem(selectedItem.itemData);
+                SetItemAtGrid(selectedItem.itemData,itemPositions[selectedItem.itemData]);
+                selectedItem = null;
+                return;
             }
-            if (!selectedItem.GetRotate()) RotateItem();
+            if (selectedItem.WIDTH != 1) RotateItem();
         }
     }
 
