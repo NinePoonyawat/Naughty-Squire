@@ -48,6 +48,29 @@ public class PlayerHitbox : HitableObject
         UpdateUI();
     }
 
+    public bool Consume(ConsumableData consumeData)
+    {
+        int healAmount = consumeData.healthRecover;
+        int eatAmount = consumeData.energyRecover;
+        if (healAmount > 0 && eatAmount > 0 && health < maxHealth && energy < maxEnergy)
+        {
+            Heal(healAmount);
+            Eat(eatAmount);
+            return true;
+        }
+        else if (healAmount > 0 && health < maxHealth)
+        {
+            Heal(healAmount);
+            return true;
+        }
+        else if (eatAmount > 0 && energy < maxEnergy)
+        {
+            Eat(eatAmount);
+            return true;
+        }
+        return false;
+    }
+
     public void Heal(float healAmount)
     {
         health += healAmount;

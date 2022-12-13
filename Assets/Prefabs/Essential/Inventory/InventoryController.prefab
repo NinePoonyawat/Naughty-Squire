@@ -48,12 +48,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedItemGrid: {fileID: 0}
   itemGrids: []
+  handItemGrid: []
   selectedItem: {fileID: 0}
   items:
-  - {fileID: 11400000, guid: f80abb54e29f65a4c9631d0aa8f45588, type: 2}
   - {fileID: 11400000, guid: bfdce7d34baf7f84681b4a2f46ef17d8, type: 2}
+  - {fileID: 11400000, guid: 2d6619258a1bfef4f84a80bb8c9b9d70, type: 2}
+  - {fileID: 11400000, guid: 451b82f8f85b7b044bd414bd38e3459c, type: 2}
+  - {fileID: 11400000, guid: b33b3ac63fd5b9c4c93927547ca4bed9, type: 2}
   - {fileID: 11400000, guid: 40246b5927ec3274fa4f67251971c783, type: 2}
+  - {fileID: 11400000, guid: 43e7546e07f62c348b02efab13a3dd1e, type: 2}
   - {fileID: 11400000, guid: 47276e140fbee23449fa904d3f5bcd49, type: 2}
+  - {fileID: 11400000, guid: f80abb54e29f65a4c9631d0aa8f45588, type: 2}
   inventoryItemPrefab: {fileID: 2201193786818287487, guid: 4ad70f7cbcbbfec489a333520f6e48b2,
     type: 3}
   canvasTransform: {fileID: 0}
@@ -66,6 +71,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   isInventoryOpen: 1
+  gunSystem: {fileID: 0}
+  inventoryInitialize: {fileID: 0}
 --- !u!114 &4438461459221597345
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91,4 +98,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be68de55113c2594db191cb4c4de9922, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  descriptionGO: {fileID: 0}
   description: {fileID: 0}
+  nameText: {fileID: 0}
+  descriptionText: {fileID: 0}
+  usesText: {fileID: 0}

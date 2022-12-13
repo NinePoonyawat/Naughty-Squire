@@ -229,7 +229,7 @@ public class InventoryController : MonoBehaviour
         return false;
     }
 
-    public bool FillItem(ItemData selectedItem,BulletRecognize bulletRecognize)
+    public bool FillItem(ItemData selectedItem, BulletRecognize bulletRecognize)
     {
         foreach (ItemGrid itemGrid in itemGrids)
         {

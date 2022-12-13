@@ -10,13 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f509ab2df54b933489eb08d424a2e347, type: 3}
-  m_Name: BasicMech
+  m_Name: DropJunk
   m_EditorClassIdentifier: 
   items:
-  - droppedItem: {fileID: 4513844717591316767, guid: 9bbbe87bf732e3243be96b2308ca09cc,
-      type: 3}
-    ratio: 7
   - droppedItem: {fileID: 4398294467192866887, guid: 78b9fd37a03ff1b4891531b2ded803e0,
       type: 3}
-    ratio: 3
-  poolRate: 10
+    ratio: 4
+  - droppedItem: {fileID: 8726386014492491131, guid: 4e04b14ce68182546915405b574d1592,
+      type: 3}
+    ratio: 2
+  - droppedItem: {fileID: 4398294467192866887, guid: 78b9fd37a03ff1b4891531b2ded803e0,
+      type: 3}
+    ratio: 2
+  - droppedItem: {fileID: 3978242606814834087, guid: 30ce6aa70b2907a45b6d56cf34a1c809,
+      type: 3}
+    ratio: 1
+  poolRate: 9

@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 8726386014492491130}
   - component: {fileID: 8726386014492491134}
   - component: {fileID: 8726386014492491135}
-  - component: {fileID: 8726386014492491128}
   - component: {fileID: 8726386014492491129}
+  - component: {fileID: 8726386014492491128}
   m_Layer: 9
-  m_Name: CannedFood
+  m_Name: CannedFood-s
   m_TagString: PickableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -85,6 +85,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &8726386014492491129
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8726386014492491131}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -303415722837671136, guid: 392ff5165006e464c86c9dbe80cc8d3f, type: 3}
 --- !u!114 &8726386014492491128
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -103,17 +117,3 @@ MonoBehaviour:
     type: 3}
   aura: {fileID: 0}
   itemData: {fileID: 11400000, guid: 36adab4eee8779142865037c04c5b98a, type: 2}
---- !u!64 &8726386014492491129
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8726386014492491131}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
