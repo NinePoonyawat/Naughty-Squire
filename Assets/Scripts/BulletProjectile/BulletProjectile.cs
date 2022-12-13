@@ -29,6 +29,7 @@ public class BulletProjectile : MonoBehaviour
 
         if (entityHit != null)
         {
+            Debug.Log("Do Damage" + entityHit.tag);
             entityHit.TakeDamage(damage);
         }
         Instantiate(effectPrefab, transform.position, transform.rotation);

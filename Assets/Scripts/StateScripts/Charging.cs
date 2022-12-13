@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class Charging : StateMachineBehaviour
 {
-    bool IsAttack = false;
+    bool isStun = false;
       //  GameObject player;
       //  public NavMeshAgent agent;
     float timeTilNextMovement;
@@ -16,7 +16,7 @@ public class Charging : StateMachineBehaviour
     {
        //player = GameObject.FindGameObjectWithTag("Player");
        enemyboss = animator.GetComponent<EnemyBossHealth>();    
-       timeTilNextMovement = 1f;
+       timeTilNextMovement = 10f;
        if (enemyboss != null) {
          enemyboss.StopCoroutinesFunc();
          enemyboss.DoChargeLaser(timeTilNextMovement);

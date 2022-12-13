@@ -12,7 +12,9 @@ public class EnemyBossHealth : HitableObject
     public Rigidbody projectile;
     public GameObject player;
     [SerializeField] private GameObject JumpEffect;
+    [SerializeField] private GameObject Head;
     public bool IsAttack = false;
+    //public bool IsStun = false;
     // float damageRatio = 1;
     private IEnumerator coroutine;
 
@@ -37,6 +39,7 @@ public class EnemyBossHealth : HitableObject
             GetComponent<Animator>().SetBool("ChangeLaser", false);
         }
         else {
+            Head.GetComponent<BossHead>().SetOpen();
             GetComponent<Animator>().SetBool("ChangeCharge", false);
             GetComponent<Animator>().SetBool("ChangeLaser", true);
         }
@@ -106,6 +109,12 @@ public class EnemyBossHealth : HitableObject
 
     public void SetIsAttack(bool isattack) {
         IsAttack = isattack;
+    }
+    public void SetStun() {
+        StopCoroutinesFunc();
+        agent.ResetPath();
+        GetComponent<Animator>().SetTrigger("Stunning");
+        //IsStun = isStun;
     }
 
     // public void TakeDamage (float damage)
