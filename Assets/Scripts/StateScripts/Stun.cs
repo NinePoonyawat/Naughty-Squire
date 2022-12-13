@@ -9,12 +9,14 @@ public class Stun : StateMachineBehaviour
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-       enemyboss = animator.GetComponent<EnemyBossHealth>();    
-       timeTilNextMovement = 2f;
-       if (enemyboss != null) {
-         enemyboss.StopCoroutinesFunc();
-         enemyboss.DoStunWait(timeTilNextMovement);
-       }
+       enemyboss = animator.GetComponent<EnemyBossHealth>();
+       BossHead head = enemyboss.Head.GetComponent<BossHead>();
+       if (head != null) head.SetIsImmune(true);    
+      //  timeTilNextMovement = 2f;
+      //  if (enemyboss != null) {
+      //    enemyboss.StopCoroutinesFunc();
+      //    enemyboss.DoStunWait(timeTilNextMovement);
+      //  }
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -26,6 +28,8 @@ public class Stun : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+      BossHead head = enemyboss.Head.GetComponent<BossHead>();
+      if (head != null) head.SetIsImmune(false);    
     }
 }
 

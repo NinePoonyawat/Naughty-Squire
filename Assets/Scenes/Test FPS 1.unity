@@ -2586,11 +2586,10 @@ MonoBehaviour:
   damageRatio: 1
   canDestroy: 1
   agent: {fileID: 26548049}
-  projectile: {fileID: 6209210684506683142, guid: 80f10046ed79041469d1538fd0d07469,
-    type: 3}
+  bullet: {fileID: 0}
+  laser: {fileID: 0}
   player: {fileID: 1526423808}
   JumpEffect: {fileID: 0}
-  BeamEffect: {fileID: 0}
   Head: {fileID: 0}
   IsAttack: 0
   IsStun: 0
@@ -14376,6 +14375,75 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1797637003795492154}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1216033639462511186
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 390968789433226371, guid: 58ffefdec06bff040bd8619046d7bc54,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 390968789433226371, guid: 58ffefdec06bff040bd8619046d7bc54,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -28.510357
+      objectReference: {fileID: 0}
+    - target: {fileID: 390968789433226371, guid: 58ffefdec06bff040bd8619046d7bc54,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.930634
+      objectReference: {fileID: 0}
+    - target: {fileID: 390968789433226371, guid: 58ffefdec06bff040bd8619046d7bc54,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -53.89128
+      objectReference: {fileID: 0}
+    - target: {fileID: 390968789433226371, guid: 58ffefdec06bff040bd8619046d7bc54,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 390968789433226371, guid: 58ffefdec06bff040bd8619046d7bc54,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 390968789433226371, guid: 58ffefdec06bff040bd8619046d7bc54,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 390968789433226371, guid: 58ffefdec06bff040bd8619046d7bc54,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 390968789433226371, guid: 58ffefdec06bff040bd8619046d7bc54,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 390968789433226371, guid: 58ffefdec06bff040bd8619046d7bc54,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 390968789433226371, guid: 58ffefdec06bff040bd8619046d7bc54,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7280316147456618345, guid: 58ffefdec06bff040bd8619046d7bc54,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser01
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 58ffefdec06bff040bd8619046d7bc54, type: 3}
 --- !u!1001 &1797637003795492154
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14956,7 +15024,7 @@ PrefabInstance:
     - target: {fileID: 481621060391266553, guid: 63904d215e43d1a408c49b1215f300f9,
         type: 3}
       propertyPath: maxHealth
-      value: 1
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 481621060391266553, guid: 63904d215e43d1a408c49b1215f300f9,
         type: 3}
@@ -14996,6 +15064,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4695028934192624028, guid: 63904d215e43d1a408c49b1215f300f9,
         type: 3}
+      propertyPath: laser
+      value: 
+      objectReference: {fileID: 5515353475798057132, guid: b4166dfdad769e5408d0e6b558f45dd8,
+        type: 3}
+    - target: {fileID: 4695028934192624028, guid: 63904d215e43d1a408c49b1215f300f9,
+        type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 5515353475798057132, guid: 6fe78deaa06aeb24d9c93149fe6a8c29,
+        type: 3}
+    - target: {fileID: 4695028934192624028, guid: 63904d215e43d1a408c49b1215f300f9,
+        type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1526423808}
@@ -15009,6 +15089,12 @@ PrefabInstance:
       propertyPath: BeamEffect
       value: 
       objectReference: {fileID: 1329845292236604, guid: 8cd7da886d354f2438afd5d3223c92d8,
+        type: 3}
+    - target: {fileID: 4695028934192624028, guid: 63904d215e43d1a408c49b1215f300f9,
+        type: 3}
+      propertyPath: Laserprojectile
+      value: 
+      objectReference: {fileID: 5515353475798057132, guid: b4166dfdad769e5408d0e6b558f45dd8,
         type: 3}
     - target: {fileID: 4695028934192721337, guid: 63904d215e43d1a408c49b1215f300f9,
         type: 3}
