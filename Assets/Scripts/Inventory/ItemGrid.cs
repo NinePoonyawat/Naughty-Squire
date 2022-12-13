@@ -306,11 +306,9 @@ public class ItemGrid : MonoBehaviour
             if (consumableItem.consumableType == ConsumableData.ConsumableType.CONSUME)
             {
                 PlayerHitbox player = GameObject.FindObjectOfType<PlayerHitbox>();
-                if (player.getHealth() >= player.getMaxHealth() &&
-                    player.energy >= player.maxEnergy) { return null; }
-                player.Heal(consumableItem.healthRecover);
-                player.Eat(consumableItem.energyRecover);
+                if (!player.Consume(consumableItem)) { return null; }
                 interactedItem.durable -= 1;
+                if (interactedItem.durable < interactedItem.itemData.durable) interactedItem.ChangeSprite(true);
                 if (interactedItem.durable <= 0) DiscardItem(posX, posY);
 
                 FindObjectOfType<AudioManager>().Play(consumableItem.consumeSoundName);

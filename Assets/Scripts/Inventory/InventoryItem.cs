@@ -113,6 +113,12 @@ public class InventoryItem : MonoBehaviour
         Debug.Log(ammoRemained);
     }
 
+    public void ChangeSprite(bool alter)
+    {
+        if (alter) GetComponent<Image>().sprite = itemData.alternateIcon;
+        else GetComponent<Image>().sprite = itemData.itemIcon;
+    }
+
     public bool GetRotate()
     {
         return rotated;

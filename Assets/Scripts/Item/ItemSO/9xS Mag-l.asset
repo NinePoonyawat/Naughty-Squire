@@ -10,22 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7292a78aed840e242b7304e008b037ff, type: 3}
-  m_Name: 7.62Mag
+  m_Name: 9xS Mag-l
   m_EditorClassIdentifier: 
   width: 1
   height: 1
   isTwoHanded: 0
-  itemIcon: {fileID: 21300000, guid: b1990efc88d87ea498f96e63696c5635, type: 3}
-  alternateIcon: {fileID: 21300000, guid: b1990efc88d87ea498f96e63696c5635, type: 3}
-  itemMesh: {fileID: 0}
+  itemIcon: {fileID: 21300000, guid: 85719fd2f8c48bc4c81116707accc6e2, type: 3}
+  alternateIcon: {fileID: 21300000, guid: 85719fd2f8c48bc4c81116707accc6e2, type: 3}
+  itemMesh: {fileID: -7745756782809674522, guid: faf35e45031de1744b38f392782c3d72,
+    type: 3}
   soundName: 
-  name: Example Name
-  description: 
+  name: Magazine
+  description: Sharp 7-Round Magazine
   durable: 0
   weight: 2
   value: 1
   quantity: 000000000000000000000000
-  ammoCapacity: 5
-  availableWeapon: {fileID: 11400000, guid: f80abb54e29f65a4c9631d0aa8f45588, type: 2}
+  ammoCapacity: 9
+  availableWeapon: {fileID: 11400000, guid: 2d6619258a1bfef4f84a80bb8c9b9d70, type: 2}
   refillTool: {fileID: 11400000, guid: ac96af1fadae157419d168790f4b60fd, type: 2}
   refillSoundName: InventoryInteract

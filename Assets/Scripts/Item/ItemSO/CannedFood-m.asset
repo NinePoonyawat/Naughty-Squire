@@ -10,23 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 251fc2675f0e5824f9c9a0c73ac96e6e, type: 3}
-  m_Name: MedKit
+  m_Name: CannedFood-m
   m_EditorClassIdentifier: 
-  width: 1
-  height: 2
+  width: 2
+  height: 1
   isTwoHanded: 0
-  itemIcon: {fileID: 21300000, guid: 16eb9077a8740464195a1b3c0ce74f3a, type: 3}
-  alternateIcon: {fileID: 21300000, guid: 98760a5edb738ac46b20be5fb955a754, type: 3}
-  itemMesh: {fileID: 5304385175697405907, guid: c6468f1b90f616a449318c252b93051f,
+  itemIcon: {fileID: 21300000, guid: a046d11c129792944aa21a4a39e54175, type: 3}
+  alternateIcon: {fileID: 21300000, guid: 2b04691caf22c64428f2306125d129f3, type: 3}
+  itemMesh: {fileID: -4845696710688150904, guid: ef8f38555e95d65438aeafc8a3b342cf,
     type: 3}
   soundName: 
-  name: Medkit
-  description: recover 20 health
-  durable: 3
-  weight: 2
-  value: 5
+  name: Canned Food
+  description: recover 10 health and 12 hunger point
+  durable: 2
+  weight: 1
+  value: 2
   quantity: 000000000000000000000000
   consumableType: 0
-  healthRecover: 20
-  energyRecover: 0
-  consumeSoundName: Bandage
+  healthRecover: 10
+  energyRecover: 12
+  consumeSoundName: Eating
