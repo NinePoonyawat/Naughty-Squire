@@ -22,6 +22,7 @@ public class EnemyBossHealth : HitableObject
     public GameObject bulletspawn;
     public GameObject LaserLine;
     public float JumpDamage;
+    bool RandomTrigger =false;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,14 +38,28 @@ public class EnemyBossHealth : HitableObject
             GetComponent<Animator>().SetBool("ChangeLaser", false);
         }
         else if (health > 100) {
-            GetComponent<Animator>().SetBool("ChangeCharge", true);
-            GetComponent<Animator>().SetBool("ChangeLaser", false);
+            if (!RandomTrigger) RandomState();
+            // GetComponent<Animator>().SetBool("ChangeCharge", true);
+            // GetComponent<Animator>().SetBool("ChangeLaser", false);
         }
         else {
             Head.GetComponent<BossHead>().SetOpen();
             GetComponent<Animator>().SetBool("ChangeCharge", true);
             GetComponent<Animator>().SetBool("ChangeLaser", true);
         }
+    }
+
+    void RandomState() {
+        RandomTrigger = true;
+        Debug.Log("LOOP");
+        GetComponent<Animator>().SetBool("ChangeCharge", Random.value > 0.5f);
+        GetComponent<Animator>().SetBool("ChangeLaser", false);
+        StartCoroutine(WaitRandomState(6f));
+    }
+
+    IEnumerator WaitRandomState(float delay) {
+        yield return new WaitForSeconds(delay);
+        RandomState();
     }
     public void lookatPosition() {
         Vector3 targetPosition = new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z);
