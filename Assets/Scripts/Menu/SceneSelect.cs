@@ -5,9 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class SceneSelect : MonoBehaviour
 {
-    public void StartStage()
+    public ObjectiveData objectiveData;
+
+    public void PlayStage(int stage)
     {
-        SceneManager.LoadScene ("Test FPS");
+        objectiveData.stage = stage;
+        if (stage == 0)
+        {
+            SceneManager.LoadScene ("Tutorial");
+        }
+        else
+        {
+            SceneManager.LoadScene ("InventoryLoadout");
+        }
     }
 
     public void MainMenu()

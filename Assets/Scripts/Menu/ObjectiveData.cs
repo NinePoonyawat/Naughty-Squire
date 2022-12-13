@@ -5,8 +5,11 @@ using UnityEngine;
 [CreateAssetMenu]
 public class ObjectiveData : ScriptableObject
 {
-    public int time;
+    [Header("Level")]
+    public int stage = 0;
 
+    [Header("Objective")]
+    public int time;
     public string[] objectiveName;
     public int[] objectivePoint;
     public int inventoryScore;

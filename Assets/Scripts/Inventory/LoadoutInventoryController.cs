@@ -360,7 +360,7 @@ public class LoadoutInventoryController : MonoBehaviour
         bool complete = selectedItemGrid.PlaceItem(selectedItem, tileGridPosition.x, tileGridPosition.y, ref overlapItem);
         if (complete)
         {
-            //FindObjectOfType<AudioManager>().Play("InventoryInteract");
+            FindObjectOfType<AudioManager>().Play("InventoryInteract");
 
             WeaponData weaponData = selectedItem.itemData as WeaponData;
             if (weaponData != null)

@@ -5,21 +5,24 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/Playground.unity
-    guid: e9017d5f96b9f09489b4b37e1d6eb914
   - enabled: 1
     path: Assets/Scenes/LobbyScene.unity
     guid: 84a00c42573f4c648819a08d0df5861a
-  - enabled: 1
-    path: Assets/Scenes/Test FPS.unity
-    guid: 49c517b39695932469b30e2aa23fc0f0
   - enabled: 1
     path: Assets/Scenes/SummaryScene.unity
     guid: 666812a09736d294184ba16c4bb3f992
   - enabled: 1
     path: Assets/Scenes/InventoryLoadout.unity
     guid: 4fb00738a9510174e9c6c0a935b5cfff
+  - enabled: 1
+    path: Assets/Scenes/Tutorial.unity
+    guid: cb6656a3ad1a5cb4a893cf6bbb94d808
+  - enabled: 1
+    path: Assets/Scenes/Test FPS.unity
+    guid: 49c517b39695932469b30e2aa23fc0f0
+  - enabled: 1
+    path: Assets/Scenes/Test FPS 1.unity
+    guid: bc009cf97111f8747a088c4fe53c63a9
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 9e7be553448fa2546aea5752021cbcf7,
       type: 2}

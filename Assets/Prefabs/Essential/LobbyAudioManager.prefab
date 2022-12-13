@@ -66,4 +66,9 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     source: {fileID: 0}
+  - name: InventoryInteract
+    clip: {fileID: 8300000, guid: 88040bb0b5015744999c4a7dcd812a0c, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
   footsteps: []

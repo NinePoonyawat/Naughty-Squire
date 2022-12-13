@@ -41,6 +41,7 @@ namespace Weapon
             inventoryManager = GetComponent<InventoryManager>();
             bulletLeftInMagazine = bulletPerMagazine;
             isOutOfAmmo = (bulletLeftInMagazine == 0)? true:false;
+            foreach(GameObject Gun in Guns) Gun.SetActive(false);
         }
 
         void Start()
@@ -126,6 +127,8 @@ namespace Weapon
         {
             WeaponData weaponData = weaponItem.itemData as WeaponData;
             if (weaponData == null) return;
+            if (weaponData.name == "Glock") Guns[0].SetActive(true);
+            if (weaponData.name == "Sharp") Guns[1].SetActive(true);
             isArmed = true;
             currentData = weaponData;
             damage = weaponData.damage;
@@ -168,6 +171,7 @@ namespace Weapon
 
         public void disarm()
         {
+            foreach(GameObject Gun in Guns) Gun.SetActive(false);
             isArmed = false;
             currentData = null;
             damage = 0;
