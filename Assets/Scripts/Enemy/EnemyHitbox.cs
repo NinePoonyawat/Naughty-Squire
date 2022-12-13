@@ -27,7 +27,7 @@ public class EnemyHitbox : HitableObject
     { 
         if (health <= 0) return;
 
-        Me.TakeDamage(damage*damageRatio*0.2f);
+        Me.TakeDamage(damage*damageRatio);
         health -= damage*damageRatio;
         if (health <= conditionHealth)
         {

@@ -41,7 +41,7 @@ public class BossHead : BossHitbox
     { 
         
         health -= damage*damageRatio;
-        Me.TakeDamage(damage*damageRatio*0.7f);
+        Me.TakeDamage(damage*damageRatio*0.2f);
     }
 
     // Update is called once per frame
