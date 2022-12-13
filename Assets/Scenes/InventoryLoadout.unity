@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2974,7 +2974,7 @@ PrefabInstance:
     - target: {fileID: 7030333999499601461, guid: bd993ed7bded80240ab4f35682ca0816,
         type: 3}
       propertyPath: m_Pivot.y
-      value: 0.5
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 7030333999499601461, guid: bd993ed7bded80240ab4f35682ca0816,
         type: 3}
@@ -3004,12 +3004,12 @@ PrefabInstance:
     - target: {fileID: 7030333999499601461, guid: bd993ed7bded80240ab4f35682ca0816,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 100
+      value: 294.7699
       objectReference: {fileID: 0}
     - target: {fileID: 7030333999499601461, guid: bd993ed7bded80240ab4f35682ca0816,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 100
+      value: 201.9451
       objectReference: {fileID: 0}
     - target: {fileID: 7030333999499601461, guid: bd993ed7bded80240ab4f35682ca0816,
         type: 3}
@@ -3034,27 +3034,27 @@ PrefabInstance:
     - target: {fileID: 7030333999499601461, guid: bd993ed7bded80240ab4f35682ca0816,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7030333999499601461, guid: bd993ed7bded80240ab4f35682ca0816,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7030333999499601461, guid: bd993ed7bded80240ab4f35682ca0816,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7030333999499601461, guid: bd993ed7bded80240ab4f35682ca0816,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -1010
+      value: -1227
       objectReference: {fileID: 0}
     - target: {fileID: 7030333999499601461, guid: bd993ed7bded80240ab4f35682ca0816,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 490
+      value: 580.3616
       objectReference: {fileID: 0}
     - target: {fileID: 7030333999499601461, guid: bd993ed7bded80240ab4f35682ca0816,
         type: 3}
