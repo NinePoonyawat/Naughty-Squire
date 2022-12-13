@@ -30,7 +30,7 @@ MonoBehaviour:
   damage: 8
   bulletSpeed: 0
   bulletLifetime: 0
-  fireDelay: 0.6
-  reloadDelay: 1.4
-  fireSoundName: PistolFire
-  reloadSoundName: PistolReload
+  fireDelay: 0.7
+  reloadDelay: 2.4
+  fireSoundName: SharpFire
+  reloadSoundName: SharpReload

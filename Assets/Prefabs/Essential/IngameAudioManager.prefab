@@ -86,6 +86,16 @@ MonoBehaviour:
     volume: 0.5
     pitch: 1
     source: {fileID: 0}
+  - name: SharpFire
+    clip: {fileID: 8300000, guid: 7851e66bde1878343a4cfd42ebde4c9c, type: 3}
+    volume: 0.5
+    pitch: 1
+    source: {fileID: 0}
+  - name: SharpReload
+    clip: {fileID: 8300000, guid: 5eb78be5e017c1640ba74f84679672a5, type: 3}
+    volume: 0.5
+    pitch: 1
+    source: {fileID: 0}
   footsteps:
   - name: 0
     clip: {fileID: 8300000, guid: 97deae53ec08df746b738eb746113f61, type: 3}
