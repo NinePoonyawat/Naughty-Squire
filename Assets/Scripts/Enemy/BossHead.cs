@@ -4,21 +4,25 @@ using UnityEngine;
 
 public class BossHead : BossHitbox
 {
-    [SerializeField] private MeshFilter meshFilter;
+    //[SerializeField] private MeshFilter meshFilter;
     [SerializeField] private bool isGlow = false;
     [SerializeField] private GameObject auraPrefab;
     [SerializeField] private GameObject aura;
-    public SkinnedMeshRenderer HeadMesh;
+    
     public bool open;
     // Start is called before the first frame update
     public override void Awake() {
         health = maxHealth;
         meshFilter = GetComponent<MeshFilter>();
 
-        if (HeadMesh != null) SetMesh();
+        if (SkinMesh != null) SetMesh();
     }
     void Start()
     {
+        bakedMesh = new Mesh();
+        Me = gameObject.GetComponentInParent(typeof(EnemyBossHealth)) as EnemyBossHealth;
+        SkinMesh = GetComponent<SkinnedMeshRenderer>();
+        collider = GetComponent<MeshCollider>();
         Me = gameObject.GetComponentInParent(typeof(EnemyBossHealth)) as EnemyBossHealth;
         damageRatio = 0;
     }
@@ -45,7 +49,8 @@ public class BossHead : BossHitbox
     {
         if (open) {
             aura = Instantiate(auraPrefab, transform.position, Quaternion.identity, transform);
-            Debug.Log("aura");
+            //Debug.Log(aura.transform.position);
+            Destroy(aura,2f);
             isGlow = true;
         }
         if (!open)
@@ -57,9 +62,9 @@ public class BossHead : BossHitbox
 
     public void SetMesh()
     {
-        if (HeadMesh.sharedMesh != null)
+        if (SkinMesh.sharedMesh != null)
         {
-            meshFilter.mesh = HeadMesh.sharedMesh;
+            meshFilter.mesh = SkinMesh.sharedMesh;
         }
         GetComponent<MeshCollider>().sharedMesh = null;
         GetComponent<MeshCollider>().sharedMesh = meshFilter.mesh;
