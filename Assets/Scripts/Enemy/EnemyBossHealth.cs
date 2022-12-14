@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class EnemyBossHealth : HitableObject
 {
@@ -23,28 +24,53 @@ public class EnemyBossHealth : HitableObject
     [Header("Health Phase Paremeters")]
     public float HealthCon1 = 200f;
     public float HealthCon2 = 120f;
+    public float HealthCon;
+    public bool HealthUpdated1;
+    public bool HealthUpdated2;
+    public bool HealthUpdated3;
 
     [Header("Skill Parameters")]
     public float ChargingTime = 10f;
     public float CooldownAfterCharge = 2f;
     public float JumpDamage;
     bool RandomTrigger = false;
+    public Slider slider;
+    public Slider tmeslider;
     // Start is called before the first frame update
     void Start()
     {
         //player = GameObject.FindGameObjectWithTag("Player");
         health = maxHealth;
+        HealthCon = HealthCon1;
+        HealthUpdated1 = false;
+        HealthUpdated2 = false;
+        HealthUpdated3 = false;
+        ShowTimer(false);
     }
 
     // Update is called once per frame
     void Update()
     {
+
         if (health > HealthCon1) {
             GetComponent<Animator>().SetBool("ChangeCharge", false);
             GetComponent<Animator>().SetBool("ChangeLaser", false);
+            if (!HealthUpdated1) {
+                slider.gameObject.transform.Find("Fill Area").Find("Fill").GetComponent<Image>().color = Color.cyan;
+                HealthCon = HealthCon1;
+                maxHealth = health - HealthCon1;
+                HealthUpdated1 = true;
+            }
+
         }
         else if (health > HealthCon2) {
             if (!RandomTrigger) RandomState();
+            if (!HealthUpdated2) {
+                slider.gameObject.transform.Find("Fill Area").Find("Fill").GetComponent<Image>().color = Color.yellow;
+                HealthCon = HealthCon2;
+                maxHealth = health - HealthCon2;
+                HealthUpdated2 = true;
+            }
             // GetComponent<Animator>().SetBool("ChangeCharge", true);
             // GetComponent<Animator>().SetBool("ChangeLaser", false);
         }
@@ -52,7 +78,18 @@ public class EnemyBossHealth : HitableObject
             Head.GetComponent<BossHead>().SetOpen();
             GetComponent<Animator>().SetBool("ChangeCharge", true);
             GetComponent<Animator>().SetBool("ChangeLaser", true);
+            if (!HealthUpdated3) {
+                slider.gameObject.transform.Find("Fill Area").Find("Fill").GetComponent<Image>().color = Color.red;
+                HealthCon = 0;
+                maxHealth = health - 0;
+                HealthUpdated3 = true;
+            }
         }
+        slider.value = CalculateHealth();
+    }
+
+    protected float CalculateHealth() {
+        return (health-HealthCon)/maxHealth;
     }
 
     void RandomState() {
@@ -101,6 +138,10 @@ public class EnemyBossHealth : HitableObject
         coroutine = Stun(delay);
         StartCoroutine(Stun(delay));
     }
+
+    public void ShowTimer(bool ShowTimer) {
+        tmeslider.gameObject.SetActive(ShowTimer);
+    }
     IEnumerator Shooting(float delay) {
         //StopAllCoroutinesFunc();
         yield return new WaitForSeconds(delay);
@@ -124,7 +165,11 @@ public class EnemyBossHealth : HitableObject
 
     IEnumerator WaitLaser(float delay) {
         //StopAllCoroutinesFunc();
-        yield return new WaitForSeconds(delay);
+        for(float TimeLeft = delay; TimeLeft > 0; TimeLeft -= Time.deltaTime) {
+            tmeslider.value = TimeLeft/delay;
+            yield return null;
+        }
+        //yield return new WaitForSeconds(delay);
         if (!IsStun) GetComponent<Animator>().SetTrigger("Lasering"); // demo
     }
 

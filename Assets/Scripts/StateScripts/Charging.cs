@@ -18,9 +18,10 @@ public class Charging : StateMachineBehaviour
        enemyboss = animator.GetComponent<EnemyBossHealth>();    
        timeTilNextMovement = enemyboss.ChargingTime;
        if (enemyboss != null) {
-         enemyboss.setIsStun(false);
-         enemyboss.StopCoroutinesFunc();
-         enemyboss.DoChargeLaser(timeTilNextMovement);
+        enemyboss.ShowTimer(true);
+        enemyboss.setIsStun(false);
+        enemyboss.StopCoroutinesFunc();
+        enemyboss.DoChargeLaser(timeTilNextMovement);
        }
     }
 
@@ -37,7 +38,9 @@ public class Charging : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-
+      if (enemyboss != null) {
+        enemyboss.ShowTimer(false);
+       }
     }
 }
 // public class ChargingCoroutine : MonoBehaviour {
