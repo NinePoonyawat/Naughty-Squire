@@ -469,7 +469,6 @@ public class ItemGrid : MonoBehaviour
         {
             for(int j = 0; j != gridSizeHeight; j++)
             {
-                Debug.Log(i + " " + j);
                 if (inventoryItemSlot[i,j] == null) continue;
                 it = inventoryItemSlot[i,j];
                 if(data.ContainsKey(it.itemData)) data[it.itemData] += 1;
