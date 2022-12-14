@@ -45,5 +45,6 @@ public class Laser : MonoBehaviour
         yield return new WaitForSeconds(delay);
         GameObject ob = Instantiate(ShockWave, playerLastHit, transform.rotation);
         Destroy(gameObject);
+        Destroy(ob,6f);
     }
 }

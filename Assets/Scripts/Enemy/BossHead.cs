@@ -28,7 +28,7 @@ public class BossHead : BossHitbox
         damageRatio = 0;
     }
     void Update() {
-        Glow(open);
+        //Glow(open);
         Check();
         //Debug.Log("OPEN" + open);
     }
@@ -46,19 +46,23 @@ public class BossHead : BossHitbox
     }
 
     // Update is called once per frame
-    public void Glow(bool open)
+    public void Glow()
     {
-        if (open) {
-            aura = Instantiate(auraPrefab, transform.position, Quaternion.identity, transform);
-            //Debug.Log(aura.transform.position);
-            Destroy(aura,2f);
-            isGlow = true;
-        }
-        if (!open)
-        {
-            Destroy(aura);
-            isGlow = false;
-        }
+        aura = Instantiate(auraPrefab, transform.position, Quaternion.identity, transform);
+        // if (open) {
+        //     //Debug.Log(aura.transform.position);
+        //     //Destroy(aura,2f);
+        //     //isGlow = true;
+        // }
+        // if (!open)
+        // {
+        //     Destroy(aura);
+        //     isGlow = false;
+        // }
+    }
+
+    public void Destroyaura() {
+        Destroy(aura);
     }
 
     public void SetMesh()

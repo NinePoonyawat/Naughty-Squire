@@ -22,8 +22,9 @@ public class Charging : StateMachineBehaviour
         enemyboss.setIsStun(false);
         enemyboss.StopCoroutinesFunc();
         enemyboss.DoChargeLaser(timeTilNextMovement);
+        enemyboss.ShowHeadHealth(true);
+        enemyboss.Head.GetComponent<BossHead>().Glow();
        }
-       enemyboss.ShowHeadHealth(true);
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -41,6 +42,7 @@ public class Charging : StateMachineBehaviour
     {
       if (enemyboss != null) {
         enemyboss.ShowTimer(false);
+        enemyboss.Head.GetComponent<BossHead>().Destroyaura();
        }
     }
 }

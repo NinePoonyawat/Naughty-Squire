@@ -4901,7 +4901,7 @@ ParticleSystem:
       m_RotationOrder: 4
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
-  scalingMode: 1
+  scalingMode: 0
   randomSeed: 0
   InitialModule:
     serializedVersion: 3
@@ -9687,6 +9687,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3131c96dc7d10cd49abb018d4cdb5651, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explodeRadius: 15
   damage: 40
   isDone: 0
 --- !u!1 &6730555918049574879
@@ -9977,8 +9978,8 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     startSize:
       serializedVersion: 2
-      minMaxState: 3
-      scalar: 2
+      minMaxState: 0
+      scalar: 15
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -10030,7 +10031,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startSizeY:
       serializedVersion: 2
-      minMaxState: 3
+      minMaxState: 0
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -10083,7 +10084,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startSizeZ:
       serializedVersion: 2
-      minMaxState: 3
+      minMaxState: 0
       scalar: 1
       minScalar: 1
       maxCurve:
