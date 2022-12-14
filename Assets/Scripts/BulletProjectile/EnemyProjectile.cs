@@ -47,7 +47,8 @@ public class EnemyProjectile : MonoBehaviour
 
     private void Explode()
     {
-        Instantiate(explodeEffect, this.transform.position, Quaternion.identity);
+        GameObject explode = Instantiate(explodeEffect, this.transform.position, Quaternion.identity);
+        explode.transform.localScale = new Vector3(explodeRadius,explodeRadius,explodeRadius);
         Collider[] colliders = Physics.OverlapSphere(transform.position, explodeRadius);
 
         foreach (Collider nearbyObject in colliders)

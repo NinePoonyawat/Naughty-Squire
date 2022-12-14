@@ -49,15 +49,18 @@ public class EnemyZone : Enemy
             rb.AddForce(transform.forward *32f,ForceMode.Impulse);
             rb.AddForce(transform.up *8f,ForceMode.Impulse);
         } else {
+            Debug.Log(ShootAngle);
+            Debug.Log("player : " + player.transform.position + " " + "enemy : " + transform.position);
             Vector3 direction = (player.transform.position - transform.position).normalized;
             //float swAngle = Vector2.Angle(new Vector2(transform.position.x,transform.position.z),new Vector2(player.transform.position.x,player.transform.position.z));
-            float distance = Vector3.Distance(player.transform.position, transform.position);
+            float distance = Vector2.Distance(new Vector2(player.transform.position.x,player.transform.position.z), new Vector2(transform.position.x,transform.position.z));
+            Debug.Log(distance);
             float speed =  Mathf.Pow(distance*0.98f / Mathf.Sin(2*Mathf.Deg2Rad*ShootAngle),0.5f);
             //transform.LookAt(new Vector3(direction.x,direction.y + distance * Mathf.Sin(Mathf.Deg2Rad*ShootAngle),direction.z));
             Rigidbody rb = Instantiate(projectileBomb, firePoint.position, Quaternion.identity).GetComponent<Rigidbody>();
             //rb.velocity = new Vector3(projection * Mathf.Sin(Mathf.Deg2Rad*swAngle), 
             //   speed * Mathf.Sin(Mathf.Deg2Rad*ShootAngle), projection * Mathf.Cos(Mathf.Deg2Rad*swAngle));
-            rb.velocity = new Vector3(direction.x,direction.y + distance * Mathf.Sin(Mathf.Deg2Rad*ShootAngle),direction.z) * speed;
+            rb.velocity = new Vector3(direction.x,direction.y + speed * Mathf.Sin(Mathf.Deg2Rad*ShootAngle),direction.z) * speed;
             //rb.AddForce(direction*speed, ForceMode.Impulse);
         }
     }

@@ -131,8 +131,8 @@ MonoBehaviour:
   projectileType: 1
   lifetime: 3
   explodeDelay: 1
-  explodeRadius: 2.5
+  explodeRadius: 5
   explodeForce: 300
-  explodeEffect: {fileID: 1337198075554910, guid: 25c7aa9ad705fe143a4d71c1c8deb7d4,
+  explodeEffect: {fileID: 1337198075554910, guid: 7493540dcbeb60f4b8015527c235f262,
     type: 3}
   meshColor: {r: 1, g: 0.3915094, b: 0.3915094, a: 0.39215687}
