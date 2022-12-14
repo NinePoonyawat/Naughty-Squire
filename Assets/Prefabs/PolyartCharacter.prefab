@@ -1037,9 +1037,19 @@ MonoBehaviour:
   LaserLine: {fileID: 0}
   HealthCon1: 200
   HealthCon2: 120
+  HealthCon: 0
+  HealthUpdated1: 0
+  HealthUpdated2: 0
+  HealthUpdated3: 0
   ChargingTime: 10
   CooldownAfterCharge: 2
   JumpDamage: 30
+  slider: {fileID: 0}
+  sliderState1: {fileID: 0}
+  sliderState2: {fileID: 0}
+  sliderState3: {fileID: 0}
+  tmeslider: {fileID: 0}
+  headslider: {fileID: 0}
 --- !u!114 &8247923825334287358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1052,7 +1062,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7b02647fda5bf2419a250d570afd00c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footStepvolumn: 1
+  footStepvolumn: 10
   sounds:
   - name: Shoot
     clip: {fileID: 8300000, guid: 7851e66bde1878343a4cfd42ebde4c9c, type: 3}
@@ -1069,7 +1079,62 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     source: {fileID: 0}
-  footsteps: []
+  - name: JumpImpact
+    clip: {fileID: 8300000, guid: 95bc714e242041c46b885a19c9694433, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  footsteps:
+  - name: 1
+    clip: {fileID: 8300000, guid: 4fd1370449c6197499ae5caf6014a57e, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: 2
+    clip: {fileID: 8300000, guid: 200a97163be56954f8216f3c5dbe7cbf, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: 3
+    clip: {fileID: 8300000, guid: da02ca8c99bb13c48900738ae8096138, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: 4
+    clip: {fileID: 8300000, guid: 572c9072d04a7554a9ba9a8e31ca6a57, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: 5
+    clip: {fileID: 8300000, guid: 79b6acc7e9267174bb43c5e42aeaba23, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: 6
+    clip: {fileID: 8300000, guid: f95441bb67e035d4682c3aee7da75a60, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: 7
+    clip: {fileID: 8300000, guid: 72c2236367c5141459871680512bfb8f, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: 8
+    clip: {fileID: 8300000, guid: 2586836a2d8251940a0ec950701507aa, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: 9
+    clip: {fileID: 8300000, guid: 932d20799b1b05e4c8e0b64537743163, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: 10
+    clip: {fileID: 8300000, guid: c46386cdd3719a84a8bc6e2f3304121c, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
 --- !u!1 &4695028934192624027
 GameObject:
   m_ObjectHideFlags: 0
