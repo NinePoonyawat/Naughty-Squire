@@ -42,7 +42,7 @@ public class BossHead : BossHitbox
     { 
         
         if (!isImmune) health -= damage*damageRatio;
-        Me.TakeDamage(damage*damageRatio*0.2f);
+        // Me.TakeDamage(damage*damageRatio*0.1f);
     }
 
     // Update is called once per frame

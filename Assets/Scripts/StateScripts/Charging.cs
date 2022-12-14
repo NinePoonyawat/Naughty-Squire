@@ -23,6 +23,7 @@ public class Charging : StateMachineBehaviour
         enemyboss.StopCoroutinesFunc();
         enemyboss.DoChargeLaser(timeTilNextMovement);
        }
+       enemyboss.ShowHeadHealth(true);
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

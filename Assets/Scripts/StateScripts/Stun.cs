@@ -11,7 +11,8 @@ public class Stun : StateMachineBehaviour
     {
        enemyboss = animator.GetComponent<EnemyBossHealth>();
        BossHead head = enemyboss.Head.GetComponent<BossHead>();
-       if (head != null) head.SetIsImmune(true);    
+       if (head != null) head.SetIsImmune(true);
+       if (enemyboss != null) enemyboss.ShowHeadHealth(false);    
       //  timeTilNextMovement = 2f;
       //  if (enemyboss != null) {
       //    enemyboss.StopCoroutinesFunc();
