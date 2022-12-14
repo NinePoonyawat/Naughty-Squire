@@ -34,6 +34,7 @@ public class EnemyProjectile : MonoBehaviour
 
     private void OnCollisionEnter(Collision other) {
         if (other.gameObject.tag == "Ground") {
+            Debug.Log("touch ground");
             StartCoroutine(ExplodeDelay(explodeDelay));
         }
     }

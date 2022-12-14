@@ -12,14 +12,14 @@ public class EnemyZone : Enemy
     public Rigidbody projectileBomb;
     public bool IsBombBullet;
 
-    public float ShootAngle = 45;
+    public float ShootAngle;
     //public bool stop = false;
-    void Awake()
-    {
-        StopDistance = 7;
-        timeBetweenAttacks = 1f;
-       //distance = Random.Range(5,10); 
-    }
+    // void Awake()
+    // {
+    //     StopDistance = 7;
+    //     timeBetweenAttacks = 1f;
+    //    //distance = Random.Range(5,10); 
+    // }
 
     // public override void walking() {
     //     //Debug.Log("find");
@@ -54,7 +54,7 @@ public class EnemyZone : Enemy
             float distance = Vector3.Distance(player.transform.position, transform.position);
             float speed =  Mathf.Pow(distance*0.98f / Mathf.Sin(2*Mathf.Deg2Rad*ShootAngle),0.5f);
             //transform.LookAt(new Vector3(direction.x,direction.y + distance * Mathf.Sin(Mathf.Deg2Rad*ShootAngle),direction.z));
-            Rigidbody rb = Instantiate(projectileBomb, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
+            Rigidbody rb = Instantiate(projectileBomb, firePoint.position, Quaternion.identity).GetComponent<Rigidbody>();
             //rb.velocity = new Vector3(projection * Mathf.Sin(Mathf.Deg2Rad*swAngle), 
             //   speed * Mathf.Sin(Mathf.Deg2Rad*ShootAngle), projection * Mathf.Cos(Mathf.Deg2Rad*swAngle));
             rb.velocity = new Vector3(direction.x,direction.y + distance * Mathf.Sin(Mathf.Deg2Rad*ShootAngle),direction.z) * speed;
