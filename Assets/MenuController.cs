@@ -10,6 +10,10 @@ public class MenuController : MonoBehaviour
     private bool isSetting = false;
 
     // Start is called before the first frame update
+    void Start()
+    {
+        CloseMenu();
+    }
 
     // Update is called once per frame
     void Update()
