@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class SceneController : MonoBehaviour
 {
     [SerializeField] private string currentScene;
-    [SerializeField] private bool isGameScene;
 
     public ObjectiveData objectiveData;
     
@@ -49,5 +48,10 @@ public class SceneController : MonoBehaviour
         {
             SceneManager.LoadScene ("Test FPS 1");
         }
+    }
+
+    public void GoToScene(string scene)
+    {
+        SceneManager.LoadScene(scene);
     }
 }
