@@ -121,10 +121,10 @@ public class EnemyBossHealth : HitableObject
         RandomState();
     }
     public void lookatPosition() {
-        Vector3 targetPosition = new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z);
-        transform.LookAt(targetPosition);
-        // Quaternion lookOnLook = Quaternion.LookRotation(targetPosition - agent.transform.position); 
-        // agent.transform.rotation = Quaternion.Slerp(agent.transform.rotation, lookOnLook, Time.deltaTime*2);
+        Vector3 targetPosition = new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z);
+        // transform.LookAt(targetPosition);
+        Quaternion lookOnLook = Quaternion.LookRotation(targetPosition - agent.transform.position); 
+        agent.transform.rotation = Quaternion.Slerp(agent.transform.rotation, lookOnLook, Time.deltaTime*2);
     }
 
     public void StopCoroutinesFunc() {
@@ -163,7 +163,10 @@ public class EnemyBossHealth : HitableObject
     }
     IEnumerator Shooting(float delay) {
         //StopAllCoroutinesFunc();
-        yield return new WaitForSeconds(delay);
+        for (float d = delay; d > 0; d -= Time.deltaTime) {
+            lookatPosition();
+            yield return null;
+        }
 
         FindObjectOfType<BossAudioManager>().Play("Shoot");
 
@@ -175,7 +178,10 @@ public class EnemyBossHealth : HitableObject
     }
     IEnumerator WaitCharge(float delay) {
         //StopAllCoroutinesFunc();
-        yield return new WaitForSeconds(delay);
+        for (float d = delay; d > 0; d -= Time.deltaTime) {
+            lookatPosition();
+            yield return null;
+        }  
         if (IsAttack) {
             GetComponent<Animator>().SetTrigger("Attacking");
         }
@@ -186,6 +192,7 @@ public class EnemyBossHealth : HitableObject
         //StopAllCoroutinesFunc();
         for(float TimeLeft = delay; TimeLeft > 0; TimeLeft -= Time.deltaTime) {
             tmeslider.value = TimeLeft/delay;
+            lookatPosition();
             yield return null;
         }
         //yield return new WaitForSeconds(delay);

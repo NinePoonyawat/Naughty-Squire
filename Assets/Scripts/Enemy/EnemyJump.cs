@@ -19,7 +19,6 @@ public class EnemyJump : EnemyBase
     {
        JumpSpeed = 1 ;
        StopDistance = 4;
-       timeBetweenAttacks = 10f;
        EnemyState = State.Idle;
        //Physics.IgnoreCollision(player.GetComponent<Collider>(), GetComponent<Collider>());
     }
@@ -66,16 +65,16 @@ public class EnemyJump : EnemyBase
         if (playerIsInLOS && Vector3.Distance(transform.position,player.transform.position) <= StopDistance) EnemyState = State.Attack;
     }
 
-    protected override IEnumerator AttackMove(float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        Debug.Log("JUMP!!");
-        Vector3 direction = (player.transform.position - transform.position).normalized;
-        float distance = Vector3.Distance(player.transform.position, transform.position);
-        float speed =  Mathf.Pow(distance*0.98f / Mathf.Sin(2*Mathf.Deg2Rad*ShootAngle),0.5f);
-        Rigidbody rb = agent.GetComponent<Rigidbody>();
-        rb.velocity = new Vector3(direction.x,direction.y + distance * Mathf.Sin(Mathf.Deg2Rad*ShootAngle),direction.z) * speed;
-    }
+    // protected override IEnumerator AttackMove(float delay)
+    // {
+    //     yield return new WaitForSeconds(delay);
+    //     Debug.Log("JUMP!!");
+    //     Vector3 direction = (player.transform.position - transform.position).normalized;
+    //     float distance = Vector3.Distance(player.transform.position, transform.position);
+    //     float speed =  Mathf.Pow(distance*0.98f / Mathf.Sin(2*Mathf.Deg2Rad*ShootAngle),0.5f);
+    //     Rigidbody rb = agent.GetComponent<Rigidbody>();
+    //     rb.velocity = new Vector3(direction.x,direction.y + distance * Mathf.Sin(Mathf.Deg2Rad*ShootAngle),direction.z) * speed;
+    // }
 
 
     // void OnCollisionEnter(Collision collision)
@@ -127,6 +126,5 @@ public class EnemyJump : EnemyBase
         // }
         Jumping = false;
         EnemyState = State.Idle;
-        timeBetweenAttacks = 2f;
     }
 }

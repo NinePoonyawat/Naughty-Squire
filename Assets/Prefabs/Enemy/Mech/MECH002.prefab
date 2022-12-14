@@ -1064,8 +1064,8 @@ GameObject:
   - component: {fileID: 912277491624486591}
   - component: {fileID: 6395293018864520316}
   - component: {fileID: 8278555360570675210}
-  - component: {fileID: 8471736993379747388}
   - component: {fileID: 618479079790758997}
+  - component: {fileID: 1541733123}
   m_Layer: 0
   m_Name: MECH002
   m_TagString: Enemy
@@ -1080,7 +1080,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7162500206454077421}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -53.69293, y: 19.153862, z: 58.47162}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1110,7 +1110,7 @@ NavMeshAgent:
   m_Acceleration: Infinity
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 2
+  m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -1161,71 +1161,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &8471736993379747388
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7162500206454077421}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: faf758a1be909b64096ec5691b4d7a6c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 40
-  health: 0
-  damageRatio: 1
-  EnemyState: 0
-  agent: {fileID: 8045441232570631060}
-  player: {fileID: 0}
-  group: -1
-  nextgroup: 0
-  playerIsInLOS: 0
-  fieldOfViewAngle: 40
-  losRadius: 30
-  height: 0.1
-  StopDistance: 0
-  aiMemoriesPlayer: 0
-  memoryStartTime: 10
-  noiseTravelDistance: 50
-  CanAlert: 1
-  FleeAble: 1
-  MoveCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  healthBarUI: {fileID: 2623040738463991305}
-  slider: {fileID: 7388048933383383650}
-  CanMove: 0
-  pfBulletProjectile: {fileID: 0}
-  firePoint: {fileID: 3392479213087189955}
-  projectile: {fileID: 6209210684506683142, guid: 80f10046ed79041469d1538fd0d07469,
-    type: 3}
-  projectileBomb: {fileID: 6209210684506683142, guid: fc6d87ba545aec0409a202b24b5d9a79,
-    type: 3}
-  IsBombBullet: 1
-  ShootAngle: 45
 --- !u!114 &618479079790758997
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1241,6 +1176,96 @@ MonoBehaviour:
   dropPool: {fileID: 11400000, guid: d7420c513ed542f4f8b1fec32baea743, type: 2}
   destroyPrefab: {fileID: 1121192042590650, guid: c9758f60661c3b64fb08d9aa1e39deb0,
     type: 3}
+--- !u!114 &1541733123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7162500206454077421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 517fb0b160b94f341a81fbefb580fedc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 40
+  health: 0
+  damageRatio: 1
+  EnemyState: 0
+  agent: {fileID: 8045441232570631060}
+  player: {fileID: 0}
+  group: 4
+  nextgroup: 0
+  playerIsInLOS: 0
+  fieldOfViewAngle: 45
+  losRadius: 20
+  height: 2
+  StopDistance: 5
+  aiMemoriesPlayer: 0
+  memoryStartTime: 10
+  noiseTravelDistance: 10
+  CanAlert: 1
+  FleeAble: 0
+  MoveCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.47626817
+      value: 1.3770379
+      inSlope: 0.8578978
+      outSlope: 0.8578978
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1.1162274
+      value: 0.97593164
+      inSlope: 0.9332044
+      outSlope: 0.9332044
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1.6907063
+      value: 1.2839066
+      inSlope: -0.056141727
+      outSlope: -0.056141727
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 2.4601572
+      value: 0.67852557
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  healthBarUI: {fileID: 0}
+  slider: {fileID: 0}
+  isShooter: 1
+  firePoint: {fileID: 3392479213087189955}
+  Bullet: {fileID: 5515353475798057132, guid: b4166dfdad769e5408d0e6b558f45dd8, type: 3}
+  Bomb: {fileID: 6209210684506683142, guid: 7b68226ab025d0a4fbce0155e9408c38, type: 3}
+  IsBombBullet: 0
+  ShootAngle: 20
+  CanMove: 1
 --- !u!1 &7455371729617891028
 GameObject:
   m_ObjectHideFlags: 0

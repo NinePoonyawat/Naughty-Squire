@@ -57,14 +57,22 @@ public abstract class EnemyBase : MonoBehaviour
     [Header("AI Bool Check")]
     public bool CanAlert = true;
     protected float timeTilAlert = 10f;
-    protected float timeTilNextMovement = 2f;
-    protected float timeBetweenAttacks = 3.5f;
+    protected float timeTilNextMovement = 3f;
+    // protected float timeBetweenAttacks = 3.5f;
 
     protected float timeAttack = 2f;
     public bool FleeAble;
     public AnimationCurve MoveCurve;
     public GameObject healthBarUI;
     public Slider slider;
+
+    [Header("Bomb Shooter")]
+    public bool isShooter;
+    public Transform firePoint;
+    public Rigidbody Bullet;
+    public Rigidbody Bomb;
+    public bool IsBombBullet;
+    public float ShootAngle;
 
 
     
@@ -125,9 +133,9 @@ public abstract class EnemyBase : MonoBehaviour
         agent.updateRotation =false;
         Vector3 direction = (transform.position - player.transform.position).normalized;
         float distance = Vector3.Distance(transform.position, player.transform.position) * Random.Range(5,10);
-        Vector3 dest = GetPositionAroundObject(transform);
-        //Debug.Log(dest + ": " + transform.position);
-        StartCoroutine(MoveTo(new Vector3(dest.x,0,dest.z),delay));
+        Vector3 dest = GetPositionAroundObject(player.transform);
+        Debug.Log(dest + ": " + dest);
+        StartCoroutine(MoveTo(dest,timeTilNextMovement));
         //transform.position = Vector3.Lerp(transform.position,dest,Time.deltaTime);
         // float speed =  Mathf.Pow(distance*0.98f / Mathf.Sin(2*Mathf.Deg2Rad*15),0.5f);
         // agent.velocity = new Vector3(direction.x,direction.y + distance * Mathf.Sin(Mathf.Deg2Rad*15),direction.z) * speed;
@@ -135,9 +143,11 @@ public abstract class EnemyBase : MonoBehaviour
     }
 
     Vector3 GetPositionAroundObject(Transform tx) {
-        float radius = 10f;
-	    Vector3 offset = Random.insideUnitCircle * radius;
-	    Vector3 pos = new Vector3(tx.position.x+offset.x,tx.position.y,tx.position.z+offset.y);
+        float radius = 5f;
+	    Vector2 offset = (Random.insideUnitCircle * radius) + new Vector2(10,10);
+        float direction = (tx.position - transform.position).x;
+        if ((direction >= 0 && offset.x < 0) || (direction < 0 && offset.x < 0)) offset.x = -offset.x;
+	    Vector3 pos = new Vector3(tx.position.x+offset.x,tx.position.y,tx.position.z + offset.y);
 	    return pos;
 }
 
@@ -236,25 +246,25 @@ public abstract class EnemyBase : MonoBehaviour
         CheckAttacking();
         //if (EnemyState == State.Attack) Attack();
     }
-    private void lookatPosition() {
+    protected void lookatPosition() {
         Vector3 targetPosition = new Vector3(nextPosition.x, transform.position.y,nextPosition.z );
         //Vector3 targetPosition = nextPosition;
         //Debug.Log(targetPosition - transform.position);
         Quaternion lookOnLook = Quaternion.LookRotation(targetPosition - transform.position); 
-        transform.rotation = Quaternion.Slerp(transform.rotation, lookOnLook, Time.deltaTime);
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookOnLook, 10 * Time.deltaTime);
     }
 
-    IEnumerator MoveTo(Vector3 position, float time) {
+    IEnumerator MoveTo(Vector3 position, float delay) {
         //Debug.Log("MOVe");
         Vector3 start = transform.position;
         Vector3 end = position;
         float t = 0;
-        while(t < 1) {
+        while(t < delay) {
             //Debug.Log(t);
             agent.SetDestination(Vector3.Lerp(start,end,MoveCurve.Evaluate(t)));
             Quaternion lookOnLook = Quaternion.LookRotation(new Vector3(nextPosition.x, transform.position.y,nextPosition.z ) - transform.position);
             transform.rotation = Quaternion.Slerp(transform.rotation, lookOnLook, t*2);
-            t += Time.deltaTime * 1;
+            t += Time.deltaTime;
             // Vector3 targetPosition = new Vector3( player.transform.position.x, transform.position.y, player.transform.position.z ) ;
             // transform.LookAt(targetPosition);
             yield return null;
@@ -264,7 +274,7 @@ public abstract class EnemyBase : MonoBehaviour
         //CheckAttacking();
         nextPosition = player.transform.position;
         EnemyState = State.Walk;
-        StartCoroutine(Next(timeTilNextMovement));
+        StartCoroutine(Next(0f));
     }
     IEnumerator Attacking(float delay) {
         //Debug.Log("STOP Atack");
@@ -276,16 +286,20 @@ public abstract class EnemyBase : MonoBehaviour
         //                                 player.transform.position.z ) ;
         // transform.LookAt(targetPosition);
 
-        StartCoroutine(AttackMove(delay));
+        if (!isShooter) StartCoroutine(NormalAttackMove(delay));
+        else StartCoroutine(ShooterAttackMove(delay));
         yield return new WaitForSeconds(delay);
         EnemyState = State.Cooldown;
         StartCoroutine(Next(0f));
         //yield return null;      
     }
-    protected virtual IEnumerator AttackMove(float delay) {
-        yield return new WaitForSeconds(delay);
+    protected IEnumerator NormalAttackMove(float delay) {
+        for (float d = delay; d > 0; d -= Time.deltaTime) {
+            lookatPosition();
+            yield return null;
+        }  
         HitableObject hit = player.GetComponent<HitableObject>();
-        if (hit != null && (Vector2.Distance(new Vector2(player.transform.position.x,player.transform.position.z),new Vector2(transform.position.x,transform.position.z)) <= (StopDistance * 1.5)))
+        if (hit != null && hit.tag == "Player" && (Vector2.Distance(new Vector2(player.transform.position.x,player.transform.position.z),new Vector2(transform.position.x,transform.position.z)) <= (StopDistance * 1.5)))
         {
             hit.TakeDamage(10);
             //FindObjectOfType<AudioManager>().Play("PistolBulletHit");
@@ -295,6 +309,33 @@ public abstract class EnemyBase : MonoBehaviour
     }
     void ResetAlert() {
         CanAlert = true;
+    }
+
+    protected IEnumerator ShooterAttackMove(float delay) {
+        for (float d = delay; d > 0; d -= Time.deltaTime) {
+            lookatPosition();
+            yield return null;
+        }    
+        // yield return new WaitForSeconds(delay);
+        if (!IsBombBullet) {
+            Debug.Log("SHOOOTTTT");
+            GameObject bullet = Instantiate(Bullet, firePoint.position, transform.rotation).gameObject;
+            //GameObject bullet = Instantiate(pfBulletProjectile, transform.position, Quaternion.identity).gameObject;
+            // Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
+            // rb.AddForce(transform.forward *32f,ForceMode.Impulse);
+            // rb.AddForce(transform.up *8f,ForceMode.Impulse);
+        } else {
+            Vector3 direction = (player.transform.position - transform.position).normalized;
+            //float swAngle = Vector2.Angle(new Vector2(transform.position.x,transform.position.z),new Vector2(player.transform.position.x,player.transform.position.z));
+            float distance = Vector2.Distance(new Vector2(player.transform.position.x,player.transform.position.z), new Vector2(transform.position.x,transform.position.z));
+            float speed =  Mathf.Pow(distance*0.98f / Mathf.Sin(2*Mathf.Deg2Rad*ShootAngle),0.5f);
+            //transform.LookAt(new Vector3(direction.x,direction.y + distance * Mathf.Sin(Mathf.Deg2Rad*ShootAngle),direction.z));
+            Rigidbody rb = Instantiate(Bomb, firePoint.position, Quaternion.identity).GetComponent<Rigidbody>();
+            //rb.velocity = new Vector3(projection * Mathf.Sin(Mathf.Deg2Rad*swAngle), 
+            //   speed * Mathf.Sin(Mathf.Deg2Rad*ShootAngle), projection * Mathf.Cos(Mathf.Deg2Rad*swAngle));
+            rb.velocity = new Vector3(direction.x,direction.y + speed * Mathf.Sin(Mathf.Deg2Rad*ShootAngle),direction.z) * speed;
+            //rb.AddForce(direction*speed, ForceMode.Impulse);
+        }
     }
 
     void ChangeGroup() {

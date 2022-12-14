@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 2484245806235318867}
   - component: {fileID: 2484245806235318864}
   - component: {fileID: 5515353475798057132}
-  - component: {fileID: 3398249281803929572}
+  - component: {fileID: -1697952427311847602}
   m_Layer: 0
-  m_Name: Laser
+  m_Name: EnemyBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -64,7 +64,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &3398249281803929572
+--- !u!114 &-1697952427311847602
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -73,47 +73,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2484245806235318866}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ed8efdecabe7c2458ee56455bdb8c43, type: 3}
+  m_Script: {fileID: 11500000, guid: cf887fd2dbb402941b42b129f1280a94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 100
+  speed: 45
   effectPrefab: {fileID: 1329845292236604, guid: 22d4e0e6ba5194a4eaa8473c51d29580,
     type: 3}
-  player: {fileID: 3734626339199097192, guid: a407795b5cb17234fa3cfc4708837c31, type: 3}
-  ShootAngle: 20
-  MoveCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 1.0494078
-      outSlope: 1.0494078
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.49734914
-      value: 1.5219221
-      inSlope: 0.0055342913
-      outSlope: 0.0055342913
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: -1.0383393
-      outSlope: -1.0383393
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1 &2484245808028199921
 GameObject:
   m_ObjectHideFlags: 0
@@ -176,7 +141,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6b881bcbc42649c4c825333d5b38fb01, type: 2}
+  - {fileID: 2100000, guid: f803c6e90d58a084f8252922ad2310ab, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
