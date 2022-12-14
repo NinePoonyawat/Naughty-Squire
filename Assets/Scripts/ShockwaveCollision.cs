@@ -6,6 +6,7 @@ public class ShockwaveCollision : MonoBehaviour
 {
     // Start is called before the first frame update
     public float damage;
+    public bool isDone = false;
     void Start()
     {
         
@@ -19,11 +20,11 @@ public class ShockwaveCollision : MonoBehaviour
 
     private void OnParticleCollision(GameObject other) {
         HitableObject entityHit = other.GetComponent<HitableObject>();
-        if (entityHit != null && other.tag == "Player")
+        if (entityHit != null && other.tag == "Player" && !isDone)
         {
             Debug.Log("hit player");
             entityHit.TakeDamage(damage);
+            isDone = true;
         }
-        //FindObjectOfType<AudioManager>().Play("PistolBulletHit");
     }
 }

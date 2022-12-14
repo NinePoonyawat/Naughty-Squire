@@ -16,7 +16,7 @@ public class Charging : StateMachineBehaviour
     {
        //player = GameObject.FindGameObjectWithTag("Player");
        enemyboss = animator.GetComponent<EnemyBossHealth>();    
-       timeTilNextMovement = 10f;
+       timeTilNextMovement = enemyboss.ChargingTime;
        if (enemyboss != null) {
          enemyboss.setIsStun(false);
          enemyboss.StopCoroutinesFunc();

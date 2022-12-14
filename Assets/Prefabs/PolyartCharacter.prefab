@@ -905,6 +905,7 @@ GameObject:
   - component: {fileID: 4695028934192624030}
   - component: {fileID: 4695028934192624034}
   - component: {fileID: 4695028934192624028}
+  - component: {fileID: 8247923825334287358}
   m_Layer: 0
   m_Name: PolyartCharacter
   m_TagString: Enemy
@@ -1018,21 +1019,57 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3fe381333cb2a5428d077147ff1a442, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 90
+  maxHealth: 250
   health: 0
   conditionHealth: 0
   damageRatio: 1
   canDestroy: 1
   agent: {fileID: 4695028934192624034}
-  projectile: {fileID: 5515353475798057132, guid: 6fe78deaa06aeb24d9c93149fe6a8c29,
-    type: 3}
+  bullet: {fileID: 0}
+  laser: {fileID: 0}
   player: {fileID: 0}
   JumpEffect: {fileID: 1632423149325034024, guid: 2a279ec85c3ea1044bf69c32294fa13e,
     type: 3}
   Head: {fileID: 4695028934192624059}
   IsAttack: 0
+  IsStun: 0
   bulletspawn: {fileID: 5154114951507204085}
+  LaserLine: {fileID: 0}
+  HealthCon1: 200
+  HealthCon2: 120
+  ChargingTime: 10
+  CooldownAfterCharge: 2
   JumpDamage: 30
+--- !u!114 &8247923825334287358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4695028934192624025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7b02647fda5bf2419a250d570afd00c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  footStepvolumn: 1
+  sounds:
+  - name: Shoot
+    clip: {fileID: 8300000, guid: 7851e66bde1878343a4cfd42ebde4c9c, type: 3}
+    volume: 1
+    pitch: 0.6
+    source: {fileID: 0}
+  - name: Charge
+    clip: {fileID: 8300000, guid: 18482893ec6dc7849a5d0bcda30dbf69, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: Shockwave
+    clip: {fileID: 8300000, guid: 870413cc5cd166b459d1eb4e8587e6e6, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  footsteps: []
 --- !u!1 &4695028934192624027
 GameObject:
   m_ObjectHideFlags: 0
@@ -1543,13 +1580,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ab38f0f17f231748a5aae1c55d8cb95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
+  maxHealth: 250
   health: 0
   conditionHealth: 0
   damageRatio: 1
   canDestroy: 1
   Me: {fileID: 0}
   meshFilter: {fileID: 519836293}
+  collider: {fileID: 0}
+  SkinMesh: {fileID: 0}
+  bakedMesh: {fileID: 0}
 --- !u!1 &4695028934192624049
 GameObject:
   m_ObjectHideFlags: 0
@@ -1876,7 +1916,7 @@ BoxCollider:
   m_GameObject: {fileID: 4695028934192624059}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 35.101475, y: 43.154907, z: 60.862064}
   m_Center: {x: -1.0935724, y: 17876.469, z: 617.13934}
@@ -1907,11 +1947,14 @@ MonoBehaviour:
   canDestroy: 1
   Me: {fileID: 0}
   meshFilter: {fileID: 481621060391266557}
+  collider: {fileID: 0}
+  SkinMesh: {fileID: 0}
+  bakedMesh: {fileID: 0}
   isGlow: 0
+  isImmune: 0
   auraPrefab: {fileID: 6320648758858120341, guid: b0c5bcf2a43dba148bc9d8673bca703e,
     type: 3}
   aura: {fileID: 0}
-  HeadMesh: {fileID: 4695028934187416787}
   open: 0
 --- !u!1 &4695028934192624061
 GameObject:
@@ -2306,13 +2349,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ab38f0f17f231748a5aae1c55d8cb95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
+  maxHealth: 250
   health: 0
   conditionHealth: 0
   damageRatio: 1
   canDestroy: 1
   Me: {fileID: 0}
   meshFilter: {fileID: 1564160566}
+  collider: {fileID: 0}
+  SkinMesh: {fileID: 0}
+  bakedMesh: {fileID: 0}
 --- !u!1 &4695028934192624075
 GameObject:
   m_ObjectHideFlags: 0
@@ -3029,13 +3075,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ab38f0f17f231748a5aae1c55d8cb95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
+  maxHealth: 250
   health: 0
   conditionHealth: 0
   damageRatio: 1
   canDestroy: 1
   Me: {fileID: 0}
   meshFilter: {fileID: 481621060391266466}
+  collider: {fileID: 0}
+  SkinMesh: {fileID: 0}
+  bakedMesh: {fileID: 0}
 --- !u!1 &4695028934192624093
 GameObject:
   m_ObjectHideFlags: 0

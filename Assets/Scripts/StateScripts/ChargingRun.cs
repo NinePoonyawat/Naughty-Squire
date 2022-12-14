@@ -15,7 +15,7 @@ public class ChargingRun : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
        enemyboss = animator.GetComponent<EnemyBossHealth>();
-       timeTilNextMovement = 2f;
+       timeTilNextMovement = enemyboss.CooldownAfterCharge;
        if (enemyboss != null) {
           enemyboss.StopCoroutinesFunc();
           enemyboss.DoCharge(timeTilNextMovement);

@@ -5,9 +5,7 @@ using UnityEngine.AI;
 
 public class EnemyBossHealth : HitableObject
 {
-    [Header("Health")]
-    // [SerializeField] private float maxHealth = 200;
-    // [SerializeField] private float health;
+    [Header("Prefabs")]
     public NavMeshAgent agent;
     public Rigidbody bullet;
     public Rigidbody laser;
@@ -21,8 +19,16 @@ public class EnemyBossHealth : HitableObject
 
     public GameObject bulletspawn;
     public GameObject LaserLine;
+
+    [Header("Health Phase Paremeters")]
+    public float HealthCon1 = 200f;
+    public float HealthCon2 = 120f;
+
+    [Header("Skill Parameters")]
+    public float ChargingTime = 10f;
+    public float CooldownAfterCharge = 2f;
     public float JumpDamage;
-    bool RandomTrigger =false;
+    bool RandomTrigger = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,11 +39,11 @@ public class EnemyBossHealth : HitableObject
     // Update is called once per frame
     void Update()
     {
-        if (health > 150) {
+        if (health > HealthCon1) {
             GetComponent<Animator>().SetBool("ChangeCharge", false);
             GetComponent<Animator>().SetBool("ChangeLaser", false);
         }
-        else if (health > 100) {
+        else if (health > HealthCon2) {
             if (!RandomTrigger) RandomState();
             // GetComponent<Animator>().SetBool("ChangeCharge", true);
             // GetComponent<Animator>().SetBool("ChangeLaser", false);
@@ -87,6 +93,7 @@ public class EnemyBossHealth : HitableObject
 
     public void DoChargeLaser(float delay) {
         coroutine = WaitLaser(delay);
+        FindObjectOfType<BossAudioManager>().Play("Charge");
         StartCoroutine(WaitLaser(delay));
      }
 
@@ -97,6 +104,9 @@ public class EnemyBossHealth : HitableObject
     IEnumerator Shooting(float delay) {
         //StopAllCoroutinesFunc();
         yield return new WaitForSeconds(delay);
+
+        FindObjectOfType<BossAudioManager>().Play("Shoot");
+
         GameObject rc = Instantiate(bullet, bulletspawn.transform.position, transform.rotation).gameObject;
         // Debug.Log(rc.transform.position);
         // rc.AddForce(agent.transform.forward *32f,ForceMode.Impulse);
@@ -169,6 +179,8 @@ public class EnemyBossHealth : HitableObject
     }
 
     public void LaserAttack() {
+        //FindObjectOfType<BossAudioManager>().Play("Shoot");
+        
         GameObject grenade = Instantiate(LaserLine, bulletspawn.transform.position, transform.rotation).gameObject;
     }
     

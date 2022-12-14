@@ -15,7 +15,7 @@ public class Laser : MonoBehaviour
     {
         lr = GetComponent<LineRenderer>();
         player = GameObject.FindGameObjectWithTag("Player");
-        StartCoroutine(WaitAndDestroy(0.4f));
+        StartCoroutine(WaitAndDestroy(1.5f));
     }
 
     // Update is called once per frame
