@@ -95,7 +95,8 @@ public abstract class EnemyBase : MonoBehaviour
                 break;
             case State.Alert:
                 CheckAlerting();
-                EnemyState = State.Walk;  StartCoroutine(Next(0f));
+                nextPosition = player.transform.position; EnemyState = State.Walk;  
+                StartCoroutine(Next(0f));
                 break;
             case State.Walk:
 //                Debug.Log("State Walk");
@@ -376,6 +377,10 @@ public abstract class EnemyBase : MonoBehaviour
                 }
             } else playerIsInLOS = false;
         }
+    }
+
+    public void SetNextPosition(Vector3 next) {
+        nextPosition = next;
     }
     public void NoiseAlert(Vector3 Source) {
         EnemyState = State.Walk;
