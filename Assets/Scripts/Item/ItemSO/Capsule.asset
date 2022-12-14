@@ -23,5 +23,5 @@ MonoBehaviour:
   description: 
   durable: 0
   weight: 5
-  value: 5
+  value: 10
   quantity: 010000000200000003000000

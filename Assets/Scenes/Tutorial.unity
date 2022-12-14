@@ -1255,7 +1255,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49a19e457a7f284aac52f75e7d3f52e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIObjective: {fileID: 1140451881}
+  UIObjective: {fileID: 1848238434}
   itemData:
   - {fileID: 11400000, guid: b27d83d66a0d1f844bc8e06998437af7, type: 2}
   - {fileID: 11400000, guid: 06fac574cc5a5c1478a21a35bf7264f2, type: 2}
@@ -3909,7 +3909,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1351253795
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5945,6 +5945,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1832489906}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1848238434 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1140451881, guid: 75755c9a38fe79541b296b1e7d238e48,
+    type: 3}
+  m_PrefabInstance: {fileID: 2011448699}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1862206350 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3484419329702419979, guid: d0b230ec623c2ac479d2bed8147e5e53,

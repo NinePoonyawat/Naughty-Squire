@@ -21,7 +21,7 @@ MonoBehaviour:
     type: 3}
   soundName: 
   name: Magazine
-  description: Sharp 7-Round Magazine
+  description: Sharp 6-Round Magazine
   durable: 0
   weight: 2
   value: 1

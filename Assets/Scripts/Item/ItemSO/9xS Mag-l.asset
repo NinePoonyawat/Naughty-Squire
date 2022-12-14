@@ -21,10 +21,10 @@ MonoBehaviour:
     type: 3}
   soundName: 
   name: Magazine
-  description: Sharp 7-Round Magazine
+  description: Sharp 9-Round Magazine
   durable: 0
   weight: 2
-  value: 1
+  value: 6
   quantity: 000000000000000000000000
   ammoCapacity: 9
   availableWeapon: {fileID: 11400000, guid: 2d6619258a1bfef4f84a80bb8c9b9d70, type: 2}
