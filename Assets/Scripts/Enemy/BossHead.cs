@@ -6,6 +6,7 @@ public class BossHead : BossHitbox
 {
     //[SerializeField] private MeshFilter meshFilter;
     [SerializeField] private bool isGlow = false;
+    [SerializeField] private bool isImmune = false;
     [SerializeField] private GameObject auraPrefab;
     [SerializeField] private GameObject aura;
     
@@ -40,7 +41,7 @@ public class BossHead : BossHitbox
     public override void TakeDamage(float damage)
     { 
         
-        health -= damage*damageRatio;
+        if (!isImmune) health -= damage*damageRatio;
         Me.TakeDamage(damage*damageRatio*0.2f);
     }
 
@@ -73,4 +74,8 @@ public class BossHead : BossHitbox
         open = true;
         damageRatio = 1;
     }
+
+    public void SetIsImmune(bool im) {
+        isImmune = im;
+    } 
 }

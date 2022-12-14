@@ -9,18 +9,20 @@ public class EnemyBossHealth : HitableObject
     // [SerializeField] private float maxHealth = 200;
     // [SerializeField] private float health;
     public NavMeshAgent agent;
-    public Rigidbody projectile;
+    public Rigidbody bullet;
+    public Rigidbody laser;
     public GameObject player;
     [SerializeField] private GameObject JumpEffect;
-    [SerializeField] private GameObject BeamEffect;
-    [SerializeField] private GameObject Head;
+    public GameObject Head;
     public bool IsAttack = false;
     public bool IsStun = false;
     // float damageRatio = 1;
     private IEnumerator coroutine;
 
     public GameObject bulletspawn;
+    public GameObject LaserLine;
     public float JumpDamage;
+    bool RandomTrigger =false;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,14 +38,28 @@ public class EnemyBossHealth : HitableObject
             GetComponent<Animator>().SetBool("ChangeLaser", false);
         }
         else if (health > 100) {
-            GetComponent<Animator>().SetBool("ChangeCharge", true);
-            GetComponent<Animator>().SetBool("ChangeLaser", false);
+            if (!RandomTrigger) RandomState();
+            // GetComponent<Animator>().SetBool("ChangeCharge", true);
+            // GetComponent<Animator>().SetBool("ChangeLaser", false);
         }
         else {
             Head.GetComponent<BossHead>().SetOpen();
             GetComponent<Animator>().SetBool("ChangeCharge", true);
             GetComponent<Animator>().SetBool("ChangeLaser", true);
         }
+    }
+
+    void RandomState() {
+        RandomTrigger = true;
+        Debug.Log("LOOP");
+        GetComponent<Animator>().SetBool("ChangeCharge", Random.value > 0.5f);
+        GetComponent<Animator>().SetBool("ChangeLaser", false);
+        StartCoroutine(WaitRandomState(6f));
+    }
+
+    IEnumerator WaitRandomState(float delay) {
+        yield return new WaitForSeconds(delay);
+        RandomState();
     }
     public void lookatPosition() {
         Vector3 targetPosition = new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z);
@@ -81,7 +97,7 @@ public class EnemyBossHealth : HitableObject
     IEnumerator Shooting(float delay) {
         //StopAllCoroutinesFunc();
         yield return new WaitForSeconds(delay);
-        GameObject rc = Instantiate(projectile, bulletspawn.transform.position, transform.rotation).gameObject;
+        GameObject rc = Instantiate(bullet, bulletspawn.transform.position, transform.rotation).gameObject;
         // Debug.Log(rc.transform.position);
         // rc.AddForce(agent.transform.forward *32f,ForceMode.Impulse);
         // rc.AddForce(agent.transform.up *8f,ForceMode.Impulse);
@@ -153,7 +169,7 @@ public class EnemyBossHealth : HitableObject
     }
 
     public void LaserAttack() {
-        GameObject grenade = Instantiate(BeamEffect, bulletspawn.transform.position, transform.rotation);
+        GameObject grenade = Instantiate(LaserLine, bulletspawn.transform.position, transform.rotation).gameObject;
     }
     
 }
