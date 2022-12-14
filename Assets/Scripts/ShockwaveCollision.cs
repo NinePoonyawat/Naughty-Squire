@@ -5,17 +5,28 @@ using UnityEngine;
 public class ShockwaveCollision : MonoBehaviour
 {
     // Start is called before the first frame update
-    public float damage;
+    public float explodeRadius = 6f;
+    public float damage = 30;
     public bool isDone = false;
-    void Start()
+    
+    void Awake()
     {
-        
+        Explode();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Explode()
     {
-        
+        Collider[] colliders = Physics.OverlapSphere(transform.position, explodeRadius);
+
+        foreach (Collider nearbyObject in colliders)
+        {
+            PlayerHitbox entityHit = nearbyObject.GetComponent<PlayerHitbox>();
+            if (entityHit != null)
+            {
+                Debug.Log(entityHit);
+                entityHit.TakeDamage(damage);
+            }
+        }
     }
 
     private void OnParticleCollision(GameObject other) {

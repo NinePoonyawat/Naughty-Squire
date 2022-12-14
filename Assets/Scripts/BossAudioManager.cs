@@ -34,6 +34,7 @@ public class BossAudioManager : MonoBehaviour
             s.source.pitch = s.pitch;
             s.source.spatialBlend = 1;
         }
+        StartCoroutine(WalkSound());
     }
 
     public void Play(string name)
@@ -52,5 +53,16 @@ public class BossAudioManager : MonoBehaviour
         int rand = Random.Range(0, footsteps.Length);
         Sound s = footsteps[rand];
         s.source.Play();
+    }
+
+    IEnumerator WalkSound()
+    {
+        float wait = 0.8f;
+        while(true)
+        {
+            Debug.Log("walk");
+            PlayFootstep();
+            yield return new WaitForSeconds(wait);
+        }
     }
 }

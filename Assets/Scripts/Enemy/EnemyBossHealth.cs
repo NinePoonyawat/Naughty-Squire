@@ -229,6 +229,7 @@ public class EnemyBossHealth : HitableObject
     }
 
     public void JumpAttack() {
+        FindObjectOfType<BossAudioManager>().Play("JumpImpact");
         GameObject grenade = Instantiate(JumpEffect, this.transform.position, Quaternion.identity);
         grenade.transform.localScale = new Vector3(10, 10, 10);
          if (Vector3.Distance(agent.transform.position,player.transform.position) < 10) {
