@@ -21,12 +21,12 @@ MonoBehaviour:
     type: 3}
   soundName: 
   name: Magazine
-  description: Glock 14-round magazine
+  description: Glock 17-round magazine
   durable: 0
   weight: 2
-  value: 1
+  value: 6
   quantity: 000000000000000000000000
-  ammoCapacity: 14
+  ammoCapacity: 17
   availableWeapon: {fileID: 11400000, guid: bfdce7d34baf7f84681b4a2f46ef17d8, type: 2}
   refillTool: {fileID: 11400000, guid: ac96af1fadae157419d168790f4b60fd, type: 2}
   refillSoundName: InventoryInteract

@@ -24,7 +24,7 @@ MonoBehaviour:
   description: recover 10 health and 12 hunger point
   durable: 2
   weight: 1
-  value: 2
+  value: 6
   quantity: 000000000000000000000000
   consumableType: 0
   healthRecover: 10
