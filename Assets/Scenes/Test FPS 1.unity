@@ -20690,7 +20690,7 @@ PrefabInstance:
     - target: {fileID: 4695028934192624028, guid: 63904d215e43d1a408c49b1215f300f9,
         type: 3}
       propertyPath: maxHealth
-      value: 250
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 4695028934192624028, guid: 63904d215e43d1a408c49b1215f300f9,
         type: 3}
@@ -20703,6 +20703,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1329845292236604, guid: 8cd7da886d354f2438afd5d3223c92d8,
         type: 3}
+    - target: {fileID: 4695028934192624028, guid: 63904d215e43d1a408c49b1215f300f9,
+        type: 3}
+      propertyPath: HealthCon1
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 4695028934192624028, guid: 63904d215e43d1a408c49b1215f300f9,
+        type: 3}
+      propertyPath: HealthCon2
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 4695028934192624028, guid: 63904d215e43d1a408c49b1215f300f9,
         type: 3}
       propertyPath: JumpEffect
