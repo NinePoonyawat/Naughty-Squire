@@ -21,7 +21,8 @@ MonoBehaviour:
     type: 3}
   soundName: 
   name: Smoke Grenade
-  description: Create a smoke that cover an enemy vision for small period of time.
+  description: Create a smoke that cover an enemy vision and their projectile for
+    small period of time.
   durable: 0
   weight: 1
   value: 1

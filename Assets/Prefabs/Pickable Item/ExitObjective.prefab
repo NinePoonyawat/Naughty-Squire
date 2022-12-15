@@ -115,3 +115,4 @@ MonoBehaviour:
     type: 3}
   aura: {fileID: 0}
   objectiveType: 0
+  objectiveData: {fileID: 11400000, guid: 6ca52430359171a449375ccc8489f1ee, type: 2}

@@ -36,9 +36,9 @@ public class ShootingObjective : Objective
         }
         if (shoot[0] == 0 && shoot[1] == 0 && shoot[2] == 0)
         {
-            shoot[0] = 150;
-            shoot[1] = 250;
-            shoot[2] = 300;
+            shoot[0] = 120;
+            shoot[1] = 160;
+            shoot[2] = 200;
         }
         LevelShoot = shoot[0];
         LevelRank = 0;

@@ -11,6 +11,7 @@ public class BossHitbox : HitableObject
     // public Mesh bakedMesh;
     public bool CanStun;
     public bool isImmune = false;
+    public GameObject effectPrefab;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,7 +34,11 @@ public class BossHitbox : HitableObject
         if (CanStun && health <= 0) {
             Me.DoStun();
             if (!canDestroy) health = maxHealth;
-            else if (CanStun) Destroy(gameObject);
+            else if (CanStun) 
+            {
+                Instantiate(effectPrefab, transform.position, transform.rotation);
+                Destroy(gameObject);
+            }
         }   
     }
 

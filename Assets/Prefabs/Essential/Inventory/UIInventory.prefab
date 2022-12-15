@@ -1242,6 +1242,7 @@ MonoBehaviour:
   gridSizeWidth: 1
   gridSizeHeight: 2
   inventoryType: 1
+  gridType: 2
   anotherHandGrid: {fileID: 0}
   remainSize: 2
 --- !u!114 &145824603385645564
@@ -1257,7 +1258,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryController: {fileID: 0}
+  loadoutInventoryController: {fileID: 0}
   itemGrid: {fileID: 145824603385645563}
+  isLoadoutInventory: 0
 --- !u!1 &188765027104020407
 GameObject:
   m_ObjectHideFlags: 0
@@ -1764,6 +1767,7 @@ MonoBehaviour:
   gridSizeWidth: 1
   gridSizeHeight: 1
   inventoryType: 1
+  gridType: 2
   anotherHandGrid: {fileID: 0}
   remainSize: 1
 --- !u!114 &2716310342338123896
@@ -1779,7 +1783,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryController: {fileID: 0}
+  loadoutInventoryController: {fileID: 0}
   itemGrid: {fileID: 2716310342338123903}
+  isLoadoutInventory: 0
 --- !u!1 &4113325377588352218
 GameObject:
   m_ObjectHideFlags: 0
@@ -1921,6 +1927,7 @@ MonoBehaviour:
   gridSizeWidth: 1
   gridSizeHeight: 1
   inventoryType: 1
+  gridType: 2
   anotherHandGrid: {fileID: 0}
   remainSize: 1
 --- !u!114 &4143538654642650138
@@ -1936,7 +1943,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryController: {fileID: 0}
+  loadoutInventoryController: {fileID: 0}
   itemGrid: {fileID: 4143538654642650141}
+  isLoadoutInventory: 0
 --- !u!1 &4327681371060206247
 GameObject:
   m_ObjectHideFlags: 0
@@ -2031,6 +2040,7 @@ MonoBehaviour:
   gridSizeWidth: 1
   gridSizeHeight: 5
   inventoryType: 2
+  gridType: 2
   anotherHandGrid: {fileID: 2188477631822504458}
   remainSize: 0
 --- !u!114 &2337331906954142070
@@ -2046,7 +2056,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryController: {fileID: 0}
+  loadoutInventoryController: {fileID: 0}
   itemGrid: {fileID: 7876952434288230958}
+  isLoadoutInventory: 0
 --- !u!1 &4863173325812626257
 GameObject:
   m_ObjectHideFlags: 0
@@ -2244,6 +2256,7 @@ MonoBehaviour:
   gridSizeWidth: 5
   gridSizeHeight: 4
   inventoryType: 1
+  gridType: 2
   anotherHandGrid: {fileID: 0}
   remainSize: 20
 --- !u!114 &4863173326114198752
@@ -2259,7 +2272,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryController: {fileID: 0}
+  loadoutInventoryController: {fileID: 0}
   itemGrid: {fileID: 4863173326114198759}
+  isLoadoutInventory: 0
 --- !u!1 &5067502127154130433
 GameObject:
   m_ObjectHideFlags: 0
@@ -2354,6 +2369,7 @@ MonoBehaviour:
   gridSizeWidth: 1
   gridSizeHeight: 5
   inventoryType: 2
+  gridType: 2
   anotherHandGrid: {fileID: 7876952434288230958}
   remainSize: 0
 --- !u!114 &2428371680029514398
@@ -2369,7 +2385,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryController: {fileID: 0}
+  loadoutInventoryController: {fileID: 0}
   itemGrid: {fileID: 2188477631822504458}
+  isLoadoutInventory: 0
 --- !u!1 &5215821835401964959
 GameObject:
   m_ObjectHideFlags: 0
@@ -2464,6 +2482,7 @@ MonoBehaviour:
   gridSizeWidth: 1
   gridSizeHeight: 1
   inventoryType: 1
+  gridType: 2
   anotherHandGrid: {fileID: 0}
   remainSize: 1
 --- !u!114 &5215821835401964948
@@ -2479,7 +2498,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryController: {fileID: 0}
+  loadoutInventoryController: {fileID: 0}
   itemGrid: {fileID: 5215821835401964947}
+  isLoadoutInventory: 0
 --- !u!1 &6721319801666318980
 GameObject:
   m_ObjectHideFlags: 0
@@ -2651,36 +2672,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1299434995246459844}
     m_Modifications:
-    - target: {fileID: 189743442484353335, guid: bd993ed7bded80240ab4f35682ca0816,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 250.72
-      objectReference: {fileID: 0}
-    - target: {fileID: 189743442484353335, guid: bd993ed7bded80240ab4f35682ca0816,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 4.46
-      objectReference: {fileID: 0}
-    - target: {fileID: 6062193006035428032, guid: bd993ed7bded80240ab4f35682ca0816,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 250.72
-      objectReference: {fileID: 0}
-    - target: {fileID: 6062193006035428032, guid: bd993ed7bded80240ab4f35682ca0816,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 74.9579
-      objectReference: {fileID: 0}
-    - target: {fileID: 6062193006035428032, guid: bd993ed7bded80240ab4f35682ca0816,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 4.46
-      objectReference: {fileID: 0}
-    - target: {fileID: 6062193006035428032, guid: bd993ed7bded80240ab4f35682ca0816,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 1.5209961
-      objectReference: {fileID: 0}
     - target: {fileID: 7030333999499601460, guid: bd993ed7bded80240ab4f35682ca0816,
         type: 3}
       propertyPath: m_Name
@@ -2791,25 +2782,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7030333999499601462, guid: bd993ed7bded80240ab4f35682ca0816,
+    - target: {fileID: 7178534413837047745, guid: bd993ed7bded80240ab4f35682ca0816,
         type: 3}
-      propertyPath: m_Color.a
-      value: 0.7058824
+      propertyPath: m_AnchoredPosition.x
+      value: -22.2
       objectReference: {fileID: 0}
-    - target: {fileID: 7030333999499601462, guid: bd993ed7bded80240ab4f35682ca0816,
+    - target: {fileID: 7178534413837047745, guid: bd993ed7bded80240ab4f35682ca0816,
         type: 3}
-      propertyPath: m_Color.b
-      value: 0.88554645
+      propertyPath: m_AnchoredPosition.y
+      value: -78.6
       objectReference: {fileID: 0}
-    - target: {fileID: 7030333999499601462, guid: bd993ed7bded80240ab4f35682ca0816,
+    - target: {fileID: 8792846190382216472, guid: bd993ed7bded80240ab4f35682ca0816,
         type: 3}
-      propertyPath: m_Color.g
-      value: 0.9433962
+      propertyPath: m_fontSize
+      value: 24
       objectReference: {fileID: 0}
-    - target: {fileID: 7030333999499601462, guid: bd993ed7bded80240ab4f35682ca0816,
+    - target: {fileID: 8792846190382216472, guid: bd993ed7bded80240ab4f35682ca0816,
         type: 3}
-      propertyPath: m_Color.r
-      value: 0.9433962
+      propertyPath: m_fontSizeBase
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 8792846190382216472, guid: bd993ed7bded80240ab4f35682ca0816,
+        type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd993ed7bded80240ab4f35682ca0816, type: 3}

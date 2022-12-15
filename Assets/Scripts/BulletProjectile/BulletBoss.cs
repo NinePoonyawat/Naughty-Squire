@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BulletBoss : MonoBehaviour
 {
-    private float damage;
+    [SerializeField] private float damage = 20f;
     private Rigidbody bulletRigidBody;
     public float speed = 20f;
     [SerializeField] private GameObject effectPrefab;
@@ -17,7 +17,6 @@ public class BulletBoss : MonoBehaviour
     void Start()
     {
         bulletRigidBody.velocity = transform.forward * speed;
-        damage = 20f;
     }
 
     // Update is called once per frame
