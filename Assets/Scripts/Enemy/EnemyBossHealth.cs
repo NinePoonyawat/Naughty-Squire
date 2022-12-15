@@ -84,6 +84,7 @@ public class EnemyBossHealth : HitableObject
             // GetComponent<Animator>().SetBool("ChangeLaser", false);
         }
         else {
+            damageRatio = 0;
             Head.GetComponent<BossHead>().SetOpen();
             GetComponent<Animator>().SetBool("ChangeCharge", true);
             GetComponent<Animator>().SetBool("ChangeLaser", true);
