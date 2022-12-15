@@ -17,8 +17,9 @@ public class ChargingRun : StateMachineBehaviour
        enemyboss = animator.GetComponent<EnemyBossHealth>();
        timeTilNextMovement = enemyboss.CooldownAfterCharge;
        if (enemyboss != null) {
-          enemyboss.StopCoroutinesFunc();
-          enemyboss.DoCharge(timeTilNextMovement);
+         enemyboss.setIsStun(false);
+         enemyboss.StopCoroutinesFunc();
+         enemyboss.DoCharge(timeTilNextMovement);
        }
        //animator.SetBool("EnragedAttack",true);    
     }

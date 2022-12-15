@@ -174,7 +174,7 @@ public class EnemyBossHealth : HitableObject
         // Debug.Log(rc.transform.position);
         // rc.AddForce(agent.transform.forward *32f,ForceMode.Impulse);
         // rc.AddForce(agent.transform.up *8f,ForceMode.Impulse);
-        if (!GetComponent<Animator>().GetBool("ChangeCharge")) StartCoroutine(Shooting(delay));
+        if (!GetComponent<Animator>().GetBool("ChangeCharge") && !IsStun) StartCoroutine(Shooting(delay));
     }
     IEnumerator WaitCharge(float delay) {
         //StopAllCoroutinesFunc();
