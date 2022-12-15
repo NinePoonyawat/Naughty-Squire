@@ -208,7 +208,7 @@ public class EnemyBossHealth : HitableObject
     public void SetIsAttack(bool isattack) {
         IsAttack = isattack;
     }
-    public void SetStun() {
+    public void DoStun() {
         StopCoroutinesFunc();
         IsStun = true;
         agent.ResetPath();

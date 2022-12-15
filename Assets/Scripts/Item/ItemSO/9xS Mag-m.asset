@@ -24,7 +24,7 @@ MonoBehaviour:
   description: Sharp 6-Round Magazine
   durable: 0
   weight: 2
-  value: 1
+  value: 3
   quantity: 000000000000000000000000
   ammoCapacity: 6
   availableWeapon: {fileID: 11400000, guid: 2d6619258a1bfef4f84a80bb8c9b9d70, type: 2}

@@ -23,7 +23,7 @@ MonoBehaviour:
   description: 
   durable: 0
   weight: 2
-  value: 3
+  value: 4
   quantity: 000000000000000000000000
   ammoCapacity: 5
   availableWeapon: {fileID: 11400000, guid: f80abb54e29f65a4c9631d0aa8f45588, type: 2}

@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f509ab2df54b933489eb08d424a2e347, type: 3}
+  m_Name: DropCombat
+  m_EditorClassIdentifier: 
+  items:
+  - droppedItem: {fileID: 8670064970338657041, guid: 606626c1a6428b04d8266481b94fb1ad,
+      type: 3}
+    ratio: 3
+  - droppedItem: {fileID: 998503721572283027, guid: 0865e3b5ed2fed84994d2e46ccb143e6,
+      type: 3}
+    ratio: 3
+  - droppedItem: {fileID: 8913911316208515247, guid: 0af9c3051c67cf242950f57461b0651f,
+      type: 3}
+    ratio: 2
+  - droppedItem: {fileID: 3899929556972027779, guid: 5a752d8cb4ffc5444b99663dfff5cd68,
+      type: 3}
+    ratio: 2
+  poolRate: 10

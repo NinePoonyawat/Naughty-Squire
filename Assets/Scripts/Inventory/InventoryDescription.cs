@@ -11,6 +11,7 @@ public class InventoryDescription : MonoBehaviour
     [SerializeField] TMP_Text nameText;
     [SerializeField] TMP_Text descriptionText;
     [SerializeField] TMP_Text usesText;
+    [SerializeField] TMP_Text valueText;
 
     void Awake()
     {
@@ -27,8 +28,9 @@ public class InventoryDescription : MonoBehaviour
         ItemData itemData = targetItem.itemData;
         nameText.text = itemData.name;
         descriptionText.text = itemData.description;
-        usesText.text = targetItem.durable.ToString();
+        usesText.text = targetItem.durable.ToString() + "/" + itemData.durable;
         if (targetItem.durable == 0) usesText.text = "";
+        valueText.text = "Worth $" + itemData.value.ToString();
     }
 
     public void SetPosition(ItemGrid targetGrid, InventoryItem targetItem)

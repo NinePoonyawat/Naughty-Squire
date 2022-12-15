@@ -43,7 +43,7 @@ public class Laser : MonoBehaviour
 
     IEnumerator WaitAndDestroy(float delay) {
         yield return new WaitForSeconds(delay);
-        GameObject ob = Instantiate(ShockWave, playerLastHit, transform.rotation);
+        GameObject ob = Instantiate(ShockWave, lr.GetPosition(1), transform.rotation);
         Destroy(gameObject);
         Destroy(ob,6f);
     }

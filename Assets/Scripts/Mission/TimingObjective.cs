@@ -29,9 +29,9 @@ public class TimingObjective : Objective
         }
         if (time[0] == 0 && time[1] == 0 && time[2] == 0)
         {
-            time[0] = 600;
-            time[1] = 500;
-            time[2] = 400;
+            time[0] = 300;
+            time[1] = 240;
+            time[2] = 180;
         }
         timeCounter = 0;
         levelTime = time[2];
