@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5037533951809737989}
   - component: {fileID: -8177644818128106895}
   m_Layer: 0
-  m_Name: Dynamite
+  m_Name: Stun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

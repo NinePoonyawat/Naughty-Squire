@@ -2457,6 +2457,7 @@ MonoBehaviour:
   memoryStartTime: 10
   aiHeardPlayer: 0
   noiseTravelDistance: 0
+  timeAttack: 0
   CanAlert: 1
   FleeAble: 0
   randomCharging: 0
@@ -14960,6 +14961,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2015783277}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2028785528 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4695028934192624028, guid: 63904d215e43d1a408c49b1215f300f9,
+    type: 3}
+  m_PrefabInstance: {fileID: 5154114952114248003}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3fe381333cb2a5428d077147ff1a442, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2030958348
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16913,6 +16926,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 519836287, guid: 63904d215e43d1a408c49b1215f300f9, type: 3}
+      propertyPath: Me
+      value: 
+      objectReference: {fileID: 2028785528}
+    - target: {fileID: 519836287, guid: 63904d215e43d1a408c49b1215f300f9, type: 3}
       propertyPath: SkinMesh
       value: 
       objectReference: {fileID: 519836292}
@@ -16924,6 +16941,10 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1564160560, guid: 63904d215e43d1a408c49b1215f300f9, type: 3}
+      propertyPath: Me
+      value: 
+      objectReference: {fileID: 2028785528}
     - target: {fileID: 1564160560, guid: 63904d215e43d1a408c49b1215f300f9, type: 3}
       propertyPath: SkinMesh
       value: 
@@ -16943,6 +16964,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 481621060391266459, guid: 63904d215e43d1a408c49b1215f300f9,
         type: 3}
+      propertyPath: Me
+      value: 
+      objectReference: {fileID: 2028785528}
+    - target: {fileID: 481621060391266459, guid: 63904d215e43d1a408c49b1215f300f9,
+        type: 3}
       propertyPath: SkinMesh
       value: 
       objectReference: {fileID: 481621060391266464}
@@ -16955,6 +16981,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 481621060391266553, guid: 63904d215e43d1a408c49b1215f300f9,
+        type: 3}
+      propertyPath: Me
+      value: 
+      objectReference: {fileID: 2028785528}
+    - target: {fileID: 481621060391266553, guid: 63904d215e43d1a408c49b1215f300f9,
+        type: 3}
+      propertyPath: open
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 481621060391266553, guid: 63904d215e43d1a408c49b1215f300f9,
+        type: 3}
+      propertyPath: CanStun
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 481621060391266553, guid: 63904d215e43d1a408c49b1215f300f9,
         type: 3}
@@ -16977,6 +17018,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6320648758858120341, guid: cbd324e5c755cd94eb19c004f67ed589,
         type: 3}
+    - target: {fileID: 481621060391266553, guid: 63904d215e43d1a408c49b1215f300f9,
+        type: 3}
+      propertyPath: canDestroy
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 481621060391266555, guid: 63904d215e43d1a408c49b1215f300f9,
         type: 3}
       propertyPath: m_Enabled

@@ -10,7 +10,6 @@ public class BossHead : BossHitbox
     [SerializeField] private GameObject auraPrefab;
     [SerializeField] private GameObject aura;
     
-    public bool open;
     // Start is called before the first frame update
     public override void Awake() {
         health = maxHealth;
@@ -25,19 +24,13 @@ public class BossHead : BossHitbox
         SkinMesh = GetComponent<SkinnedMeshRenderer>();
         collider = GetComponent<MeshCollider>();
         Me = gameObject.GetComponentInParent(typeof(EnemyBossHealth)) as EnemyBossHealth;
-        damageRatio = 0;
     }
-    void Update() {
-        //Glow(open);
-        Check();
-        //Debug.Log("OPEN" + open);
-    }
-    void Check() {
-        if (health <= 0) {
-            Me.SetStun();
-            health = maxHealth;
-        }   
-    }
+    // void Update() {
+    //     //Glow(open);
+    //     Check();
+    //     //Debug.Log("OPEN" + open);
+    // }
+    
     public override void TakeDamage(float damage)
     { 
         
@@ -74,10 +67,7 @@ public class BossHead : BossHitbox
         GetComponent<MeshCollider>().sharedMesh = null;
         GetComponent<MeshCollider>().sharedMesh = meshFilter.mesh;
     }
-    public void SetOpen() {
-        open = true;
-        damageRatio = 1;
-    }
+
 
     public void SetIsImmune(bool im) {
         isImmune = im;

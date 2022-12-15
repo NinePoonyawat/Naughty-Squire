@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 3734626337720247026}
   - component: {fileID: 3734626337720246926}
   - component: {fileID: 3734626337720246927}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PlayerHitbox
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -251,9 +251,10 @@ GameObject:
   - component: {fileID: 3734626339199097190}
   - component: {fileID: 3734626339199097185}
   - component: {fileID: 5684615017797870358}
+  - component: {fileID: 1526423811}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -265,7 +266,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3734626339199097192}
-  m_LocalRotation: {x: -0, y: -0.5924634, z: -0, w: 0.8055974}
+  m_LocalRotation: {x: 0, y: -0.59246325, z: 0, w: 0.8055975}
   m_LocalPosition: {x: -3.092762, y: 1.5349998, z: 24.2219}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -427,19 +428,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aimVirtualCamera: {fileID: 0}
   gunSystem: {fileID: 3734626339199097191}
-  grenadeThrower: {fileID: 0}
+  grenadeThrower: {fileID: 1526423811}
   normalSensitivity: 1
   aimSensitivity: 1.5
   aimColliderLayerMask:
     serializedVersion: 2
-    m_Bits: 899
+    m_Bits: 9155
   debugTransform: {fileID: 0}
   pfBulletProjectile: {fileID: 2484245806235318867, guid: 500ff7ad67f952a44823fe7931373a73,
     type: 3}
-  pfGrenade: {fileID: 0}
+  BombGrenade: {fileID: 5770973946861446051, guid: 02548fbd6d539574d8f510562799b129,
+    type: 3}
+  FireGrenade: {fileID: 840373825239723997, guid: b0557ee2647903e48853586574486c2f,
+    type: 3}
+  SmokeGrenade: {fileID: 2917340970708378719, guid: d2fc347573881364285d176431e44a18,
+    type: 3}
+  DecoyGrenade: {fileID: 1121817427712990099, guid: 37af384163c609c4dba6075b73a34a0b,
+    type: 3}
   spawnBulletPosition: {fileID: 3734626338079289337}
   timecount: 0
-  playerCamera: {fileID: 0}
+  playerCamera: {fileID: 5761410224818206746}
   inventoryManager: {fileID: 3734626339199097188}
 --- !u!114 &5684615017797870358
 MonoBehaviour:
@@ -457,6 +465,22 @@ MonoBehaviour:
   playerCamera: {fileID: 0}
   _pointItem: {fileID: 0}
   pickupRange: 7
+--- !u!114 &1526423811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3734626339199097192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9066c7cf99f304b94e2229e77c8c0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explodeRadius: 0
+  damage: 0
+  explodeForce: 100
+  inventoryManager: {fileID: 3734626339199097188}
 --- !u!1 &5990292133106142144
 GameObject:
   m_ObjectHideFlags: 0
@@ -629,6 +653,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3734626339199097195}
     m_Modifications:
+    - target: {fileID: 5603459555053192780, guid: f6d148d888ffbf54b9afe9936dfaec1f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5603459555053192780, guid: f6d148d888ffbf54b9afe9936dfaec1f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6354393073804155969, guid: f6d148d888ffbf54b9afe9936dfaec1f,
         type: 3}
       propertyPath: m_RenderPostProcessing
@@ -657,12 +691,12 @@ PrefabInstance:
     - target: {fileID: 8944336655422409496, guid: f6d148d888ffbf54b9afe9936dfaec1f,
         type: 3}
       propertyPath: m_CullingMask.m_Bits
-      value: 6071
+      value: 30711
       objectReference: {fileID: 0}
     - target: {fileID: 8944336655422409497, guid: f6d148d888ffbf54b9afe9936dfaec1f,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8944336655422409498, guid: f6d148d888ffbf54b9afe9936dfaec1f,
         type: 3}
@@ -857,6 +891,12 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+--- !u!20 &5761410224818206746 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 8944336655422409496, guid: f6d148d888ffbf54b9afe9936dfaec1f,
+    type: 3}
+  m_PrefabInstance: {fileID: 3734626339628708610}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5761410224818206749 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8944336655422409503, guid: f6d148d888ffbf54b9afe9936dfaec1f,

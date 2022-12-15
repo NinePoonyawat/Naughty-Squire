@@ -9,6 +9,7 @@ public class BossHitbox : HitableObject
     [SerializeField] protected MeshCollider collider;
     public SkinnedMeshRenderer SkinMesh;
     public Mesh bakedMesh;
+    public bool CanStun;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +22,7 @@ public class BossHitbox : HitableObject
     // Update is called once per frame
     void Update()
     {
+        Check();
     }
     void FixedUpdate()
     {
@@ -28,6 +30,13 @@ public class BossHitbox : HitableObject
         // SkinMesh.BakeMesh(bakedMesh);
         //collider.sharedMesh = null;
         // collider.sharedMesh = bakedMesh;
+    }
+
+    protected void Check() {
+        if (CanStun && health <= 0) {
+            Me.SetStun();
+            if (!canDestroy)health = maxHealth;
+        }   
     }
 
     public override void TakeDamage(float damage)
