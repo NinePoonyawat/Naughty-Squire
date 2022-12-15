@@ -59,7 +59,6 @@ public class EnemySpawner : MonoBehaviour
     void Spawn(GameObject spawnPoint)
     {
         int enemyIndex = Random.Range(0,enemyPrefab.Length);
-        GameObject GO = Instantiate(enemyPrefab[enemyIndex],spawnPoint.transform);
-        GO.transform.SetParent(enemyParent);
+        GameObject GO = Instantiate(enemyPrefab[enemyIndex],spawnPoint.transform.position,Quaternion.identity,enemyParent);
     }
 }
