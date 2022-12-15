@@ -59,8 +59,8 @@ public abstract class EnemyBase : MonoBehaviour
     protected float timeTilNextMovement = 3f;
     // protected float timeBetweenAttacks = 3.5f;
 
-    protected float timeAttack = 2f;
     [Header("Behavior")]
+    public float timeAttack;
     public bool CanAlert = true;
     public bool FleeAble;
     public bool randomCharging;
@@ -221,7 +221,7 @@ public abstract class EnemyBase : MonoBehaviour
     // Debuff
     public void Slow (float multiply)
     {
-        GetComponent<UnityEngine.AI.NavMeshAgent>().speed *= multiply;
+        agent.speed *= multiply;
     }
     public void Fragile (float multiply)
     {
@@ -297,7 +297,7 @@ public abstract class EnemyBase : MonoBehaviour
         //yield return null;      
     }
     protected IEnumerator NormalAttackMove(float delay) {
-        for (float d = delay; d > 0; d -= Time.deltaTime) {
+        for (float d = delay; d >= 0; d -= Time.deltaTime) {
             lookatPosition();
             yield return null;
         }  
@@ -315,7 +315,7 @@ public abstract class EnemyBase : MonoBehaviour
     }
 
     protected IEnumerator ShooterAttackMove(float delay) {
-        for (float d = delay; d > 0; d -= Time.deltaTime) {
+        for (float d = delay; d >= 0; d -= Time.deltaTime) {
             lookatPosition();
             yield return null;
         }    

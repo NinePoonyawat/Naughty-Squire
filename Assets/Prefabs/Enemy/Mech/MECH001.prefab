@@ -1636,9 +1636,13 @@ MonoBehaviour:
   StopDistance: 3
   aiMemoriesPlayer: 0
   memoryStartTime: 10
+  aiHeardPlayer: 0
   noiseTravelDistance: 10
+  timeAttack: 0
   CanAlert: 1
   FleeAble: 0
+  randomCharging: 0
+  isShooter: 0
   MoveCurve:
     serializedVersion: 2
     m_Curve:
@@ -1665,7 +1669,6 @@ MonoBehaviour:
     m_RotationOrder: 4
   healthBarUI: {fileID: 2520814003296846461}
   slider: {fileID: 7855913380747886756}
-  isShooter: 0
   firePoint: {fileID: 0}
   Bullet: {fileID: 0}
   Bomb: {fileID: 0}

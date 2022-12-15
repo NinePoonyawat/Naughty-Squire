@@ -1203,9 +1203,13 @@ MonoBehaviour:
   StopDistance: 5
   aiMemoriesPlayer: 0
   memoryStartTime: 10
+  aiHeardPlayer: 0
   noiseTravelDistance: 10
+  timeAttack: 0
   CanAlert: 1
   FleeAble: 0
+  randomCharging: 0
+  isShooter: 1
   MoveCurve:
     serializedVersion: 2
     m_Curve:
@@ -1259,7 +1263,6 @@ MonoBehaviour:
     m_RotationOrder: 4
   healthBarUI: {fileID: 0}
   slider: {fileID: 0}
-  isShooter: 1
   firePoint: {fileID: 3392479213087189955}
   Bullet: {fileID: 5515353475798057132, guid: b4166dfdad769e5408d0e6b558f45dd8, type: 3}
   Bomb: {fileID: 6209210684506683142, guid: 7b68226ab025d0a4fbce0155e9408c38, type: 3}
