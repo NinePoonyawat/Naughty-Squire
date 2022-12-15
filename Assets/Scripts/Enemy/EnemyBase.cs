@@ -83,7 +83,7 @@ public abstract class EnemyBase : MonoBehaviour
     void Start() {
         FindObjectOfType<FPSController>().walkEvent += NoiseCheck;
         EnemyState = State.Idle;
-        StartCoroutine(WaitRandomSpeed(10f));
+        StartCoroutine(WaitRandomSpeed(5f));
         StartNextState();
         //meshColor.a = 0.5f;
         //starterAssetInputs = GetComponent<StarterAssetsInputs>();
@@ -477,12 +477,12 @@ public abstract class EnemyBase : MonoBehaviour
 
     IEnumerator WaitRandomSpeed(float delay) {
         yield return new WaitForSeconds(delay);
-        if (Random.value > 0.65 && EnemyState == State.Walk && randomCharging) {
+        if (Random.value > 0.4 && EnemyState == State.Walk && randomCharging) {
             agent.speed = 10f;
             Debug.Log("Speed");
         }
         else agent.speed = 3.5f;
-        StartCoroutine(WaitRandomSpeed(10f));
+        StartCoroutine(WaitRandomSpeed(5f));
     }
     // void OnValidate() {
     //     mesh = CreateWedgeMesh();
