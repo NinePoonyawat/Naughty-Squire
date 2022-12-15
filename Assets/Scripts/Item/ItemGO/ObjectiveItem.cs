@@ -12,7 +12,7 @@ public class ObjectiveItem : InteractableItem
     private enum ObjectiveType { EXIT }
     [SerializeField] private ObjectiveType objectiveType;
     [SerializeField] private ObjectiveData objectiveData;
-    [SerializeField]
+    [SerializeField] private bool isTutorial = false;
 
     public override void Glow(bool open)
     {
@@ -32,6 +32,9 @@ public class ObjectiveItem : InteractableItem
         InventoryController inventoryController = GameObject.Find("InventoryController").GetComponent<InventoryController>();
         objectiveData.SetInventoryScore(inventoryController.GetScore());
         
-        SceneManager.LoadScene (sceneName:"SummaryScene");
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        if (!isTutorial) SceneManager.LoadScene (sceneName:"SummaryScene");
+        else SceneManager.LoadScene (sceneName:"LobbyScene");
     }
 }

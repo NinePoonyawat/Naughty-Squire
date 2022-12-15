@@ -1080,7 +1080,7 @@ GameObject:
   - component: {fileID: 618479079790758997}
   - component: {fileID: 1541733123}
   m_Layer: 0
-  m_Name: MECH002
+  m_Name: MECH003
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1279,7 +1279,7 @@ MonoBehaviour:
   firePoint: {fileID: 3392479213087189955}
   Bullet: {fileID: 5515353475798057132, guid: b4166dfdad769e5408d0e6b558f45dd8, type: 3}
   Bomb: {fileID: 6209210684506683142, guid: 7b68226ab025d0a4fbce0155e9408c38, type: 3}
-  IsBombBullet: 1
+  IsBombBullet: 0
   ShootAngle: 20
   CanMove: 1
 --- !u!1 &7455371729617891028
