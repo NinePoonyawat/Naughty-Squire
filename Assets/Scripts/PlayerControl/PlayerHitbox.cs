@@ -17,6 +17,9 @@ public class PlayerHitbox : HitableObject
     public TMP_Text hpText;
     public TMP_Text energyText;
 
+    [Header("After Die Menu")]
+    [SerializeField] private AfterDieMenu afterDieMenu;
+
     public override void Awake()
     {
         health = maxHealth;
@@ -34,9 +37,11 @@ public class PlayerHitbox : HitableObject
 
     public override void TakeDamage(float damage)
     {
-        if (health <= 0) return;
-
         health -= damage*damageRatio;
+        if (health <= 0)
+        {
+            afterDieMenu.Dead();
+        }
         UpdateUI();
     }
 
