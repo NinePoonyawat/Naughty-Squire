@@ -26,7 +26,7 @@ public class EnemySpawner : MonoBehaviour
             timeCounter = 0;
         }
 
-        if (Input.GetKey(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.P))
         {
             RandomSpawn();
         }
