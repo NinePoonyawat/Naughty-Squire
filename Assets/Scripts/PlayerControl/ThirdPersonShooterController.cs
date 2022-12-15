@@ -19,7 +19,10 @@ namespace Player
         [SerializeField] private LayerMask aimColliderLayerMask = new LayerMask();
         [SerializeField] private Transform debugTransform;
         [SerializeField] private Transform pfBulletProjectile;
-        [SerializeField] private Transform pfGrenade;
+        [SerializeField] private Transform BombGrenade;
+        [SerializeField] private Transform FireGrenade;
+        [SerializeField] private Transform SmokeGrenade;
+        [SerializeField] private Transform DecoyGrenade;
         [SerializeField] private Transform spawnBulletPosition;
 
         private ThirdPersonController thirdPersonController;
@@ -139,7 +142,16 @@ namespace Player
             if (starterAssetInputs.shoot && !gunSystem.isShootable()) starterAssetInputs.shoot = false;
         }
         private void CreateandThrowGrenade(Vector3 aimDir, float timecount, bool isLeft) {
-            GameObject grenade = Instantiate(pfGrenade, spawnBulletPosition.transform.position, Quaternion.LookRotation(aimDir, Vector3.up)).gameObject;
+            GameObject grenade;
+            if (grenadeThrower.getbombtype(isLeft) == GrenadeData.BombType.BOMB) {
+                grenade = Instantiate(BombGrenade, spawnBulletPosition.transform.position, Quaternion.LookRotation(aimDir, Vector3.up)).gameObject;
+            } else if (grenadeThrower.getbombtype(isLeft) == GrenadeData.BombType.SMOKE) {
+                grenade = Instantiate(SmokeGrenade, spawnBulletPosition.transform.position, Quaternion.LookRotation(aimDir, Vector3.up)).gameObject;
+            } else if (grenadeThrower.getbombtype(isLeft) == GrenadeData.BombType.FIRE) {
+                grenade = Instantiate(FireGrenade, spawnBulletPosition.transform.position, Quaternion.LookRotation(aimDir, Vector3.up)).gameObject;
+            } else {
+                grenade = Instantiate(DecoyGrenade, spawnBulletPosition.transform.position, Quaternion.LookRotation(aimDir, Vector3.up)).gameObject;
+            }
             grenade.SendMessage("SetFloatData",grenadeThrower.getfloatdata());
             grenade.SendMessage("SetLifeTime",Mathf.Max(grenadeThrower.getlifetime() - timecount, 0));
             grenade.SendMessage("Setbombtype",grenadeThrower.getbombtype(isLeft));

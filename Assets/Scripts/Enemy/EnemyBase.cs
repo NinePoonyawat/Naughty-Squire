@@ -46,8 +46,8 @@ public abstract class EnemyBase : MonoBehaviour
     private float increasingMemoryTime;
 
     [Header("AI Hearing")]
-    Vector3 noisePosition;
-    private bool aiHeardPlayer = false;
+    // Vector3 noisePosition;
+    public bool aiHeardPlayer = false;
     public float noiseTravelDistance;
     //public float spinspeed = 3f;
     //private bool canspin = false;
@@ -383,8 +383,8 @@ public abstract class EnemyBase : MonoBehaviour
             EnemyState = State.Attack;
             //Debug.Log("change attack state");
         } else if (playerIsInLOS || aiMemoriesPlayer || aiHeardPlayer){
-            nextPosition = player.transform.position;
             EnemyState = State.Walk;
+            if (playerIsInLOS || aiMemoriesPlayer) nextPosition = player.transform.position;
             //Debug.Log("change walk state");
         } else EnemyState = State.Idle;
         lookatPosition();
@@ -434,7 +434,8 @@ public abstract class EnemyBase : MonoBehaviour
         //Debug.Log("distance = " + distance + " noiseTravel = " + noiseTravelDistance );
         if (distance <= noiseTravelDistance) {
             //Debug.Log("Alert");
-            NoiseAlert(nextPosition);
+
+            NoiseAlert(player.transform.position);
         }
         //     var vel = player.GetComponent<Rigidbody>().velocity;
         //     float speed = vel.magnitude; 
@@ -452,17 +453,17 @@ public abstract class EnemyBase : MonoBehaviour
 
     }
 
-    void GoToNoisePosition() {
-        agent.SetDestination(noisePosition);
-        aiHeardPlayer = false;
-    }
+    // void GoToNoisePosition() {
+    //     agent.SetDestination(noisePosition);
+    //     aiHeardPlayer = false;
+    // }
 
     IEnumerator AiMemory() {
         increasingMemoryTime = 0;
 
         while (increasingMemoryTime < memoryStartTime) {
             increasingMemoryTime += Time.deltaTime;
-            aiMemoriesPlayer = true;
+            // aiMemoriesPlayer = true;
             yield  return null;
         }
         aiHeardPlayer = false;

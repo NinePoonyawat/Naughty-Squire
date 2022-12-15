@@ -1558,7 +1558,7 @@ NavMeshAgent:
   m_Acceleration: Infinity
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 2
+  m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -1633,7 +1633,7 @@ MonoBehaviour:
   fieldOfViewAngle: 45
   losRadius: 20
   height: 2
-  StopDistance: 1.5
+  StopDistance: 3
   aiMemoriesPlayer: 0
   memoryStartTime: 10
   noiseTravelDistance: 10
@@ -1641,12 +1641,36 @@ MonoBehaviour:
   FleeAble: 0
   MoveCurve:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
   healthBarUI: {fileID: 2520814003296846461}
   slider: {fileID: 7855913380747886756}
+  isShooter: 0
+  firePoint: {fileID: 0}
+  Bullet: {fileID: 0}
+  Bomb: {fileID: 0}
+  IsBombBullet: 0
+  ShootAngle: 0
   CanMove: 1
 --- !u!114 &113859023750702941
 MonoBehaviour:
