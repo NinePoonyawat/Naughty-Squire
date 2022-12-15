@@ -26,9 +26,15 @@ public class GridInteract : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        if (!isLoadoutInventory) inventoryController.selectedItemGrid = null;
-        else loadoutInventoryController.selectedItemGrid = null;
-        Debug.Log("exit");
+        if (!isLoadoutInventory)
+        {
+            inventoryController.selectedItemGrid = null;
+            Debug.Log("exit1");
+        }
+        else
+        {
+            loadoutInventoryController.selectedItemGrid = null;
+            Debug.Log("exit2");
+        }
     }
-    
 }
