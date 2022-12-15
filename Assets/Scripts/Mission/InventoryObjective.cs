@@ -32,9 +32,9 @@ public class InventoryObjective : Objective
 
         if (inventoryScore[0] == 0 && inventoryScore[1] == 0 && inventoryScore[2] == 0)
         {
-            inventoryScore[0] = 1;
-            inventoryScore[1] = 2;
-            inventoryScore[2] = 3;
+            inventoryScore[0] = 10;
+            inventoryScore[1] = 20;
+            inventoryScore[2] = 30;
         }
         levelRank = 0;
         levelScore = inventoryScore[levelRank];
@@ -45,12 +45,13 @@ public class InventoryObjective : Objective
     public void OnPickUpItem(ItemData itemData)
     {
         iScore = inventoryController.GetIScore();
-        if (level != 0 && iScore < inventoryScore[levelRank - 1])
-        {
-            Relagations();
-            levelRank--;
-            if (levelRank >= 0 && levelRank <= 3) levelScore = inventoryScore[levelRank];
-        }
+        // if (level != 0 && iScore < inventoryScore[levelRank - 1])
+        // {
+        //     Relagations();
+        //     levelRank--;
+        //     if (levelRank >= 0 && levelRank <= 3) levelScore = inventoryScore[levelRank];
+        // }
+        UpdateLevel();
         UpdateText();
     }
 
@@ -58,12 +59,13 @@ public class InventoryObjective : Objective
     {
         
         iScore = inventoryController.GetIScore();
-        if (levelRank != 3 && iScore >= inventoryScore[levelRank])
-        {
-            Promotions();
-            levelRank++;
-            if (levelRank >= 0 && levelRank < 3) levelScore = inventoryScore[levelRank];
-        }
+        // if (levelRank != 3 && iScore >= inventoryScore[levelRank])
+        // {
+        //     Promotions();
+        //     levelRank++;
+        //     if (levelRank >= 0 && levelRank < 3) levelScore = inventoryScore[levelRank];
+        // }
+        UpdateLevel();
         UpdateText();
     }
 
@@ -75,7 +77,7 @@ public class InventoryObjective : Objective
     public void SetIScore(int newIScore)
     {
         iScore = newIScore;
-        Debug.Log(iScore);
+        UpdateText();
     }
 
     // public void SetInventoryScore()
@@ -92,6 +94,29 @@ public class InventoryObjective : Objective
 
     public override void UpdateText()
     {
-        //uiText.text = "scored your inventory "  + "<color=" + color + "> ( " + iScore + " / " + levelScore + " )</color>";
+        if (uiText == null) return;
+        uiText.text = "scored your inventory "  + "<color=" + color + "> ( " + iScore + " / " + levelScore + " )</color>";
+        UpdateLevel();
+    }
+
+    public void UpdateLevel()
+    {
+        if (iScore >= inventoryScore[2])
+        {
+            levelRank = 3;
+        }
+        else if (iScore > inventoryScore[1])
+        {
+            levelRank = 2;
+        }
+        else if (iScore > inventoryScore[0])
+        {
+            levelRank = 1;
+        }
+        else
+        {
+            levelRank = 0;
+        }
+        setLevel(levelRank);
     }
 }

@@ -9,6 +9,8 @@ public class MenuController : MonoBehaviour
     private bool isMenuOpen = false;
     private bool isSetting = false;
 
+    private bool isGameEnd;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +20,7 @@ public class MenuController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isGameEnd) return;
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (isMenuOpen) CloseMenu();
@@ -56,5 +59,10 @@ public class MenuController : MonoBehaviour
         MenuCanvas.SetActive(true);
         SettingCanvas.SetActive(false);
         isSetting = false;
+    }
+
+    public void GameEnd()
+    {
+        isGameEnd = true;
     }
 }

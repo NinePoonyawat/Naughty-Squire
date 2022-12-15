@@ -40,6 +40,30 @@ public abstract class Objective : MonoBehaviour
         UpdateObjectiveData();
     }
 
+    public void setLevel(int newLevel)
+    {
+        if (newLevel == (int) CompleteLevel.Fail)
+        {
+            level = CompleteLevel.Fail;
+            color = "#FF0000";
+        }
+        else if (newLevel == (int) CompleteLevel.First)
+        {
+            level = CompleteLevel.First;
+            color = "#FFA500";
+        }
+        else if (newLevel == (int) CompleteLevel.Second)
+        {
+            level = CompleteLevel.Second;
+            color = "#FFFF00";
+        }
+        else
+        {
+            level = CompleteLevel.Third;
+            color = "#00FF00";
+        } 
+    }
+
     public void UpdateObjectiveData()
     {
         objectiveData.UpdateScore(objectiveIdx, GetScore());

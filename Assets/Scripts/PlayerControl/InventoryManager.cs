@@ -16,6 +16,8 @@ public class InventoryManager : MonoBehaviour
     public event EventHandler OnInventoryOpen;
     public event EventHandler OnInventoryClose;
 
+    private bool isGameEnd;
+
     private void Awake()
     {
         uiInventory = GameObject.Find("UIInventory");
@@ -26,6 +28,7 @@ public class InventoryManager : MonoBehaviour
 
     private void Update()
     {
+        if (isGameEnd) return;
         if (Input.GetKeyDown(KeyCode.E))
         {
             if(isInventoryShowed)
@@ -51,5 +54,12 @@ public class InventoryManager : MonoBehaviour
         isInventoryShowed = true;
         OnInventoryOpen?.Invoke(this, EventArgs.Empty);
         cursorControl.Active();
+    }
+
+    public void GameEnd()
+    {
+        inventoryController.SetOpen(false);
+        isInventoryShowed = false;
+        isGameEnd = true;
     }
 }
