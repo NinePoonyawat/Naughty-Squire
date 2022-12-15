@@ -2455,9 +2455,12 @@ MonoBehaviour:
   StopDistance: 5
   aiMemoriesPlayer: 0
   memoryStartTime: 10
+  aiHeardPlayer: 0
   noiseTravelDistance: 0
   CanAlert: 1
   FleeAble: 0
+  randomCharging: 0
+  isShooter: 0
   MoveCurve:
     serializedVersion: 2
     m_Curve:
@@ -2484,7 +2487,6 @@ MonoBehaviour:
     m_RotationOrder: 4
   healthBarUI: {fileID: 1430063476}
   slider: {fileID: 1920254082}
-  isShooter: 0
   firePoint: {fileID: 0}
   Bullet: {fileID: 0}
   Bomb: {fileID: 0}
@@ -6328,14 +6330,14 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 714721283}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: -0.019999892}
   m_LocalScale: {x: 1.315727, y: 1.315727, z: 1.315727}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1563056244}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
   m_AnchoredPosition: {x: 250, y: 154}
@@ -7789,7 +7791,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 884663538}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: -0.02}
   m_LocalScale: {x: 1.315727, y: 1.315727, z: 1.315727}
   m_ConstrainProportionsScale: 0
@@ -7799,7 +7801,7 @@ RectTransform:
   - {fileID: 339191824}
   m_Father: {fileID: 1563056244}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 250, y: 154}
@@ -8077,7 +8079,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8590691, g: 0.9339623, b: 0.9240633, a: 1}
+  m_Color: {r: 0.58717513, g: 0.8584906, b: 0.829931, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -8537,7 +8539,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1027374833}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: -0.02}
   m_LocalScale: {x: 1.315727, y: 1.315727, z: 1.315727}
   m_ConstrainProportionsScale: 0
@@ -8547,7 +8549,7 @@ RectTransform:
   - {fileID: 1385530434}
   m_Father: {fileID: 1563056244}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 250.1, y: 153.7}
@@ -9990,7 +9992,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1218037920}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: -0.02}
   m_LocalScale: {x: 1.315727, y: 1.315727, z: 1.315727}
   m_ConstrainProportionsScale: 0
@@ -10000,7 +10002,7 @@ RectTransform:
   - {fileID: 1753053517}
   m_Father: {fileID: 1563056244}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 250, y: 154}
@@ -13962,7 +13964,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1863036376}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: -0.02}
   m_LocalScale: {x: 1.315727, y: 1.315727, z: 1.315727}
   m_ConstrainProportionsScale: 0
@@ -13972,7 +13974,7 @@ RectTransform:
   - {fileID: 1517311269}
   m_Father: {fileID: 1563056244}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 250, y: 154}
