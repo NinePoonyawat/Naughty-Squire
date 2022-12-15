@@ -16,7 +16,8 @@ public class ShootingAttack : StateMachineBehaviour
        
        if (enemyboss != null) {
         //enemyboss.StopCoroutinesFunc();
-        enemyboss.DoShooting(0.5f);
+         enemyboss.setIsStun(false);
+         enemyboss.DoShooting(0.5f);
        }
        //animator.GetComponent<EnemyBossHealth>().DoCoroutine(1f,projectile,agent);
     }

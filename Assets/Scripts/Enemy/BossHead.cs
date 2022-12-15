@@ -6,24 +6,24 @@ public class BossHead : BossHitbox
 {
     //[SerializeField] private MeshFilter meshFilter;
     [SerializeField] private bool isGlow = false;
-    [SerializeField] private bool isImmune = false;
+    
     [SerializeField] private GameObject auraPrefab;
     [SerializeField] private GameObject aura;
     
     // Start is called before the first frame update
     public override void Awake() {
         health = maxHealth;
-        meshFilter = GetComponent<MeshFilter>();
+        // meshFilter = GetComponent<MeshFilter>();
 
-        if (SkinMesh != null) SetMesh();
+        // if (SkinMesh != null) SetMesh();
     }
     void Start()
     {
-        bakedMesh = new Mesh();
+        // bakedMesh = new Mesh();
+        // SkinMesh = GetComponent<SkinnedMeshRenderer>();
+        // collider = GetComponent<MeshCollider>();
         Me = gameObject.GetComponentInParent(typeof(EnemyBossHealth)) as EnemyBossHealth;
-        SkinMesh = GetComponent<SkinnedMeshRenderer>();
-        collider = GetComponent<MeshCollider>();
-        Me = gameObject.GetComponentInParent(typeof(EnemyBossHealth)) as EnemyBossHealth;
+        CanStun = false;
     }
     // void Update() {
     //     //Glow(open);
@@ -31,13 +31,7 @@ public class BossHead : BossHitbox
     //     //Debug.Log("OPEN" + open);
     // }
     
-    public override void TakeDamage(float damage)
-    { 
-        
-        if (!isImmune) health -= damage*damageRatio;
-        // Me.TakeDamage(damage*damageRatio*0.1f);
-    }
-
+    
     // Update is called once per frame
     public void Glow()
     {
@@ -58,15 +52,15 @@ public class BossHead : BossHitbox
         Destroy(aura);
     }
 
-    public void SetMesh()
-    {
-        if (SkinMesh.sharedMesh != null)
-        {
-            meshFilter.mesh = SkinMesh.sharedMesh;
-        }
-        GetComponent<MeshCollider>().sharedMesh = null;
-        GetComponent<MeshCollider>().sharedMesh = meshFilter.mesh;
-    }
+    // public void SetMesh()
+    // {
+    //     if (SkinMesh.sharedMesh != null)
+    //     {
+    //         meshFilter.mesh = SkinMesh.sharedMesh;
+    //     }
+    //     GetComponent<MeshCollider>().sharedMesh = null;
+    //     GetComponent<MeshCollider>().sharedMesh = meshFilter.mesh;
+    // }
 
 
     public void SetIsImmune(bool im) {

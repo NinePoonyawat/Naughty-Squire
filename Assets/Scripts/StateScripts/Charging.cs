@@ -18,6 +18,7 @@ public class Charging : StateMachineBehaviour
        enemyboss = animator.GetComponent<EnemyBossHealth>();    
        timeTilNextMovement = enemyboss.ChargingTime;
        if (enemyboss != null) {
+        enemyboss.Head.GetComponent<BossHead>().SetCanStun(true);
         enemyboss.ShowTimer(true);
         enemyboss.setIsStun(false);
         enemyboss.StopCoroutinesFunc();
