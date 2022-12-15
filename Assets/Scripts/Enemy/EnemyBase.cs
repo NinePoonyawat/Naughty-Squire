@@ -93,6 +93,8 @@ public abstract class EnemyBase : MonoBehaviour
         AIManager.Instance.AddDictList(group,this);
         health = maxHealth;
 
+        //if (slider == null) slider = gameObject.transform.GetChild("Canvas")
+
         player = GameObject.Find("PlayerHitbox");
         if (player == null) player = GameObject.Find("PlayerWithCamera/PlayerArmature");
         slider.value = CalculateHealth();
