@@ -10,6 +10,7 @@ TagManager:
   - Ground
   - PickableObject
   - Smoke
+  - Boss
   layers:
   - Default
   - TransparentFX

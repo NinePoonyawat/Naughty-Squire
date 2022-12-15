@@ -101,17 +101,13 @@ public class GrenadeProjectile : MonoBehaviour
 
         foreach (Collider nearbyObject in colliders)
         {
-            PlayerHitbox entityHit = nearbyObject.GetComponent<PlayerHitbox>();
+            HitableObject entityHit = nearbyObject.GetComponent<HitableObject>();
             if (entityHit != null)
-            {
-                //Debug.Log(entityHit);
-                entityHit.TakeDamage(damage);
-            }
-            EnemyHitbox enemyHit = nearbyObject.GetComponent<EnemyHitbox>();
-            if (enemyHit != null)
-            {
-                //Debug.Log(entityHit);
-                enemyHit.TakeDamage(damage);
+            {   
+                if (entityHit.tag == "Boss") {
+                    entityHit.TakeDamage(damage*0.5f);
+                }
+                else entityHit.TakeDamage(damage);
             }
             Rigidbody rb = nearbyObject.GetComponent<Rigidbody>();
             if (rb != null)
@@ -158,10 +154,15 @@ public class GrenadeProjectile : MonoBehaviour
 
         foreach (Collider nearbyObject in colliders)
         {
+            Debug.Log(nearbyObject.tag);
             EnemyBase entityHit = nearbyObject.GetComponent<EnemyBase>();
             if (entityHit != null) {
                 Debug.Log(nearbyObject.tag);
                 entityHit.NoiseAlert(transform.position);
+            }
+            if (nearbyObject.tag == "Boss") {
+                EnemyBossHealth bossHit = nearbyObject.GetComponentInParent(typeof(EnemyBossHealth)) as EnemyBossHealth;
+                bossHit.DoStun();
             }
         }     
     }

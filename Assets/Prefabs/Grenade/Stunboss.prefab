@@ -500,7 +500,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4833253101626055876}
   - component: {fileID: 3946238465450058079}
-  - component: {fileID: 3946238465450058078}
   - component: {fileID: 3946238465450058067}
   - component: {fileID: 3946238465450058076}
   - component: {fileID: 3946238465450058077}
@@ -520,7 +519,7 @@ Transform:
   m_GameObject: {fileID: 8451132031381745367}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -117.1067, y: 4.7934, z: -38.0855}
-  m_LocalScale: {x: 0.037389185, y: 0.037389185, z: 0.037389185}
+  m_LocalScale: {x: 6.123157, y: 6.062532, z: 4.0788713}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1520177234387267988}
@@ -546,22 +545,6 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
---- !u!54 &3946238465450058078
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8451132031381745367}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!33 &3946238465450058067
 MeshFilter:
   m_ObjectHideFlags: 0

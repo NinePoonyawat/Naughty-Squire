@@ -31,7 +31,7 @@ public class BossHitbox : HitableObject
 
     protected void Check() {
         if (CanStun && health <= 0) {
-            Me.SetStun();
+            Me.DoStun();
             if (!canDestroy) health = maxHealth;
             else if (CanStun) Destroy(gameObject);
         }   
