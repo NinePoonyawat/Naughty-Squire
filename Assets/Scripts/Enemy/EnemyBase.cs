@@ -55,19 +55,21 @@ public abstract class EnemyBase : MonoBehaviour
     //public float spinTime = 3f;
     
     [Header("AI Bool Check")]
-    public bool CanAlert = true;
     protected float timeTilAlert = 10f;
     protected float timeTilNextMovement = 3f;
     // protected float timeBetweenAttacks = 3.5f;
 
     protected float timeAttack = 2f;
+    [Header("Behavior")]
+    public bool CanAlert = true;
     public bool FleeAble;
+    public bool randomCharging;
+    public bool isShooter;
     public AnimationCurve MoveCurve;
     public GameObject healthBarUI;
     public Slider slider;
 
     [Header("Bomb Shooter")]
-    public bool isShooter;
     public Transform firePoint;
     public Rigidbody Bullet;
     public Rigidbody Bomb;
@@ -81,6 +83,7 @@ public abstract class EnemyBase : MonoBehaviour
     void Start() {
         FindObjectOfType<FPSController>().walkEvent += NoiseCheck;
         EnemyState = State.Idle;
+        StartCoroutine(WaitRandomSpeed(10f));
         StartNextState();
         //meshColor.a = 0.5f;
         //starterAssetInputs = GetComponent<StarterAssetsInputs>();
@@ -469,6 +472,17 @@ public abstract class EnemyBase : MonoBehaviour
         aiHeardPlayer = false;
         aiMemoriesPlayer = false;
         EnemyState = State.Idle;
+    }
+
+
+    IEnumerator WaitRandomSpeed(float delay) {
+        yield return new WaitForSeconds(delay);
+        if (Random.value > 0.65 && EnemyState == State.Walk && randomCharging) {
+            agent.speed = 10f;
+            Debug.Log("Speed");
+        }
+        else agent.speed = 3.5f;
+        StartCoroutine(WaitRandomSpeed(10f));
     }
     // void OnValidate() {
     //     mesh = CreateWedgeMesh();

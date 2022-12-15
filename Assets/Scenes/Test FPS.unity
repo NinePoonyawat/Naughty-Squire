@@ -152,6 +152,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 543450653150807247, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
         type: 3}
+      propertyPath: randomCharging
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 543450653150807247, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
+        type: 3}
       propertyPath: MoveCurve.m_Curve.Array.size
       value: 5
       objectReference: {fileID: 0}
@@ -8509,6 +8514,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1526423808}
+    - target: {fileID: 543450653150807247, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
+        type: 3}
+      propertyPath: randomCharging
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3686060139607772655, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
         type: 3}
       propertyPath: m_AnchorMax.x

@@ -110,7 +110,6 @@ public class EnemyBossHealth : HitableObject
 
     void RandomState() {
         RandomTrigger = true;
-        Debug.Log("LOOP");
         GetComponent<Animator>().SetBool("ChangeCharge", Random.value > 0.5f);
         GetComponent<Animator>().SetBool("ChangeLaser", false);
         StartCoroutine(WaitRandomState(6f));
