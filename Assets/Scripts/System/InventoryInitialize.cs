@@ -15,5 +15,9 @@ public class InventoryInitialize : MonoBehaviour
             if (item == null) continue;
             if (!inventoryController.FillItem(item)) Debug.Log("no");
         }
+
+        ObjectiveController objectiveController = GameObject.Find("ObjectiveController").GetComponent<ObjectiveController>();
+
+        objectiveController.SetIScore(inventoryController.GetIScore());
     }
 }

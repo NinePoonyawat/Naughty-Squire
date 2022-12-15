@@ -9,6 +9,7 @@ public class ObjectiveController : MonoBehaviour
     private GameObject main;
     private TimingObjective timingObjective;
     private ShootingObjective shootingObjective;
+    private InventoryObjective inventoryObjective;
     private FindingObjective findingObjective1;
     private FindingObjective findingObjective2;
     private FindingObjective findingObjective3;
@@ -25,6 +26,7 @@ public class ObjectiveController : MonoBehaviour
         main = this.gameObject;
         timingObjective =  main.AddComponent<TimingObjective>();
         shootingObjective = main.AddComponent<ShootingObjective>();
+        inventoryObjective = main.AddComponent<InventoryObjective>();
         findingObjective1 = main.AddComponent<FindingObjective>();
         findingObjective2 = main.AddComponent<FindingObjective>();
         findingObjective3 = main.AddComponent<FindingObjective>();
@@ -99,5 +101,15 @@ public class ObjectiveController : MonoBehaviour
         findingObjective1.SetItem(itemData[a]);
         findingObjective2.SetItem(itemData[b]);
         findingObjective3.SetItem(itemData[c]);
+    }
+
+    public bool SetIScore(int newIScore)
+    {
+        if(inventoryObjective != null)
+        {
+            inventoryObjective.SetIScore(newIScore);
+            return true;
+        }
+        return false;
     }
 }

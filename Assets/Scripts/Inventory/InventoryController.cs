@@ -46,6 +46,8 @@ public class InventoryController : MonoBehaviour
 
     bool isToolOn = false;
 
+    private int iScore = 0;
+
     private void Start()
     {
         inventoryHighlight = GetComponent<InventoryHighlight>();
@@ -207,7 +209,7 @@ public class InventoryController : MonoBehaviour
             Destroy(itemToInsert.gameObject);
             return false;
         }
-
+        iScore += selectedItem.value;
         selectedItemGrid.PlaceItem(itemToInsert, posOnGrid.Value.x, posOnGrid.Value.y,bulletRecognize);
         try
         {
@@ -264,6 +266,7 @@ public class InventoryController : MonoBehaviour
 
         Destroy(selectedItem.gameObject);
         OnPickUpItem.Invoke(selectedItem.itemData);
+        iScore -= selectedItem.itemData.value;
         selectedItem = null;
     }
 
@@ -359,6 +362,7 @@ public class InventoryController : MonoBehaviour
             {
                 gunSystem.SetBulletLeftInMagazine(bulletLeft);
             }
+            iScore += selectedItem.itemData.value;
 
             selectedItem = null;
             if (overlapItem != null)
@@ -367,6 +371,7 @@ public class InventoryController : MonoBehaviour
                 overlapItem = null;
                 rectTransform = selectedItem.GetComponent<RectTransform>();
             }
+
         }
     }
 
@@ -500,5 +505,10 @@ public class InventoryController : MonoBehaviour
             score += grid.GetGridScore();
         }
         return score;
+    }
+
+    public int GetIScore()
+    {
+        return iScore;
     }
 }
