@@ -8509,131 +8509,6 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1526423808}
-    - target: {fileID: 543450653150807247, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
-        type: 3}
-      propertyPath: StopDistance
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 543450653150807247, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
-        type: 3}
-      propertyPath: MoveCurve.m_Curve.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 543450653150807247, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
-        type: 3}
-      propertyPath: MoveCurve.m_Curve.Array.data[1].time
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 543450653150807247, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
-        type: 3}
-      propertyPath: MoveCurve.m_Curve.Array.data[2].time
-      value: 1.1162274
-      objectReference: {fileID: 0}
-    - target: {fileID: 543450653150807247, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
-        type: 3}
-      propertyPath: MoveCurve.m_Curve.Array.data[3].time
-      value: 1.6907063
-      objectReference: {fileID: 0}
-    - target: {fileID: 543450653150807247, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
-        type: 3}
-      propertyPath: MoveCurve.m_Curve.Array.data[4].time
-      value: 2.4601572
-      objectReference: {fileID: 0}
-    - target: {fileID: 543450653150807247, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
-        type: 3}
-      propertyPath: MoveCurve.m_Curve.Array.data[1].value
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 543450653150807247, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
-        type: 3}
-      propertyPath: MoveCurve.m_Curve.Array.data[2].value
-      value: 0.97593164
-      objectReference: {fileID: 0}
-    - target: {fileID: 543450653150807247, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
-        type: 3}
-      propertyPath: MoveCurve.m_Curve.Array.data[3].value
-      value: 1.2839066
-      objectReference: {fileID: 0}
-    - target: {fileID: 543450653150807247, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
-        type: 3}
-      propertyPath: MoveCurve.m_Curve.Array.data[4].value
-      value: 0.67852557
-      objectReference: {fileID: 0}
-    - target: {fileID: 543450653150807247, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
-        type: 3}
-      propertyPath: MoveCurve.m_Curve.Array.data[0].inSlope
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 543450653150807247, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
-        type: 3}
-      propertyPath: MoveCurve.m_Curve.Array.data[1].inSlope
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 543450653150807247, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
-        type: 3}
-      propertyPath: MoveCurve.m_Curve.Array.data[2].inSlope
-      value: 0.9332044
-      objectReference: {fileID: 0}
-    - target: {fileID: 543450653150807247, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
-        type: 3}
-      propertyPath: MoveCurve.m_Curve.Array.data[3].inSlope
-      value: -0.056141727
-      objectReference: {fileID: 0}
-    - target: {fileID: 543450653150807247, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
-        type: 3}
-      propertyPath: MoveCurve.m_Curve.Array.data[0].outSlope
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 543450653150807247, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
-        type: 3}
-      propertyPath: MoveCurve.m_Curve.Array.data[1].inWeight
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 543450653150807247, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
-        type: 3}
-      propertyPath: MoveCurve.m_Curve.Array.data[1].outSlope
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 543450653150807247, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
-        type: 3}
-      propertyPath: MoveCurve.m_Curve.Array.data[2].inWeight
-      value: 0.33333334
-      objectReference: {fileID: 0}
-    - target: {fileID: 543450653150807247, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
-        type: 3}
-      propertyPath: MoveCurve.m_Curve.Array.data[2].outSlope
-      value: 0.9332044
-      objectReference: {fileID: 0}
-    - target: {fileID: 543450653150807247, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
-        type: 3}
-      propertyPath: MoveCurve.m_Curve.Array.data[3].inWeight
-      value: 0.33333334
-      objectReference: {fileID: 0}
-    - target: {fileID: 543450653150807247, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
-        type: 3}
-      propertyPath: MoveCurve.m_Curve.Array.data[3].outSlope
-      value: -0.056141727
-      objectReference: {fileID: 0}
-    - target: {fileID: 543450653150807247, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
-        type: 3}
-      propertyPath: MoveCurve.m_Curve.Array.data[1].outWeight
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 543450653150807247, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
-        type: 3}
-      propertyPath: MoveCurve.m_Curve.Array.data[2].outWeight
-      value: 0.33333334
-      objectReference: {fileID: 0}
-    - target: {fileID: 543450653150807247, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
-        type: 3}
-      propertyPath: MoveCurve.m_Curve.Array.data[3].outWeight
-      value: 0.33333334
-      objectReference: {fileID: 0}
-    - target: {fileID: 1391650458950777888, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3686060139607772655, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -8642,31 +8517,6 @@ PrefabInstance:
     - target: {fileID: 3686060139607772655, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5132282983233689315, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
-        type: 3}
-      propertyPath: enemy
-      value: 
-      objectReference: {fileID: 1244353938}
-    - target: {fileID: 8096921408388389128, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
-        type: 3}
-      propertyPath: group
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8096921408388389128, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8096921408388389128, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
-        type: 3}
-      propertyPath: StopDistance
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8096921408388389131, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
-        type: 3}
-      propertyPath: m_StoppingDistance
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8634722520331892680, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
@@ -8729,13 +8579,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: MECH001 (3)
       objectReference: {fileID: 0}
-    - target: {fileID: 8980004821935517042, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8096921408388389128, guid: 3b2c7fa6dc005fe4495855adb84ab50c, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b2c7fa6dc005fe4495855adb84ab50c, type: 3}
 --- !u!4 &1244353937 stripped
 Transform:
@@ -8743,18 +8587,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1244353936}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1244353938 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 543450653150807247, guid: 3b2c7fa6dc005fe4495855adb84ab50c,
-    type: 3}
-  m_PrefabInstance: {fileID: 1244353936}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 517fb0b160b94f341a81fbefb580fedc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1245911793 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9072264608146457300, guid: 29da8d2aa4735294889a0e00dc3f5e10,
@@ -13281,18 +13113,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1982724477}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2004824004 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2563443902375572069, guid: d24f4a1f87f1dd545b72480157c29013,
-    type: 3}
-  m_PrefabInstance: {fileID: 1183407314622960260}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f506ba960f0f1d49bc84e9dbf02f580, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &2011448699
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14946,11 +14766,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1183407314707043563, guid: d24f4a1f87f1dd545b72480157c29013,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 2004824004}
     - target: {fileID: 1183407314969675668, guid: d24f4a1f87f1dd545b72480157c29013,
         type: 3}
       propertyPath: m_Name
@@ -15447,6 +15262,30 @@ PrefabInstance:
       propertyPath: pfGrenade
       value: 
       objectReference: {fileID: 840373825239723997, guid: b0557ee2647903e48853586574486c2f,
+        type: 3}
+    - target: {fileID: 3734626339199097185, guid: a407795b5cb17234fa3cfc4708837c31,
+        type: 3}
+      propertyPath: BombGrenade
+      value: 
+      objectReference: {fileID: 5770973946861446051, guid: 02548fbd6d539574d8f510562799b129,
+        type: 3}
+    - target: {fileID: 3734626339199097185, guid: a407795b5cb17234fa3cfc4708837c31,
+        type: 3}
+      propertyPath: FireGrenade
+      value: 
+      objectReference: {fileID: 840373825239723997, guid: b0557ee2647903e48853586574486c2f,
+        type: 3}
+    - target: {fileID: 3734626339199097185, guid: a407795b5cb17234fa3cfc4708837c31,
+        type: 3}
+      propertyPath: DecoyGrenade
+      value: 
+      objectReference: {fileID: 1121817427712990099, guid: 37af384163c609c4dba6075b73a34a0b,
+        type: 3}
+    - target: {fileID: 3734626339199097185, guid: a407795b5cb17234fa3cfc4708837c31,
+        type: 3}
+      propertyPath: SmokeGrenade
+      value: 
+      objectReference: {fileID: 2917340970708378719, guid: d2fc347573881364285d176431e44a18,
         type: 3}
     - target: {fileID: 3734626339199097185, guid: a407795b5cb17234fa3cfc4708837c31,
         type: 3}
