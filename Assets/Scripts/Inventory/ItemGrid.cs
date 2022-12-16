@@ -31,6 +31,9 @@ public class ItemGrid : MonoBehaviour
     public event OnPickupWeaponEvent onPickupWeaponEvent;
     public delegate void OnPickupWeaponEvent();
 
+    public event OnPickupGrenadeEvent onPickupGrenadeEvent;
+    public delegate void OnPickupGrenadeEvent();
+
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
@@ -147,7 +150,7 @@ public class ItemGrid : MonoBehaviour
         if (inventoryType == InventoryType.HAND && toReturn.itemData.isTwoHanded == true)
         {
             anotherHandGrid.remainSize = 1;
-        }
+        } 
 
         //check if this is LOADOUT, return copy of item, so grid's item wont lost
         if (inventoryType == InventoryType.LOADOUT)
@@ -158,9 +161,13 @@ public class ItemGrid : MonoBehaviour
 
         //send data to GunSystem
         WeaponData weaponData = toReturn.itemData as WeaponData;
-        if (inventoryType == InventoryType.HAND && weaponData != null)
+        GrenadeData grenadeData = toReturn.itemData as GrenadeData;
+        if (inventoryType == InventoryType.HAND && weaponData != null )
         {
             onPickupWeaponEvent.Invoke();
+        }
+        if (inventoryType == InventoryType.HAND && grenadeData != null) {
+            onPickupGrenadeEvent.Invoke();
         }
 
 
