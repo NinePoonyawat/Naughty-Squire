@@ -52,6 +52,7 @@ public class LoadoutInventoryController : MonoBehaviour
         inventoryDescription = GetComponent<InventoryDescription>();
         //itemGrids = FindObjectsOfType<ItemGrid>();
         inventoryLoadoutSystem.ClearData();
+        DontDestroyOnLoad(inventoryLoadoutSystem);
         SetOpen(true);
 
         //pickableParent = GameObject.Find("PickableItem").transform;

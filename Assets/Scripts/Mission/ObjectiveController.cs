@@ -33,6 +33,8 @@ public class ObjectiveController : MonoBehaviour
         findingObjective2 = main.AddComponent<FindingObjective>();
         findingObjective3 = main.AddComponent<FindingObjective>();
         totalScore = 0;
+
+        DontDestroyOnLoad(objectiveData);
     }
 
     // Start is called before the first frame update
