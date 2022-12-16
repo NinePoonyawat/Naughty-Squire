@@ -10,8 +10,8 @@ public class GrenadeThrower : MonoBehaviour {
     private float lifeTime;
     private float ExplodeTime;
     [SerializeField] private float explodeRadius;
-    private GrenadeData.BombType bombTypeLeft;
-    private GrenadeData.BombType bombTypeRight;
+    [SerializeField] GrenadeData.BombType bombTypeLeft;
+    [SerializeField] GrenadeData.BombType bombTypeRight;
 
     //[SerializeField] private GameObject explodeEffect;
 
@@ -21,9 +21,8 @@ public class GrenadeThrower : MonoBehaviour {
     private bool isInventoryOpen = false;
 
     private GrenadeData currentData = null;
-    private bool leftArmed =false;
-    private bool rightArmed =false;
-    private ItemGrid grenadeItemClone;
+    [SerializeField] private bool leftArmed =false;
+    [SerializeField] private bool rightArmed =false;
     private int posX;
     private int posY;
     private ItemGrid LhandItemGrid;
@@ -38,10 +37,10 @@ public class GrenadeThrower : MonoBehaviour {
             //GameObject.Find("UI/UIInventory").SetActive(false);
 
         LhandItemGrid.weaponChangeEvent += setNewDataLeft;
-        LhandItemGrid.onPickupWeaponEvent += disarm;
+        LhandItemGrid.onPickupGrenadeEvent += disarm;
 
         RhandItemGrid.weaponChangeEvent += setNewDataRight;
-        RhandItemGrid.onPickupWeaponEvent += disarm;
+        RhandItemGrid.onPickupGrenadeEvent += disarm;
 
         inventoryManager.OnInventoryOpen += openInventory;
         inventoryManager.OnInventoryClose += closeInventory;

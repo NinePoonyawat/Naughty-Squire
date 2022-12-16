@@ -29,12 +29,12 @@ public class GridInteract : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         if (!isLoadoutInventory)
         {
             inventoryController.selectedItemGrid = null;
-            Debug.Log("exit1");
+            //Debug.Log("exit1");
         }
         else
         {
             loadoutInventoryController.selectedItemGrid = null;
-            Debug.Log("exit2");
+            //Debug.Log("exit2");
         }
     }
 }

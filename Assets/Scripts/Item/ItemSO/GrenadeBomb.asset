@@ -27,7 +27,7 @@ MonoBehaviour:
   value: 0
   quantity: 000000000000000000000000
   ExplodeTime: 5
-  lifeTime: 5
+  lifeTime: 3
   explodeRadius: 7
   damage: 10
   bombtype: 0

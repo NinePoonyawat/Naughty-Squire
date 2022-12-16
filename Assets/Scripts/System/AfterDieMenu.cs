@@ -18,6 +18,7 @@ public class AfterDieMenu : MonoBehaviour
     {
         Time.timeScale = 0f;
         Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         menu.SetActive(true);
 
         inventoryManager.GameEnd();

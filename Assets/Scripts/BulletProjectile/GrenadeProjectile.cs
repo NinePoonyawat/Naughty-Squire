@@ -27,17 +27,17 @@ public class GrenadeProjectile : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
-        
-        
+    {        
        if (GrenadeRigidBody != null) {
             // **** cant find main cam ****
             //GrenadeRigidBody.AddForce(transform.forward *32f,ForceMode.Impulse); 
             switch (bombType) {
             case GrenadeData.BombType.BOMB :
+                Debug.Log("Bomb grenade");
                 Explode = ExplodeBomb; StartCoroutine(waitToDestroy());
                 break;
             case GrenadeData.BombType.FIRE :
+                Debug.Log("Fire grenade");
                 ParticleSystem pfire = fireEffect.GetComponent<ParticleSystem>();
                 //FireCollision fc = fireEffect.GetComponent<FireCollision>();
                 if (pfire != null) {
@@ -50,6 +50,7 @@ public class GrenadeProjectile : MonoBehaviour
                 Explode = ExplodeFire;
                 break;
             case GrenadeData.BombType.SMOKE :
+                Debug.Log("Smoke grenade");
                 ParticleSystem psmoke = smokeEffect.GetComponent<ParticleSystem>();
                 if (psmoke != null) {
                     var main = psmoke.main;
@@ -60,6 +61,7 @@ public class GrenadeProjectile : MonoBehaviour
                 Explode = ExplodeSmoke;
                 break;
             case GrenadeData.BombType.DECOY :
+                Debug.Log("Decoy grenade");
                 Explode = ExplodeDecoy; StartCoroutine(waitToDestroy());
                 break;
         }            
@@ -71,6 +73,7 @@ public class GrenadeProjectile : MonoBehaviour
         GrenadeRigidBody = GetComponent<Rigidbody>();
 
     }
+
     private bool isFireorSmoke() {
         return bombType == GrenadeData.BombType.SMOKE || bombType == GrenadeData.BombType.FIRE;
     }
