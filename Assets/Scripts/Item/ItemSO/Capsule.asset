@@ -17,7 +17,8 @@ MonoBehaviour:
   isTwoHanded: 0
   itemIcon: {fileID: 21300000, guid: 30c6b9293407fc74cb0a0a0b5cb718c7, type: 3}
   alternateIcon: {fileID: 0}
-  itemMesh: {fileID: 0}
+  itemMesh: {fileID: -1388986636967069719, guid: 0c70a1c8c591d1f4caf785297bccc393,
+    type: 3}
   soundName: 
   name: Capsule
   description: 
