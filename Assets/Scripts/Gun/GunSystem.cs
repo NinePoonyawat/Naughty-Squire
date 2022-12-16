@@ -31,6 +31,7 @@ namespace Weapon
         private string reloadSoundName;
 
         [SerializeField] private TMP_Text ammoText;
+        [SerializeField] private TMP_Text[] gunAmmoText;
 
         public event EventHandler OnOutOfAmmoEvent;
         public event EventHandler OnReloadEvent;
@@ -184,6 +185,9 @@ namespace Weapon
         public void SetAmmoText(int ammoRemain,int maxAmmo)
         {
             ammoText.SetText(ammoRemain + " / " + maxAmmo);
+
+            gunAmmoText[0].text = ammoRemain.ToString();
+            gunAmmoText[1].text = ammoRemain.ToString();
         }
 
         void SetOutOfAmmo(bool newInput)
