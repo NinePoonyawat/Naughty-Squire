@@ -7328,6 +7328,7 @@ MonoBehaviour:
   inventoryLoadoutSystem: {fileID: 11400000, guid: 58fed446fe72c2b4eacdd81234868ce4,
     type: 2}
   inventoryController: {fileID: 71100443}
+  isObjectiveExist: 0
 --- !u!1001 &1760485253
 PrefabInstance:
   m_ObjectHideFlags: 0
