@@ -46,6 +46,7 @@ public class SummaryManager : MonoBehaviour
         if(seconds < 10) objectiveTexts[11].text += "0";
         objectiveTexts[11].text += seconds.ToString();
 
+        objectiveTexts[12].text = "$" + objectiveData.inventoryScore.ToString();
 
 
         int sum = 0;

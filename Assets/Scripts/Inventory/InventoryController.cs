@@ -265,7 +265,8 @@ public class InventoryController : MonoBehaviour
         pickableItem.SetMesh();
 
         Destroy(selectedItem.gameObject);
-        OnPickUpItem.Invoke(selectedItem.itemData);
+        try {OnPickUpItem.Invoke(selectedItem.itemData);}
+        catch {}
         iScore -= selectedItem.itemData.value;
         selectedItem = null;
     }
