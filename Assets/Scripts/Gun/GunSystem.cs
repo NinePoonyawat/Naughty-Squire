@@ -155,7 +155,6 @@ namespace Weapon
 
         public void SetBulletLeftInMagazine(int newBulletLeftInMagazine)
         {
-            Debug.Log("sett " + newBulletLeftInMagazine);
             bulletLeftInMagazine = newBulletLeftInMagazine;
         }
 

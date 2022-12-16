@@ -40,6 +40,7 @@ namespace Player
 
 
         [SerializeField] private InventoryManager inventoryManager;
+        private InventoryController inventoryController;
 
         private void Awake()
         {
@@ -51,6 +52,8 @@ namespace Player
         {
             inventoryManager.OnInventoryOpen += Pause;
             inventoryManager.OnInventoryClose += Resume;
+
+            inventoryController = inventoryManager.inventoryController;
         }
         // Update is called once per frame
         void Update()
@@ -109,6 +112,7 @@ namespace Player
                 isbuttonDown = true;
                 timecount += Time.deltaTime;
                 if (timecount > grenadeThrower.getlifetime()) {
+                    inventoryController.UpdateScore(-1);
                     CreateandThrowGrenade(aimDir, timecount,true);
                     timecount = 0; isbuttonDown = false;
                 }

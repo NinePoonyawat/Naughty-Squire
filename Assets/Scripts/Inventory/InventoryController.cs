@@ -43,6 +43,8 @@ public class InventoryController : MonoBehaviour
 
     public event OnPickUpItemEvent OnPickUpItem;
     public delegate void OnPickUpItemEvent(ItemData itemData);
+    public event OnScoreChangeEvent OnScoreChange;
+    public delegate void OnScoreChangeEvent();
 
     bool isToolOn = false;
 
@@ -265,9 +267,9 @@ public class InventoryController : MonoBehaviour
         pickableItem.SetMesh();
 
         Destroy(selectedItem.gameObject);
+        iScore -= selectedItem.itemData.value;
         try {OnPickUpItem.Invoke(selectedItem.itemData);}
         catch {}
-        iScore -= selectedItem.itemData.value;
         selectedItem = null;
     }
 
@@ -287,7 +289,11 @@ public class InventoryController : MonoBehaviour
             if (tileGridPosition != null)
             {
                 bool complete = itemGrid.InteractItem(tileGridPosition.Value.x, tileGridPosition.Value.y);
-                if (complete) quickUseItems[num] = null;
+                if (complete)
+                {
+                    iScore -= quickUseItems[num].itemData.value;
+                    quickUseItems[num] = null;
+                }
                 return;
             }
         }
@@ -511,5 +517,12 @@ public class InventoryController : MonoBehaviour
     public int GetIScore()
     {
         return iScore;
+    }
+
+    public void UpdateScore(int toUpdate)
+    {
+        iScore += toUpdate;
+        try {OnScoreChange?.Invoke();}
+        catch {}
     }
 }

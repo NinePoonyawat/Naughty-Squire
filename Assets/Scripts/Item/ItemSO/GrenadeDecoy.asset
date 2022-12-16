@@ -24,7 +24,7 @@ MonoBehaviour:
   description: Make a sound that harass enemies for small period of time.
   durable: 0
   weight: 1
-  value: 1
+  value: 0
   quantity: 000000000000000000000000
   ExplodeTime: 3
   lifeTime: 3

@@ -17,6 +17,7 @@ public class InventoryObjective : Objective
         inventoryController = GameObject.Find("InventoryController").GetComponent<InventoryController>();
         inventoryController.OnPickUpItem += OnPickUpItem;
         inventoryController.OnPlacingItem += OnPlacingItem;
+        inventoryController.OnScoreChange += OnScoreChange;
         level = CompleteLevel.Fail;
     }
 
@@ -65,6 +66,13 @@ public class InventoryObjective : Objective
         //     levelRank++;
         //     if (levelRank >= 0 && levelRank < 3) levelScore = inventoryScore[levelRank];
         // }
+        UpdateLevel();
+        UpdateText();
+    }
+
+    public void OnScoreChange()
+    {
+        iScore = inventoryController.GetIScore();
         UpdateLevel();
         UpdateText();
     }

@@ -384,6 +384,9 @@ public class ItemGrid : MonoBehaviour
     {
         InventoryItem discardedItem = inventoryItemSlot[posX, posY];
 
+        InventoryController inventoryController = GameObject.Find("InventoryController").GetComponent<InventoryController>();
+        inventoryController.UpdateScore(- discardedItem.itemData.value);
+
         CleanGrid(discardedItem);
         Destroy(discardedItem.gameObject);
     }

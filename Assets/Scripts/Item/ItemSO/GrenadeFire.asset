@@ -24,7 +24,7 @@ MonoBehaviour:
   description: Create a fire for small period of time.
   durable: 0
   weight: 1
-  value: 1
+  value: 0
   quantity: 000000000000000000000000
   ExplodeTime: 10
   lifeTime: 2.5

@@ -24,7 +24,7 @@ MonoBehaviour:
   description: Deal damage to surround entity.
   durable: 0
   weight: 1
-  value: 1
+  value: 0
   quantity: 000000000000000000000000
   ExplodeTime: 5
   lifeTime: 5
