@@ -33,9 +33,9 @@ public class InventoryObjective : Objective
 
         if (inventoryScore[0] == 0 && inventoryScore[1] == 0 && inventoryScore[2] == 0)
         {
-            inventoryScore[0] = 10;
-            inventoryScore[1] = 20;
-            inventoryScore[2] = 30;
+            inventoryScore[0] = 40;
+            inventoryScore[1] = 70;
+            inventoryScore[2] = 100;
         }
         levelRank = 0;
         levelScore = inventoryScore[levelRank];

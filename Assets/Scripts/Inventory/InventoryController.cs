@@ -48,7 +48,7 @@ public class InventoryController : MonoBehaviour
 
     bool isToolOn = false;
 
-    private int iScore = 0;
+    [SerializeField] private int iScore = 0;
 
     private void Start()
     {
