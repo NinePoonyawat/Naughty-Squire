@@ -6,6 +6,7 @@ public class PlaySong : MonoBehaviour
 {
     void Start()
     {
-        FindObjectOfType<AudioManager>().Play("Lobby");
+        Cursor.visible = true;
+        //FindObjectOfType<AudioManager>().Play("Lobby");
     }
 }

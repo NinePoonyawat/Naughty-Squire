@@ -114,17 +114,8 @@ namespace Player
                 timecount += Time.deltaTime;
                 // Debug.Log(grenadeThrower.getbombtype(true));
                 if (timecount > grenadeThrower.getlifetime()) {
-<<<<<<< HEAD
-                    inventoryController.UpdateScore(-1);
-                    CreateandThrowGrenade(aimDir, timecount,true);
-                    timecount = 0; isbuttonDown = false;
-||||||| 82a164e
-                    CreateandThrowGrenade(aimDir, timecount,true);
-                    timecount = 0; isbuttonDown = false;
-=======
                     CreateandThrowGrenade(aimDir, timecount,true,false);
                     timecount = 0; isbuttonleftDown = false;
->>>>>>> 8051bccb39650b09135fbecaec2c8cd76035a075
                 }
                 //Vector3 aimDir = Input.mousePosition.normalized;
                 //Vector3 aimDir = playerCamera.transform.forward;

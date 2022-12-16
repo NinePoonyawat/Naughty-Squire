@@ -29,4 +29,9 @@ public class SceneSelect : MonoBehaviour
     {
         SceneManager.LoadScene ("SummaryScene");
     }
+
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
 }
